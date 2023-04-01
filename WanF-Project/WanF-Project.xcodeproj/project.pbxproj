@@ -17,6 +17,7 @@
 		141A783429D7F168006731F7 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 141A783329D7F168006731F7 /* RxSwift */; };
 		141A783629D7F1E5006731F7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A783529D7F1E5006731F7 /* SignInViewController.swift */; };
 		14793FA629D8046E0048D5DD /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14793FA529D8046E0048D5DD /* ColorAssets.xcassets */; };
+		14793FA929D831230048D5DD /* ExUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14793FA829D831230048D5DD /* ExUIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		141A782529D7ED46006731F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		141A783529D7F1E5006731F7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		14793FA529D8046E0048D5DD /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
+		14793FA829D831230048D5DD /* ExUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,12 +69,21 @@
 				141A783529D7F1E5006731F7 /* SignInViewController.swift */,
 				141A781729D7ED46006731F7 /* AppDelegate.swift */,
 				141A781929D7ED46006731F7 /* SceneDelegate.swift */,
+				14793FA729D82F1D0048D5DD /* Extension */,
 				141A782029D7ED46006731F7 /* Assets.xcassets */,
 				14793FA529D8046E0048D5DD /* ColorAssets.xcassets */,
 				141A782229D7ED46006731F7 /* LaunchScreen.storyboard */,
 				141A782529D7ED46006731F7 /* Info.plist */,
 			);
 			path = "WanF-Project";
+			sourceTree = "<group>";
+		};
+		14793FA729D82F1D0048D5DD /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				14793FA829D831230048D5DD /* ExUIColor.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14793FA929D831230048D5DD /* ExUIColor.swift in Sources */,
 				141A783629D7F1E5006731F7 /* SignInViewController.swift in Sources */,
 				141A781829D7ED46006731F7 /* AppDelegate.swift in Sources */,
 				141A781A29D7ED46006731F7 /* SceneDelegate.swift in Sources */,
