@@ -24,6 +24,7 @@
 		14793FB729D836760048D5DD /* NanumSquareNeo-cBd.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14793FAD29D836610048D5DD /* NanumSquareNeo-cBd.ttf */; };
 		14793FBA29D837090048D5DD /* NanumSquareNeo-eHv.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14793FB929D837090048D5DD /* NanumSquareNeo-eHv.ttf */; };
 		14793FBC29D837480048D5DD /* ExUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14793FBB29D837480048D5DD /* ExUIFont.swift */; };
+		14793FBE29D83DA60048D5DD /* ExUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14793FBD29D83DA60048D5DD /* ExUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		14793FB029D836610048D5DD /* NanumSquareNeo-dEb.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NanumSquareNeo-dEb.ttf"; sourceTree = "<group>"; };
 		14793FB929D837090048D5DD /* NanumSquareNeo-eHv.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NanumSquareNeo-eHv.ttf"; sourceTree = "<group>"; };
 		14793FBB29D837480048D5DD /* ExUIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIFont.swift; sourceTree = "<group>"; };
+		14793FBD29D83DA60048D5DD /* ExUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			children = (
 				14793FA829D831230048D5DD /* ExUIColor.swift */,
 				14793FBB29D837480048D5DD /* ExUIFont.swift */,
+				14793FBD29D83DA60048D5DD /* ExUIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				14793FBC29D837480048D5DD /* ExUIFont.swift in Sources */,
 				14793FA929D831230048D5DD /* ExUIColor.swift in Sources */,
 				141A783629D7F1E5006731F7 /* SignInViewController.swift in Sources */,
+				14793FBE29D83DA60048D5DD /* ExUIView.swift in Sources */,
 				141A781829D7ED46006731F7 /* AppDelegate.swift in Sources */,
 				141A781A29D7ED46006731F7 /* SceneDelegate.swift in Sources */,
 			);
