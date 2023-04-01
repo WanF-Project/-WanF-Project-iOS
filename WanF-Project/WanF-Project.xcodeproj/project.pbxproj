@@ -70,8 +70,7 @@
 				141A781729D7ED46006731F7 /* AppDelegate.swift */,
 				141A781929D7ED46006731F7 /* SceneDelegate.swift */,
 				14793FA729D82F1D0048D5DD /* Extension */,
-				141A782029D7ED46006731F7 /* Assets.xcassets */,
-				14793FA529D8046E0048D5DD /* ColorAssets.xcassets */,
+				14793FAB29D835680048D5DD /* Asset */,
 				141A782229D7ED46006731F7 /* LaunchScreen.storyboard */,
 				141A782529D7ED46006731F7 /* Info.plist */,
 			);
@@ -84,6 +83,15 @@
 				14793FA829D831230048D5DD /* ExUIColor.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		14793FAB29D835680048D5DD /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				14793FA529D8046E0048D5DD /* ColorAssets.xcassets */,
+				141A782029D7ED46006731F7 /* Assets.xcassets */,
+			);
+			path = Asset;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
