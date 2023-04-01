@@ -13,6 +13,7 @@ import RxCocoa
 
 class SignInViewController: UIViewController {
     
+    //MARK: - View
     private lazy var appIconImageView: UIImageView = {
         var imageView = UIImageView(image: UIImage(named: "AppIcon"))
         
@@ -99,6 +100,7 @@ class SignInViewController: UIViewController {
         return button
     }()
     
+    //MARK: - init
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
@@ -117,12 +119,14 @@ private extension SignInViewController {
     func configureView() {
         view.backgroundColor = .wanfMint
         
+        //view
         [
             appIconImageView,
             bottomView
         ]
             .forEach { view.addSubview($0) }
         
+        //bottom view
         [
             emailTextField,
             passwordTextField,
@@ -135,6 +139,7 @@ private extension SignInViewController {
     
     func layout() {
         
+        //view
         appIconImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(view.safeAreaLayoutGuide).inset(-40)
@@ -147,6 +152,7 @@ private extension SignInViewController {
             make.top.equalTo(appIconImageView.snp.bottom)
         }
         
+        //bottom view
         emailTextField.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().inset(60)
