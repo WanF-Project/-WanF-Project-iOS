@@ -12,14 +12,14 @@ extension UIFont {
     //MARK: - WanF Font
     
     enum WanfWeight: String {
-        case light = "NanumSquareNeo-aLt.ttf"
-        case regular = "NanumSquareNeo-bRg.ttf"
-        case bold = "NanumSquareNeo-cBd.ttf"
-        case extraBold = "NanumSquareNeo-dEb.ttf"
-        case heavy = "NanumSquareNeo-eHv.ttf"
+        case light = "NanumSquareNeoTTF-aLt"
+        case regular = "NanumSquareNeoTTF-bRg"
+        case bold = "NanumSquareNeoTTF-cBd"
+        case extraBold = "NanumSquareNeoTTF-dEb"
+        case heavy = "NanumSquareNeoTTF-eHv"
     }
     
-    class func wanfFont(ofSize size: CGFloat, weight: UIFont.WanfWeight) -> UIFont {
+    static func wanfFont(ofSize size: CGFloat, weight: UIFont.WanfWeight) -> UIFont {
         let font = UIFont(name: weight.rawValue, size: size)
         
         return font ?? systemFont(ofSize: size, weight: .regular)
