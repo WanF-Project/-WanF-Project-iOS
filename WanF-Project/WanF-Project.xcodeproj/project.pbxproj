@@ -16,6 +16,7 @@
 		141A783229D7F168006731F7 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 141A783129D7F168006731F7 /* RxRelay */; };
 		141A783429D7F168006731F7 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 141A783329D7F168006731F7 /* RxSwift */; };
 		141A783629D7F1E5006731F7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A783529D7F1E5006731F7 /* SignInViewController.swift */; };
+		147922ED29DADBCF0052CBA8 /* SignUpIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147922EC29DADBCF0052CBA8 /* SignUpIDViewController.swift */; };
 		14793FA629D8046E0048D5DD /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14793FA529D8046E0048D5DD /* ColorAssets.xcassets */; };
 		14793FA929D831230048D5DD /* ExUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14793FA829D831230048D5DD /* ExUIColor.swift */; };
 		14793FBC29D837480048D5DD /* ExUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14793FBB29D837480048D5DD /* ExUIFont.swift */; };
@@ -35,6 +36,7 @@
 		141A782329D7ED46006731F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		141A782529D7ED46006731F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		141A783529D7F1E5006731F7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		147922EC29DADBCF0052CBA8 /* SignUpIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpIDViewController.swift; sourceTree = "<group>"; };
 		14793FA529D8046E0048D5DD /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
 		14793FA829D831230048D5DD /* ExUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIColor.swift; sourceTree = "<group>"; };
 		14793FAD29D836610048D5DD /* NanumSquareNeo-cBd.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NanumSquareNeo-cBd.ttf"; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 		141A781629D7ED46006731F7 /* WanF-Project */ = {
 			isa = PBXGroup;
 			children = (
+				147922EC29DADBCF0052CBA8 /* SignUpIDViewController.swift */,
 				141A783529D7F1E5006731F7 /* SignInViewController.swift */,
 				141A781729D7ED46006731F7 /* AppDelegate.swift */,
 				141A781929D7ED46006731F7 /* SceneDelegate.swift */,
@@ -210,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14793FBC29D837480048D5DD /* ExUIFont.swift in Sources */,
+				147922ED29DADBCF0052CBA8 /* SignUpIDViewController.swift in Sources */,
 				14793FA929D831230048D5DD /* ExUIColor.swift in Sources */,
 				141A783629D7F1E5006731F7 /* SignInViewController.swift in Sources */,
 				14793FBE29D83DA60048D5DD /* ExUIView.swift in Sources */,
