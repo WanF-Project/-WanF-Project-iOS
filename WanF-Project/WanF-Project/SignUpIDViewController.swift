@@ -13,6 +13,14 @@ import RxCocoa
 
 class SignUpIDViewController: UIViewController {
     
+    private lazy var preBarItem: UIBarButtonItem = {
+        var item = UIBarButtonItem()
+        
+        item.image = UIImage(systemName: "chevron.backward")
+        
+        return item
+    }()
+    
     private lazy var nextBarItem: UIBarButtonItem = {
         var item = UIBarButtonItem()
         
@@ -32,9 +40,9 @@ class SignUpIDViewController: UIViewController {
 
 private extension SignUpIDViewController {
     func configureNavigationBar() {
+        navigationItem.leftBarButtonItem = preBarItem
         navigationItem.rightBarButtonItem = nextBarItem
         navigationItem.title = "아이디 설정"
-        navigationItem.title = ""
     }
     
     func configureView() {
