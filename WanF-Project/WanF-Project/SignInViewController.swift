@@ -114,6 +114,7 @@ class SignInViewController: UIViewController {
 private extension SignInViewController {
     func configureNavigationBar() {
         navigationController?.navigationBar.tintColor = .wanfMint
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.wanfDarkGray ]
     }
     
     func configureView() {
