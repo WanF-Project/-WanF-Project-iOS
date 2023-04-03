@@ -40,7 +40,7 @@ class SignUpIDViewController: UIViewController {
     private lazy var nextBarItem: UIBarButtonItem = {
         var item = UIBarButtonItem()
         
-        item.image = UIImage(systemName: "arrow.right")
+        item.title = "다음"
         
         return item
     }()
