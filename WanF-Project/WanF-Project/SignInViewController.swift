@@ -100,16 +100,12 @@ class SignInViewController: UIViewController {
         return button
     }()
     
-    //MARK: - init
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    //MARK: - Life Cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         configureView()
         layout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
 
@@ -117,6 +113,7 @@ class SignInViewController: UIViewController {
 private extension SignInViewController {
     
     func configureView() {
+        navigationController?.navigationBar.tintColor = .wanfMint
         view.backgroundColor = .wanfMint
         
         //view
