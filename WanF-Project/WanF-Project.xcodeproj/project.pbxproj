@@ -29,6 +29,7 @@
 		14DD370F29DB0D5B00D6A715 /* EmailStackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD370E29DB0D5B00D6A715 /* EmailStackViewCell.swift */; };
 		14DD371129DB0EE700D6A715 /* SignUpIDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD371029DB0EE700D6A715 /* SignUpIDViewModel.swift */; };
 		14DD371329DB1DFB00D6A715 /* VerifiedStackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD371229DB1DFB00D6A715 /* VerifiedStackViewCell.swift */; };
+		14DD371E29DB2CBB00D6A715 /* SignUpPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD371D29DB2CBB00D6A715 /* SignUpPasswordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		14DD370E29DB0D5B00D6A715 /* EmailStackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailStackViewCell.swift; sourceTree = "<group>"; };
 		14DD371029DB0EE700D6A715 /* SignUpIDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpIDViewModel.swift; sourceTree = "<group>"; };
 		14DD371229DB1DFB00D6A715 /* VerifiedStackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiedStackViewCell.swift; sourceTree = "<group>"; };
+		14DD371D29DB2CBB00D6A715 /* SignUpPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPasswordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				14DD371729DB2BE900D6A715 /* SignUpIDViewController */,
+				14DD371C29DB2C9700D6A715 /* SignUpPasswordViewController */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -181,6 +184,14 @@
 				14DD371229DB1DFB00D6A715 /* VerifiedStackViewCell.swift */,
 			);
 			path = VerifiedStackViewCell;
+			sourceTree = "<group>";
+		};
+		14DD371C29DB2C9700D6A715 /* SignUpPasswordViewController */ = {
+			isa = PBXGroup;
+			children = (
+				14DD371D29DB2CBB00D6A715 /* SignUpPasswordViewController.swift */,
+			);
+			path = SignUpPasswordViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +290,7 @@
 				14793FBE29D83DA60048D5DD /* ExUIView.swift in Sources */,
 				141A781829D7ED46006731F7 /* AppDelegate.swift in Sources */,
 				141A781A29D7ED46006731F7 /* SceneDelegate.swift in Sources */,
+				14DD371E29DB2CBB00D6A715 /* SignUpPasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
