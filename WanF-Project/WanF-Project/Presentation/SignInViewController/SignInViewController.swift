@@ -93,6 +93,12 @@ class SignInViewController: UIViewController {
         
         let action = UIAction { _ in
             print("Sign Up")
+            
+            let viewModel = SignUpIDViewModel()
+            let vc = SignUpIDViewController()
+            vc.bind(viewModel)
+            
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         
         var button = UIButton(configuration: configuration, primaryAction: action)
