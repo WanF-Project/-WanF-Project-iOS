@@ -104,6 +104,7 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureNavigationBar()
         configureView()
         layout()
     }
@@ -111,9 +112,11 @@ class SignInViewController: UIViewController {
 
 //MARK: - UI Configure
 private extension SignInViewController {
+    func configureNavigationBar() {
+        navigationController?.navigationBar.tintColor = .wanfMint
+    }
     
     func configureView() {
-        navigationController?.navigationBar.tintColor = .wanfMint
         view.backgroundColor = .wanfMint
         
         //view
