@@ -93,6 +93,12 @@ class SignInViewController: UIViewController {
         
         let action = UIAction { _ in
             print("Sign Up")
+            
+            let viewModel = SignUpIDViewModel()
+            let vc = SignUpIDViewController()
+            vc.bind(viewModel)
+            
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         
         var button = UIButton(configuration: configuration, primaryAction: action)
@@ -100,21 +106,22 @@ class SignInViewController: UIViewController {
         return button
     }()
     
-    //MARK: - init
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    //MARK: - Life Cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
+        configureNavigationBar()
         configureView()
         layout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
 
 //MARK: - UI Configure
 private extension SignInViewController {
+    func configureNavigationBar() {
+        navigationController?.navigationBar.tintColor = .wanfMint
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.wanfDarkGray ]
+    }
     
     func configureView() {
         view.backgroundColor = .wanfMint

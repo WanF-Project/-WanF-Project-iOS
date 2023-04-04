@@ -16,6 +16,7 @@
 		141A783229D7F168006731F7 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 141A783129D7F168006731F7 /* RxRelay */; };
 		141A783429D7F168006731F7 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 141A783329D7F168006731F7 /* RxSwift */; };
 		141A783629D7F1E5006731F7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A783529D7F1E5006731F7 /* SignInViewController.swift */; };
+		147922ED29DADBCF0052CBA8 /* SignUpIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147922EC29DADBCF0052CBA8 /* SignUpIDViewController.swift */; };
 		14793FA629D8046E0048D5DD /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14793FA529D8046E0048D5DD /* ColorAssets.xcassets */; };
 		14793FA929D831230048D5DD /* ExUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14793FA829D831230048D5DD /* ExUIColor.swift */; };
 		14793FBC29D837480048D5DD /* ExUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14793FBB29D837480048D5DD /* ExUIFont.swift */; };
@@ -25,6 +26,13 @@
 		14793FC129D84ABA0048D5DD /* NanumSquareNeo-bRg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14793FAF29D836610048D5DD /* NanumSquareNeo-bRg.ttf */; };
 		14793FC229D84ABD0048D5DD /* NanumSquareNeo-cBd.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14793FAD29D836610048D5DD /* NanumSquareNeo-cBd.ttf */; };
 		14793FC329D84AC00048D5DD /* NanumSquareNeo-dEb.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14793FB029D836610048D5DD /* NanumSquareNeo-dEb.ttf */; };
+		14DD370F29DB0D5B00D6A715 /* EmailStackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD370E29DB0D5B00D6A715 /* EmailStackViewCell.swift */; };
+		14DD371129DB0EE700D6A715 /* SignUpIDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD371029DB0EE700D6A715 /* SignUpIDViewModel.swift */; };
+		14DD371329DB1DFB00D6A715 /* VerifiedStackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD371229DB1DFB00D6A715 /* VerifiedStackViewCell.swift */; };
+		14DD371E29DB2CBB00D6A715 /* SignUpPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD371D29DB2CBB00D6A715 /* SignUpPasswordViewController.swift */; };
+		14DD372029DB301400D6A715 /* PasswordTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD371F29DB301400D6A715 /* PasswordTextFieldCell.swift */; };
+		14DD372229DB30EC00D6A715 /* PasswordToCheckTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD372129DB30EC00D6A715 /* PasswordToCheckTextFieldCell.swift */; };
+		14DD372429DB318900D6A715 /* SignUpPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD372329DB318900D6A715 /* SignUpPasswordViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +43,7 @@
 		141A782329D7ED46006731F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		141A782529D7ED46006731F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		141A783529D7F1E5006731F7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		147922EC29DADBCF0052CBA8 /* SignUpIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpIDViewController.swift; sourceTree = "<group>"; };
 		14793FA529D8046E0048D5DD /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
 		14793FA829D831230048D5DD /* ExUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIColor.swift; sourceTree = "<group>"; };
 		14793FAD29D836610048D5DD /* NanumSquareNeo-cBd.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NanumSquareNeo-cBd.ttf"; sourceTree = "<group>"; };
@@ -44,6 +53,13 @@
 		14793FB929D837090048D5DD /* NanumSquareNeo-eHv.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NanumSquareNeo-eHv.ttf"; sourceTree = "<group>"; };
 		14793FBB29D837480048D5DD /* ExUIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIFont.swift; sourceTree = "<group>"; };
 		14793FBD29D83DA60048D5DD /* ExUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIView.swift; sourceTree = "<group>"; };
+		14DD370E29DB0D5B00D6A715 /* EmailStackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailStackViewCell.swift; sourceTree = "<group>"; };
+		14DD371029DB0EE700D6A715 /* SignUpIDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpIDViewModel.swift; sourceTree = "<group>"; };
+		14DD371229DB1DFB00D6A715 /* VerifiedStackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiedStackViewCell.swift; sourceTree = "<group>"; };
+		14DD371D29DB2CBB00D6A715 /* SignUpPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPasswordViewController.swift; sourceTree = "<group>"; };
+		14DD371F29DB301400D6A715 /* PasswordTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextFieldCell.swift; sourceTree = "<group>"; };
+		14DD372129DB30EC00D6A715 /* PasswordToCheckTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordToCheckTextFieldCell.swift; sourceTree = "<group>"; };
+		14DD372329DB318900D6A715 /* SignUpPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPasswordViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +96,7 @@
 		141A781629D7ED46006731F7 /* WanF-Project */ = {
 			isa = PBXGroup;
 			children = (
-				141A783529D7F1E5006731F7 /* SignInViewController.swift */,
+				14DD371429DB2B9300D6A715 /* Presentation */,
 				141A781729D7ED46006731F7 /* AppDelegate.swift */,
 				141A781929D7ED46006731F7 /* SceneDelegate.swift */,
 				14793FA729D82F1D0048D5DD /* Extension */,
@@ -121,6 +137,86 @@
 				14793FB029D836610048D5DD /* NanumSquareNeo-dEb.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		14A1BFED29DBE2BB00351567 /* PasswordTextFieldCell */ = {
+			isa = PBXGroup;
+			children = (
+				14DD371F29DB301400D6A715 /* PasswordTextFieldCell.swift */,
+			);
+			path = PasswordTextFieldCell;
+			sourceTree = "<group>";
+		};
+		14A1BFEE29DBE2F400351567 /* PasswordToCheckTextFieldCell */ = {
+			isa = PBXGroup;
+			children = (
+				14DD372129DB30EC00D6A715 /* PasswordToCheckTextFieldCell.swift */,
+			);
+			path = PasswordToCheckTextFieldCell;
+			sourceTree = "<group>";
+		};
+		14DD371429DB2B9300D6A715 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				14DD371629DB2BD300D6A715 /* SignUp */,
+				14DD371529DB2BA800D6A715 /* SignInViewController */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		14DD371529DB2BA800D6A715 /* SignInViewController */ = {
+			isa = PBXGroup;
+			children = (
+				141A783529D7F1E5006731F7 /* SignInViewController.swift */,
+			);
+			path = SignInViewController;
+			sourceTree = "<group>";
+		};
+		14DD371629DB2BD300D6A715 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				14DD371729DB2BE900D6A715 /* SignUpIDViewController */,
+				14DD371C29DB2C9700D6A715 /* SignUpPasswordViewController */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		14DD371729DB2BE900D6A715 /* SignUpIDViewController */ = {
+			isa = PBXGroup;
+			children = (
+				14DD371829DB2C0F00D6A715 /* EmailStackViewCell */,
+				14DD371A29DB2C2E00D6A715 /* VerifiedStackViewCell */,
+				147922EC29DADBCF0052CBA8 /* SignUpIDViewController.swift */,
+				14DD371029DB0EE700D6A715 /* SignUpIDViewModel.swift */,
+			);
+			path = SignUpIDViewController;
+			sourceTree = "<group>";
+		};
+		14DD371829DB2C0F00D6A715 /* EmailStackViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				14DD370E29DB0D5B00D6A715 /* EmailStackViewCell.swift */,
+			);
+			path = EmailStackViewCell;
+			sourceTree = "<group>";
+		};
+		14DD371A29DB2C2E00D6A715 /* VerifiedStackViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				14DD371229DB1DFB00D6A715 /* VerifiedStackViewCell.swift */,
+			);
+			path = VerifiedStackViewCell;
+			sourceTree = "<group>";
+		};
+		14DD371C29DB2C9700D6A715 /* SignUpPasswordViewController */ = {
+			isa = PBXGroup;
+			children = (
+				14A1BFED29DBE2BB00351567 /* PasswordTextFieldCell */,
+				14A1BFEE29DBE2F400351567 /* PasswordToCheckTextFieldCell */,
+				14DD371D29DB2CBB00D6A715 /* SignUpPasswordViewController.swift */,
+				14DD372329DB318900D6A715 /* SignUpPasswordViewModel.swift */,
+			);
+			path = SignUpPasswordViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,11 +306,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				14793FBC29D837480048D5DD /* ExUIFont.swift in Sources */,
+				147922ED29DADBCF0052CBA8 /* SignUpIDViewController.swift in Sources */,
 				14793FA929D831230048D5DD /* ExUIColor.swift in Sources */,
 				141A783629D7F1E5006731F7 /* SignInViewController.swift in Sources */,
+				14DD371129DB0EE700D6A715 /* SignUpIDViewModel.swift in Sources */,
+				14DD371329DB1DFB00D6A715 /* VerifiedStackViewCell.swift in Sources */,
+				14DD372029DB301400D6A715 /* PasswordTextFieldCell.swift in Sources */,
+				14DD372429DB318900D6A715 /* SignUpPasswordViewModel.swift in Sources */,
+				14DD370F29DB0D5B00D6A715 /* EmailStackViewCell.swift in Sources */,
 				14793FBE29D83DA60048D5DD /* ExUIView.swift in Sources */,
 				141A781829D7ED46006731F7 /* AppDelegate.swift in Sources */,
+				14DD372229DB30EC00D6A715 /* PasswordToCheckTextFieldCell.swift in Sources */,
 				141A781A29D7ED46006731F7 /* SceneDelegate.swift in Sources */,
+				14DD371E29DB2CBB00D6A715 /* SignUpPasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
