@@ -124,6 +124,15 @@
 			path = EmailTextField;
 			sourceTree = "<group>";
 		};
+		142DBED829DC2E8A00017603 /* PasswordTextField */ = {
+			isa = PBXGroup;
+			children = (
+				142DBED429DC2B0200017603 /* PasswordTextField.swift */,
+				142DBED629DC2D2C00017603 /* PasswordTextFieldViewModel.swift */,
+			);
+			path = PasswordTextField;
+			sourceTree = "<group>";
+		};
 		14793FA729D82F1D0048D5DD /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,9 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				142DBED329DC28DE00017603 /* EmailTextField */,
+				142DBED829DC2E8A00017603 /* PasswordTextField */,
 				141A783529D7F1E5006731F7 /* SignInViewController.swift */,
-				142DBED429DC2B0200017603 /* PasswordTextField.swift */,
-				142DBED629DC2D2C00017603 /* PasswordTextFieldViewModel.swift */,
 			);
 			path = SignInViewController;
 			sourceTree = "<group>";
