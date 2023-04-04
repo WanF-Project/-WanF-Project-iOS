@@ -13,8 +13,10 @@ import RxCocoa
 
 class SignUpPasswordViewController: UIViewController {
     
+    //MARK: - Properties
     let disposebag = DisposeBag()
     
+    //MARK: - View
     private lazy var preBarItem: UIBarButtonItem = {
         var item = UIBarButtonItem()
         
@@ -45,6 +47,7 @@ class SignUpPasswordViewController: UIViewController {
         return item
     }()
     
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,6 +56,7 @@ class SignUpPasswordViewController: UIViewController {
         layout()
     }
     
+    //MARK: - Function
     func bind(_ viewModel: SignUpPasswordViewModel) {
         viewModel.cellData
             .drive(tableView.rx.items) { tv, row, element in
@@ -93,6 +97,7 @@ class SignUpPasswordViewController: UIViewController {
     }
 }
 
+//MARK: - Configure
 private extension SignUpPasswordViewController {
     func configureNavigationBar() {
         navigationItem.title = "비밀번호 설정"

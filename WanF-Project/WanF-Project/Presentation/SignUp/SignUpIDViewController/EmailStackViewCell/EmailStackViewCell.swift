@@ -13,6 +13,7 @@ import RxCocoa
 
 class EmailStackViewCell: UITableViewCell {
     
+    //MARK: - View
     private lazy var emailStackView: UIStackView = {
         var stackView = UIStackView()
         
@@ -68,6 +69,7 @@ class EmailStackViewCell: UITableViewCell {
         return button
     }()
     
+    //MARK: - LifeCycle
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -76,6 +78,7 @@ class EmailStackViewCell: UITableViewCell {
     }
 }
 
+//MARK: - Configure
 private extension EmailStackViewCell {
     
     func configureView() {

@@ -13,6 +13,7 @@ import RxCocoa
 
 class VerifiedStackViewCell: UITableViewCell {
     
+    //MARK: - View
     private lazy var verifiedStackView: UIStackView = {
         var stackView = UIStackView()
         
@@ -48,6 +49,7 @@ class VerifiedStackViewCell: UITableViewCell {
         return textField
     }()
     
+    //MARK: - LifeCycle
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -56,6 +58,7 @@ class VerifiedStackViewCell: UITableViewCell {
     }
 }
 
+//MARK: - Configure
 private extension VerifiedStackViewCell {
     
     func configureView() {

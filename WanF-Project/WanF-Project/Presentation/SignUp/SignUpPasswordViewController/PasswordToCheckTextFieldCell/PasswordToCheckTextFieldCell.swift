@@ -13,6 +13,7 @@ import RxCocoa
 
 class  PasswordToCheckTextFieldCell: UITableViewCell {
     
+    //MARK: - View
     private lazy var passwordToCheckTextField: UITextField = {
         var textField = UITextField()
         
@@ -26,6 +27,7 @@ class  PasswordToCheckTextFieldCell: UITableViewCell {
         return textField
     }()
     
+    //MARK: - LifeCycle
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -34,6 +36,7 @@ class  PasswordToCheckTextFieldCell: UITableViewCell {
     }
 }
 
+//MARK: - configure
 private extension  PasswordToCheckTextFieldCell {
     
     func configureView() {
