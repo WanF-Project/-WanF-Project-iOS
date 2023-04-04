@@ -21,8 +21,10 @@ class EmailTextField: UITextField {
         configureView()
     }
     
-    func bind(){
-        
+    func bind(_ viewModel: EmailTextFieldViewModel){
+        self.rx.text
+            .bind(to: viewModel.emailData)
+            .disposed(by: disposeBag)
     }
 }
 

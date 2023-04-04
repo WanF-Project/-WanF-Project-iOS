@@ -17,6 +17,7 @@
 		141A783429D7F168006731F7 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 141A783329D7F168006731F7 /* RxSwift */; };
 		141A783629D7F1E5006731F7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A783529D7F1E5006731F7 /* SignInViewController.swift */; };
 		142DBED029DC1DCB00017603 /* EmailTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DBECF29DC1DCB00017603 /* EmailTextField.swift */; };
+		142DBED229DC223A00017603 /* EmailTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DBED129DC223A00017603 /* EmailTextFieldViewModel.swift */; };
 		147922ED29DADBCF0052CBA8 /* SignUpIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147922EC29DADBCF0052CBA8 /* SignUpIDViewController.swift */; };
 		14793FA629D8046E0048D5DD /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14793FA529D8046E0048D5DD /* ColorAssets.xcassets */; };
 		14793FA929D831230048D5DD /* ExUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14793FA829D831230048D5DD /* ExUIColor.swift */; };
@@ -45,6 +46,7 @@
 		141A782529D7ED46006731F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		141A783529D7F1E5006731F7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		142DBECF29DC1DCB00017603 /* EmailTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTextField.swift; sourceTree = "<group>"; };
+		142DBED129DC223A00017603 /* EmailTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTextFieldViewModel.swift; sourceTree = "<group>"; };
 		147922EC29DADBCF0052CBA8 /* SignUpIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpIDViewController.swift; sourceTree = "<group>"; };
 		14793FA529D8046E0048D5DD /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
 		14793FA829D831230048D5DD /* ExUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIColor.swift; sourceTree = "<group>"; };
@@ -109,6 +111,15 @@
 			path = "WanF-Project";
 			sourceTree = "<group>";
 		};
+		142DBED329DC28DE00017603 /* EmailTextField */ = {
+			isa = PBXGroup;
+			children = (
+				142DBECF29DC1DCB00017603 /* EmailTextField.swift */,
+				142DBED129DC223A00017603 /* EmailTextFieldViewModel.swift */,
+			);
+			path = EmailTextField;
+			sourceTree = "<group>";
+		};
 		14793FA729D82F1D0048D5DD /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,8 +180,8 @@
 		14DD371529DB2BA800D6A715 /* SignInViewController */ = {
 			isa = PBXGroup;
 			children = (
+				142DBED329DC28DE00017603 /* EmailTextField */,
 				141A783529D7F1E5006731F7 /* SignInViewController.swift */,
-				142DBECF29DC1DCB00017603 /* EmailTextField.swift */,
 			);
 			path = SignInViewController;
 			sourceTree = "<group>";
@@ -313,6 +324,7 @@
 				142DBED029DC1DCB00017603 /* EmailTextField.swift in Sources */,
 				14793FA929D831230048D5DD /* ExUIColor.swift in Sources */,
 				141A783629D7F1E5006731F7 /* SignInViewController.swift in Sources */,
+				142DBED229DC223A00017603 /* EmailTextFieldViewModel.swift in Sources */,
 				14DD371129DB0EE700D6A715 /* SignUpIDViewModel.swift in Sources */,
 				14DD371329DB1DFB00D6A715 /* VerifiedStackViewCell.swift in Sources */,
 				14DD372029DB301400D6A715 /* PasswordTextFieldCell.swift in Sources */,
