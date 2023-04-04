@@ -21,6 +21,12 @@ class PasswordTextField: UITextField {
         configureView()
     }
     
+    func bind(_ viewModel: PasswordTextFieldViewModel) {
+        self.rx.text
+            .bind(to: viewModel.passwordData)
+            .disposed(by: disposeBag)
+    }
+    
 }
 
 private extension PasswordTextField {
