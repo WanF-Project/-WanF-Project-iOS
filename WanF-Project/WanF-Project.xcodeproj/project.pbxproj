@@ -139,6 +139,22 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		14A1BFED29DBE2BB00351567 /* PasswordTextFieldCell */ = {
+			isa = PBXGroup;
+			children = (
+				14DD371F29DB301400D6A715 /* PasswordTextFieldCell.swift */,
+			);
+			path = PasswordTextFieldCell;
+			sourceTree = "<group>";
+		};
+		14A1BFEE29DBE2F400351567 /* PasswordToCheckTextFieldCell */ = {
+			isa = PBXGroup;
+			children = (
+				14DD372129DB30EC00D6A715 /* PasswordToCheckTextFieldCell.swift */,
+			);
+			path = PasswordToCheckTextFieldCell;
+			sourceTree = "<group>";
+		};
 		14DD371429DB2B9300D6A715 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,9 +211,9 @@
 		14DD371C29DB2C9700D6A715 /* SignUpPasswordViewController */ = {
 			isa = PBXGroup;
 			children = (
+				14A1BFED29DBE2BB00351567 /* PasswordTextFieldCell */,
+				14A1BFEE29DBE2F400351567 /* PasswordToCheckTextFieldCell */,
 				14DD371D29DB2CBB00D6A715 /* SignUpPasswordViewController.swift */,
-				14DD371F29DB301400D6A715 /* PasswordTextFieldCell.swift */,
-				14DD372129DB30EC00D6A715 /* PasswordToCheckTextFieldCell.swift */,
 				14DD372329DB318900D6A715 /* SignUpPasswordViewModel.swift */,
 			);
 			path = SignUpPasswordViewController;
