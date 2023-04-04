@@ -34,22 +34,7 @@ class SignInViewController: UIViewController {
     
     let emailTextField = EmailTextField()
     
-    private lazy var passwordTextField: UITextField = {
-        var textField = UITextField()
-        
-        textField.keyboardType = .emailAddress
-        textField.placeholder = "비밀번호를 입력하세요"
-        textField.font = .wanfFont(ofSize: 13, weight: .regular)
-        textField.textColor = .label
-        textField.tintColor = .wanfMint
-        textField.backgroundColor = .wanfLightGray
-        textField.textAlignment = .center
-        textField.textContentType = .password
-        textField.isSecureTextEntry = true
-        textField.clearButtonMode = .whileEditing
-        
-        return textField
-    }()
+    let passwordTextField = PasswordTextField()
     
     private lazy var signInButton: UIButton = {
         var attributedTitle = AttributedString("로그인")
