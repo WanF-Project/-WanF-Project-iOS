@@ -16,6 +16,7 @@
 		141A783229D7F168006731F7 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 141A783129D7F168006731F7 /* RxRelay */; };
 		141A783429D7F168006731F7 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 141A783329D7F168006731F7 /* RxSwift */; };
 		141A783629D7F1E5006731F7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A783529D7F1E5006731F7 /* SignInViewController.swift */; };
+		142DBED029DC1DCB00017603 /* EmailTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DBECF29DC1DCB00017603 /* EmailTextField.swift */; };
 		147922ED29DADBCF0052CBA8 /* SignUpIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147922EC29DADBCF0052CBA8 /* SignUpIDViewController.swift */; };
 		14793FA629D8046E0048D5DD /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14793FA529D8046E0048D5DD /* ColorAssets.xcassets */; };
 		14793FA929D831230048D5DD /* ExUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14793FA829D831230048D5DD /* ExUIColor.swift */; };
@@ -43,6 +44,7 @@
 		141A782329D7ED46006731F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		141A782529D7ED46006731F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		141A783529D7F1E5006731F7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		142DBECF29DC1DCB00017603 /* EmailTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTextField.swift; sourceTree = "<group>"; };
 		147922EC29DADBCF0052CBA8 /* SignUpIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpIDViewController.swift; sourceTree = "<group>"; };
 		14793FA529D8046E0048D5DD /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
 		14793FA829D831230048D5DD /* ExUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIColor.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				141A783529D7F1E5006731F7 /* SignInViewController.swift */,
+				142DBECF29DC1DCB00017603 /* EmailTextField.swift */,
 			);
 			path = SignInViewController;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 			files = (
 				14793FBC29D837480048D5DD /* ExUIFont.swift in Sources */,
 				147922ED29DADBCF0052CBA8 /* SignUpIDViewController.swift in Sources */,
+				142DBED029DC1DCB00017603 /* EmailTextField.swift in Sources */,
 				14793FA929D831230048D5DD /* ExUIColor.swift in Sources */,
 				141A783629D7F1E5006731F7 /* SignInViewController.swift in Sources */,
 				14DD371129DB0EE700D6A715 /* SignUpIDViewModel.swift in Sources */,

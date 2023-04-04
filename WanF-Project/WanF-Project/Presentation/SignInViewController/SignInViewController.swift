@@ -32,21 +32,7 @@ class SignInViewController: UIViewController {
         return view
     }()
     
-    private lazy var emailTextField: UITextField = {
-        var textField = UITextField()
-        
-        textField.placeholder = "학교 이메일을 입력하세요"
-        textField.font = .wanfFont(ofSize: 13, weight: .regular)
-        textField.textColor = .label
-        textField.tintColor = .wanfMint
-        textField.backgroundColor = .wanfLightGray
-        textField.textAlignment = .center
-        textField.textContentType = .emailAddress
-        textField.keyboardType = .emailAddress
-        textField.clearButtonMode = .whileEditing
-        
-        return textField
-    }()
+    let emailTextField = EmailTextField()
     
     private lazy var passwordTextField: UITextField = {
         var textField = UITextField()
