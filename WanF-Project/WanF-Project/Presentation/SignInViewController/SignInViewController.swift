@@ -13,6 +13,9 @@ import RxCocoa
 
 class SignInViewController: UIViewController {
     
+    //MARK: - Properties
+    let disposeBag = DisposeBag()
+    
     //MARK: - View
     private lazy var appIconImageView: UIImageView = {
         var imageView = UIImageView(image: UIImage(named: "AppIcon"))
@@ -32,38 +35,9 @@ class SignInViewController: UIViewController {
         return view
     }()
     
-    private lazy var emailTextField: UITextField = {
-        var textField = UITextField()
-        
-        textField.placeholder = "학교 이메일을 입력하세요"
-        textField.font = .wanfFont(ofSize: 13, weight: .regular)
-        textField.textColor = .label
-        textField.tintColor = .wanfMint
-        textField.backgroundColor = .wanfLightGray
-        textField.textAlignment = .center
-        textField.textContentType = .emailAddress
-        textField.keyboardType = .emailAddress
-        textField.clearButtonMode = .whileEditing
-        
-        return textField
-    }()
+    let emailTextField = EmailTextField()
     
-    private lazy var passwordTextField: UITextField = {
-        var textField = UITextField()
-        
-        textField.keyboardType = .emailAddress
-        textField.placeholder = "비밀번호를 입력하세요"
-        textField.font = .wanfFont(ofSize: 13, weight: .regular)
-        textField.textColor = .label
-        textField.tintColor = .wanfMint
-        textField.backgroundColor = .wanfLightGray
-        textField.textAlignment = .center
-        textField.textContentType = .password
-        textField.isSecureTextEntry = true
-        textField.clearButtonMode = .whileEditing
-        
-        return textField
-    }()
+    let passwordTextField = PasswordTextField()
     
     private lazy var signInButton: UIButton = {
         var attributedTitle = AttributedString("로그인")
@@ -74,11 +48,7 @@ class SignInViewController: UIViewController {
         configuration.baseForegroundColor = .wanfBackground
         configuration.attributedTitle = attributedTitle
         
-        let action = UIAction { _ in
-            print("Sign In")
-        }
-        
-        var button = UIButton(configuration: configuration, primaryAction: action)
+        var button = UIButton(configuration: configuration)
         
         return button
     }()
@@ -91,17 +61,7 @@ class SignInViewController: UIViewController {
         configuration.baseForegroundColor = .wanfNavy
         configuration.attributedTitle = attributedTitle
         
-        let action = UIAction { _ in
-            print("Sign Up")
-            
-            let viewModel = SignUpIDViewModel()
-            let vc = SignUpIDViewController()
-            vc.bind(viewModel)
-            
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-        
-        var button = UIButton(configuration: configuration, primaryAction: action)
+        var button = UIButton(configuration: configuration)
         
         return button
     }()
@@ -113,6 +73,46 @@ class SignInViewController: UIViewController {
         configureNavigationBar()
         configureView()
         layout()
+    }
+    
+    //MARK: - Function
+    func bind(_ viewModel: SignInViewModel) {
+        
+        // View -> ViewModel
+        emailTextField.bind(viewModel.emailTextFieldViewModel)
+        passwordTextField.bind(viewModel.passwordTextFieldViewModel)
+        
+        signInButton.rx.tap
+            .bind(to: viewModel.signInButtonTapped)
+            .disposed(by: disposeBag)
+        
+        signUpButton.rx.tap
+            .bind(to: viewModel.signUpButtonTapped)
+            .disposed(by: disposeBag)
+        
+        // ViewModel -> View
+        viewModel.presentAlert
+            .emit(to: self.rx.presentSignInErrorAlert)
+            .disposed(by: disposeBag)
+        
+        viewModel.pushToMainTabBar
+            .drive(onNext: { viewModel in
+                let mainTabBarVC = MainTabBarController()
+                mainTabBarVC.bind(viewModel)
+                
+                // TODO: - RootViewController 변경 로직 구현하기
+                self.present(mainTabBarVC, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.pushToSignUpID
+            .drive(onNext: { viewModel in
+                let signUpIDVC = SignUpIDViewController()
+                signUpIDVC.bind(viewModel)
+                
+                self.navigationController?.pushViewController(signUpIDVC, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -145,7 +145,6 @@ private extension SignInViewController {
     }
     
     func layout() {
-        
         //view
         appIconImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -184,5 +183,18 @@ private extension SignInViewController {
             make.top.equalTo(signInButton.snp.bottom).offset(15)
         }
         
+    }
+}
+
+//MARK: - Reactive
+extension Reactive where Base: SignInViewController {
+    var presentSignInErrorAlert: Binder<Void> {
+        return Binder(base) { base, _ in
+            let alertViewContoller = UIAlertController(title: "로그인 오류", message: "이메일과 비밀번호를 확인해 주세요.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "확인", style: .default)
+            alertViewContoller.addAction(action)
+            
+            base.present(alertViewContoller, animated: true)
+        }
     }
 }
