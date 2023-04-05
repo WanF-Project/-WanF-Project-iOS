@@ -13,14 +13,17 @@ import SnapKit
 
 class PasswordTextField: UITextField {
     
+    //MARK: - Properties
     let disposeBag = DisposeBag()
     
+    //MARK: - LifeCycle
     override func layoutSubviews() {
         super.layoutSubviews()
         
         configureView()
     }
     
+    //MARK: - Function
     func bind(_ viewModel: PasswordTextFieldViewModel) {
         self.rx.text
             .bind(to: viewModel.passwordData)
@@ -29,6 +32,7 @@ class PasswordTextField: UITextField {
     
 }
 
+//MARK: - Configure
 private extension PasswordTextField {
     
     func configureView() {

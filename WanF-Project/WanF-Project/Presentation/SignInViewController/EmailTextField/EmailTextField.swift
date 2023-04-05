@@ -13,14 +13,17 @@ import SnapKit
 
 class EmailTextField: UITextField {
     
+    //MARK: - Properties
     let disposeBag = DisposeBag()
     
+    //MARK: - LifeCycle
     override func layoutSubviews() {
         super.layoutSubviews()
         
         configureView()
     }
     
+    //MARK: - Function
     func bind(_ viewModel: EmailTextFieldViewModel){
         self.rx.text
             .bind(to: viewModel.emailData)
@@ -28,6 +31,7 @@ class EmailTextField: UITextField {
     }
 }
 
+//MARK: - Configure
 private extension EmailTextField {
     
     func configureView() {

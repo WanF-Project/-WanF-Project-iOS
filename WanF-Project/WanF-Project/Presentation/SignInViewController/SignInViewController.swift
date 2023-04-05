@@ -13,6 +13,7 @@ import RxCocoa
 
 class SignInViewController: UIViewController {
     
+    //MARK: - Properties
     let disposeBag = DisposeBag()
     
     //MARK: - View
@@ -185,6 +186,7 @@ private extension SignInViewController {
     }
 }
 
+//MARK: - Reactive
 extension Reactive where Base: SignInViewController {
     var presentSignInErrorAlert: Binder<Void> {
         return Binder(base) { base, _ in

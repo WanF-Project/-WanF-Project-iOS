@@ -12,6 +12,7 @@ import RxCocoa
 
 struct SignInViewModel {
     
+    //MARK: - Properties
     let emailTextFieldViewModel = EmailTextFieldViewModel()
     let passwordTextFieldViewModel = PasswordTextFieldViewModel()
     
@@ -24,6 +25,7 @@ struct SignInViewModel {
     let signInButtonTapped = PublishRelay<Void>()
     let signUpButtonTapped = PublishRelay<Void>()
     
+    //MARK: - Function
     init(_ model: SignInModel = SignInModel()) {
         
         // 로그인 데이터 조합
