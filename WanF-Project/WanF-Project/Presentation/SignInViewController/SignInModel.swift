@@ -18,10 +18,11 @@ struct SignInModel {
             .asSingle()
     }
     
-    func getSignInValue(_ result: Single<Bool>) -> Bool {
+    func getSignInValue(_ result: Single<Bool>) -> Bool? {
         return true
     }
     
-    func getSignInError(_ result: Single<Bool>){
+    func getSignInError(_ result: Single<Bool>) -> Void? {
+        return nil
     }
 }

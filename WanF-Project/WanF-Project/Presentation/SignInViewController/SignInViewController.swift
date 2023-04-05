@@ -13,6 +13,8 @@ import RxCocoa
 
 class SignInViewController: UIViewController {
     
+    let disposeBag = DisposeBag()
+    
     //MARK: - View
     private lazy var appIconImageView: UIImageView = {
         var imageView = UIImageView(image: UIImage(named: "AppIcon"))
@@ -45,11 +47,7 @@ class SignInViewController: UIViewController {
         configuration.baseForegroundColor = .wanfBackground
         configuration.attributedTitle = attributedTitle
         
-        let action = UIAction { _ in
-            print("Sign In")
-        }
-        
-        var button = UIButton(configuration: configuration, primaryAction: action)
+        var button = UIButton(configuration: configuration)
         
         return button
     }()
@@ -62,17 +60,7 @@ class SignInViewController: UIViewController {
         configuration.baseForegroundColor = .wanfNavy
         configuration.attributedTitle = attributedTitle
         
-        let action = UIAction { _ in
-            print("Sign Up")
-            
-            let viewModel = SignUpIDViewModel()
-            let vc = SignUpIDViewController()
-            vc.bind(viewModel)
-            
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-        
-        var button = UIButton(configuration: configuration, primaryAction: action)
+        var button = UIButton(configuration: configuration)
         
         return button
     }()
@@ -84,6 +72,46 @@ class SignInViewController: UIViewController {
         configureNavigationBar()
         configureView()
         layout()
+    }
+    
+    //MARK: - Function
+    func bind(_ viewModel: SignInViewModel) {
+        
+        // View -> ViewModel
+        emailTextField.bind(viewModel.emailTextFieldViewModel)
+        passwordTextField.bind(viewModel.passwordTextFieldViewModel)
+        
+        signInButton.rx.tap
+            .bind(to: viewModel.signInButtonTapped)
+            .disposed(by: disposeBag)
+        
+        signUpButton.rx.tap
+            .bind(to: viewModel.signUpButtonTapped)
+            .disposed(by: disposeBag)
+        
+        // ViewModel -> View
+        viewModel.presentAlert
+            .emit(to: self.rx.presentSignInErrorAlert)
+            .disposed(by: disposeBag)
+        
+        viewModel.pushToMainTabBar
+            .drive(onNext: { viewModel in
+                let mainTabBarVC = MainTabBarController()
+                mainTabBarVC.bind(viewModel)
+                
+                // TODO: - RootViewController 변경 로직 구현하기
+                self.present(mainTabBarVC, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.pushToSignUpID
+            .drive(onNext: { viewModel in
+                let signUpIDVC = SignUpIDViewController()
+                signUpIDVC.bind(viewModel)
+                
+                self.navigationController?.pushViewController(signUpIDVC, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -116,7 +144,6 @@ private extension SignInViewController {
     }
     
     func layout() {
-        
         //view
         appIconImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -155,5 +182,17 @@ private extension SignInViewController {
             make.top.equalTo(signInButton.snp.bottom).offset(15)
         }
         
+    }
+}
+
+extension Reactive where Base: SignInViewController {
+    var presentSignInErrorAlert: Binder<Void> {
+        return Binder(base) { base, _ in
+            let alertViewContoller = UIAlertController(title: "로그인 오류", message: "이메일과 비밀번호를 확인해 주세요.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "확인", style: .default)
+            alertViewContoller.addAction(action)
+            
+            base.present(alertViewContoller, animated: true)
+        }
     }
 }
