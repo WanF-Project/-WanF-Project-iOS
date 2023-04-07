@@ -62,7 +62,7 @@ class VerifiedStackViewCell: UITableViewCell {
         
         // View -> ViewModel
         verificationCodeTextField.rx.text
-            .bind(to: viewModel.inputedVerifiedCode)
+            .bind(to: viewModel.inputedVerificationCode)
             .disposed(by: DisposeBag())
         
         // ViewModel -> View

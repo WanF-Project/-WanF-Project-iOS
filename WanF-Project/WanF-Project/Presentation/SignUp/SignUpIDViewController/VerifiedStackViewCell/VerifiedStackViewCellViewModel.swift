@@ -13,7 +13,7 @@ import RxCocoa
 class VerifiedStackViewCellViewModel {
     
     // View -> ViewModel
-    let inputedVerifiedCode = PublishRelay<String?>()
+    let inputedVerificationCode = PublishRelay<String?>()
     
     // ViewModel -> View
     
