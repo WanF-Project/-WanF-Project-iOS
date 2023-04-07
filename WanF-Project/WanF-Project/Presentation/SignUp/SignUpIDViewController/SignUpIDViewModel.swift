@@ -17,12 +17,14 @@ struct SignUpIDViewModel {
     
     // View -> ViewModel
     let nextButtonTapped = PublishRelay<Void>()
+    let preButtonTapped = PublishRelay<Void>()
     
     // ViewModel -> View
     let cellData: Driver<[String]>
     
     let showGuidance: Signal<Bool>
     let pushToMainTabBar: Driver<SignUpPasswordViewModel>
+    let popToSignIn: Driver<Void>
     
     init(_ model: SignUpIDModel = SignUpIDModel()) {
         
@@ -57,5 +59,9 @@ struct SignUpIDViewModel {
             .compactMap(model.getVerificationError)
         
         // TODO: - 인증번호가 일치하지 않을 시 Alert 메세지 전달
+        
+        //이전 버튼
+        popToSignIn = preButtonTapped
+            .asDriver(onErrorDriveWith: .empty())
     }
 }

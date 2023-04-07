@@ -64,6 +64,10 @@ class SignUpIDViewController: UIViewController {
             .bind(to: viewModel.nextButtonTapped)
             .disposed(by: disposebag)
         
+        preBarItem.rx.tap
+            .bind(to: viewModel.preButtonTapped)
+            .disposed(by: disposebag)
+        
         // ViewModel -> View
         viewModel.showGuidance
             .emit(to: self.rx.showGuidance)
@@ -75,6 +79,12 @@ class SignUpIDViewController: UIViewController {
                 signUpPasswordVC.bind(viewModel)
                 
                 self.navigationController?.pushViewController(signUpPasswordVC, animated: true)
+            })
+            .disposed(by: disposebag)
+        
+        viewModel.popToSignIn
+            .drive(onNext: {
+                self.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposebag)
         
