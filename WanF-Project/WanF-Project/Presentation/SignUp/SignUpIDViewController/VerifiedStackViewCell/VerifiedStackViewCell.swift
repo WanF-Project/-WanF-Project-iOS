@@ -56,6 +56,18 @@ class VerifiedStackViewCell: UITableViewCell {
         configureView()
         layout()
     }
+    
+    //MARK: - Function
+    func bind(_ viewModel: VerifiedStackViewCellViewModel) {
+        
+        // View -> ViewModel
+        verificationCodeTextField.rx.text
+            .bind(to: viewModel.inputedVerifiedCode)
+            .disposed(by: DisposeBag())
+        
+        // ViewModel -> View
+        
+    }
 }
 
 //MARK: - Configure
