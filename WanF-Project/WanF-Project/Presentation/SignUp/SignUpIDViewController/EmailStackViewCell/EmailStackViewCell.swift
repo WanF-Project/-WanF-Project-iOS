@@ -62,12 +62,7 @@ class EmailStackViewCell: UITableViewCell {
         configuration.baseBackgroundColor = .wanfMint
         configuration.attributedTitle = attributedString
         
-        let action = UIAction { _ in
-            print("Verify Email Address")
-        }
-        
         button.configuration = configuration
-        button.addAction(action, for: .touchUpInside)
         
         return button
     }()
@@ -82,9 +77,16 @@ class EmailStackViewCell: UITableViewCell {
     
     //MARK: - Function
     func bind(_ viewModel: EmailStackViewCellViewModel) {
+        
+        // View -> ViewModel
         idTextField.rx.text
             .bind(to: viewModel.inputedIDText)
             .disposed(by: disposeBag)
+        
+        verifiedButton.rx.tap
+            .bind(to: viewModel.sendEmailButtonTapped)
+            .disposed(by: disposeBag)
+        
     }
 }
 

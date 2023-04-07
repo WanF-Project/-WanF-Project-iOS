@@ -25,7 +25,7 @@ class SignUpIDViewController: UIViewController {
         return item
     }()
     
-    private lazy var tableView: UITableView = {
+    lazy var tableView: UITableView = {
         var tableView = UITableView()
         
         tableView.backgroundColor = .wanfBackground
@@ -58,6 +58,15 @@ class SignUpIDViewController: UIViewController {
     
     //MARK: - Function
     func bind(_ viewModel: SignUpIDViewModel) {
+        
+        // View -> ViewModel
+        
+        // ViewModel -> View
+        
+        viewModel.showGuidance
+            .emit(to: self.rx.showGuidance)
+            .disposed(by: disposebag)
+        
         viewModel.cellData
             .drive(tableView.rx.items) { tv, row, element in
                 switch row {
@@ -65,6 +74,7 @@ class SignUpIDViewController: UIViewController {
                     guard let cell = tv.dequeueReusableCell(withIdentifier: "EmailStackViewCell", for: IndexPath(row: row, section: 0)) as? EmailStackViewCell else { return UITableViewCell() }
                     
                     cell.selectionStyle = .none
+                    cell.bind(viewModel.emailStackViewCellViewModel)
                     
                     return cell
                 case 1:
@@ -80,13 +90,14 @@ class SignUpIDViewController: UIViewController {
                         NSAttributedString.Key.font : UIFont.wanfFont(ofSize: 15, weight: .regular),
                         NSAttributedString.Key.foregroundColor : UIColor.orange
                     ]
-                    let attributedText = NSAttributedString(string: "인증번호 안내 문구",attributes: attributes)
+                    let attributedText = NSAttributedString(string: "인증번호 유효시간은 30분입니다.",attributes: attributes)
                     
                     var configuration = UIListContentConfiguration.cell()
                     configuration.attributedText = attributedText
                     
                     cell.contentConfiguration = configuration
                     cell.selectionStyle = .none
+                    cell.isHidden = true
                     
                     return cell
                 default:
@@ -119,4 +130,13 @@ private extension SignUpIDViewController {
         }
     }
     
+}
+
+extension Reactive where Base: SignUpIDViewController {
+    var showGuidance: Binder<Bool> {
+        return Binder(base) { base, isShown in
+            guard let cell = base.tableView.cellForRow(at: IndexPath(row: 2, section: 0)) else { return }
+            cell.isHidden = !isShown
+        }
+    }
 }

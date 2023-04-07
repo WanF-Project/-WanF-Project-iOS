@@ -14,7 +14,12 @@ struct SignUpIDViewModel {
     
     let emailStackViewCellViewModel = EmailStackViewCellViewModel()
     
+    // View -> ViewModel
+    
+    // ViewModel -> View
     let cellData: Driver<[String]>
+    
+    let showGuidance: Signal<Bool>
     
     init() {
         self.cellData = Observable
@@ -24,5 +29,8 @@ struct SignUpIDViewModel {
                 "AlertMessageCell"
             ])
             .asDriver(onErrorJustReturn: [])
+        
+        showGuidance = emailStackViewCellViewModel.shouldLoadGuidance
+            .asSignal(onErrorJustReturn: false)
     }
 }
