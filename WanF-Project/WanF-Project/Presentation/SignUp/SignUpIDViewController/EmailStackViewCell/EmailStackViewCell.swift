@@ -13,6 +13,9 @@ import RxCocoa
 
 class EmailStackViewCell: UITableViewCell {
     
+    //MARK: - Properties
+    let disposeBag = DisposeBag()
+    
     //MARK: - View
     private lazy var emailStackView: UIStackView = {
         var stackView = UIStackView()
@@ -75,6 +78,13 @@ class EmailStackViewCell: UITableViewCell {
         
         configureView()
         layout()
+    }
+    
+    //MARK: - Function
+    func bind(_ viewModel: EmailStackViewCellViewModel) {
+        idTextField.rx.text
+            .bind(to: viewModel.inputedIDText)
+            .disposed(by: disposeBag)
     }
 }
 

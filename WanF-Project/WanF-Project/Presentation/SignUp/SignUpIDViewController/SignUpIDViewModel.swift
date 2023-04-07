@@ -11,6 +11,9 @@ import RxSwift
 import RxCocoa
 
 struct SignUpIDViewModel {
+    
+    let emailStackViewCellViewModel = EmailStackViewCellViewModel()
+    
     let cellData: Driver<[String]>
     
     init() {
