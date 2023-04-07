@@ -60,11 +60,22 @@ class SignUpIDViewController: UIViewController {
     func bind(_ viewModel: SignUpIDViewModel) {
         
         // View -> ViewModel
+        nextBarItem.rx.tap
+            .bind(to: viewModel.nextButtonTapped)
+            .disposed(by: disposebag)
         
         // ViewModel -> View
-        
         viewModel.showGuidance
             .emit(to: self.rx.showGuidance)
+            .disposed(by: disposebag)
+        
+        viewModel.pushToMainTabBar
+            .drive(onNext: { viewModel in
+                let mainTabBarVC = MainTabBarController()
+                mainTabBarVC.bind(viewModel)
+                
+                self.present(mainTabBarVC, animated: true)
+            })
             .disposed(by: disposebag)
         
         viewModel.cellData
@@ -81,6 +92,7 @@ class SignUpIDViewController: UIViewController {
                     guard let cell = tv.dequeueReusableCell(withIdentifier: "VerifiedStackViewCell", for: IndexPath(row: row, section: 0)) as? VerifiedStackViewCell else { return UITableViewCell() }
                     
                     cell.selectionStyle = .none
+                    cell.bind(viewModel.verifiedStackViewCellViewModel)
                     
                     return cell
                 case 2:

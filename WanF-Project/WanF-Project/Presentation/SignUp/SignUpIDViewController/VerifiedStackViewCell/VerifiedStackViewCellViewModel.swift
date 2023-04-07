@@ -17,7 +17,4 @@ class VerifiedStackViewCellViewModel {
     
     // ViewModel -> View
     
-    init() {
-        
-    }
 }
