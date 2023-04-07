@@ -71,10 +71,10 @@ class SignUpIDViewController: UIViewController {
         
         viewModel.pushToMainTabBar
             .drive(onNext: { viewModel in
-                let mainTabBarVC = MainTabBarController()
-                mainTabBarVC.bind(viewModel)
+                let signUpPasswordVC = SignUpPasswordViewController()
+                signUpPasswordVC.bind(viewModel)
                 
-                self.present(mainTabBarVC, animated: true)
+                self.navigationController?.pushViewController(signUpPasswordVC, animated: true)
             })
             .disposed(by: disposebag)
         
