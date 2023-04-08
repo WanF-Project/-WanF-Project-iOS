@@ -69,7 +69,7 @@ class SignUpIDViewController: UIViewController {
             .disposed(by: disposebag)
         
         // ViewModel -> View
-        viewModel.presentAlertForError
+        viewModel.presentAlertForEmailError
             .emit(to: self.rx.presentAlertForError)
             .disposed(by: disposebag)
         
