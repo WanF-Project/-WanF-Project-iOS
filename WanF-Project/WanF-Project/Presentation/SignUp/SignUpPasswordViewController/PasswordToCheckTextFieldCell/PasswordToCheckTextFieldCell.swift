@@ -13,6 +13,9 @@ import RxCocoa
 
 class  PasswordToCheckTextFieldCell: UITableViewCell {
     
+    //MARK: - Propertise
+    let disposeBag = DisposeBag()
+    
     //MARK: - View
     private lazy var passwordToCheckTextField: UITextField = {
         var textField = UITextField()
@@ -33,6 +36,16 @@ class  PasswordToCheckTextFieldCell: UITableViewCell {
         
         configureView()
         layout()
+    }
+    
+    //MARK: - Function
+    func bind(_ viewModel: PasswordToCheckTextFieldCellViewModel) {
+        
+        // View -> ViewModel
+        passwordToCheckTextField.rx.text
+            .bind(to: viewModel.inputedPasswordToCheckText)
+            .disposed(by: disposeBag)
+        
     }
 }
 
