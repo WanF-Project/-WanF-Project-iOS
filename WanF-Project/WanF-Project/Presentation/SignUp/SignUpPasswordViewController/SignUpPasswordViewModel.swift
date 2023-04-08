@@ -26,6 +26,7 @@ struct SignUpPasswordViewModel {
     
     let popToSignUpID: Driver<Void>
     let presentMainTabBar: Driver<MainTabBarViewModel>
+    let presentAlertForSignUpError: Signal<AlertInfo>
     
     init(email: String, _ model: SignUpPasswordModel = SignUpPasswordModel()) {
         
@@ -77,7 +78,7 @@ struct SignUpPasswordViewModel {
             .share()
         
         let signUpValue = signUpResult
-            .compactMap { $0 }
+            .compactMap(model.getSignUpValue)
         
         presentMainTabBar = signUpValue
             .map { _ in
@@ -86,7 +87,14 @@ struct SignUpPasswordViewModel {
             .asDriver(onErrorDriveWith: .empty())
         
         let signUpError = signUpResult
-            .compactMap { $0 }
+            .compactMap(model.getSignUpError)
+        
+        presentAlertForSignUpError = signUpError
+            .map { _ in
+                // TODO: - 오류 상태코드 별 메세지 지정
+                return (title: "회원가입 실패", message: "")
+            }
+            .asSignal(onErrorSignalWith: .empty())
         
         //이전 화면으로 전환
         popToSignUpID = preButtonTapped

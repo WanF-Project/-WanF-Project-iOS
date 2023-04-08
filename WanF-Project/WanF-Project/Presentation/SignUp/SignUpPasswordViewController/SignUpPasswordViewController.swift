@@ -85,6 +85,10 @@ class SignUpPasswordViewController: UIViewController {
             })
             .disposed(by: disposebag)
         
+        viewModel.presentAlertForSignUpError
+            .emit(to: self.rx.presentAlertForError)
+            .disposed(by: disposebag)
+        
         viewModel.popToSignUpID
             .drive(onNext: {
                 self.navigationController?.popViewController(animated: true)
@@ -165,6 +169,21 @@ extension Reactive where Base: SignUpPasswordViewController {
         return Binder(base) { base, isShown in
             guard let cell = base.tableView.cellForRow(at: IndexPath(row: 2, section: 0 )) else { return }
             cell.isHidden = !isShown
+        }
+    }
+    
+    var presentAlertForError: Binder<AlertInfo> {
+        return Binder(base) { base, alertInfo in
+            let alertVC = UIAlertController(
+                title: alertInfo.title,
+                message: alertInfo.message,
+                preferredStyle: .alert
+            )
+            let action = UIAlertAction(title: "확인", style: .default)
+            
+            alertVC.addAction(action)
+            
+            base.present(alertVC, animated: true)
         }
     }
 }
