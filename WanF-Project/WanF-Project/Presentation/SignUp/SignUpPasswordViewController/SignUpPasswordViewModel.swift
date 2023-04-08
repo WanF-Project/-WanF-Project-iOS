@@ -17,10 +17,12 @@ struct SignUpPasswordViewModel {
     
     // View -> ViewModel
     let preButtonTapped = PublishRelay<Void>()
+    let doneButtonTapped = PublishRelay<Void>()
     
     // ViewModel -> View
     let cellData: Driver<[String]>
     let showGuidance: Signal<Bool>
+    let enableDoneButton: Driver<Bool>
     
     let popToSignUpID: Driver<Void>
     
@@ -53,6 +55,16 @@ struct SignUpPasswordViewModel {
                 return true
             }
             .asSignal(onErrorJustReturn: false)
+        
+        //완료 버튼 활성화
+        enableDoneButton = showGuidance
+            .map { isShownGuidance -> Bool in
+                if isShownGuidance {
+                    return false
+                }
+                return true
+            }
+            .asDriver(onErrorJustReturn: false)
         
         
         //이전 화면으로 전환

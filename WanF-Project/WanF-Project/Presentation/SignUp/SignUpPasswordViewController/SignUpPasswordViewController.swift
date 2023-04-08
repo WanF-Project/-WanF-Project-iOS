@@ -43,6 +43,7 @@ class SignUpPasswordViewController: UIViewController {
         var item = UIBarButtonItem()
         
         item.title = "완료"
+        item.isEnabled = false
         
         return item
     }()
@@ -66,6 +67,13 @@ class SignUpPasswordViewController: UIViewController {
         
         
         // ViewModel -> View
+        viewModel.enableDoneButton
+            .drive(onNext: {
+                self.doneBarItem.isEnabled = $0
+            })
+            .disposed(by: disposebag)
+        
+        
         viewModel.popToSignUpID
             .drive(onNext: {
                 self.navigationController?.popViewController(animated: true)
