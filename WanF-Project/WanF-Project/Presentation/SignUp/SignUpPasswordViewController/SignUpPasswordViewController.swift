@@ -60,8 +60,18 @@ class SignUpPasswordViewController: UIViewController {
     func bind(_ viewModel: SignUpPasswordViewModel) {
         
         // View -> ViewModel
+        preBarItem.rx.tap
+            .bind(to: viewModel.preButtonTapped)
+            .disposed(by: disposebag)
+        
         
         // ViewModel -> View
+        viewModel.popToSignUpID
+            .drive(onNext: {
+                self.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposebag)
+        
         viewModel.showGuidance
             .emit(to: self.rx.showGuidance)
             .disposed(by: disposebag)

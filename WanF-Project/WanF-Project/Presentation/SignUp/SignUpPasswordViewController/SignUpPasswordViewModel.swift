@@ -16,10 +16,13 @@ struct SignUpPasswordViewModel {
     let passwordToCheckTextFieldCellViewModel = PasswordToCheckTextFieldCellViewModel()
     
     // View -> ViewModel
+    let preButtonTapped = PublishRelay<Void>()
     
     // ViewModel -> View
     let cellData: Driver<[String]>
     let showGuidance: Signal<Bool>
+    
+    let popToSignUpID: Driver<Void>
     
     init() {
         
@@ -51,5 +54,9 @@ struct SignUpPasswordViewModel {
             }
             .asSignal(onErrorJustReturn: false)
         
+        
+        //이전 화면으로 전환
+        popToSignUpID = preButtonTapped
+            .asDriver(onErrorDriveWith: .empty())
     }
 }
