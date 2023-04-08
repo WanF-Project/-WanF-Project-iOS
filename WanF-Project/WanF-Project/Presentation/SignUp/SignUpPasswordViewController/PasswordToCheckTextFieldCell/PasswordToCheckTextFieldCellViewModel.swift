@@ -14,5 +14,6 @@ struct PasswordToCheckTextFieldCellViewModel {
     
     // View -> ViewModel
     let inputedPasswordToCheckText = PublishRelay<String?>()
+    let passswordToCheckDidChange = PublishRelay<Void>()
     
 }

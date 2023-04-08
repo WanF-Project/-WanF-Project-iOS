@@ -46,6 +46,10 @@ class  PasswordToCheckTextFieldCell: UITableViewCell {
             .bind(to: viewModel.inputedPasswordToCheckText)
             .disposed(by: disposeBag)
         
+        passwordToCheckTextField.rx.controlEvent(.editingChanged)
+            .bind(to: viewModel.passswordToCheckDidChange)
+            .disposed(by: disposeBag)
+
     }
 }
 

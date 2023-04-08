@@ -25,7 +25,7 @@ class SignUpPasswordViewController: UIViewController {
         return item
     }()
     
-    private lazy var tableView: UITableView = {
+    lazy var tableView: UITableView = {
         var tableView = UITableView()
         
         tableView.backgroundColor = .wanfBackground
@@ -58,18 +58,28 @@ class SignUpPasswordViewController: UIViewController {
     
     //MARK: - Function
     func bind(_ viewModel: SignUpPasswordViewModel) {
+        
+        // View -> ViewModel
+        
+        // ViewModel -> View
+        viewModel.showGuidance
+            .emit(to: self.rx.showGuidance)
+            .disposed(by: disposebag)
+        
         viewModel.cellData
             .drive(tableView.rx.items) { tv, row, element in
                 switch row {
                 case 0:
                     guard let cell = tv.dequeueReusableCell(withIdentifier: "PasswordTextFieldCell", for: IndexPath(row: row, section: 0)) as? PasswordTextFieldCell else { return UITableViewCell() }
                     
+                    cell.bind(viewModel.passwordTextFieldCellViewModel)
                     cell.selectionStyle = .none
                     
                     return cell
                 case 1:
                     guard let cell = tv.dequeueReusableCell(withIdentifier: "PasswordToCheckTextFieldCell", for: IndexPath(row: row, section: 0)) as? PasswordToCheckTextFieldCell else { return UITableViewCell() }
                     
+                    cell.bind(viewModel.passwordToCheckTextFieldCellViewModel)
                     cell.selectionStyle = .none
                     
                     return cell
@@ -80,12 +90,13 @@ class SignUpPasswordViewController: UIViewController {
                         NSAttributedString.Key.font : UIFont.wanfFont(ofSize: 15, weight: .regular),
                         NSAttributedString.Key.foregroundColor : UIColor.orange
                     ]
-                    let attributedText = NSAttributedString(string: "인증번호 안내 문구",attributes: attributes)
+                    let attributedText = NSAttributedString(string: "비밀번호가 일치하지 않습니다.",attributes: attributes)
                     
                     var configuration = UIListContentConfiguration.cell()
                     configuration.attributedText = attributedText
                     
                     cell.contentConfiguration = configuration
+                    cell.isHidden = true
                     cell.selectionStyle = .none
                     
                     return cell
@@ -116,6 +127,15 @@ private extension SignUpPasswordViewController {
         tableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.horizontalEdges.bottom.equalToSuperview().inset(20)
+        }
+    }
+}
+
+extension Reactive where Base: SignUpPasswordViewController {
+    var showGuidance: Binder<Bool> {
+        return Binder(base) { base, isShown in
+            guard let cell = base.tableView.cellForRow(at: IndexPath(row: 2, section: 0 )) else { return }
+            cell.isHidden = !isShown
         }
     }
 }
