@@ -65,6 +65,9 @@ class SignUpPasswordViewController: UIViewController {
             .bind(to: viewModel.preButtonTapped)
             .disposed(by: disposebag)
         
+        doneBarItem.rx.tap
+            .bind(to: viewModel.doneButtonTapped)
+            .disposed(by: disposebag)
         
         // ViewModel -> View
         viewModel.enableDoneButton
@@ -73,6 +76,14 @@ class SignUpPasswordViewController: UIViewController {
             })
             .disposed(by: disposebag)
         
+        viewModel.presentMainTabBar
+            .drive(onNext: { viewModel in
+                let mainTabBarVC = MainTabBarController()
+                mainTabBarVC.bind(viewModel)
+                
+                self.present(mainTabBarVC, animated: true)
+            })
+            .disposed(by: disposebag)
         
         viewModel.popToSignUpID
             .drive(onNext: {

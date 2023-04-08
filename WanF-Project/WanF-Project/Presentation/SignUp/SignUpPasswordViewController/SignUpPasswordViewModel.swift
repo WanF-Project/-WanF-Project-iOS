@@ -25,6 +25,7 @@ struct SignUpPasswordViewModel {
     let enableDoneButton: Driver<Bool>
     
     let popToSignUpID: Driver<Void>
+    let presentMainTabBar: Driver<MainTabBarViewModel>
     
     init(email: String, _ model: SignUpPasswordModel = SignUpPasswordModel()) {
         
@@ -78,6 +79,11 @@ struct SignUpPasswordViewModel {
         let signUpValue = signUpResult
             .compactMap { $0 }
         
+        presentMainTabBar = signUpValue
+            .map { _ in
+                return MainTabBarViewModel()
+            }
+            .asDriver(onErrorDriveWith: .empty())
         
         let signUpError = signUpResult
             .compactMap { $0 }
