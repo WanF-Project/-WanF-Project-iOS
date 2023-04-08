@@ -69,6 +69,10 @@ class SignUpIDViewController: UIViewController {
             .disposed(by: disposebag)
         
         // ViewModel -> View
+        viewModel.presentAlertForError
+            .emit(to: self.rx.presentAlertForError)
+            .disposed(by: disposebag)
+        
         viewModel.showGuidance
             .emit(to: self.rx.showGuidance)
             .disposed(by: disposebag)
@@ -154,11 +158,28 @@ private extension SignUpIDViewController {
     
 }
 
+typealias AlertInfo = (title: String, message: String)
+
 extension Reactive where Base: SignUpIDViewController {
     var showGuidance: Binder<Bool> {
         return Binder(base) { base, isShown in
             guard let cell = base.tableView.cellForRow(at: IndexPath(row: 2, section: 0)) else { return }
             cell.isHidden = !isShown
+        }
+    }
+    
+    var presentAlertForError: Binder<AlertInfo> {
+        return Binder(base) { base, alertInfo in
+            let alertVC = UIAlertController(
+                title: alertInfo.title,
+                message: alertInfo.message,
+                preferredStyle: .alert
+            )
+            let action = UIAlertAction(title: "확인", style: .default)
+            
+            alertVC.addAction(action)
+            
+            base.present(alertVC, animated: true)
         }
     }
 }

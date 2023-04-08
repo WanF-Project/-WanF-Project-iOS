@@ -25,6 +25,7 @@ struct SignUpIDViewModel {
     let showGuidance: Signal<Bool>
     let pushToSignUpPassword: Driver<SignUpPasswordViewModel>
     let popToSignIn: Driver<Void>
+    let presentAlertForError: Signal<AlertInfo>
     
     init(_ model: SignUpIDModel = SignUpIDModel()) {
         
@@ -65,5 +66,9 @@ struct SignUpIDViewModel {
         //이전 버튼
         popToSignIn = preButtonTapped
             .asDriver(onErrorDriveWith: .empty())
+        
+        //이메일 중복 오류 Alert
+        presentAlertForError = emailStackViewCellViewModel.shouldPresentAlertForError
+            .asSignal(onErrorSignalWith: .empty())
     }
 }

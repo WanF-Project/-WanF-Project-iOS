@@ -18,6 +18,7 @@ struct EmailStackViewCellViewModel {
     
     // ViewModel -> View
     let shouldLoadGuidance: Observable<Bool>
+    let shouldPresentAlertForError: Signal<AlertInfo>
     
     init(_ model: EmailStackViewCellModel = EmailStackViewCellModel()) {
         
@@ -45,7 +46,13 @@ struct EmailStackViewCellViewModel {
         let emailError = sendEmailResult
             .compactMap(model.getEmailError)
         
-        // TODO: - 이미 생성된 이메일 오류 메세지 표시하기
+        let alertInfo = emailError
+            .map { _ in
+                return (title: "이미 존재하는 이메일입니다", message: "")
+            }
+        
+        shouldPresentAlertForError = alertInfo
+            .asSignal(onErrorSignalWith: .empty())
         
     }
     
