@@ -23,7 +23,7 @@ struct SignUpIDViewModel {
     let cellData: Driver<[String]>
     
     let showGuidance: Signal<Bool>
-    let pushToMainTabBar: Driver<SignUpPasswordViewModel>
+    let pushToSignUpPassword: Driver<SignUpPasswordViewModel>
     let popToSignIn: Driver<Void>
     
     init(_ model: SignUpIDModel = SignUpIDModel()) {
@@ -51,7 +51,7 @@ struct SignUpIDViewModel {
         let verificationValue = verificationResult
             .compactMap(model.getVerificationValue)
         
-        pushToMainTabBar = verificationValue
+        pushToSignUpPassword = verificationValue
             .map { _ in SignUpPasswordViewModel() }
             .asDriver(onErrorDriveWith: .empty())
         
