@@ -26,7 +26,7 @@ struct SignUpPasswordViewModel {
     
     let popToSignUpID: Driver<Void>
     
-    init() {
+    init(email: String, _ model: SignUpPasswordModel = SignUpPasswordModel()) {
         
         self.cellData = Observable
             .just([
@@ -66,6 +66,21 @@ struct SignUpPasswordViewModel {
             }
             .asDriver(onErrorJustReturn: false)
         
+        //완료 버튼
+        let signUpData = Observable
+            .combineLatest(Observable.just(email), password)
+
+        let signUpResult = doneButtonTapped
+            .withLatestFrom(signUpData)
+            .flatMap(model.signUp)
+            .share()
+        
+        let signUpValue = signUpResult
+            .compactMap { $0 }
+        
+        
+        let signUpError = signUpResult
+            .compactMap { $0 }
         
         //이전 화면으로 전환
         popToSignUpID = preButtonTapped

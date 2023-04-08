@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		14066BAF29E1431300AFB2D2 /* PasswordTextFieldCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14066BAE29E1431300AFB2D2 /* PasswordTextFieldCellViewModel.swift */; };
 		14066BB129E1455F00AFB2D2 /* PasswordToCheckTextFieldCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14066BB029E1455F00AFB2D2 /* PasswordToCheckTextFieldCellViewModel.swift */; };
+		14066BB329E166B100AFB2D2 /* SignUpPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14066BB229E166B100AFB2D2 /* SignUpPasswordModel.swift */; };
 		141A781829D7ED46006731F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A781729D7ED46006731F7 /* AppDelegate.swift */; };
 		141A781A29D7ED46006731F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A781929D7ED46006731F7 /* SceneDelegate.swift */; };
 		141A782129D7ED46006731F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 141A782029D7ED46006731F7 /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		14066BAE29E1431300AFB2D2 /* PasswordTextFieldCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextFieldCellViewModel.swift; sourceTree = "<group>"; };
 		14066BB029E1455F00AFB2D2 /* PasswordToCheckTextFieldCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordToCheckTextFieldCellViewModel.swift; sourceTree = "<group>"; };
+		14066BB229E166B100AFB2D2 /* SignUpPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPasswordModel.swift; sourceTree = "<group>"; };
 		141A781429D7ED46006731F7 /* WanF-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WanF-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		141A781729D7ED46006731F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		141A781929D7ED46006731F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				14A1BFEE29DBE2F400351567 /* PasswordToCheckTextFieldCell */,
 				14DD371D29DB2CBB00D6A715 /* SignUpPasswordViewController.swift */,
 				14DD372329DB318900D6A715 /* SignUpPasswordViewModel.swift */,
+				14066BB229E166B100AFB2D2 /* SignUpPasswordModel.swift */,
 			);
 			path = SignUpPasswordViewController;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				147922ED29DADBCF0052CBA8 /* SignUpIDViewController.swift in Sources */,
 				142DBED029DC1DCB00017603 /* EmailTextField.swift in Sources */,
 				14567E9E29E00740000B75EE /* VerifiedStackViewCellViewModel.swift in Sources */,
+				14066BB329E166B100AFB2D2 /* SignUpPasswordModel.swift in Sources */,
 				142DBEDA29DC2EEB00017603 /* SignInViewModel.swift in Sources */,
 				14793FA929D831230048D5DD /* ExUIColor.swift in Sources */,
 				141A783629D7F1E5006731F7 /* SignInViewController.swift in Sources */,

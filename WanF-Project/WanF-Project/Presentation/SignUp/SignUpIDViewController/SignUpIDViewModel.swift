@@ -52,7 +52,9 @@ struct SignUpIDViewModel {
             .compactMap(model.getVerificationValue)
         
         pushToSignUpPassword = verificationValue
-            .map { _ in SignUpPasswordViewModel() }
+            .withLatestFrom(emailStackViewCellViewModel.inputedIDText)
+            .compactMap { $0 }
+            .map { email in SignUpPasswordViewModel(email: email) }
             .asDriver(onErrorDriveWith: .empty())
         
         let verificationError = verificationResult
