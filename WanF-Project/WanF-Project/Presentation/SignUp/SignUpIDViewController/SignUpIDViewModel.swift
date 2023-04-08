@@ -26,6 +26,7 @@ struct SignUpIDViewModel {
     let pushToSignUpPassword: Driver<SignUpPasswordViewModel>
     let popToSignIn: Driver<Void>
     let presentAlertForEmailError: Signal<AlertInfo>
+    let presentAlertForVerificationError: Signal<AlertInfo>
     
     init(_ model: SignUpIDModel = SignUpIDModel()) {
         
@@ -61,8 +62,11 @@ struct SignUpIDViewModel {
         let verificationError = verificationResult
             .compactMap(model.getVerificationError)
         
-        // TODO: - 인증번호가 일치하지 않을 시 Alert 메세지 전달
-        
+        presentAlertForVerificationError = verificationError
+            .map { _ in
+                return (title: "인증번호가 일치하지 않습니다", message: "")
+            }
+            .asSignal(onErrorSignalWith: .empty())
         
         //이전 버튼
         popToSignIn = preButtonTapped
