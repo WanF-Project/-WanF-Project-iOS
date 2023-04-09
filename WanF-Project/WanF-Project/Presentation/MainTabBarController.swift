@@ -13,13 +13,57 @@ import RxCocoa
 
 class MainTabBarController: UITabBarController {
     
+    //MARK: - View
+    private lazy var friendsMatchVC: UINavigationController = {
+        let viewController = UINavigationController()
+        let item = UITabBarItem(title: "친구 찾기", image: UIImage(systemName: "person.2.fill"), tag: 0)
+        
+        viewController.tabBarItem = item
+        
+        return viewController
+    }()
+    
+    private lazy var classInfoVC: UINavigationController = {
+        let viewController = UINavigationController()
+        let item = UITabBarItem(title: "수업 정보", image: UIImage(systemName: "info.square.fill"), tag: 1)
+        
+        viewController.tabBarItem = item
+        
+        return viewController
+    }()
+    
+    private lazy var classGroupVC: UINavigationController = {
+        let viewController = UINavigationController()
+        let item = UITabBarItem(title: "수업 모임", image: UIImage(systemName: "rectangle.3.group.bubble.left.fill"), tag: 2)
+        
+        viewController.tabBarItem = item
+        
+        return viewController
+    }()
+    
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .wanfBackground
+        configureView()
     }
     
+    //MARK: - Function
     func bind(_ viewModel: MainTabBarViewModel) {
         
+    }
+}
+
+//MARK: - Configure
+private extension MainTabBarController {
+    func configureView() {
+        view.backgroundColor = .wanfBackground
+        
+        tabBar.tintColor = .wanfGray
+        self.viewControllers = [
+            friendsMatchVC,
+            classInfoVC,
+            classGroupVC
+        ]
     }
 }
