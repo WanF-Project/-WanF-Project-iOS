@@ -25,7 +25,7 @@ class SignUpIDViewController: UIViewController {
         return item
     }()
     
-    private lazy var tableView: UITableView = {
+    lazy var tableView: UITableView = {
         var tableView = UITableView()
         
         tableView.backgroundColor = .wanfBackground
@@ -58,6 +58,44 @@ class SignUpIDViewController: UIViewController {
     
     //MARK: - Function
     func bind(_ viewModel: SignUpIDViewModel) {
+        
+        // View -> ViewModel
+        nextBarItem.rx.tap
+            .bind(to: viewModel.nextButtonTapped)
+            .disposed(by: disposebag)
+        
+        preBarItem.rx.tap
+            .bind(to: viewModel.preButtonTapped)
+            .disposed(by: disposebag)
+        
+        // ViewModel -> View
+        viewModel.presentAlertForEmailError
+            .emit(to: self.rx.presentAlertForError)
+            .disposed(by: disposebag)
+        
+        viewModel.presentAlertForVerificationError
+            .emit(to: self.rx.presentAlertForError)
+            .disposed(by: disposebag)
+        
+        viewModel.showGuidance
+            .emit(to: self.rx.showGuidance)
+            .disposed(by: disposebag)
+        
+        viewModel.pushToSignUpPassword
+            .drive(onNext: { viewModel in
+                let signUpPasswordVC = SignUpPasswordViewController()
+                signUpPasswordVC.bind(viewModel)
+                
+                self.navigationController?.pushViewController(signUpPasswordVC, animated: true)
+            })
+            .disposed(by: disposebag)
+        
+        viewModel.popToSignIn
+            .drive(onNext: {
+                self.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposebag)
+        
         viewModel.cellData
             .drive(tableView.rx.items) { tv, row, element in
                 switch row {
@@ -65,12 +103,14 @@ class SignUpIDViewController: UIViewController {
                     guard let cell = tv.dequeueReusableCell(withIdentifier: "EmailStackViewCell", for: IndexPath(row: row, section: 0)) as? EmailStackViewCell else { return UITableViewCell() }
                     
                     cell.selectionStyle = .none
+                    cell.bind(viewModel.emailStackViewCellViewModel)
                     
                     return cell
                 case 1:
                     guard let cell = tv.dequeueReusableCell(withIdentifier: "VerifiedStackViewCell", for: IndexPath(row: row, section: 0)) as? VerifiedStackViewCell else { return UITableViewCell() }
                     
                     cell.selectionStyle = .none
+                    cell.bind(viewModel.verifiedStackViewCellViewModel)
                     
                     return cell
                 case 2:
@@ -80,13 +120,14 @@ class SignUpIDViewController: UIViewController {
                         NSAttributedString.Key.font : UIFont.wanfFont(ofSize: 15, weight: .regular),
                         NSAttributedString.Key.foregroundColor : UIColor.orange
                     ]
-                    let attributedText = NSAttributedString(string: "인증번호 안내 문구",attributes: attributes)
+                    let attributedText = NSAttributedString(string: "인증번호 유효시간은 30분입니다.",attributes: attributes)
                     
                     var configuration = UIListContentConfiguration.cell()
                     configuration.attributedText = attributedText
                     
                     cell.contentConfiguration = configuration
                     cell.selectionStyle = .none
+                    cell.isHidden = true
                     
                     return cell
                 default:
@@ -119,4 +160,30 @@ private extension SignUpIDViewController {
         }
     }
     
+}
+
+typealias AlertInfo = (title: String, message: String)
+
+extension Reactive where Base: SignUpIDViewController {
+    var showGuidance: Binder<Bool> {
+        return Binder(base) { base, isShown in
+            guard let cell = base.tableView.cellForRow(at: IndexPath(row: 2, section: 0)) else { return }
+            cell.isHidden = !isShown
+        }
+    }
+    
+    var presentAlertForError: Binder<AlertInfo> {
+        return Binder(base) { base, alertInfo in
+            let alertVC = UIAlertController(
+                title: alertInfo.title,
+                message: alertInfo.message,
+                preferredStyle: .alert
+            )
+            let action = UIAlertAction(title: "확인", style: .default)
+            
+            alertVC.addAction(action)
+            
+            base.present(alertVC, animated: true)
+        }
+    }
 }

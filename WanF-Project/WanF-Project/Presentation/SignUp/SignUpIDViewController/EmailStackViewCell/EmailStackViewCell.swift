@@ -13,6 +13,9 @@ import RxCocoa
 
 class EmailStackViewCell: UITableViewCell {
     
+    //MARK: - Properties
+    let disposeBag = DisposeBag()
+    
     //MARK: - View
     private lazy var emailStackView: UIStackView = {
         var stackView = UIStackView()
@@ -59,12 +62,7 @@ class EmailStackViewCell: UITableViewCell {
         configuration.baseBackgroundColor = .wanfMint
         configuration.attributedTitle = attributedString
         
-        let action = UIAction { _ in
-            print("Verify Email Address")
-        }
-        
         button.configuration = configuration
-        button.addAction(action, for: .touchUpInside)
         
         return button
     }()
@@ -75,6 +73,20 @@ class EmailStackViewCell: UITableViewCell {
         
         configureView()
         layout()
+    }
+    
+    //MARK: - Function
+    func bind(_ viewModel: EmailStackViewCellViewModel) {
+        
+        // View -> ViewModel
+        idTextField.rx.text
+            .bind(to: viewModel.inputedIDText)
+            .disposed(by: disposeBag)
+        
+        verifiedButton.rx.tap
+            .bind(to: viewModel.sendEmailButtonTapped)
+            .disposed(by: disposeBag)
+        
     }
 }
 

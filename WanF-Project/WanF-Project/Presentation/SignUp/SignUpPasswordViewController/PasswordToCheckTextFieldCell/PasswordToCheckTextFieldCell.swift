@@ -13,6 +13,9 @@ import RxCocoa
 
 class  PasswordToCheckTextFieldCell: UITableViewCell {
     
+    //MARK: - Propertise
+    let disposeBag = DisposeBag()
+    
     //MARK: - View
     private lazy var passwordToCheckTextField: UITextField = {
         var textField = UITextField()
@@ -20,6 +23,7 @@ class  PasswordToCheckTextFieldCell: UITableViewCell {
         textField.font = .wanfFont(ofSize: 16, weight: .regular)
         textField.placeholder = "비밀번호 확인"
         textField.textAlignment = .center
+        textField.isSecureTextEntry = true
         textField.tintColor = .wanfMint
         textField.layer.borderColor = UIColor.wanfLightGray.cgColor
         textField.layer.borderWidth = 1.0
@@ -33,6 +37,20 @@ class  PasswordToCheckTextFieldCell: UITableViewCell {
         
         configureView()
         layout()
+    }
+    
+    //MARK: - Function
+    func bind(_ viewModel: PasswordToCheckTextFieldCellViewModel) {
+        
+        // View -> ViewModel
+        passwordToCheckTextField.rx.text
+            .bind(to: viewModel.inputedPasswordToCheckText)
+            .disposed(by: disposeBag)
+        
+        passwordToCheckTextField.rx.controlEvent(.editingChanged)
+            .bind(to: viewModel.passswordToCheckDidChange)
+            .disposed(by: disposeBag)
+
     }
 }
 
