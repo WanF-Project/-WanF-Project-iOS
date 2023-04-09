@@ -81,7 +81,7 @@ class SignUpPasswordViewController: UIViewController {
                 let mainTabBarVC = MainTabBarController()
                 mainTabBarVC.bind(viewModel)
                 
-                self.present(mainTabBarVC, animated: true)
+                SceneDelegate.shared.updateRootViewController(mainTabBarVC)
             })
             .disposed(by: disposebag)
         

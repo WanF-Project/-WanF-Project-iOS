@@ -100,8 +100,7 @@ class SignInViewController: UIViewController {
                 let mainTabBarVC = MainTabBarController()
                 mainTabBarVC.bind(viewModel)
                 
-                // TODO: - RootViewController 변경 로직 구현하기
-                self.present(mainTabBarVC, animated: true)
+                SceneDelegate.shared.updateRootViewController(mainTabBarVC)
             })
             .disposed(by: disposeBag)
         
