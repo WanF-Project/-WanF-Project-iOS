@@ -25,7 +25,7 @@ struct EmailStackViewCellViewModel {
         //이메일
         let ID = inputedIDText
             .compactMap { $0 }
-        let emailAddress = Observable.just("@")
+        let emailAddress = Observable.just("@office.skhu.ac.kr")
         
         let emailText = Observable
             .combineLatest(ID, emailAddress) { ID,  address in
