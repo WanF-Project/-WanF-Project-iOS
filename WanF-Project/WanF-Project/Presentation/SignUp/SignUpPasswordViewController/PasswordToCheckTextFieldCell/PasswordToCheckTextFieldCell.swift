@@ -23,6 +23,7 @@ class  PasswordToCheckTextFieldCell: UITableViewCell {
         textField.font = .wanfFont(ofSize: 16, weight: .regular)
         textField.placeholder = "비밀번호 확인"
         textField.textAlignment = .center
+        textField.isSecureTextEntry = true
         textField.tintColor = .wanfMint
         textField.layer.borderColor = UIColor.wanfLightGray.cgColor
         textField.layer.borderWidth = 1.0

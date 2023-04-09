@@ -23,6 +23,7 @@ class PasswordTextFieldCell: UITableViewCell {
         textField.font = .wanfFont(ofSize: 16, weight: .regular)
         textField.placeholder = "영문 • 숫자 조합으로 8자리 이상 작성하세요"
         textField.textAlignment = .center
+        textField.isSecureTextEntry = true
         textField.tintColor = .wanfMint
         textField.layer.borderColor = UIColor.wanfLightGray.cgColor
         textField.layer.borderWidth = 1.0
