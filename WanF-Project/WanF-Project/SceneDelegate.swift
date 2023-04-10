@@ -9,6 +9,8 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
+    public static let shared = SceneDelegate()
+    
     var window: UIWindow?
     let rootViewModel = SignInViewModel()
 
@@ -21,6 +23,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window?.rootViewController = UINavigationController(rootViewController: rootViewController)
         window?.makeKeyAndVisible()
+    }
+    
+    func updateRootViewController(_ rootViewController: UIViewController) {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+        window = UIWindow(windowScene: windowScene)
+        
+        guard let window = self.window else { return }
+        window.rootViewController = rootViewController
+        window.makeKeyAndVisible()
     }
 }
 
