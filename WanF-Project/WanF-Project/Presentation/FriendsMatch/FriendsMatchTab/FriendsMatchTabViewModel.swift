@@ -15,6 +15,7 @@ struct FriendsMatchTabViewModel {
     // View -> ViewModel
     let profileButtonTapped = PublishRelay<Void>()
     let addButtonTapped = PublishRelay<Void>()
+    let friendsMatchListItemSelected = PublishRelay<IndexPath>()
     
     // ViewModel -> View
     let shouldLoadFriendsMatchList:  Observable<Bool>
@@ -22,6 +23,7 @@ struct FriendsMatchTabViewModel {
     
     let pushToProfile: Driver<ProfileViewModel>
     let presentFriendsMatchWriting: Driver<FriendsMatchWritingViewModel>
+    let pushToFriendsMatchDetail: Driver<(indexPath: IndexPath, viewModel: FriendsMatchDetailViewModel)>
     
     init(_ model: FriendsMatchTabModel = FriendsMatchTabModel()) {
         
@@ -33,6 +35,12 @@ struct FriendsMatchTabViewModel {
         
         presentFriendsMatchWriting = addButtonTapped
             .map { FriendsMatchWritingViewModel() }
+            .asDriver(onErrorDriveWith: .empty())
+        
+        pushToFriendsMatchDetail = friendsMatchListItemSelected
+            .map({ indexPath in
+                return (indexPath, FriendsMatchDetailViewModel())
+            })
             .asDriver(onErrorDriveWith: .empty())
         
         // ViewModel -> View
