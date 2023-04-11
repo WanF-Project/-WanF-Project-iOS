@@ -13,12 +13,37 @@ import RxCocoa
 struct FriendsMatchTabViewModel {
     
     // View -> ViewModel
-    let shouldLoadFriendsMatchList:  Observable<Bool>
+    let profileButtonTapped = PublishRelay<Void>()
+    let addButtonTapped = PublishRelay<Void>()
+    let friendsMatchListItemSelected = PublishRelay<IndexPath>()
     
     // ViewModel -> View
+    let shouldLoadFriendsMatchList:  Observable<Bool>
     let cellData: Driver<[FriendsMatchListCellModel]>
     
+    let pushToProfile: Driver<ProfileViewModel>
+    let presentFriendsMatchWriting: Driver<FriendsMatchWritingViewModel>
+    let pushToFriendsMatchDetail: Driver<(indexPath: IndexPath, viewModel: FriendsMatchDetailViewModel)>
+    
     init(_ model: FriendsMatchTabModel = FriendsMatchTabModel()) {
+        
+        // View -> ViewModel
+        
+        pushToProfile = profileButtonTapped
+            .map { ProfileViewModel() }
+            .asDriver(onErrorDriveWith: .empty())
+        
+        presentFriendsMatchWriting = addButtonTapped
+            .map { FriendsMatchWritingViewModel() }
+            .asDriver(onErrorDriveWith: .empty())
+        
+        pushToFriendsMatchDetail = friendsMatchListItemSelected
+            .map({ indexPath in
+                return (indexPath, FriendsMatchDetailViewModel())
+            })
+            .asDriver(onErrorDriveWith: .empty())
+        
+        // ViewModel -> View
         
         //친구 찾기 List 데이터
         shouldLoadFriendsMatchList = model.loadFriendsMatchList()

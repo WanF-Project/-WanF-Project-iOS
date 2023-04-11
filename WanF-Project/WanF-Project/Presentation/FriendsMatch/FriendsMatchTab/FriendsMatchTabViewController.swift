@@ -57,10 +57,50 @@ class FriendsMatchTabViewController: UIViewController {
     func bind(_ viewModel: FriendsMatchTabViewModel) {
         
         // View -> ViewModel
+        profileBarItem.rx.tap
+            .bind(to: viewModel.profileButtonTapped)
+            .disposed(by: disposeBag)
+        
+        addBarItem.rx.tap
+            .bind(to: viewModel.addButtonTapped)
+            .disposed(by: disposeBag)
+        
+        friednsMatchTableView.rx.itemSelected
+            .bind(to: viewModel.friendsMatchListItemSelected)
+            .disposed(by: disposeBag)
         
         // ViewModel -> View
         viewModel.shouldLoadFriendsMatchList
             .subscribe()
+            .disposed(by: disposeBag)
+        
+        viewModel.pushToProfile
+            .drive(onNext: { viewModel in
+                let profileVC = ProfileViewController()
+                profileVC.bind(viewModel)
+                
+                self.navigationController?.pushViewController(profileVC, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.pushToFriendsMatchDetail
+            .drive(onNext: { indexPath, viewModel in
+                let friendsMatchDetailVC = FriendsMatchDetailViewController()
+                friendsMatchDetailVC.bind(viewModel)
+                // TODO: - 서버 연결 시 IndexPath 전달
+                
+                self.navigationController?.pushViewController(friendsMatchDetailVC, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.presentFriendsMatchWriting
+            .drive(onNext: { viewModel in
+                let friendsMatchWritingVC = FriendsMatchWritingViewController()
+                friendsMatchWritingVC.bind(viewModel)
+                friendsMatchWritingVC.modalPresentationStyle = .fullScreen
+                
+                self.present(friendsMatchWritingVC, animated: true)
+            })
             .disposed(by: disposeBag)
         
         bindTableView(viewModel)
