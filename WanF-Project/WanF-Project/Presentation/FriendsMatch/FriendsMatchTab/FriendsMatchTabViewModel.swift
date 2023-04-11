@@ -13,9 +13,9 @@ import RxCocoa
 struct FriendsMatchTabViewModel {
     
     // View -> ViewModel
-    let shouldLoadFriendsMatchList:  Observable<Bool>
     
     // ViewModel -> View
+    let shouldLoadFriendsMatchList:  Observable<Bool>
     let cellData: Driver<[FriendsMatchListCellModel]>
     
     init(_ model: FriendsMatchTabModel = FriendsMatchTabModel()) {
