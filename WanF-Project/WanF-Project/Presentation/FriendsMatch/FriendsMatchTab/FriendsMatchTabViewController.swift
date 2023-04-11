@@ -57,10 +57,22 @@ class FriendsMatchTabViewController: UIViewController {
     func bind(_ viewModel: FriendsMatchTabViewModel) {
         
         // View -> ViewModel
+        profileBarItem.rx.tap
+            .bind(to: viewModel.profileButtonTapped)
+            .disposed(by: disposeBag)
         
         // ViewModel -> View
         viewModel.shouldLoadFriendsMatchList
             .subscribe()
+            .disposed(by: disposeBag)
+        
+        viewModel.pushToProfile
+            .drive(onNext: { viewModel in
+                let profileVC = ProfileViewController()
+                profileVC.bind(viewModel)
+                
+                self.navigationController?.pushViewController(profileVC, animated: true)
+            })
             .disposed(by: disposeBag)
         
         bindTableView(viewModel)
