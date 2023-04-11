@@ -19,6 +19,11 @@
 		141A783229D7F168006731F7 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 141A783129D7F168006731F7 /* RxRelay */; };
 		141A783429D7F168006731F7 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 141A783329D7F168006731F7 /* RxSwift */; };
 		141A783629D7F1E5006731F7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A783529D7F1E5006731F7 /* SignInViewController.swift */; };
+		1429B0A329E5122400891FF8 /* FriendsMatchListCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0A229E5122400891FF8 /* FriendsMatchListCellModel.swift */; };
+		1429B0A529E5129C00891FF8 /* LectureInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0A429E5129C00891FF8 /* LectureInfoModel.swift */; };
+		1429B0A729E5163300891FF8 /* FriendsMatchTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0A629E5163300891FF8 /* FriendsMatchTabViewModel.swift */; };
+		1429B0A929E51CF400891FF8 /* FriendsMatchTabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0A829E51CF400891FF8 /* FriendsMatchTabModel.swift */; };
+		1429B0AE29E53F9D00891FF8 /* FriendsMatchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0AD29E53F9D00891FF8 /* FriendsMatchListCell.swift */; };
 		142DBED029DC1DCB00017603 /* EmailTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DBECF29DC1DCB00017603 /* EmailTextField.swift */; };
 		142DBED229DC223A00017603 /* EmailTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DBED129DC223A00017603 /* EmailTextFieldViewModel.swift */; };
 		142DBED529DC2B0200017603 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DBED429DC2B0200017603 /* PasswordTextField.swift */; };
@@ -41,7 +46,7 @@
 		14793FC129D84ABA0048D5DD /* NanumSquareNeo-bRg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14793FAF29D836610048D5DD /* NanumSquareNeo-bRg.ttf */; };
 		14793FC229D84ABD0048D5DD /* NanumSquareNeo-cBd.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14793FAD29D836610048D5DD /* NanumSquareNeo-cBd.ttf */; };
 		14793FC329D84AC00048D5DD /* NanumSquareNeo-dEb.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14793FB029D836610048D5DD /* NanumSquareNeo-dEb.ttf */; };
-		14AC9B3529E2751C009C37A5 /* FriendsMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3429E2751C009C37A5 /* FriendsMatchViewController.swift */; };
+		14AC9B3529E2751C009C37A5 /* FriendsMatchTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */; };
 		14AC9B3729E27547009C37A5 /* ClassInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */; };
 		14AC9B3929E27569009C37A5 /* ClassGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3829E27569009C37A5 /* ClassGroupViewController.swift */; };
 		14DD370F29DB0D5B00D6A715 /* EmailStackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD370E29DB0D5B00D6A715 /* EmailStackViewCell.swift */; };
@@ -64,6 +69,11 @@
 		141A782329D7ED46006731F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		141A782529D7ED46006731F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		141A783529D7F1E5006731F7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		1429B0A229E5122400891FF8 /* FriendsMatchListCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchListCellModel.swift; sourceTree = "<group>"; };
+		1429B0A429E5129C00891FF8 /* LectureInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureInfoModel.swift; sourceTree = "<group>"; };
+		1429B0A629E5163300891FF8 /* FriendsMatchTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabViewModel.swift; sourceTree = "<group>"; };
+		1429B0A829E51CF400891FF8 /* FriendsMatchTabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabModel.swift; sourceTree = "<group>"; };
+		1429B0AD29E53F9D00891FF8 /* FriendsMatchListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchListCell.swift; sourceTree = "<group>"; };
 		142DBECF29DC1DCB00017603 /* EmailTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTextField.swift; sourceTree = "<group>"; };
 		142DBED129DC223A00017603 /* EmailTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTextFieldViewModel.swift; sourceTree = "<group>"; };
 		142DBED429DC2B0200017603 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
@@ -86,7 +96,7 @@
 		14793FB929D837090048D5DD /* NanumSquareNeo-eHv.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NanumSquareNeo-eHv.ttf"; sourceTree = "<group>"; };
 		14793FBB29D837480048D5DD /* ExUIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIFont.swift; sourceTree = "<group>"; };
 		14793FBD29D83DA60048D5DD /* ExUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIView.swift; sourceTree = "<group>"; };
-		14AC9B3429E2751C009C37A5 /* FriendsMatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchViewController.swift; sourceTree = "<group>"; };
+		14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabViewController.swift; sourceTree = "<group>"; };
 		14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInfoViewController.swift; sourceTree = "<group>"; };
 		14AC9B3829E27569009C37A5 /* ClassGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassGroupViewController.swift; sourceTree = "<group>"; };
 		14DD370E29DB0D5B00D6A715 /* EmailStackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailStackViewCell.swift; sourceTree = "<group>"; };
@@ -132,6 +142,7 @@
 		141A781629D7ED46006731F7 /* WanF-Project */ = {
 			isa = PBXGroup;
 			children = (
+				1429B0A129E5118D00891FF8 /* Entity */,
 				14DD371429DB2B9300D6A715 /* Presentation */,
 				141A781729D7ED46006731F7 /* AppDelegate.swift */,
 				141A781929D7ED46006731F7 /* SceneDelegate.swift */,
@@ -141,6 +152,34 @@
 				141A782529D7ED46006731F7 /* Info.plist */,
 			);
 			path = "WanF-Project";
+			sourceTree = "<group>";
+		};
+		1429B0A129E5118D00891FF8 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				1429B0A229E5122400891FF8 /* FriendsMatchListCellModel.swift */,
+				1429B0A429E5129C00891FF8 /* LectureInfoModel.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		1429B0AF29E549E500891FF8 /* FriendsMatchTab */ = {
+			isa = PBXGroup;
+			children = (
+				1429B0B029E54A0F00891FF8 /* FriendsMatchTabSubComponents */,
+				14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */,
+				1429B0A629E5163300891FF8 /* FriendsMatchTabViewModel.swift */,
+				1429B0A829E51CF400891FF8 /* FriendsMatchTabModel.swift */,
+			);
+			path = FriendsMatchTab;
+			sourceTree = "<group>";
+		};
+		1429B0B029E54A0F00891FF8 /* FriendsMatchTabSubComponents */ = {
+			isa = PBXGroup;
+			children = (
+				1429B0AD29E53F9D00891FF8 /* FriendsMatchListCell.swift */,
+			);
+			path = FriendsMatchTabSubComponents;
 			sourceTree = "<group>";
 		};
 		142DBED329DC28DE00017603 /* EmailTextField */ = {
@@ -214,7 +253,7 @@
 		14AC9B3129E274C0009C37A5 /* FriendsMatch */ = {
 			isa = PBXGroup;
 			children = (
-				14AC9B3429E2751C009C37A5 /* FriendsMatchViewController.swift */,
+				1429B0AF29E549E500891FF8 /* FriendsMatchTab */,
 			);
 			path = FriendsMatch;
 			sourceTree = "<group>";
@@ -404,18 +443,23 @@
 				14567E9C29DFE824000B75EE /* EmailStackViewCellModel.swift in Sources */,
 				147922ED29DADBCF0052CBA8 /* SignUpIDViewController.swift in Sources */,
 				142DBED029DC1DCB00017603 /* EmailTextField.swift in Sources */,
+				1429B0AE29E53F9D00891FF8 /* FriendsMatchListCell.swift in Sources */,
 				14567E9E29E00740000B75EE /* VerifiedStackViewCellViewModel.swift in Sources */,
 				14066BB329E166B100AFB2D2 /* SignUpPasswordModel.swift in Sources */,
 				142DBEDA29DC2EEB00017603 /* SignInViewModel.swift in Sources */,
+				1429B0A729E5163300891FF8 /* FriendsMatchTabViewModel.swift in Sources */,
+				1429B0A929E51CF400891FF8 /* FriendsMatchTabModel.swift in Sources */,
+				1429B0A529E5129C00891FF8 /* LectureInfoModel.swift in Sources */,
 				14AC9B3729E27547009C37A5 /* ClassInfoViewController.swift in Sources */,
 				14793FA929D831230048D5DD /* ExUIColor.swift in Sources */,
 				141A783629D7F1E5006731F7 /* SignInViewController.swift in Sources */,
 				142DBED229DC223A00017603 /* EmailTextFieldViewModel.swift in Sources */,
 				14066BAF29E1431300AFB2D2 /* PasswordTextFieldCellViewModel.swift in Sources */,
-				14AC9B3529E2751C009C37A5 /* FriendsMatchViewController.swift in Sources */,
+				14AC9B3529E2751C009C37A5 /* FriendsMatchTabViewController.swift in Sources */,
 				142DBED729DC2D2C00017603 /* PasswordTextFieldViewModel.swift in Sources */,
 				142DBED529DC2B0200017603 /* PasswordTextField.swift in Sources */,
 				142DBEE129DC4FC300017603 /* MainTabBarViewModel.swift in Sources */,
+				1429B0A329E5122400891FF8 /* FriendsMatchListCellModel.swift in Sources */,
 				142DBEDC29DC3D1100017603 /* SignInModel.swift in Sources */,
 				14DD371129DB0EE700D6A715 /* SignUpIDViewModel.swift in Sources */,
 				14DD371329DB1DFB00D6A715 /* VerifiedStackViewCell.swift in Sources */,
