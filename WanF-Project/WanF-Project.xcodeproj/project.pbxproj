@@ -163,6 +163,25 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		1429B0AF29E549E500891FF8 /* FriendsMatchTab */ = {
+			isa = PBXGroup;
+			children = (
+				1429B0B029E54A0F00891FF8 /* FriendsMatchTabSubComponents */,
+				14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */,
+				1429B0A629E5163300891FF8 /* FriendsMatchTabViewModel.swift */,
+				1429B0A829E51CF400891FF8 /* FriendsMatchTabModel.swift */,
+			);
+			path = FriendsMatchTab;
+			sourceTree = "<group>";
+		};
+		1429B0B029E54A0F00891FF8 /* FriendsMatchTabSubComponents */ = {
+			isa = PBXGroup;
+			children = (
+				1429B0AD29E53F9D00891FF8 /* FriendsMatchListCell.swift */,
+			);
+			path = FriendsMatchTabSubComponents;
+			sourceTree = "<group>";
+		};
 		142DBED329DC28DE00017603 /* EmailTextField */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,10 +253,7 @@
 		14AC9B3129E274C0009C37A5 /* FriendsMatch */ = {
 			isa = PBXGroup;
 			children = (
-				14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */,
-				1429B0A629E5163300891FF8 /* FriendsMatchTabViewModel.swift */,
-				1429B0A829E51CF400891FF8 /* FriendsMatchTabModel.swift */,
-				1429B0AD29E53F9D00891FF8 /* FriendsMatchListCell.swift */,
+				1429B0AF29E549E500891FF8 /* FriendsMatchTab */,
 			);
 			path = FriendsMatch;
 			sourceTree = "<group>";
