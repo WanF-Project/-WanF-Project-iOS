@@ -61,6 +61,10 @@ class FriendsMatchTabViewController: UIViewController {
             .bind(to: viewModel.profileButtonTapped)
             .disposed(by: disposeBag)
         
+        addBarItem.rx.tap
+            .bind(to: viewModel.addButtonTapped)
+            .disposed(by: disposeBag)
+        
         // ViewModel -> View
         viewModel.shouldLoadFriendsMatchList
             .subscribe()
@@ -72,6 +76,16 @@ class FriendsMatchTabViewController: UIViewController {
                 profileVC.bind(viewModel)
                 
                 self.navigationController?.pushViewController(profileVC, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.presentFriendsMatchWriting
+            .drive(onNext: { viewModel in
+                let friendsMatchWritingVC = FriendsMatchWritingViewController()
+                friendsMatchWritingVC.bind(viewModel)
+                friendsMatchWritingVC.modalPresentationStyle = .fullScreen
+                
+                self.present(friendsMatchWritingVC, animated: true)
             })
             .disposed(by: disposeBag)
         
