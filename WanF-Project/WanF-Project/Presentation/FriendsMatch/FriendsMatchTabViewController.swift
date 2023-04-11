@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class FriendsMatchViewController: UIViewController {
+class FriendsMatchTabViewController: UIViewController {
     
     //MARK: - View
     private lazy var profileBarItem: UIBarButtonItem = {
@@ -37,7 +37,7 @@ class FriendsMatchViewController: UIViewController {
         configureView()
     }
 }
-private extension FriendsMatchViewController {
+private extension FriendsMatchTabViewController {
     func configureView() {
         
         navigationItem.title = "수업 친구 찾기"
