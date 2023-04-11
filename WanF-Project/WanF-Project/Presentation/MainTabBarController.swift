@@ -15,12 +15,14 @@ class MainTabBarController: UITabBarController {
     
     //MARK: - View
     private lazy var friendsMatchVC: UINavigationController = {
-        let viewController = UINavigationController(rootViewController: FriendsMatchTabViewController())
-        let item = UITabBarItem(title: "친구 찾기", image: UIImage(systemName: "person.2.fill"), tag: 0)
+        let viewController = FriendsMatchTabViewController()
+        let viewModel = FriendsMatchTabViewModel()
+        viewController.bind(viewModel)
         
+        let item = UITabBarItem(title: "친구 찾기", image: UIImage(systemName: "person.2.fill"), tag: 0)
         viewController.tabBarItem = item
         
-        return viewController
+        return UINavigationController(rootViewController: viewController)
     }()
     
     private lazy var classInfoVC: UINavigationController = {
