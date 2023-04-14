@@ -22,7 +22,7 @@ class FriendsMatchWritingTopBarView: UIView {
         return UIButton(configuration: configuration)
     }()
     
-    private lazy var doneButton: UIButton = {
+    lazy var doneButton: UIButton = {
         var configuration = UIButton.Configuration.plain()
         configuration.image = UIImage(systemName: "checkmark")
         configuration.baseForegroundColor = .wanfMint

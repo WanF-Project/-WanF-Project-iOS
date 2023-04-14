@@ -13,6 +13,10 @@ import RxCocoa
 
 class FriendsMatchWritingViewController: UIViewController {
     
+    //MARK: - Properties
+    var titleText: String = ""
+    var contentText: String = ""
+    
     //MARK: - View
     let topBarView = FriendsMatchWritingTopBarView()
     let lectureInfoView = FriendsMatchWritingLectureInfoView()
@@ -37,6 +41,7 @@ class FriendsMatchWritingViewController: UIViewController {
         textView.font = .wanfFont(ofSize: 23, weight: .bold)
         textView.tintColor = .wanfMint
         textView.textColor = .placeholderText
+        textView.delegate = self
         
         return textView
     }()
@@ -50,6 +55,7 @@ class FriendsMatchWritingViewController: UIViewController {
         textView.font = .wanfFont(ofSize: 18, weight: .regular)
         textView.tintColor = .wanfMint
         textView.textColor = .placeholderText
+        textView.delegate = self
         
         return textView
     }()
@@ -124,5 +130,45 @@ private extension FriendsMatchWritingViewController {
             make.horizontalEdges.equalToSuperview()
             make.bottom.equalToSuperview()
         }
+    }
+}
+
+// TODO: - RxSwift로 Refactoring
+//MARK: - TextViewDelegate
+extension FriendsMatchWritingViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        guard textView.textColor == UIColor.placeholderText else{ return }
+        
+        textView.text = ""
+        textView.textColor = .wanfLabel
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = textView == self.titleTextView ? "제목을 입력하세요" : "내용을 입력하세요"
+            textView.textColor = .placeholderText
+            topBarView.doneButton.isEnabled = false
+            
+            return
+        }
+        
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            topBarView.doneButton.isEnabled = false
+            return
+        }
+        
+        switch textView {
+        case titleTextView:
+            if textView.text != "제목을 입력하세요" { self.titleText = textView.text }
+            if contentTextView.text == "내용을 입력하세요" { return }
+        default:
+            if textView.text != "내용을 입력하세요" { self.contentText = textView.text }
+            if titleTextView.text == "제목을 입력하세요" { return }
+        }
+        
+        topBarView.doneButton.isEnabled = true
     }
 }
