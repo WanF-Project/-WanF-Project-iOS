@@ -15,6 +15,7 @@ class FriendsMatchWritingStackView: UIStackView {
     
     //MARK: - View
     let topBarView = FriendsMatchWritingTopBarView()
+    let lectureInfoView = FriendsMatchWritingLectureInfoView()
     
     //MARK: - LifeCycle
     override func layoutSubviews() {
@@ -34,7 +35,8 @@ private extension FriendsMatchWritingStackView {
         self.spacing = 15
         
         [
-            topBarView
+            topBarView,
+            lectureInfoView
         ]
             .forEach { addArrangedSubview($0) }
     }

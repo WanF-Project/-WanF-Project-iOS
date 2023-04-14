@@ -57,6 +57,7 @@
 		14AC9B3929E27569009C37A5 /* ClassGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3829E27569009C37A5 /* ClassGroupViewController.swift */; };
 		14D7A90329E92F9B007850BE /* FriendsMatchWritingTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D7A90229E92F9B007850BE /* FriendsMatchWritingTopBarView.swift */; };
 		14D7A90629E93229007850BE /* FriendsMatchWritingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D7A90529E93229007850BE /* FriendsMatchWritingStackView.swift */; };
+		14D7A90A29E936A3007850BE /* FriendsMatchWritingLectureInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D7A90929E936A3007850BE /* FriendsMatchWritingLectureInfoView.swift */; };
 		14DD370F29DB0D5B00D6A715 /* EmailStackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD370E29DB0D5B00D6A715 /* EmailStackViewCell.swift */; };
 		14DD371129DB0EE700D6A715 /* SignUpIDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD371029DB0EE700D6A715 /* SignUpIDViewModel.swift */; };
 		14DD371329DB1DFB00D6A715 /* VerifiedStackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD371229DB1DFB00D6A715 /* VerifiedStackViewCell.swift */; };
@@ -115,6 +116,7 @@
 		14AC9B3829E27569009C37A5 /* ClassGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassGroupViewController.swift; sourceTree = "<group>"; };
 		14D7A90229E92F9B007850BE /* FriendsMatchWritingTopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingTopBarView.swift; sourceTree = "<group>"; };
 		14D7A90529E93229007850BE /* FriendsMatchWritingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingStackView.swift; sourceTree = "<group>"; };
+		14D7A90929E936A3007850BE /* FriendsMatchWritingLectureInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingLectureInfoView.swift; sourceTree = "<group>"; };
 		14DD370E29DB0D5B00D6A715 /* EmailStackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailStackViewCell.swift; sourceTree = "<group>"; };
 		14DD371029DB0EE700D6A715 /* SignUpIDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpIDViewModel.swift; sourceTree = "<group>"; };
 		14DD371229DB1DFB00D6A715 /* VerifiedStackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiedStackViewCell.swift; sourceTree = "<group>"; };
@@ -323,8 +325,9 @@
 		14D7A90129E92E8C007850BE /* FriendsMatsgWritingSubComponents */ = {
 			isa = PBXGroup;
 			children = (
-				14D7A90229E92F9B007850BE /* FriendsMatchWritingTopBarView.swift */,
 				14D7A90529E93229007850BE /* FriendsMatchWritingStackView.swift */,
+				14D7A90229E92F9B007850BE /* FriendsMatchWritingTopBarView.swift */,
+				14D7A90929E936A3007850BE /* FriendsMatchWritingLectureInfoView.swift */,
 			);
 			path = FriendsMatsgWritingSubComponents;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				14D7A90629E93229007850BE /* FriendsMatchWritingStackView.swift in Sources */,
 				14D7A90329E92F9B007850BE /* FriendsMatchWritingTopBarView.swift in Sources */,
 				14AC9B3929E27569009C37A5 /* ClassGroupViewController.swift in Sources */,
+				14D7A90A29E936A3007850BE /* FriendsMatchWritingLectureInfoView.swift in Sources */,
 				142DBEDF29DC4DCE00017603 /* MainTabBarController.swift in Sources */,
 				14DD372229DB30EC00D6A715 /* PasswordToCheckTextFieldCell.swift in Sources */,
 				1429B0B529E5710C00891FF8 /* ProfileViewModel.swift in Sources */,
