@@ -16,6 +16,8 @@ class FriendsMatchWritingStackView: UIStackView {
     //MARK: - View
     let topBarView = FriendsMatchWritingTopBarView()
     let lectureInfoView = FriendsMatchWritingLectureInfoView()
+    let titleTextView = FriendsMatchWritingTitleTextView()
+    let contentTextView = FriendsMatchWritingContentTextView()
     
     //MARK: - LifeCycle
     override func layoutSubviews() {
@@ -29,19 +31,24 @@ class FriendsMatchWritingStackView: UIStackView {
 private extension FriendsMatchWritingStackView {
     func configureView() {
         
-        self.axis = .vertical
-        self.alignment = .fill
-        self.distribution = .equalSpacing
-        self.spacing = 15
+        axis = .vertical
+        alignment = .fill
+        distribution = .fill
+        spacing = 15
         
         [
             topBarView,
-            lectureInfoView
+            lectureInfoView,
+            titleTextView,
+            contentTextView
         ]
             .forEach { addArrangedSubview($0) }
     }
     
     func layout() {
         
+        titleTextView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
 }
