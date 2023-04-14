@@ -14,7 +14,45 @@ import RxCocoa
 class FriendsMatchWritingViewController: UIViewController {
     
     //MARK: - View
-    let stackView = FriendsMatchWritingStackView()
+    let topBarView = FriendsMatchWritingTopBarView()
+    let lectureInfoView = FriendsMatchWritingLectureInfoView()
+    lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        
+        return scrollView
+    }()
+    
+    lazy var containerView: UIView = {
+        var view = UIView()
+        
+        return view
+    }()
+    
+    lazy var titleTextView: UITextView = {
+        var textView = UITextView()
+        
+        textView.isScrollEnabled = false
+        textView.isEditable = true
+        textView.text = "제목을 입력하세요"
+        textView.font = .wanfFont(ofSize: 23, weight: .bold)
+        textView.tintColor = .wanfMint
+        textView.textColor = .placeholderText
+        
+        return textView
+    }()
+    
+    lazy var contentTextView: UITextView = {
+        var textView = UITextView()
+        
+        textView.isScrollEnabled = false
+        textView.isEditable = true
+        textView.text = "내용을 입력하세요"
+        textView.font = .wanfFont(ofSize: 18, weight: .regular)
+        textView.tintColor = .wanfMint
+        textView.textColor = .placeholderText
+        
+        return textView
+    }()
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -34,17 +72,57 @@ private extension FriendsMatchWritingViewController {
     func configureView() {
         view.backgroundColor = .wanfBackground
         
-        view.addSubview(stackView)
+        [
+            topBarView,
+            lectureInfoView,
+            scrollView
+        ]
+            .forEach { view.addSubview($0) }
+        
+        scrollView.addSubview(containerView)
+        
+        [
+            titleTextView,
+            contentTextView
+        ]
+            .forEach { containerView.addSubview($0) }
     }
     
     func layout() {
         
-        let inset = 10
+        let inset = 20
+        let offset = 10
         
-        stackView.snp.makeConstraints { make in
-            make.verticalEdges.equalTo(view.safeAreaLayoutGuide)
+        topBarView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
             make.horizontalEdges.equalToSuperview().inset(inset)
         }
         
+        lectureInfoView.snp.makeConstraints { make in
+            make.top.equalTo(topBarView.snp.bottom).offset(offset)
+            make.horizontalEdges.equalTo(topBarView)
+        }
+        
+        scrollView.snp.makeConstraints { make in
+            make.top.equalTo(lectureInfoView.snp.bottom).offset(offset)
+            make.horizontalEdges.equalTo(topBarView)
+            make.bottom.equalToSuperview()
+        }
+        
+        containerView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            make.width.equalTo(scrollView.snp.width)
+        }
+        
+        titleTextView.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(inset)
+            make.horizontalEdges.equalToSuperview()
+        }
+        
+        contentTextView.snp.makeConstraints { make in
+            make.top.equalTo(titleTextView.snp.bottom).offset(offset)
+            make.horizontalEdges.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
     }
 }
