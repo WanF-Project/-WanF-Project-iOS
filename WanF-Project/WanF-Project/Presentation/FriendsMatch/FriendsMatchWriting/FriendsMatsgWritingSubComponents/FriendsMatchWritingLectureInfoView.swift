@@ -18,6 +18,7 @@ class FriendsMatchWritingLectureInfoView: UIView {
         var label = UILabel()
         
         label.text = "강의명"
+        label.textColor = .wanfLabel
         label.font = .wanfFont(ofSize: 15, weight: .regular)
         label.numberOfLines = 2
         
@@ -28,6 +29,7 @@ class FriendsMatchWritingLectureInfoView: UIView {
         var label = UILabel()
         
         label.text = "교수명"
+        label.textColor = .wanfLabel
         label.font = .wanfFont(ofSize: 15, weight: .regular)
         label.numberOfLines = 1
         
@@ -49,6 +51,9 @@ private extension FriendsMatchWritingLectureInfoView {
     func configureView() {
         
         backgroundColor = .wanfLightMint
+        layer.shadowColor = UIColor.wanfLightGray.cgColor
+        layer.shadowOpacity = 10.0
+        layer.shadowOffset = CGSize(width: 0, height: 3.0)
         
         [
             lectureName,
@@ -60,7 +65,7 @@ private extension FriendsMatchWritingLectureInfoView {
     
     func layout() {
         
-        let verticalInset = 25
+        let verticalInset = 20
         let horizontalInset = 35
         
         lectureName.snp.makeConstraints { make in
@@ -69,7 +74,7 @@ private extension FriendsMatchWritingLectureInfoView {
         }
         
         professorName.snp.makeConstraints { make in
-            make.top.equalTo(lectureName.snp.bottom).offset(15)
+            make.top.equalTo(lectureName.snp.bottom).offset(10)
             make.horizontalEdges.equalTo(lectureName)
             make.bottom.equalToSuperview().inset(verticalInset)
         }
