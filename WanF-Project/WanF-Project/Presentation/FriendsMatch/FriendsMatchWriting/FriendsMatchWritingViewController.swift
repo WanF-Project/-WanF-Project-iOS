@@ -66,6 +66,7 @@ class FriendsMatchWritingViewController: UIViewController {
         
         configureView()
         layout()
+        registerKeyboardNotifications()
     }
     
     //MARK: - Function
@@ -170,5 +171,42 @@ extension FriendsMatchWritingViewController: UITextViewDelegate {
         }
         
         topBarView.doneButton.isEnabled = true
+    }
+}
+
+// TODO: - RxSwift로 Refactoring
+//MARK: - Adjust the view displaying the text
+private extension FriendsMatchWritingViewController {
+    func registerKeyboardNotifications(){
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
+        else { return }
+        
+        let contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardFrame.height, right: 0.0)
+        scrollView.contentInset = contentInset
+        scrollView.scrollIndicatorInsets = contentInset
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        let contentInset = UIEdgeInsets.zero
+        
+        scrollView.contentInset = contentInset
+        scrollView.scrollIndicatorInsets = contentInset
     }
 }
