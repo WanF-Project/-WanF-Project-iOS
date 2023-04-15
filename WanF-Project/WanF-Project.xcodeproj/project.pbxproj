@@ -64,6 +64,8 @@
 		14DD372029DB301400D6A715 /* PasswordTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD371F29DB301400D6A715 /* PasswordTextFieldCell.swift */; };
 		14DD372229DB30EC00D6A715 /* PasswordToCheckTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD372129DB30EC00D6A715 /* PasswordToCheckTextFieldCell.swift */; };
 		14DD372429DB318900D6A715 /* SignUpPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD372329DB318900D6A715 /* SignUpPasswordViewModel.swift */; };
+		14E4C9E429EA530F00E2CB62 /* LectureInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4C9E329EA530F00E2CB62 /* LectureInfoViewController.swift */; };
+		14E4C9E929EA564400E2CB62 /* LectureInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4C9E829EA564400E2CB62 /* LectureInfoViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +124,8 @@
 		14DD371F29DB301400D6A715 /* PasswordTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextFieldCell.swift; sourceTree = "<group>"; };
 		14DD372129DB30EC00D6A715 /* PasswordToCheckTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordToCheckTextFieldCell.swift; sourceTree = "<group>"; };
 		14DD372329DB318900D6A715 /* SignUpPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPasswordViewModel.swift; sourceTree = "<group>"; };
+		14E4C9E329EA530F00E2CB62 /* LectureInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureInfoViewController.swift; sourceTree = "<group>"; };
+		14E4C9E829EA564400E2CB62 /* LectureInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureInfoViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,6 +336,7 @@
 		14DD371429DB2B9300D6A715 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				14E4C9E529EA53AF00E2CB62 /* LectureInfo */,
 				14AC9B3129E274C0009C37A5 /* FriendsMatch */,
 				14AC9B3229E274E3009C37A5 /* ClassInfo */,
 				14AC9B3329E274EB009C37A5 /* ClassGroup */,
@@ -406,6 +411,15 @@
 				14066BB229E166B100AFB2D2 /* SignUpPasswordModel.swift */,
 			);
 			path = SignUpPasswordViewController;
+			sourceTree = "<group>";
+		};
+		14E4C9E529EA53AF00E2CB62 /* LectureInfo */ = {
+			isa = PBXGroup;
+			children = (
+				14E4C9E329EA530F00E2CB62 /* LectureInfoViewController.swift */,
+				14E4C9E829EA564400E2CB62 /* LectureInfoViewModel.swift */,
+			);
+			path = LectureInfo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -511,6 +525,7 @@
 				14793FA929D831230048D5DD /* ExUIColor.swift in Sources */,
 				141A783629D7F1E5006731F7 /* SignInViewController.swift in Sources */,
 				142DBED229DC223A00017603 /* EmailTextFieldViewModel.swift in Sources */,
+				14E4C9E929EA564400E2CB62 /* LectureInfoViewModel.swift in Sources */,
 				14066BAF29E1431300AFB2D2 /* PasswordTextFieldCellViewModel.swift in Sources */,
 				14AC9B3529E2751C009C37A5 /* FriendsMatchTabViewController.swift in Sources */,
 				142DBED729DC2D2C00017603 /* PasswordTextFieldViewModel.swift in Sources */,
@@ -533,6 +548,7 @@
 				141A781829D7ED46006731F7 /* AppDelegate.swift in Sources */,
 				14D7A90329E92F9B007850BE /* FriendsMatchWritingTopBarView.swift in Sources */,
 				14AC9B3929E27569009C37A5 /* ClassGroupViewController.swift in Sources */,
+				14E4C9E429EA530F00E2CB62 /* LectureInfoViewController.swift in Sources */,
 				14D7A90A29E936A3007850BE /* FriendsMatchWritingLectureInfoView.swift in Sources */,
 				142DBEDF29DC4DCE00017603 /* MainTabBarController.swift in Sources */,
 				14DD372229DB30EC00D6A715 /* PasswordToCheckTextFieldCell.swift in Sources */,
