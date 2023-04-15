@@ -37,8 +37,25 @@ class LectureInfoViewController: UIViewController {
     
     //MARK: - Function
     func bind(_ viewModel: LectureInfoViewModel) {
-     
+        
+        // View -> ViewModel
+        lectureInfoTableView.rx.itemSelected
+            .bind(to: viewModel.lectureInfoListItemSelected)
+            .disposed(by: disposeBag)
+        
+        // ViewModel -> View
         bindTableView(viewModel)
+        
+        viewModel.dismiss
+            .drive(onNext: { lectureInfo in
+                
+                // TODO: - 이전 화면에 강의정보 전달
+//                let presentinfVC = self.presentingViewController
+//                presentinfVC.lectureInfo = lectureInfo
+                
+                self.dismiss(animated: true)
+            })
+            .disposed(by: disposeBag)
     }
     
     func bindTableView(_ viewModel: LectureInfoViewModel) {
