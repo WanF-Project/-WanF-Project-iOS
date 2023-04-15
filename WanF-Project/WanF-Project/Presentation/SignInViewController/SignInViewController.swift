@@ -97,13 +97,10 @@ class SignInViewController: UIViewController {
         
         viewModel.pushToMainTabBar
             .drive(onNext: { viewModel in
-//                let mainTabBarVC = MainTabBarController()
-//                mainTabBarVC.bind(viewModel)
-//
-//                SceneDelegate.shared.updateRootViewController(mainTabBarVC)
-                let vc = LectureInfoViewController()
-                vc.bind(LectureInfoViewModel())
-                self.present(vc, animated: true)
+                let mainTabBarVC = MainTabBarController()
+                mainTabBarVC.bind(viewModel)
+
+                SceneDelegate.shared.updateRootViewController(mainTabBarVC)
             })
             .disposed(by: disposeBag)
         
