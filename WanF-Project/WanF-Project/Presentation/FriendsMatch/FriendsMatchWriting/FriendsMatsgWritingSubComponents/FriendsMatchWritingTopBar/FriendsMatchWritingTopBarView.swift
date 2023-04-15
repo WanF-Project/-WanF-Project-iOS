@@ -13,6 +13,9 @@ import RxCocoa
 
 class FriendsMatchWritingTopBarView: UIView {
     
+    //MARK: - Properties
+    let disposeBag = DisposeBag()
+    
     //MARK: -  View
     private lazy var cancelButton: UIButton = {
         var configuration = UIButton.Configuration.plain()
@@ -36,6 +39,18 @@ class FriendsMatchWritingTopBarView: UIView {
         
         configureView()
         layout()
+        
+    }
+    
+    //MARK: - Function
+    func bind(_ viewModel: FriendsMatchWritingTopBarViewModel) {
+        
+        // View -> ViewModel
+        cancelButton.rx.tap
+            .bind(to: viewModel.cancelButtonTapped)
+            .disposed(by: disposeBag)
+        
+        // ViewModel -> View
         
     }
 }

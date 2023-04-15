@@ -12,4 +12,15 @@ import RxCocoa
 
 struct FriendsMatchWritingViewModel {
     
+    let topBarViewModel = FriendsMatchWritingTopBarViewModel()
+    
+    // View -> ViewModel
+    
+    // ViewModel -> View
+    let dismiss: Driver<Void>
+    
+    init() {
+        
+        dismiss = topBarViewModel.shouldDismiss
+    }
 }

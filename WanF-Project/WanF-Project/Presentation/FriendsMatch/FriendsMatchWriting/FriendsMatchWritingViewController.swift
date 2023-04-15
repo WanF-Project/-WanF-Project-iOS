@@ -14,6 +14,8 @@ import RxCocoa
 class FriendsMatchWritingViewController: UIViewController {
     
     //MARK: - Properties
+    let disposeBag = DisposeBag()
+    
     var titleText: String = ""
     var contentText: String = ""
     
@@ -72,6 +74,16 @@ class FriendsMatchWritingViewController: UIViewController {
     //MARK: - Function
     func bind(_ viewModel: FriendsMatchWritingViewModel){
         
+        topBarView.bind(viewModel.topBarViewModel)
+        
+        // View -> ViewModel
+        
+        // ViewModel -> View
+        viewModel.dismiss
+            .drive(onNext: {
+                self.dismiss(animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
