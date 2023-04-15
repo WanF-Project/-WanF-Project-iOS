@@ -99,7 +99,7 @@ class SignInViewController: UIViewController {
             .drive(onNext: { viewModel in
                 let mainTabBarVC = MainTabBarController()
                 mainTabBarVC.bind(viewModel)
-                
+
                 SceneDelegate.shared.updateRootViewController(mainTabBarVC)
             })
             .disposed(by: disposeBag)
