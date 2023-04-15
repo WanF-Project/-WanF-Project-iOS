@@ -23,16 +23,17 @@ struct LectureInfoViewModel {
     init() {
         
         // View -> ViewModel
-        dismiss = lectureInfoListItemSelected
-            .withLatestFrom(cellData, resultSelector: { IndexPath, lectureInfoList in
-                lectureInfoList[IndexPath.row]
-            })
-            .asDriver(onErrorDriveWith: .empty())
         
         // ViewModel -> View
         cellData = Observable
             .just(LectureInfoModel.lectureInfoCellData)
             .asDriver(onErrorJustReturn: [])
+        
+        dismiss = lectureInfoListItemSelected
+            .withLatestFrom(cellData, resultSelector: { IndexPath, lectureInfoList in
+                lectureInfoList[IndexPath.row]
+            })
+            .asDriver(onErrorDriveWith: .empty())
     }
 }
 
