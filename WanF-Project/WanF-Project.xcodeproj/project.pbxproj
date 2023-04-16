@@ -284,6 +284,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		14870BF229EC18EF00D9643E /* FriendsMatchWritingLectureInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				14D7A90929E936A3007850BE /* FriendsMatchWritingLectureInfoView.swift */,
+				14870BF029EBBD9400D9643E /* FriendsMatchWritingLectureInfoViewModel.swift */,
+			);
+			path = FriendsMatchWritingLectureInfoView;
+			sourceTree = "<group>";
+		};
 		14A1BFED29DBE2BB00351567 /* PasswordTextFieldCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,8 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				14E4C9EC29EAA0D500E2CB62 /* FriendsMatchWritingTopBar */,
-				14D7A90929E936A3007850BE /* FriendsMatchWritingLectureInfoView.swift */,
-				14870BF029EBBD9400D9643E /* FriendsMatchWritingLectureInfoViewModel.swift */,
+				14870BF229EC18EF00D9643E /* FriendsMatchWritingLectureInfoView */,
 			);
 			path = FriendsMatsgWritingSubComponents;
 			sourceTree = "<group>";
