@@ -88,6 +88,9 @@ private extension FriendsMatchWritingViewController {
     func configureView() {
         view.backgroundColor = .wanfBackground
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapLectureInfoView))
+        lectureInfoView.addGestureRecognizer(tapGesture)
+        
         [
             topBarView,
             lectureInfoView,
@@ -217,5 +220,15 @@ private extension FriendsMatchWritingViewController {
         
         scrollView.contentInset = contentInset
         scrollView.scrollIndicatorInsets = contentInset
+    }
+}
+
+//MARK: - Object-C
+extension FriendsMatchWritingViewController {
+    @objc func didTapLectureInfoView() {
+        let lectureInfoVC = LectureInfoViewController()
+        lectureInfoVC.bind(LectureInfoViewModel())
+        
+        self.present(lectureInfoVC, animated: true)
     }
 }

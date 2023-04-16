@@ -55,6 +55,8 @@ private extension FriendsMatchWritingLectureInfoView {
         layer.shadowOpacity = 10.0
         layer.shadowOffset = CGSize(width: 0, height: 3.0)
         
+        isUserInteractionEnabled = true
+        
         [
             lectureName,
             professorName
