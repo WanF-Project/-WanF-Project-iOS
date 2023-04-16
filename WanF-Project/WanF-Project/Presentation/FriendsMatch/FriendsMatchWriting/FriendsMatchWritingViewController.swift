@@ -17,6 +17,15 @@ class FriendsMatchWritingViewController: UIViewController {
     let disposeBag = DisposeBag()
     var viewModel: FriendsMatchWritingViewModel?
     
+    var isDoneToWrite = false {
+        willSet {
+            if self.viewModel != nil {
+                viewModel!.isDoneToWrite
+                    .onNext(newValue)
+            }
+        }
+    }
+    
     //MARK: - View
     let topBarView = FriendsMatchWritingTopBarView()
     let lectureInfoView = FriendsMatchWritingLectureInfoView()
@@ -83,6 +92,12 @@ class FriendsMatchWritingViewController: UIViewController {
         viewModel.dismiss
             .drive(onNext: {
                 self.dismiss(animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.activateDoneButton
+            .drive(onNext: { state in
+                self.topBarView.doneButton.isEnabled = state
             })
             .disposed(by: disposeBag)
     }
@@ -164,8 +179,8 @@ extension FriendsMatchWritingViewController: UITextViewDelegate {
         if textView.text.isEmpty {
             textView.text = textView == self.titleTextView ? "제목을 입력하세요" : "내용을 입력하세요"
             textView.textColor = .placeholderText
-            topBarView.doneButton.isEnabled = false
             
+            self.isDoneToWrite = false
             return
         }
         
@@ -173,7 +188,7 @@ extension FriendsMatchWritingViewController: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         if textView.text.isEmpty {
-            topBarView.doneButton.isEnabled = false
+            self.isDoneToWrite = false
             return
         }
         
@@ -186,7 +201,7 @@ extension FriendsMatchWritingViewController: UITextViewDelegate {
             return
         }
         
-        topBarView.doneButton.isEnabled = true
+        self.isDoneToWrite = true
     }
 }
 

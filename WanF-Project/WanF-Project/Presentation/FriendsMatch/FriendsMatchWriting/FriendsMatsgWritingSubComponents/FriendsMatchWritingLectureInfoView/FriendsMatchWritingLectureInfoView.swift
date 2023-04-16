@@ -15,6 +15,7 @@ class FriendsMatchWritingLectureInfoView: UIView {
     
     //MARK: - Properties
     let disposeBag = DisposeBag()
+    var isSelected = false
     
     //MARK: -  View
     private lazy var lectureNameLabel: UILabel = {
@@ -54,6 +55,8 @@ class FriendsMatchWritingLectureInfoView: UIView {
             .drive(onNext: { lectureInfo in
                 self.lectureNameLabel.text = lectureInfo.lectureName
                 self.professorNameLabel.text = lectureInfo.professorName
+                
+                self.isSelected = true
             })
             .disposed(by: disposeBag)
     }

@@ -25,6 +25,10 @@ struct FriendsMatchWritingViewModel {
     
     // ViewModel -> ChildViewModel
     let shouldSendLectureInfo: Observable<LectureInfoModel>
+    let activateDoneButton: Driver<Bool>
+    
+    let isSelectedLectureInfo: Observable<Bool>
+    let isDoneToWrite = PublishSubject<Bool>()
     
     init() {
         
@@ -32,9 +36,20 @@ struct FriendsMatchWritingViewModel {
         
         shouldSendLectureInfo = lectureInfo
             .asObservable()
+            .share()
         
         shouldSendLectureInfo
             .bind(to: friendsMatchWritingLectureInfoViewModel.lectureInfo)
             .disposed(by: disposeBag)
+        
+        //done 버튼 활성화 여부 결정
+        isSelectedLectureInfo = shouldSendLectureInfo
+            .map { _ in return true }
+        
+        activateDoneButton = Observable
+            .combineLatest(isSelectedLectureInfo, isDoneToWrite, resultSelector: { isSelected, isDone in
+                return isSelected && isDone
+            })
+            .asDriver(onErrorJustReturn: false)
     }
 }
