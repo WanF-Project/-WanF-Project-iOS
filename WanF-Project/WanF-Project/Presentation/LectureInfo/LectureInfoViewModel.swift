@@ -6,7 +6,7 @@
 //
 
 
-import Foundation
+import UIKit
 
 import RxSwift
 import RxCocoa
@@ -15,10 +15,13 @@ struct LectureInfoViewModel {
     
     // View -> ViewModel
     let lectureInfoListItemSelected = PublishRelay<IndexPath>()
+    let viewWillDismiss = PublishRelay<LectureInfoModel>()
     
     // ViewModel -> View
     let cellData: Driver<[LectureInfoModel]>
-    let dismiss: Driver<LectureInfoModel>
+    var didSelectLectureInfo: Signal<LectureInfoModel>
+    
+    let dismissAfterItemSelected: Driver<LectureInfoModel>
     
     init() {
         
@@ -29,11 +32,16 @@ struct LectureInfoViewModel {
             .just(LectureInfoModel.lectureInfoCellData)
             .asDriver(onErrorJustReturn: [])
         
-        dismiss = lectureInfoListItemSelected
+        //아이템 선택 시 dismiss되도록
+        dismissAfterItemSelected = lectureInfoListItemSelected
             .withLatestFrom(cellData, resultSelector: { IndexPath, lectureInfoList in
                 lectureInfoList[IndexPath.row]
             })
             .asDriver(onErrorDriveWith: .empty())
+        
+        //dismiss할 때 이전 화면으로 데이터 전달
+        didSelectLectureInfo = viewWillDismiss
+            .asSignal(onErrorSignalWith: .empty())
     }
 }
 

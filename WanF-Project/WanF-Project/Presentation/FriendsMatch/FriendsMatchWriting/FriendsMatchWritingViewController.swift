@@ -15,6 +15,7 @@ class FriendsMatchWritingViewController: UIViewController {
     
     //MARK: - Properties
     let disposeBag = DisposeBag()
+    var viewModel: FriendsMatchWritingViewModel?
     
     //MARK: - View
     let topBarView = FriendsMatchWritingTopBarView()
@@ -70,8 +71,11 @@ class FriendsMatchWritingViewController: UIViewController {
     
     //MARK: - Function
     func bind(_ viewModel: FriendsMatchWritingViewModel){
+        self.viewModel = viewModel
         
+        // Bind Subcomponent
         topBarView.bind(viewModel.topBarViewModel)
+        lectureInfoView.bind(viewModel.friendsMatchWritingLectureInfoViewModel)
         
         // View -> ViewModel
         
@@ -227,7 +231,14 @@ private extension FriendsMatchWritingViewController {
 extension FriendsMatchWritingViewController {
     @objc func didTapLectureInfoView() {
         let lectureInfoVC = LectureInfoViewController()
-        lectureInfoVC.bind(LectureInfoViewModel())
+        let lectureInfoViewModel = LectureInfoViewModel()
+        lectureInfoVC.bind(lectureInfoViewModel)
+        
+        if self.viewModel != nil {
+            lectureInfoViewModel.didSelectLectureInfo
+                .emit(to: self.viewModel!.lectureInfo)
+                .disposed(by: disposeBag)
+        }
         
         self.present(lectureInfoVC, animated: true)
     }
