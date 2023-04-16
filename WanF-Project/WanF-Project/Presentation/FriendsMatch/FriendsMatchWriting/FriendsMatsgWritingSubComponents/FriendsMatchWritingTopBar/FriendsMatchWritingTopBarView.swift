@@ -30,7 +30,10 @@ class FriendsMatchWritingTopBarView: UIView {
         configuration.image = UIImage(systemName: "checkmark")
         configuration.baseForegroundColor = .wanfMint
         
-        return UIButton(configuration: configuration)
+        let button = UIButton(configuration: configuration)
+        button.isEnabled = false
+        
+        return button
     }()
     
     //MARK: - LifeCycle
@@ -48,6 +51,10 @@ class FriendsMatchWritingTopBarView: UIView {
         // View -> ViewModel
         cancelButton.rx.tap
             .bind(to: viewModel.cancelButtonTapped)
+            .disposed(by: disposeBag)
+        
+        doneButton.rx.tap
+            .bind(to: viewModel.doneButtonTapped)
             .disposed(by: disposeBag)
         
         // ViewModel -> View

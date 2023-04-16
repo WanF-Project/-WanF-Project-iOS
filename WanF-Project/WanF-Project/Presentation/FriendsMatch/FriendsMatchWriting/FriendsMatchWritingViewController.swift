@@ -16,9 +16,6 @@ class FriendsMatchWritingViewController: UIViewController {
     //MARK: - Properties
     let disposeBag = DisposeBag()
     
-    var titleText: String = ""
-    var contentText: String = ""
-    
     //MARK: - View
     let topBarView = FriendsMatchWritingTopBarView()
     let lectureInfoView = FriendsMatchWritingLectureInfoView()
@@ -175,11 +172,11 @@ extension FriendsMatchWritingViewController: UITextViewDelegate {
         
         switch textView {
         case titleTextView:
-            if textView.text != "제목을 입력하세요" { self.titleText = textView.text }
             if contentTextView.text == "내용을 입력하세요" { return }
-        default:
-            if textView.text != "내용을 입력하세요" { self.contentText = textView.text }
+        case contentTextView:
             if titleTextView.text == "제목을 입력하세요" { return }
+        default:
+            return
         }
         
         topBarView.doneButton.isEnabled = true
