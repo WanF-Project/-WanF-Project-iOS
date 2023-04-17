@@ -13,6 +13,9 @@ import RxCocoa
 
 class FriendsMatchWritingTopBarView: UIView {
     
+    //MARK: - Properties
+    let disposeBag = DisposeBag()
+    
     //MARK: -  View
     private lazy var cancelButton: UIButton = {
         var configuration = UIButton.Configuration.plain()
@@ -27,7 +30,10 @@ class FriendsMatchWritingTopBarView: UIView {
         configuration.image = UIImage(systemName: "checkmark")
         configuration.baseForegroundColor = .wanfMint
         
-        return UIButton(configuration: configuration)
+        let button = UIButton(configuration: configuration)
+        button.isEnabled = false
+        
+        return button
     }()
     
     //MARK: - LifeCycle
@@ -36,6 +42,22 @@ class FriendsMatchWritingTopBarView: UIView {
         
         configureView()
         layout()
+        
+    }
+    
+    //MARK: - Function
+    func bind(_ viewModel: FriendsMatchWritingTopBarViewModel) {
+        
+        // View -> ViewModel
+        cancelButton.rx.tap
+            .bind(to: viewModel.cancelButtonTapped)
+            .disposed(by: disposeBag)
+        
+        doneButton.rx.tap
+            .bind(to: viewModel.doneButtonTapped)
+            .disposed(by: disposeBag)
+        
+        // ViewModel -> View
         
     }
 }

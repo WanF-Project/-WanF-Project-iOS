@@ -46,12 +46,12 @@ class LectureInfoViewController: UIViewController {
         // ViewModel -> View
         bindTableView(viewModel)
         
-        viewModel.dismiss
+        viewModel.dismissAfterItemSelected
             .drive(onNext: { lectureInfo in
-                
-                // TODO: - 이전 화면에 강의정보 전달
-//                let presentinfVC = self.presentingViewController
-//                presentinfVC.lectureInfo = lectureInfo
+                //강의정보 데이터 전달
+                Observable.just(lectureInfo)
+                    .bind(to: viewModel.viewWillDismiss)
+                    .disposed(by: self.disposeBag)
                 
                 self.dismiss(animated: true)
             })

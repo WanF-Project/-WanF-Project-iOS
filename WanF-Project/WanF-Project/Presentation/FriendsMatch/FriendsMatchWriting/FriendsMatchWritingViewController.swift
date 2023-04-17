@@ -14,8 +14,17 @@ import RxCocoa
 class FriendsMatchWritingViewController: UIViewController {
     
     //MARK: - Properties
-    var titleText: String = ""
-    var contentText: String = ""
+    let disposeBag = DisposeBag()
+    var viewModel: FriendsMatchWritingViewModel?
+    
+    var isDoneToWrite = false {
+        willSet {
+            if self.viewModel != nil {
+                viewModel!.isDoneToWrite
+                    .onNext(newValue)
+            }
+        }
+    }
     
     //MARK: - View
     let topBarView = FriendsMatchWritingTopBarView()
@@ -71,13 +80,46 @@ class FriendsMatchWritingViewController: UIViewController {
     
     //MARK: - Function
     func bind(_ viewModel: FriendsMatchWritingViewModel){
+        self.viewModel = viewModel
         
+        // Bind Subcomponent
+        topBarView.bind(viewModel.topBarViewModel)
+        lectureInfoView.bind(viewModel.friendsMatchWritingLectureInfoViewModel)
+        
+        // View -> ViewModel
+        titleTextView.rx.text
+            .bind(to: viewModel.titleText)
+            .disposed(by: disposeBag)
+        
+        contentTextView.rx.text
+            .bind(to: viewModel.contentText)
+            .disposed(by: disposeBag)
+        
+        // ViewModel -> View
+        viewModel.dismiss
+            .drive(onNext: {
+                self.dismiss(animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.activateDoneButton
+            .drive(onNext: { state in
+                self.topBarView.doneButton.isEnabled = state
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.presentAlert
+            .emit(to: self.rx.presentSaveErrorAlert)
+            .disposed(by: disposeBag)
     }
 }
 
 private extension FriendsMatchWritingViewController {
     func configureView() {
         view.backgroundColor = .wanfBackground
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapLectureInfoView))
+        lectureInfoView.addGestureRecognizer(tapGesture)
         
         [
             topBarView,
@@ -148,8 +190,8 @@ extension FriendsMatchWritingViewController: UITextViewDelegate {
         if textView.text.isEmpty {
             textView.text = textView == self.titleTextView ? "제목을 입력하세요" : "내용을 입력하세요"
             textView.textColor = .placeholderText
-            topBarView.doneButton.isEnabled = false
             
+            self.isDoneToWrite = false
             return
         }
         
@@ -157,20 +199,20 @@ extension FriendsMatchWritingViewController: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         if textView.text.isEmpty {
-            topBarView.doneButton.isEnabled = false
+            self.isDoneToWrite = false
             return
         }
         
         switch textView {
         case titleTextView:
-            if textView.text != "제목을 입력하세요" { self.titleText = textView.text }
             if contentTextView.text == "내용을 입력하세요" { return }
-        default:
-            if textView.text != "내용을 입력하세요" { self.contentText = textView.text }
+        case contentTextView:
             if titleTextView.text == "제목을 입력하세요" { return }
+        default:
+            return
         }
         
-        topBarView.doneButton.isEnabled = true
+        self.isDoneToWrite = true
     }
 }
 
@@ -208,5 +250,35 @@ private extension FriendsMatchWritingViewController {
         
         scrollView.contentInset = contentInset
         scrollView.scrollIndicatorInsets = contentInset
+    }
+}
+
+//MARK: - Object-C
+extension FriendsMatchWritingViewController {
+    @objc func didTapLectureInfoView() {
+        let lectureInfoVC = LectureInfoViewController()
+        let lectureInfoViewModel = LectureInfoViewModel()
+        lectureInfoVC.bind(lectureInfoViewModel)
+        
+        if self.viewModel != nil {
+            lectureInfoViewModel.didSelectLectureInfo
+                .emit(to: self.viewModel!.lectureInfo)
+                .disposed(by: disposeBag)
+        }
+        
+        self.present(lectureInfoVC, animated: true)
+    }
+}
+
+//MARK: - Reactive
+extension Reactive where Base: FriendsMatchWritingViewController {
+    var presentSaveErrorAlert: Binder<Void> {
+        return Binder(base) { base, _ in
+            let alertViewContoller = UIAlertController(title: "저장 실패", message: "잠시 후 다시 시도해 주세요", preferredStyle: .alert)
+            let action = UIAlertAction(title: "확인", style: .default)
+            alertViewContoller.addAction(action)
+            
+            base.present(alertViewContoller, animated: true)
+        }
     }
 }

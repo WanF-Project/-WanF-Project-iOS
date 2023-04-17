@@ -13,8 +13,12 @@ import RxCocoa
 
 class FriendsMatchWritingLectureInfoView: UIView {
     
+    //MARK: - Properties
+    let disposeBag = DisposeBag()
+    var isSelected = false
+    
     //MARK: -  View
-    private lazy var lectureName: UILabel = {
+    private lazy var lectureNameLabel: UILabel = {
         var label = UILabel()
         
         label.text = "강의명"
@@ -25,7 +29,7 @@ class FriendsMatchWritingLectureInfoView: UIView {
         return label
     }()
     
-    private lazy var professorName: UILabel = {
+    private lazy var professorNameLabel: UILabel = {
         var label = UILabel()
         
         label.text = "교수명"
@@ -44,6 +48,18 @@ class FriendsMatchWritingLectureInfoView: UIView {
         layout()
         
     }
+    
+    //MARK: - Function
+    func bind(_ viewModel: FriendsMatchWritingLectureInfoViewModel) {
+        viewModel.loadLectureInfo
+            .drive(onNext: { lectureInfo in
+                self.lectureNameLabel.text = lectureInfo.lectureName
+                self.professorNameLabel.text = lectureInfo.professorName
+                
+                self.isSelected = true
+            })
+            .disposed(by: disposeBag)
+    }
 }
 
 //MARK: - Configure
@@ -55,9 +71,11 @@ private extension FriendsMatchWritingLectureInfoView {
         layer.shadowOpacity = 10.0
         layer.shadowOffset = CGSize(width: 0, height: 3.0)
         
+        isUserInteractionEnabled = true
+        
         [
-            lectureName,
-            professorName
+            lectureNameLabel,
+            professorNameLabel
         ]
             .forEach { self.addSubview($0) }
         
@@ -68,14 +86,14 @@ private extension FriendsMatchWritingLectureInfoView {
         let verticalInset = 20
         let horizontalInset = 35
         
-        lectureName.snp.makeConstraints { make in
+        lectureNameLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(verticalInset)
             make.horizontalEdges.equalToSuperview().inset(horizontalInset)
         }
         
-        professorName.snp.makeConstraints { make in
-            make.top.equalTo(lectureName.snp.bottom).offset(10)
-            make.horizontalEdges.equalTo(lectureName)
+        professorNameLabel.snp.makeConstraints { make in
+            make.top.equalTo(lectureNameLabel.snp.bottom).offset(10)
+            make.horizontalEdges.equalTo(lectureNameLabel)
             make.bottom.equalToSuperview().inset(verticalInset)
         }
     }
