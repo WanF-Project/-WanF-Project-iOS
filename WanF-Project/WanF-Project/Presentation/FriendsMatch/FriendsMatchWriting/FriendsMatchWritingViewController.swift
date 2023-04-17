@@ -87,6 +87,13 @@ class FriendsMatchWritingViewController: UIViewController {
         lectureInfoView.bind(viewModel.friendsMatchWritingLectureInfoViewModel)
         
         // View -> ViewModel
+        titleTextView.rx.text
+            .bind(to: viewModel.titleText)
+            .disposed(by: disposeBag)
+        
+        contentTextView.rx.text
+            .bind(to: viewModel.contentText)
+            .disposed(by: disposeBag)
         
         // ViewModel -> View
         viewModel.dismiss

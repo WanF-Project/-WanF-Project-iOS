@@ -18,6 +18,9 @@ struct FriendsMatchWritingViewModel {
     var friendsMatchWritingLectureInfoViewModel = FriendsMatchWritingLectureInfoViewModel()
     
     // View -> ViewModel
+    let titleText = PublishRelay<String?>()
+    let contentText = PublishRelay<String?>()
+    
     let lectureInfo = PublishRelay<LectureInfoModel>()
     
     // ViewModel -> View
@@ -30,9 +33,10 @@ struct FriendsMatchWritingViewModel {
     let isSelectedLectureInfo: Observable<Bool>
     let isDoneToWrite = PublishSubject<Bool>()
     
-    init() {
-        
-        dismiss = topBarViewModel.shouldDismiss
+    // ChildViewModel -> ViewModel
+    let createFriendsMatchDetailData = PublishRelay<Void>()
+    
+    init(_ model: FriendsMatchWritingModel = FriendsMatchWritingModel()) {
         
         shouldSendLectureInfo = lectureInfo
             .asObservable()
@@ -51,5 +55,41 @@ struct FriendsMatchWritingViewModel {
                 return isSelected && isDone
             })
             .asDriver(onErrorJustReturn: false)
+        
+        // 저장하기
+        topBarViewModel.shouldSaveFriendsMatchDetailData
+            .emit(to: createFriendsMatchDetailData)
+            .disposed(by: disposeBag)
+        
+        let title = titleText
+            .compactMap { $0 }
+        
+        let content = contentText
+            .compactMap { $0 }
+        
+        let detailData = Observable
+            .combineLatest(title, content, lectureInfo)
+            .compactMap {
+                FriendsMatchDetail(title: $0, content: $1, lectureInfo: $2)
+            }
+        
+        let saveResult = createFriendsMatchDetailData
+            .withLatestFrom(detailData)
+            .flatMap(model.saveFriendsMatchDetail)
+            .share()
+        
+        let saveValue = saveResult
+            .compactMap(model.getSavedFriendsMatchDetailValue)
+        
+        let saveError = saveResult
+            .compactMap(model.getSavedFriendsMatchDetailError)
+        
+        // dismiss
+        dismiss = saveValue
+            .map { _ in }
+            .amb(topBarViewModel.shouldDismiss)
+            .asDriver(onErrorDriveWith: .empty())
+            
+        
     }
 }

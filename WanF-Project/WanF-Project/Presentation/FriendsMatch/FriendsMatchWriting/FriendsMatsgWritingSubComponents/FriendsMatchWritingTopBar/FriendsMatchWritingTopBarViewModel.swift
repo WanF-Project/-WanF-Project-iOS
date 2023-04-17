@@ -14,15 +14,22 @@ struct FriendsMatchWritingTopBarViewModel {
     
     // View -> ViewModel
     let cancelButtonTapped = PublishRelay<Void>()
+    let doneButtonTapped = PublishRelay<Void>()
     
     // ViewModel -> View
-    let shouldDismiss: Driver<Void>
+    let shouldDismiss: Observable<Void>
+    
+    // ViewModel -> ParentViewModel
+    let shouldSaveFriendsMatchDetailData: Signal<Void>
     
     init() {
         
         // View -> ViewModel
         shouldDismiss = cancelButtonTapped
-            .asDriver(onErrorDriveWith: .empty())
+            .asObservable()
+        
+        shouldSaveFriendsMatchDetailData = doneButtonTapped
+            .asSignal()
         
         // ViewModel -> View
         
