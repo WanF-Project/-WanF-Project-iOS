@@ -107,6 +107,10 @@ class FriendsMatchWritingViewController: UIViewController {
                 self.topBarView.doneButton.isEnabled = state
             })
             .disposed(by: disposeBag)
+        
+        viewModel.presentAlert
+            .emit(to: self.rx.presentSaveErrorAlert)
+            .disposed(by: disposeBag)
     }
 }
 
@@ -263,5 +267,18 @@ extension FriendsMatchWritingViewController {
         }
         
         self.present(lectureInfoVC, animated: true)
+    }
+}
+
+//MARK: - Reactive
+extension Reactive where Base: FriendsMatchWritingViewController {
+    var presentSaveErrorAlert: Binder<Void> {
+        return Binder(base) { base, _ in
+            let alertViewContoller = UIAlertController(title: "저장 실패", message: "잠시 후 다시 시도해 주세요", preferredStyle: .alert)
+            let action = UIAlertAction(title: "확인", style: .default)
+            alertViewContoller.addAction(action)
+            
+            base.present(alertViewContoller, animated: true)
+        }
     }
 }

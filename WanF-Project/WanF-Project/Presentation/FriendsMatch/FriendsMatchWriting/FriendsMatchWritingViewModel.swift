@@ -25,6 +25,7 @@ struct FriendsMatchWritingViewModel {
     
     // ViewModel -> View
     let dismiss: Driver<Void>
+    let presentAlert: Signal<Void>
     
     // ViewModel -> ChildViewModel
     let shouldSendLectureInfo: Observable<LectureInfoModel>
@@ -89,7 +90,11 @@ struct FriendsMatchWritingViewModel {
             .map { _ in }
             .amb(topBarViewModel.shouldDismiss)
             .asDriver(onErrorDriveWith: .empty())
-            
+        
+        // prsernt Alert about Error
+        presentAlert = saveError
+            .map { _ in }
+            .asSignal(onErrorSignalWith: .empty())
         
     }
 }
