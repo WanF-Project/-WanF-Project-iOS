@@ -71,7 +71,7 @@ struct FriendsMatchWritingViewModel {
         let detailData = Observable
             .combineLatest(title, content, lectureInfo)
             .compactMap {
-                FriendsMatchDetail(title: $0, content: $1, lectureInfo: $2)
+                FriendsMatchWriting(title: $0, content: $1, lectureInfo: $2)
             }
         
         let saveResult = createFriendsMatchDetailData
