@@ -58,10 +58,6 @@
 		14982C6E29EE580500D388BF /* FriendsMatchDetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14982C6D29EE580500D388BF /* FriendsMatchDetailInfoView.swift */; };
 		14982C7029EE603F00D388BF /* FriendsMatchDetailLectureInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14982C6F29EE603F00D388BF /* FriendsMatchDetailLectureInfoView.swift */; };
 		14982C7329EE657200D388BF /* FriendsMatchDetailTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14982C7229EE657200D388BF /* FriendsMatchDetailTextView.swift */; };
-		14982C7529EE858E00D388BF /* FriendsMatchDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14982C7429EE858E00D388BF /* FriendsMatchDetailModel.swift */; };
-		14982C7A29EE87B900D388BF /* FriendsMatchDetailInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14982C7929EE87B900D388BF /* FriendsMatchDetailInfoViewModel.swift */; };
-		14982C7C29EE87D500D388BF /* FriendsMatchDetailLectureInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14982C7B29EE87D500D388BF /* FriendsMatchDetailLectureInfoViewModel.swift */; };
-		14982C7E29EE87EC00D388BF /* FriendsMatchDetailTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14982C7D29EE87EC00D388BF /* FriendsMatchDetailTextViewModel.swift */; };
 		14982C8129EE8BAC00D388BF /* FriendsMatchDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14982C8029EE8BAC00D388BF /* FriendsMatchDetail.swift */; };
 		14AC9B3529E2751C009C37A5 /* FriendsMatchTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */; };
 		14AC9B3729E27547009C37A5 /* ClassInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */; };
@@ -316,11 +312,35 @@
 		14982C6C29EE56EE00D388BF /* FriendsMatchDetailSubcomponents */ = {
 			isa = PBXGroup;
 			children = (
-				14982C6D29EE580500D388BF /* FriendsMatchDetailInfoView.swift */,
-				14982C6F29EE603F00D388BF /* FriendsMatchDetailLectureInfoView.swift */,
-				14982C7229EE657200D388BF /* FriendsMatchDetailTextView.swift */,
+				14982C8B29EEAB8B00D388BF /* FriendsMatchDetailInfo */,
+				14982C8C29EEABA800D388BF /* FriendsMatchDetailLectureInfo */,
+				14982C8F29EEAC1D00D388BF /* FriendsMatchDetailText */,
 			);
 			path = FriendsMatchDetailSubcomponents;
+			sourceTree = "<group>";
+		};
+		14982C8B29EEAB8B00D388BF /* FriendsMatchDetailInfo */ = {
+			isa = PBXGroup;
+			children = (
+				14982C6D29EE580500D388BF /* FriendsMatchDetailInfoView.swift */,
+			);
+			path = FriendsMatchDetailInfo;
+			sourceTree = "<group>";
+		};
+		14982C8C29EEABA800D388BF /* FriendsMatchDetailLectureInfo */ = {
+			isa = PBXGroup;
+			children = (
+				14982C6F29EE603F00D388BF /* FriendsMatchDetailLectureInfoView.swift */,
+			);
+			path = FriendsMatchDetailLectureInfo;
+			sourceTree = "<group>";
+		};
+		14982C8F29EEAC1D00D388BF /* FriendsMatchDetailText */ = {
+			isa = PBXGroup;
+			children = (
+				14982C7229EE657200D388BF /* FriendsMatchDetailTextView.swift */,
+			);
+			path = FriendsMatchDetailText;
 			sourceTree = "<group>";
 		};
 		14A1BFED29DBE2BB00351567 /* PasswordTextFieldCell */ = {
