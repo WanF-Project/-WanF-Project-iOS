@@ -14,9 +14,9 @@ import RxCocoa
 class FriendsMatchDetailViewController: UIViewController {
     
     //MARK: - View
-    private lazy var detailInfo = FriendsMatchDetailInfoView()
-    private lazy var lectureInfo = FriendsMatchDetailLectureInfoView()
-    private lazy var detailText = FriendsMatchDetailTextView()
+    private lazy var detailInfoView = FriendsMatchDetailInfoView()
+    private lazy var lectureInfoView = FriendsMatchDetailLectureInfoView()
+    private lazy var detailTextView = FriendsMatchDetailTextView()
     
     private lazy var menuBarItem: UIBarButtonItem = {
         return UIBarButtonItem(image: UIImage(systemName: "ellipsis"))
@@ -31,7 +31,7 @@ class FriendsMatchDetailViewController: UIViewController {
     private lazy var contentView = UIView()
     
     private lazy var DetailStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [detailInfo, lectureInfo, detailText])
+        let stackView = UIStackView(arrangedSubviews: [detailInfoView, lectureInfoView, detailTextView])
         
         stackView.axis = .vertical
         stackView.spacing = 28.0
