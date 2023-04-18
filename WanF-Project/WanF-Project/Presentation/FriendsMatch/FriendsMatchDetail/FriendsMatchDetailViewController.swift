@@ -14,6 +14,8 @@ import RxCocoa
 class FriendsMatchDetailViewController: UIViewController {
     
     //MARK: - View
+    private lazy var detailInfo = FriendsMatchDetailInfoView()
+    
     private lazy var menuBarItem: UIBarButtonItem = {
         return UIBarButtonItem(image: UIImage(systemName: "ellipsis"))
     }()
@@ -27,7 +29,7 @@ class FriendsMatchDetailViewController: UIViewController {
     private lazy var contentView = UIView()
     
     private lazy var DetailStackView: UIStackView = {
-        let stackView = UIStackView()
+        let stackView = UIStackView(arrangedSubviews: [detailInfo])
         
         stackView.axis = .vertical
         
