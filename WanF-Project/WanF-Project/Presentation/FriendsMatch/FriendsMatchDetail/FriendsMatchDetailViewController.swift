@@ -16,6 +16,7 @@ class FriendsMatchDetailViewController: UIViewController {
     //MARK: - View
     private lazy var detailInfo = FriendsMatchDetailInfoView()
     private lazy var lectureInfo = FriendsMatchDetailLectureInfoView()
+    private lazy var detailText = FriendsMatchDetailTextView()
     
     private lazy var menuBarItem: UIBarButtonItem = {
         return UIBarButtonItem(image: UIImage(systemName: "ellipsis"))
@@ -30,9 +31,10 @@ class FriendsMatchDetailViewController: UIViewController {
     private lazy var contentView = UIView()
     
     private lazy var DetailStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [detailInfo, lectureInfo])
+        let stackView = UIStackView(arrangedSubviews: [detailInfo, lectureInfo, detailText])
         
         stackView.axis = .vertical
+        stackView.spacing = 28.0
         
         return stackView
     }()
