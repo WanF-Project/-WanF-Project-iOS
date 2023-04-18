@@ -77,18 +77,18 @@ private extension FriendsMatchDetailViewController {
         
         scrollView.snp.makeConstraints { make in
             make.verticalEdges.equalToSuperview()
-            make.horizontalEdges.equalToSuperview().inset(horizontalInset)
+            make.horizontalEdges.equalToSuperview()
         }
         
         contentView.snp.makeConstraints { make in
             make.verticalEdges.equalToSuperview().inset(verticalInset)
-            make.horizontalEdges.equalToSuperview()
-            make.width.equalTo(scrollView.snp.width)
+            make.horizontalEdges.equalToSuperview().inset(horizontalInset)
+            make.width.equalTo(scrollView.snp.width).inset(horizontalInset)
         }
         
         DetailStackView.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
-            make.top.equalToSuperview()
+            make.verticalEdges.equalToSuperview()
         }
         
         
