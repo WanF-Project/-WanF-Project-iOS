@@ -13,6 +13,9 @@ import RxCocoa
 
 class FriendsMatchDetailViewController: UIViewController {
     
+    //MARK: - Properties
+    let disposeBag = DisposeBag()
+    
     //MARK: - View
     private lazy var detailInfoView = FriendsMatchDetailInfoView()
     private lazy var lectureInfoView = FriendsMatchDetailLectureInfoView()
@@ -49,6 +52,14 @@ class FriendsMatchDetailViewController: UIViewController {
     
     //MARK: - Function
     func bind(_ viewModel: FriendsMatchDetailViewModel){
+        
+        // Bind SubComponent
+        detailInfoView.bind(viewModel.detailInfoViewModel)
+        lectureInfoView.bind(viewModel.lectureInfoViewModel)
+        detailTextView.bind(viewModel.detailTextViewModel)
+        
+        // Load the Detail Data
+        viewModel.shouldLoadDetail.onNext(Void())
         
     }
 }

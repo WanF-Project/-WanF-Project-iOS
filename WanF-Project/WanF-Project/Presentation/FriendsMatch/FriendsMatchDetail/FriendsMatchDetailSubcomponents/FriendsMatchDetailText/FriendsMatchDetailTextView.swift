@@ -13,6 +13,9 @@ import RxCocoa
 
 class FriendsMatchDetailTextView: UIView {
     
+    //MARK: - Properties
+    let disposeBag = DisposeBag()
+    
     //MARK: -  View
     private lazy var titleLabel: UILabel = {
         var label = UILabel()
@@ -53,6 +56,18 @@ class FriendsMatchDetailTextView: UIView {
         
         configureView()
         layout()
+    }
+    
+    //MARK: - Function
+    func bind(_ viewModel: FriendsMatchDetailTextViewModel) {
+        
+        // View 데이터 연결
+        viewModel.loadDeatilText
+            .drive(onNext: { (title, content) in
+                self.titleLabel.text = title
+                self.contentLabel.text = content
+            })
+            .disposed(by: disposeBag)
         
     }
 }
