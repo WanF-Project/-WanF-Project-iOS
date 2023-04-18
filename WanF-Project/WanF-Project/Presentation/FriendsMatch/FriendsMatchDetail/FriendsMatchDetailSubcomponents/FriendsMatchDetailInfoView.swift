@@ -58,10 +58,12 @@ private extension FriendsMatchDetailInfoView {
         ]
             .forEach { addSubview($0) }
         
+        let inset = 10.0
         let offset = 10.0
         
         nicknameLabel.snp.makeConstraints { make in
-            make.top.leading.equalToSuperview()
+            make.top.equalToSuperview()
+            make.leading.equalToSuperview().inset(inset)
         }
         
         dateLabel.snp.makeConstraints { make in
