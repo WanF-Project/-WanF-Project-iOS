@@ -70,6 +70,7 @@ class FriendsMatchTabViewController: UIViewController {
             .disposed(by: disposeBag)
         
         // ViewModel -> View
+        // TODO: - 데이터 연결 이벤트 전달 로직 수정 필요
         viewModel.shouldLoadFriendsMatchList
             .subscribe()
             .disposed(by: disposeBag)
