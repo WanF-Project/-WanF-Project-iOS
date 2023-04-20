@@ -20,9 +20,11 @@ struct FriendsMatchDetailViewModel {
     
     // View -> ViewModel
     let shouldLoadDetail = PublishSubject<Void>()
+    let menueButtonTapped = PublishRelay<Void>()
     
     // ViewModel -> View
     let detailData: Observable<FriendsMatchDetail>
+    let presentMenueActionSheet: Signal<Void>
     
     // ViewModel -> ChildViewModel
     let detailInfo: Observable<(String, String)>
@@ -72,5 +74,10 @@ struct FriendsMatchDetailViewModel {
         detailText
             .bind(to: detailTextViewModel.detailText)
             .disposed(by: disposeBag)
+        
+        // Tap the MenueButton
+        presentMenueActionSheet = menueButtonTapped
+            .asSignal(onErrorSignalWith: .empty())
+        
     }
 }

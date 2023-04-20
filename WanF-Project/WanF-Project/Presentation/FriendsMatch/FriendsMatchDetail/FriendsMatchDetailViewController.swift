@@ -61,6 +61,15 @@ class FriendsMatchDetailViewController: UIViewController {
         // Load the Detail Data
         viewModel.shouldLoadDetail.onNext(Void())
         
+        // MenueButton Action
+        menuBarItem.rx.tap
+            .bind(to: viewModel.menueButtonTapped)
+            .disposed(by: disposeBag)
+        
+        viewModel.presentMenueActionSheet
+            .emit(to: self.rx.presentMenueActionSheet)
+            .disposed(by: disposeBag)
+        
     }
 }
 
@@ -103,5 +112,31 @@ private extension FriendsMatchDetailViewController {
         }
         
         
+    }
+}
+
+extension Reactive where Base: FriendsMatchDetailViewController {
+    var presentMenueActionSheet: Binder<Void> {
+        return Binder(base) { base, _ in
+            let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            
+            let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+            
+            let editAction = UIAlertAction(title: "수정", style: .default) { _ in
+                print("Present FriendsMatchWriting")
+            }
+            let deleteAction = UIAlertAction(title: "삭제", style: .destructive) { _ in
+                print("Dismiss")
+            }
+            
+            [
+                cancelAction,
+                editAction,
+                deleteAction
+            ]
+                .forEach { actionSheet.addAction($0) }
+            
+            base.present(actionSheet, animated: true)
+        }
     }
 }
