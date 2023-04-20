@@ -13,6 +13,9 @@ import RxCocoa
 
 class FriendsMatchDetailInfoView: UIView {
     
+    //MARK: - Properties
+    let disposeBag = DisposeBag()
+    
     //MARK: - View
     private lazy var nicknameLabel: UILabel = {
         let label = UILabel()
@@ -40,6 +43,19 @@ class FriendsMatchDetailInfoView: UIView {
         
         configureView()
         layout()
+    }
+    
+    //MARK: - Function
+    func bind(_ viewModel: FriendsMatchDetailInfoViewModel) {
+        
+        // View 데이터 연결
+        viewModel.loadDeatilInfo
+            .drive(onNext: { (nickname, date) in
+                self.nicknameLabel.text = nickname
+                self.dateLabel.text = date
+            })
+            .disposed(by: disposeBag)
+        
     }
 }
 

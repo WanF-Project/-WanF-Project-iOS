@@ -12,7 +12,7 @@ import RxSwift
 // TODO: - 서버 연결 시 재구현
 struct FriendsMatchWritingModel {
     
-    func saveFriendsMatchDetail(_ data: FriendsMatchDetail) -> Observable<Bool> {
+    func saveFriendsMatchDetail(_ data: FriendsMatchWriting) -> Observable<Bool> {
         return Observable
             .just(data)
             .map {

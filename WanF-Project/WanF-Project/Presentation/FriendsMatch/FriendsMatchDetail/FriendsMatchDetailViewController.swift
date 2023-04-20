@@ -13,6 +13,10 @@ import RxCocoa
 
 class FriendsMatchDetailViewController: UIViewController {
     
+    //MARK: - Properties
+    let disposeBag = DisposeBag()
+    var viewModel: FriendsMatchDetailViewModel?
+    
     //MARK: - View
     private lazy var detailInfoView = FriendsMatchDetailInfoView()
     private lazy var lectureInfoView = FriendsMatchDetailLectureInfoView()
@@ -49,6 +53,25 @@ class FriendsMatchDetailViewController: UIViewController {
     
     //MARK: - Function
     func bind(_ viewModel: FriendsMatchDetailViewModel){
+        
+        self.viewModel = viewModel
+        
+        // Bind SubComponent
+        detailInfoView.bind(viewModel.detailInfoViewModel)
+        lectureInfoView.bind(viewModel.lectureInfoViewModel)
+        detailTextView.bind(viewModel.detailTextViewModel)
+        
+        // Load the Detail Data
+        viewModel.shouldLoadDetail.onNext(Void())
+        
+        // MenueButton Action
+        menuBarItem.rx.tap
+            .bind(to: viewModel.menueButtonTapped)
+            .disposed(by: disposeBag)
+        
+        viewModel.presentMenueActionSheet
+            .emit(to: self.rx.presentMenueActionSheet)
+            .disposed(by: disposeBag)
         
     }
 }
@@ -92,5 +115,43 @@ private extension FriendsMatchDetailViewController {
         }
         
         
+    }
+}
+
+extension Reactive where Base: FriendsMatchDetailViewController {
+    var presentMenueActionSheet: Binder<Void> {
+        return Binder(base) { base, _ in
+            let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            
+            let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+            
+            // TODO: - 추후 수정 기능 구현
+//            let editAction = UIAlertAction(title: "수정", style: .default) { _ in
+//                print("Present FriendsMatchWriting")
+//            }
+            
+            let deleteAction = UIAlertAction(title: "삭제", style: .destructive) { _ in
+                if base.viewModel != nil {
+                    base.viewModel!.deleteButtonTapped
+                        .subscribe()
+                        .disposed(by: base.disposeBag)
+                    
+                    base.viewModel!.popToRootViewController
+                        .drive(onNext: { _ in
+                            base.navigationController?.popToRootViewController(animated: true)
+                        })
+                        .disposed(by: base.disposeBag)
+                }
+            }
+            
+            [
+                cancelAction,
+//                editAction,
+                deleteAction
+            ]
+                .forEach { actionSheet.addAction($0) }
+            
+            base.present(actionSheet, animated: true)
+        }
     }
 }
