@@ -125,9 +125,10 @@ extension Reactive where Base: FriendsMatchDetailViewController {
             
             let cancelAction = UIAlertAction(title: "취소", style: .cancel)
             
-            let editAction = UIAlertAction(title: "수정", style: .default) { _ in
-                print("Present FriendsMatchWriting")
-            }
+            // TODO: - 추후 수정 기능 구현
+//            let editAction = UIAlertAction(title: "수정", style: .default) { _ in
+//                print("Present FriendsMatchWriting")
+//            }
             
             let deleteAction = UIAlertAction(title: "삭제", style: .destructive) { _ in
                 if base.viewModel != nil {
@@ -145,7 +146,7 @@ extension Reactive where Base: FriendsMatchDetailViewController {
             
             [
                 cancelAction,
-                editAction,
+//                editAction,
                 deleteAction
             ]
                 .forEach { actionSheet.addAction($0) }
