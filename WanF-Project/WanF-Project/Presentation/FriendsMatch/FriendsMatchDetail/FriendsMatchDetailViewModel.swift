@@ -5,7 +5,7 @@
 //  Created by 임윤휘 on 2023/04/11.
 //
 
-import Foundation
+import UIKit
 
 import RxSwift
 import RxCocoa
@@ -21,10 +21,12 @@ struct FriendsMatchDetailViewModel {
     // View -> ViewModel
     let shouldLoadDetail = PublishSubject<Void>()
     let menueButtonTapped = PublishRelay<Void>()
+    let deleteButtonTapped = BehaviorRelay(value: Void())
     
     // ViewModel -> View
     let detailData: Observable<FriendsMatchDetail>
     let presentMenueActionSheet: Signal<Void>
+    let popToRootViewController: Driver<Bool>
     
     // ViewModel -> ChildViewModel
     let detailInfo: Observable<(String, String)>
@@ -78,6 +80,21 @@ struct FriendsMatchDetailViewModel {
         // Tap the MenueButton
         presentMenueActionSheet = menueButtonTapped
             .asSignal(onErrorSignalWith: .empty())
+        
+        //Tap the Delete Button
+        let deleteDetailResult = deleteButtonTapped
+            .flatMap(model.deleteDetail)
+            .share()
+        
+        let deleteDetailValue = deleteDetailResult
+            .compactMap(model.getDeleteDetailValue)
+        
+        let deleDetailError = deleteDetailResult
+            .compactMap(model.getDeleteDetailError)
+        
+        popToRootViewController = deleteDetailValue
+            .asDriver(onErrorDriveWith: .empty())
+            
         
     }
 }

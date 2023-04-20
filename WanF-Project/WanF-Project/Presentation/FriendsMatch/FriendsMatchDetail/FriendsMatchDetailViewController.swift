@@ -15,6 +15,7 @@ class FriendsMatchDetailViewController: UIViewController {
     
     //MARK: - Properties
     let disposeBag = DisposeBag()
+    var viewModel: FriendsMatchDetailViewModel?
     
     //MARK: - View
     private lazy var detailInfoView = FriendsMatchDetailInfoView()
@@ -52,6 +53,8 @@ class FriendsMatchDetailViewController: UIViewController {
     
     //MARK: - Function
     func bind(_ viewModel: FriendsMatchDetailViewModel){
+        
+        self.viewModel = viewModel
         
         // Bind SubComponent
         detailInfoView.bind(viewModel.detailInfoViewModel)
@@ -125,8 +128,19 @@ extension Reactive where Base: FriendsMatchDetailViewController {
             let editAction = UIAlertAction(title: "수정", style: .default) { _ in
                 print("Present FriendsMatchWriting")
             }
+            
             let deleteAction = UIAlertAction(title: "삭제", style: .destructive) { _ in
-                print("Dismiss")
+                if base.viewModel != nil {
+                    base.viewModel!.deleteButtonTapped
+                        .subscribe()
+                        .disposed(by: base.disposeBag)
+                    
+                    base.viewModel!.popToRootViewController
+                        .drive(onNext: { _ in
+                            base.navigationController?.popToRootViewController(animated: true)
+                        })
+                        .disposed(by: base.disposeBag)
+                }
             }
             
             [

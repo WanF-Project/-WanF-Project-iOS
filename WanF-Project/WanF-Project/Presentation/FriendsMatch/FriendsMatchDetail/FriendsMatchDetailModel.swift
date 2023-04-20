@@ -12,6 +12,7 @@ import RxSwift
 // TODO: - 서버 연결 시 재구현
 struct FriendsMatchDetailModel {
     
+    // Load Detail
     func loadDetail() -> Observable<Bool> {
         return Observable
             .just(true)
@@ -25,6 +26,26 @@ struct FriendsMatchDetailModel {
     }
     
     func getDetailError(_ result: Bool) -> Bool? {
+        if result {
+            return nil
+        }
+        return false
+    }
+    
+    // Delete Detail
+    func deleteDetail() -> Observable<Bool> {
+        return Observable
+            .just(true)
+    }
+    
+    func getDeleteDetailValue(_ result: Bool) -> Bool? {
+        if !result {
+            return nil
+        }
+        return true
+    }
+    
+    func getDeleteDetailError(_ result: Bool) -> Bool? {
         if result {
             return nil
         }
