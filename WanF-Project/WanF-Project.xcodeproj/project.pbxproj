@@ -24,8 +24,8 @@
 		1429B0A729E5163300891FF8 /* FriendsMatchTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0A629E5163300891FF8 /* FriendsMatchTabViewModel.swift */; };
 		1429B0A929E51CF400891FF8 /* FriendsMatchTabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0A829E51CF400891FF8 /* FriendsMatchTabModel.swift */; };
 		1429B0AE29E53F9D00891FF8 /* FriendsMatchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0AD29E53F9D00891FF8 /* FriendsMatchListCell.swift */; };
-		1429B0B329E56EF300891FF8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0B229E56EF300891FF8 /* ProfileViewController.swift */; };
-		1429B0B529E5710C00891FF8 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0B429E5710C00891FF8 /* ProfileViewModel.swift */; };
+		1429B0B329E56EF300891FF8 /* ProfileMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0B229E56EF300891FF8 /* ProfileMainViewController.swift */; };
+		1429B0B529E5710C00891FF8 /* ProfileMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0B429E5710C00891FF8 /* ProfileMainViewModel.swift */; };
 		1429B0B829E5731900891FF8 /* FriendsMatchWritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0B729E5731900891FF8 /* FriendsMatchWritingViewController.swift */; };
 		1429B0BA29E573B000891FF8 /* FriendsMatchWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0B929E573B000891FF8 /* FriendsMatchWritingViewModel.swift */; };
 		1429B0BD29E5760400891FF8 /* FriendsMatchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0BC29E5760400891FF8 /* FriendsMatchDetailViewController.swift */; };
@@ -96,8 +96,8 @@
 		1429B0A629E5163300891FF8 /* FriendsMatchTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabViewModel.swift; sourceTree = "<group>"; };
 		1429B0A829E51CF400891FF8 /* FriendsMatchTabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabModel.swift; sourceTree = "<group>"; };
 		1429B0AD29E53F9D00891FF8 /* FriendsMatchListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchListCell.swift; sourceTree = "<group>"; };
-		1429B0B229E56EF300891FF8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		1429B0B429E5710C00891FF8 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		1429B0B229E56EF300891FF8 /* ProfileMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainViewController.swift; sourceTree = "<group>"; };
+		1429B0B429E5710C00891FF8 /* ProfileMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainViewModel.swift; sourceTree = "<group>"; };
 		1429B0B729E5731900891FF8 /* FriendsMatchWritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingViewController.swift; sourceTree = "<group>"; };
 		1429B0B929E573B000891FF8 /* FriendsMatchWritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingViewModel.swift; sourceTree = "<group>"; };
 		1429B0BC29E5760400891FF8 /* FriendsMatchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchDetailViewController.swift; sourceTree = "<group>"; };
@@ -231,8 +231,8 @@
 		1429B0B129E56ED900891FF8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				1429B0B229E56EF300891FF8 /* ProfileViewController.swift */,
-				1429B0B429E5710C00891FF8 /* ProfileViewModel.swift */,
+				1429B0B229E56EF300891FF8 /* ProfileMainViewController.swift */,
+				1429B0B429E5710C00891FF8 /* ProfileMainViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -631,7 +631,7 @@
 				14DD372429DB318900D6A715 /* SignUpPasswordViewModel.swift in Sources */,
 				14982C7329EE657200D388BF /* FriendsMatchDetailTextView.swift in Sources */,
 				14066BB129E1455F00AFB2D2 /* PasswordToCheckTextFieldCellViewModel.swift in Sources */,
-				1429B0B329E56EF300891FF8 /* ProfileViewController.swift in Sources */,
+				1429B0B329E56EF300891FF8 /* ProfileMainViewController.swift in Sources */,
 				14DD370F29DB0D5B00D6A715 /* EmailStackViewCell.swift in Sources */,
 				14793FBE29D83DA60048D5DD /* ExUIView.swift in Sources */,
 				14982C8129EE8BAC00D388BF /* FriendsMatchDetail.swift in Sources */,
@@ -647,7 +647,7 @@
 				1496374129ED5ABD0021B4D4 /* FriendsMatchWriting.swift in Sources */,
 				14DD372229DB30EC00D6A715 /* PasswordToCheckTextFieldCell.swift in Sources */,
 				1496374329ED5E610021B4D4 /* FriendsMatchWritingModel.swift in Sources */,
-				1429B0B529E5710C00891FF8 /* ProfileViewModel.swift in Sources */,
+				1429B0B529E5710C00891FF8 /* ProfileMainViewModel.swift in Sources */,
 				141A781A29D7ED46006731F7 /* SceneDelegate.swift in Sources */,
 				14870BF129EBBD9400D9643E /* FriendsMatchWritingLectureInfoViewModel.swift in Sources */,
 				14DD371E29DB2CBB00D6A715 /* SignUpPasswordViewController.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.swift
+//  ProfileMainViewController.swift
 //  WanF-Project
 //
 //  Created by 임윤휘 on 2023/04/11.
@@ -11,7 +11,7 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-class ProfileViewController: UIViewController {
+class ProfileMainViewController: UIViewController {
     
     //MARK: -  LifeCycle
     override func viewDidLoad() {
@@ -21,7 +21,7 @@ class ProfileViewController: UIViewController {
     }
     
     //MARK: - Fuction
-    func bind(_ viewModel: ProfileViewModel) {
+    func bind(_ viewModel: ProfileMainViewModel) {
         
     }
 }
