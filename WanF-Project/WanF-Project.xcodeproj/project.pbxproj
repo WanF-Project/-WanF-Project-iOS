@@ -66,6 +66,11 @@
 		14AC9B3529E2751C009C37A5 /* FriendsMatchTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */; };
 		14AC9B3729E27547009C37A5 /* ClassInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */; };
 		14AC9B3929E27569009C37A5 /* ClassGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3829E27569009C37A5 /* ClassGroupViewController.swift */; };
+		14BD19EA29FB986700B0E598 /* ProfileContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BD19E929FB986700B0E598 /* ProfileContentView.swift */; };
+		14BD19EE29FBB63B00B0E598 /* ProfileContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BD19ED29FBB63B00B0E598 /* ProfileContentViewModel.swift */; };
+		14BD19F229FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BD19F129FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift */; };
+		14D4C2D929FCF427001ACBC6 /* LeadingAlignmentCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4C2D829FCF427001ACBC6 /* LeadingAlignmentCollectionViewFlowLayout.swift */; };
+		14D4C2DD29FD0407001ACBC6 /* DynamicHeightCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4C2DC29FD0407001ACBC6 /* DynamicHeightCollectionView.swift */; };
 		14D7A90329E92F9B007850BE /* FriendsMatchWritingTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D7A90229E92F9B007850BE /* FriendsMatchWritingTopBarView.swift */; };
 		14D7A90A29E936A3007850BE /* FriendsMatchWritingLectureInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D7A90929E936A3007850BE /* FriendsMatchWritingLectureInfoView.swift */; };
 		14DD370F29DB0D5B00D6A715 /* EmailStackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD370E29DB0D5B00D6A715 /* EmailStackViewCell.swift */; };
@@ -138,6 +143,11 @@
 		14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabViewController.swift; sourceTree = "<group>"; };
 		14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInfoViewController.swift; sourceTree = "<group>"; };
 		14AC9B3829E27569009C37A5 /* ClassGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassGroupViewController.swift; sourceTree = "<group>"; };
+		14BD19E929FB986700B0E598 /* ProfileContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentView.swift; sourceTree = "<group>"; };
+		14BD19ED29FBB63B00B0E598 /* ProfileContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentViewModel.swift; sourceTree = "<group>"; };
+		14BD19F129FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentKeywordListCell.swift; sourceTree = "<group>"; };
+		14D4C2D829FCF427001ACBC6 /* LeadingAlignmentCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingAlignmentCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		14D4C2DC29FD0407001ACBC6 /* DynamicHeightCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightCollectionView.swift; sourceTree = "<group>"; };
 		14D7A90229E92F9B007850BE /* FriendsMatchWritingTopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingTopBarView.swift; sourceTree = "<group>"; };
 		14D7A90929E936A3007850BE /* FriendsMatchWritingLectureInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingLectureInfoView.swift; sourceTree = "<group>"; };
 		14DD370E29DB0D5B00D6A715 /* EmailStackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailStackViewCell.swift; sourceTree = "<group>"; };
@@ -233,6 +243,11 @@
 			children = (
 				1429B0B229E56EF300891FF8 /* ProfileMainViewController.swift */,
 				1429B0B429E5710C00891FF8 /* ProfileMainViewModel.swift */,
+				14BD19E929FB986700B0E598 /* ProfileContentView.swift */,
+				14BD19ED29FBB63B00B0E598 /* ProfileContentViewModel.swift */,
+				14BD19F129FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift */,
+				14D4C2D829FCF427001ACBC6 /* LeadingAlignmentCollectionViewFlowLayout.swift */,
+				14D4C2DC29FD0407001ACBC6 /* DynamicHeightCollectionView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -594,6 +609,8 @@
 			files = (
 				14793FBC29D837480048D5DD /* ExUIFont.swift in Sources */,
 				14567E9A29DFDD43000B75EE /* EmailStackViewCellViewModel.swift in Sources */,
+				14BD19EE29FBB63B00B0E598 /* ProfileContentViewModel.swift in Sources */,
+				14D4C2DD29FD0407001ACBC6 /* DynamicHeightCollectionView.swift in Sources */,
 				14567E9C29DFE824000B75EE /* EmailStackViewCellModel.swift in Sources */,
 				14E4C9EB29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift in Sources */,
 				147922ED29DADBCF0052CBA8 /* SignUpIDViewController.swift in Sources */,
@@ -612,6 +629,7 @@
 				14AC9B3729E27547009C37A5 /* ClassInfoViewController.swift in Sources */,
 				14793FA929D831230048D5DD /* ExUIColor.swift in Sources */,
 				141A783629D7F1E5006731F7 /* SignInViewController.swift in Sources */,
+				14BD19F229FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift in Sources */,
 				142DBED229DC223A00017603 /* EmailTextFieldViewModel.swift in Sources */,
 				14E4C9E929EA564400E2CB62 /* LectureInfoViewModel.swift in Sources */,
 				14982C9729EEAD5800D388BF /* FriendsMatchDetailLectureInfoViewModel.swift in Sources */,
@@ -634,10 +652,12 @@
 				1429B0B329E56EF300891FF8 /* ProfileMainViewController.swift in Sources */,
 				14DD370F29DB0D5B00D6A715 /* EmailStackViewCell.swift in Sources */,
 				14793FBE29D83DA60048D5DD /* ExUIView.swift in Sources */,
+				14BD19EA29FB986700B0E598 /* ProfileContentView.swift in Sources */,
 				14982C8129EE8BAC00D388BF /* FriendsMatchDetail.swift in Sources */,
 				14567EA029E00AF6000B75EE /* SignUpIDModel.swift in Sources */,
 				1429B0B829E5731900891FF8 /* FriendsMatchWritingViewController.swift in Sources */,
 				141A781829D7ED46006731F7 /* AppDelegate.swift in Sources */,
+				14D4C2D929FCF427001ACBC6 /* LeadingAlignmentCollectionViewFlowLayout.swift in Sources */,
 				14D7A90329E92F9B007850BE /* FriendsMatchWritingTopBarView.swift in Sources */,
 				14982C9129EEACD200D388BF /* FriendsMatchDetailModel.swift in Sources */,
 				14AC9B3929E27569009C37A5 /* ClassGroupViewController.swift in Sources */,

@@ -12,4 +12,7 @@ import RxCocoa
 
 struct ProfileMainViewModel {
     
+    // Subcomponent ViewModel
+    let profileContentViewModel = ProfileContentViewModel()
+    
 }

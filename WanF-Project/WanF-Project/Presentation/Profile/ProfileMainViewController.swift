@@ -13,15 +13,49 @@ import RxCocoa
 
 class ProfileMainViewController: UIViewController {
     
+    let profileContentView = ProfileContentView()
+    var viewModel: ProfileMainViewModel?
+    
+    let scrollView = UIScrollView()
+    let containerView = UIView()
+    
     //MARK: -  LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .wanfBackground
+        configureView()
+        layout()
     }
     
     //MARK: - Fuction
     func bind(_ viewModel: ProfileMainViewModel) {
+        self.viewModel = viewModel
         
+        // Bind Subcomponent
+        profileContentView.bind(viewModel.profileContentViewModel)
+    }
+}
+
+private extension ProfileMainViewController {
+    func configureView() {
+        view.backgroundColor = .wanfBackground
+        
+        view.addSubview(scrollView)
+        scrollView.addSubview(profileContentView)
+    }
+    
+    func layout() {
+        let verticalInset = 10.0
+        let horizontalInset = 30.0
+        
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        profileContentView.snp.makeConstraints { make in
+            make.verticalEdges.equalToSuperview().inset(verticalInset)
+            make.horizontalEdges.equalToSuperview().inset(horizontalInset)
+            make.width.equalTo(scrollView.snp.width).inset(horizontalInset)
+        }
     }
 }
