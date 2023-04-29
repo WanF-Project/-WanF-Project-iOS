@@ -160,6 +160,20 @@ class ProfileContentView: UIView {
         return collectionView
     }()
     
+    lazy var profileContactButton: UIButton = {
+        
+        var attributedString = AttributedString("연락처")
+        attributedString.font = .wanfFont(ofSize: 15, weight: .bold)
+        attributedString.foregroundColor = .wanfLabel
+        attributedString.underlineStyle = .single
+        attributedString.underlineColor = .wanfLabel
+        
+        var configuration = UIButton.Configuration.plain()
+        configuration.attributedTitle = attributedString
+        
+        return UIButton(configuration: configuration)
+    }()
+    
     
     //MARK: - LifeCycle
     override func layoutSubviews() {
@@ -216,7 +230,8 @@ private extension ProfileContentView {
             profilePersonalityListTitleLabel,
             profilePersonalityListView,
             profilePurposeListTitleLabel,
-            profilePurposeListView
+            profilePurposeListView,
+            profileContactButton
         ]
             .forEach { self.addSubview($0) }
     }
@@ -296,7 +311,13 @@ private extension ProfileContentView {
             make.top.equalTo(profilePurposeListTitleLabel.snp.bottom).offset(13)
             make.centerX.equalToSuperview()
             make.width.equalTo(profileMajorLabel)
-            make.bottom.equalToSuperview().inset(verticalInset + 20)
+        }
+        
+        // 프로필 연락처
+        profileContactButton.snp.makeConstraints { make in
+            make.top.equalTo(profilePurposeListView.snp.bottom).offset(groupOffset)
+            make.bottom.equalToSuperview().inset(verticalInset)
+            make.centerX.equalToSuperview()
         }
     }
 }
