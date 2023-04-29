@@ -36,6 +36,7 @@ class ProfileMainViewController: UIViewController {
         
         configureView()
         layout()
+        configureTapGesture()
     }
     
     //MARK: - Fuction
@@ -86,5 +87,36 @@ private extension ProfileMainViewController {
             make.leading.equalTo(profileContentView)
             make.bottom.equalToSuperview().inset(verticalInset)
         }
+    }
+}
+
+//MARK: - Tap Gesture
+extension ProfileMainViewController {
+    func configureTapGesture() {
+        
+        [
+            profileContentView.profileNicknameLabel
+        ]
+            .forEach { $0.isUserInteractionEnabled = true }
+        
+        let profileNicknameGesture = UITapGestureRecognizer(target: self, action: #selector(didTapProfileNickname))
+        profileContentView.profileNicknameLabel.addGestureRecognizer(profileNicknameGesture)
+        
+    }
+    
+    @objc func didTapProfileNickname() {
+        let alertVC = UIAlertController(title: "별명을 입력하세요", message: nil, preferredStyle: .alert)
+        alertVC.addTextField()
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+        let doneAction = UIAlertAction(title: "완료", style: .default)
+        
+        [
+            cancelAction,
+            doneAction
+        ]
+            .forEach { alertVC.addAction($0) }
+        
+        self.present(alertVC, animated: true)
     }
 }
