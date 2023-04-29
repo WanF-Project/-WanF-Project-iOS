@@ -51,8 +51,8 @@ private extension ProfileMainViewController {
     }
     
     func layout() {
-        let verticalInset = 10.0
-        let horizontalInset = 30.0
+        let verticalInset = 30.0
+        let horizontalInset = 50.0
         
         scrollView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
