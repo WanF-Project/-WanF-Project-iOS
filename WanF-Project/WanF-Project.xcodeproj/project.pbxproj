@@ -71,6 +71,7 @@
 		14BD19F229FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BD19F129FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift */; };
 		14D4C2D929FCF427001ACBC6 /* LeadingAlignmentCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4C2D829FCF427001ACBC6 /* LeadingAlignmentCollectionViewFlowLayout.swift */; };
 		14D4C2DD29FD0407001ACBC6 /* DynamicHeightCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4C2DC29FD0407001ACBC6 /* DynamicHeightCollectionView.swift */; };
+		14D4C2E329FD49B2001ACBC6 /* ProfileContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4C2E229FD49B2001ACBC6 /* ProfileContent.swift */; };
 		14D7A90329E92F9B007850BE /* FriendsMatchWritingTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D7A90229E92F9B007850BE /* FriendsMatchWritingTopBarView.swift */; };
 		14D7A90A29E936A3007850BE /* FriendsMatchWritingLectureInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D7A90929E936A3007850BE /* FriendsMatchWritingLectureInfoView.swift */; };
 		14DD370F29DB0D5B00D6A715 /* EmailStackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD370E29DB0D5B00D6A715 /* EmailStackViewCell.swift */; };
@@ -148,6 +149,7 @@
 		14BD19F129FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentKeywordListCell.swift; sourceTree = "<group>"; };
 		14D4C2D829FCF427001ACBC6 /* LeadingAlignmentCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingAlignmentCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		14D4C2DC29FD0407001ACBC6 /* DynamicHeightCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightCollectionView.swift; sourceTree = "<group>"; };
+		14D4C2E229FD49B2001ACBC6 /* ProfileContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContent.swift; sourceTree = "<group>"; };
 		14D7A90229E92F9B007850BE /* FriendsMatchWritingTopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingTopBarView.swift; sourceTree = "<group>"; };
 		14D7A90929E936A3007850BE /* FriendsMatchWritingLectureInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingLectureInfoView.swift; sourceTree = "<group>"; };
 		14DD370E29DB0D5B00D6A715 /* EmailStackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailStackViewCell.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				1496374029ED5ABD0021B4D4 /* FriendsMatchWriting.swift */,
 				1429B0A429E5129C00891FF8 /* LectureInfoModel.swift */,
 				14982C8029EE8BAC00D388BF /* FriendsMatchDetail.swift */,
+				14D4C2E229FD49B2001ACBC6 /* ProfileContent.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -656,6 +659,7 @@
 				142DBEE129DC4FC300017603 /* MainTabBarViewModel.swift in Sources */,
 				1429B0BD29E5760400891FF8 /* FriendsMatchDetailViewController.swift in Sources */,
 				1429B0A329E5122400891FF8 /* FriendsMatchListCellModel.swift in Sources */,
+				14D4C2E329FD49B2001ACBC6 /* ProfileContent.swift in Sources */,
 				142DBEDC29DC3D1100017603 /* SignInModel.swift in Sources */,
 				14DD371129DB0EE700D6A715 /* SignUpIDViewModel.swift in Sources */,
 				14982C9929EEADC200D388BF /* FriendsMatchDetailTextViewModel.swift in Sources */,
