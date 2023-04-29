@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// CollectionView의 alignment를 좌측으로 설정하는 커스텀 UICollectionViewFlowLayout 클래스
 class LeadingAlignmentCollectionViewFlowLayout: UICollectionViewFlowLayout {
   override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
     let attributes = super.layoutAttributesForElements(in: rect)
