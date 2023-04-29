@@ -201,6 +201,7 @@
 				141A781729D7ED46006731F7 /* AppDelegate.swift */,
 				141A781929D7ED46006731F7 /* SceneDelegate.swift */,
 				14793FA729D82F1D0048D5DD /* Extension */,
+				14D4C2DF29FD0AC6001ACBC6 /* Custom */,
 				14793FAB29D835680048D5DD /* Asset */,
 				141A782229D7ED46006731F7 /* LaunchScreen.storyboard */,
 				141A782529D7ED46006731F7 /* Info.plist */,
@@ -241,13 +242,9 @@
 		1429B0B129E56ED900891FF8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				14D4C2DE29FD0A9C001ACBC6 /* SubComponent */,
 				1429B0B229E56EF300891FF8 /* ProfileMainViewController.swift */,
 				1429B0B429E5710C00891FF8 /* ProfileMainViewModel.swift */,
-				14BD19E929FB986700B0E598 /* ProfileContentView.swift */,
-				14BD19ED29FBB63B00B0E598 /* ProfileContentViewModel.swift */,
-				14BD19F129FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift */,
-				14D4C2D829FCF427001ACBC6 /* LeadingAlignmentCollectionViewFlowLayout.swift */,
-				14D4C2DC29FD0407001ACBC6 /* DynamicHeightCollectionView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -412,6 +409,25 @@
 				14AC9B3829E27569009C37A5 /* ClassGroupViewController.swift */,
 			);
 			path = ClassGroup;
+			sourceTree = "<group>";
+		};
+		14D4C2DE29FD0A9C001ACBC6 /* SubComponent */ = {
+			isa = PBXGroup;
+			children = (
+				14BD19E929FB986700B0E598 /* ProfileContentView.swift */,
+				14BD19ED29FBB63B00B0E598 /* ProfileContentViewModel.swift */,
+				14BD19F129FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift */,
+			);
+			path = SubComponent;
+			sourceTree = "<group>";
+		};
+		14D4C2DF29FD0AC6001ACBC6 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				14D4C2D829FCF427001ACBC6 /* LeadingAlignmentCollectionViewFlowLayout.swift */,
+				14D4C2DC29FD0407001ACBC6 /* DynamicHeightCollectionView.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 		14D7A90129E92E8C007850BE /* FriendsMatsgWritingSubComponents */ = {
