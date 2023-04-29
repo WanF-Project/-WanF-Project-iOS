@@ -40,6 +40,12 @@ private extension ProfileMainViewController {
     func configureView() {
         view.backgroundColor = .wanfBackground
         
+        navigationItem.title = "프로필"
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor : UIColor.wanfLabel,
+            NSAttributedString.Key.font : UIFont.wanfFont(ofSize: 15, weight: .bold)
+        ]
+        
         view.addSubview(scrollView)
         scrollView.addSubview(profileContentView)
     }
