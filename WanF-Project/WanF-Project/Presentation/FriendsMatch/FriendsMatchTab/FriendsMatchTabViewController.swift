@@ -77,7 +77,7 @@ class FriendsMatchTabViewController: UIViewController {
         
         viewModel.pushToProfile
             .drive(onNext: { viewModel in
-                let profileVC = ProfileViewController()
+                let profileVC = ProfileMainViewController()
                 profileVC.bind(viewModel)
                 
                 self.navigationController?.pushViewController(profileVC, animated: true)

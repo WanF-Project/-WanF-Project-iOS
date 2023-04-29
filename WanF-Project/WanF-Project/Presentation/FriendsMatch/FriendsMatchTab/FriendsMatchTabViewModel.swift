@@ -21,7 +21,7 @@ struct FriendsMatchTabViewModel {
     let shouldLoadFriendsMatchList:  Observable<Bool>
     let cellData: Driver<[FriendsMatchListCellModel]>
     
-    let pushToProfile: Driver<ProfileViewModel>
+    let pushToProfile: Driver<ProfileMainViewModel>
     let presentFriendsMatchWriting: Driver<FriendsMatchWritingViewModel>
     let pushToFriendsMatchDetail: Driver<(indexPath: IndexPath, viewModel: FriendsMatchDetailViewModel)>
     
@@ -30,7 +30,7 @@ struct FriendsMatchTabViewModel {
         // View -> ViewModel
         
         pushToProfile = profileButtonTapped
-            .map { ProfileViewModel() }
+            .map { ProfileMainViewModel() }
             .asDriver(onErrorDriveWith: .empty())
         
         presentFriendsMatchWriting = addButtonTapped
