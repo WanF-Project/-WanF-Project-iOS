@@ -98,7 +98,10 @@ extension ProfileMainViewController {
             profileContentView.profileImageView,
             profileContentView.profileNicknameLabel,
             profileContentView.profileMajorLabel,
-            profileContentView.profileEntranceYearLabel
+            profileContentView.profileEntranceYearLabel,
+            profileContentView.profileBirthLabel,
+            profileContentView.profileGenderLabel,
+            profileContentView.profileMBTILabel
         ]
             .forEach { $0.isUserInteractionEnabled = true }
         
@@ -113,6 +116,15 @@ extension ProfileMainViewController {
         
         let profileEntranceYearGesture = UITapGestureRecognizer(target: self, action: #selector(didTapProfileEntranceYear))
         profileContentView.profileEntranceYearLabel.addGestureRecognizer(profileEntranceYearGesture)
+        
+        let profileBirthGesture = UITapGestureRecognizer(target: self, action: #selector(didTapProfileBirth))
+        profileContentView.profileBirthLabel.addGestureRecognizer(profileBirthGesture)
+        
+        let profileGenderGesture = UITapGestureRecognizer(target: self, action: #selector(didTapProfileGender))
+        profileContentView.profileGenderLabel.addGestureRecognizer(profileGenderGesture)
+        
+        let profileMBTIGesture = UITapGestureRecognizer(target: self, action: #selector(didTapProfileMBTI))
+        profileContentView.profileMBTILabel.addGestureRecognizer(profileMBTIGesture)
         
     }
     
@@ -170,6 +182,57 @@ extension ProfileMainViewController {
         alertVC.addTextField() { textField in
             textField.keyboardType = .numberPad
         }
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+        let doneAction = UIAlertAction(title: "완료", style: .default)
+        
+        [
+            cancelAction,
+            doneAction
+        ]
+            .forEach { alertVC.addAction($0) }
+        
+        self.present(alertVC, animated: true)
+    }
+    
+    @objc func didTapProfileBirth() {
+        let alertVC = UIAlertController(title: "나이를 입력하세요", message: nil, preferredStyle: .alert)
+        alertVC.addTextField() { textField in
+            textField.keyboardType = .numberPad
+        }
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+        let doneAction = UIAlertAction(title: "완료", style: .default)
+        
+        [
+            cancelAction,
+            doneAction
+        ]
+            .forEach { alertVC.addAction($0) }
+        
+        self.present(alertVC, animated: true)
+    }
+    
+    @objc func didTapProfileGender() {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+        let womanAction = UIAlertAction(title: "여자", style: .default)
+        let manAction = UIAlertAction(title: "남자", style: .default)
+        
+        [
+            cancelAction,
+            womanAction,
+            manAction
+        ]
+            .forEach { actionSheet.addAction($0) }
+        
+        self.present(actionSheet, animated: true)
+    }
+    
+    @objc func didTapProfileMBTI() {
+        let alertVC = UIAlertController(title: "MBTI를 입력하세요", message: nil, preferredStyle: .alert)
+        alertVC.addTextField()
         
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
         let doneAction = UIAlertAction(title: "완료", style: .default)
