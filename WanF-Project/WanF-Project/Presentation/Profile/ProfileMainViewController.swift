@@ -101,7 +101,8 @@ extension ProfileMainViewController {
             profileContentView.profileEntranceYearLabel,
             profileContentView.profileBirthLabel,
             profileContentView.profileGenderLabel,
-            profileContentView.profileMBTILabel
+            profileContentView.profileMBTILabel,
+            profileContentView.profileContactButton
         ]
             .forEach { $0.isUserInteractionEnabled = true }
         
@@ -125,6 +126,9 @@ extension ProfileMainViewController {
         
         let profileMBTIGesture = UITapGestureRecognizer(target: self, action: #selector(didTapProfileMBTI))
         profileContentView.profileMBTILabel.addGestureRecognizer(profileMBTIGesture)
+        
+        let profileContactGesture = UITapGestureRecognizer(target: self, action: #selector(didTapProfileContact))
+        profileContentView.profileContactButton.addGestureRecognizer(profileContactGesture)
         
     }
     
@@ -232,6 +236,22 @@ extension ProfileMainViewController {
     
     @objc func didTapProfileMBTI() {
         let alertVC = UIAlertController(title: "MBTI를 입력하세요", message: nil, preferredStyle: .alert)
+        alertVC.addTextField()
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+        let doneAction = UIAlertAction(title: "완료", style: .default)
+        
+        [
+            cancelAction,
+            doneAction
+        ]
+            .forEach { alertVC.addAction($0) }
+        
+        self.present(alertVC, animated: true)
+    }
+    
+    @objc func didTapProfileContact() {
+        let alertVC = UIAlertController(title: "연락처를 입력하세요", message: nil, preferredStyle: .alert)
         alertVC.addTextField()
         
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
