@@ -95,10 +95,14 @@ extension ProfileMainViewController {
     func configureTapGesture() {
         
         [
+            profileContentView.profileImageView,
             profileContentView.profileNicknameLabel,
             profileContentView.profileMajorLabel
         ]
             .forEach { $0.isUserInteractionEnabled = true }
+        
+        let profileImageGesture = UITapGestureRecognizer(target: self, action: #selector(didTapProfileImage))
+        profileContentView.profileImageView.addGestureRecognizer(profileImageGesture)
         
         let profileNicknameGesture = UITapGestureRecognizer(target: self, action: #selector(didTapProfileNickname))
         profileContentView.profileNicknameLabel.addGestureRecognizer(profileNicknameGesture)
@@ -106,6 +110,23 @@ extension ProfileMainViewController {
         let profileMajorGesture = UITapGestureRecognizer(target: self, action: #selector(didTapProfileMajor))
         profileContentView.profileMajorLabel.addGestureRecognizer(profileMajorGesture)
         
+    }
+    
+    @objc func didTapProfileImage() {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+        let bearAction = UIAlertAction(title: "곰", style: .default)
+        let catAction = UIAlertAction(title: "고양이", style: .default)
+        
+        [
+            cancelAction,
+            bearAction,
+            catAction
+        ]
+            .forEach { actionSheet.addAction($0) }
+        
+        self.present(actionSheet, animated: true)
     }
     
     @objc func didTapProfileNickname() {
