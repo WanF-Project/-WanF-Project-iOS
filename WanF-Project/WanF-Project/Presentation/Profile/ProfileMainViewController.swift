@@ -97,7 +97,8 @@ extension ProfileMainViewController {
         [
             profileContentView.profileImageView,
             profileContentView.profileNicknameLabel,
-            profileContentView.profileMajorLabel
+            profileContentView.profileMajorLabel,
+            profileContentView.profileEntranceYearLabel
         ]
             .forEach { $0.isUserInteractionEnabled = true }
         
@@ -109,6 +110,9 @@ extension ProfileMainViewController {
         
         let profileMajorGesture = UITapGestureRecognizer(target: self, action: #selector(didTapProfileMajor))
         profileContentView.profileMajorLabel.addGestureRecognizer(profileMajorGesture)
+        
+        let profileEntranceYearGesture = UITapGestureRecognizer(target: self, action: #selector(didTapProfileEntranceYear))
+        profileContentView.profileEntranceYearLabel.addGestureRecognizer(profileEntranceYearGesture)
         
     }
     
@@ -148,6 +152,24 @@ extension ProfileMainViewController {
     @objc func didTapProfileMajor() {
         let alertVC = UIAlertController(title: "전공을 입력하세요", message: nil, preferredStyle: .alert)
         alertVC.addTextField()
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+        let doneAction = UIAlertAction(title: "완료", style: .default)
+        
+        [
+            cancelAction,
+            doneAction
+        ]
+            .forEach { alertVC.addAction($0) }
+        
+        self.present(alertVC, animated: true)
+    }
+    
+    @objc func didTapProfileEntranceYear() {
+        let alertVC = UIAlertController(title: "학번을 입력하세요", message: nil, preferredStyle: .alert)
+        alertVC.addTextField() { textField in
+            textField.keyboardType = .numberPad
+        }
         
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
         let doneAction = UIAlertAction(title: "완료", style: .default)
