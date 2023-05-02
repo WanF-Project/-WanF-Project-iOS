@@ -253,12 +253,10 @@
 		1429B0B129E56ED900891FF8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				145457CD2A00EA7E0014D52F /* ProfileKeywordList */,
 				14D4C2DE29FD0A9C001ACBC6 /* SubComponent */,
 				1429B0B229E56EF300891FF8 /* ProfileMainViewController.swift */,
 				1429B0B429E5710C00891FF8 /* ProfileMainViewModel.swift */,
-				14840E4829FE5C8C007BFB1A /* ProfileKeywordListViewController.swift */,
-				14840E4A29FE5CCC007BFB1A /* ProfileKeywordListViewModel.swift */,
-				145457CB2A00DA760014D52F /* ProfileKeywordListModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -301,6 +299,16 @@
 				142DBED629DC2D2C00017603 /* PasswordTextFieldViewModel.swift */,
 			);
 			path = PasswordTextField;
+			sourceTree = "<group>";
+		};
+		145457CD2A00EA7E0014D52F /* ProfileKeywordList */ = {
+			isa = PBXGroup;
+			children = (
+				14840E4829FE5C8C007BFB1A /* ProfileKeywordListViewController.swift */,
+				14840E4A29FE5CCC007BFB1A /* ProfileKeywordListViewModel.swift */,
+				145457CB2A00DA760014D52F /* ProfileKeywordListModel.swift */,
+			);
+			path = ProfileKeywordList;
 			sourceTree = "<group>";
 		};
 		14793FA729D82F1D0048D5DD /* Extension */ = {
