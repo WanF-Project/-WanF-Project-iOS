@@ -13,9 +13,13 @@ import RxCocoa
 struct ProfileKeywordListViewModel {
     
     // View -> ViewModel
+    let doneButtonTapped = PublishRelay<Void>()
+    let keywordIndexList = PublishRelay<[IndexPath]>()
     
     // ViewModel -> View
     let cellData: Driver<[String]>
+    
+    //    let dismissAfterDoneButtonTapped: Driver<[String]>
     
     init() {
 
@@ -30,8 +34,27 @@ struct ProfileKeywordListViewModel {
                 ]
             )
             .asDriver(onErrorDriveWith: .empty())
+        
+        // 선택 된 아이템 정리
+        let keywordsSelected = keywordIndexList
+            .withLatestFrom(cellData) { indexList, keywords in
+                var keywordsSelected: [String] = []
+                
+                for index in indexList {
+                    keywordsSelected.append(keywords[index.row])
+                }
+                return keywordsSelected
+            }
+        
+        // 완료 버튼 Tap 시 키워드 스트링으로 찾고 출력하기
+        doneButtonTapped
+            .withLatestFrom(keywordsSelected)
+            .subscribe { list in
+                print(list)
+            }
+        
+        
+        // 서버 전달 성공 시 Dismiss
+        
     }
 }
-
-
-

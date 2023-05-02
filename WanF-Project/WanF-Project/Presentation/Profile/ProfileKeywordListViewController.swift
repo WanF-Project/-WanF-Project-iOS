@@ -51,9 +51,26 @@ class ProfileKeywordListViewController: UIViewController {
     //MARK: - Function
     func bind(_ viewModel: ProfileKeywordListViewModel) {
         
+        // 완료 버튼 Tap
+        doneButton.rx.tap
+            .bind(to: viewModel.doneButtonTapped)
+            .disposed(by: disposeBag)
+        
         // 키워드 목록 구성
         bindTableView(viewModel)
         
+        // 선택된 아이템
+        let selectedItems = Observable.merge(
+                keywordTableView.rx.itemSelected.asObservable(),
+                keywordTableView.rx.itemDeselected.asObservable()
+            )
+            .flatMap { [keywordTableView] _ in
+                        Observable.just(keywordTableView.indexPathsForSelectedRows ?? [])
+            }
+
+        selectedItems
+            .bind(to: viewModel.keywordIndexList)
+            .disposed(by: disposeBag)
     }
     
     func bindTableView(_ viewModel: ProfileKeywordListViewModel) {
