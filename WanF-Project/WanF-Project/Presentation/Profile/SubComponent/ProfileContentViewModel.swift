@@ -12,32 +12,37 @@ import RxCocoa
 
 struct ProfileContentViewModel {
     
+    // ViewModel -> View
+    let profileData: Driver<ProfileContent>
     let personalityCellData: Driver<[String]>
     let purposeCellData: Driver<[String]>
     
-    init() {
+    init(_ model: ProfileContentModel = ProfileContentModel()) {
         
-        // 임시 데이터
-        personalityCellData = Observable
-            .just([
-                "느긋함",
-                "효율중시",
-                "계획적",
-                "꼼꼼함",
-                "밝은",
-                "조용함"
-            ])
+        // 프로필 불러오기
+        let loadProfile = model.loadProfile()
+            .share()
+        
+        let profileValue = loadProfile
+            .compactMap(model.getProfileValue)
+        
+        let profileError = loadProfile
+            .compactMap(model.getProfileError)
+        
+        // 데이터 연결
+        profileData = profileValue
             .asDriver(onErrorDriveWith: .empty())
         
-        purposeCellData = Observable
-            .just([
-                "과탑",
-                "친목",
-                "앞자리",
-                "뒷자리",
-                "평타",
-                "놀자"
-            ])
+        personalityCellData = profileValue
+            .map({ content in
+                content.personality
+            })
+            .asDriver(onErrorDriveWith: .empty())
+        
+        purposeCellData = profileValue
+            .map({ content in
+                content.purpose
+            })
             .asDriver(onErrorDriveWith: .empty())
     }
 }

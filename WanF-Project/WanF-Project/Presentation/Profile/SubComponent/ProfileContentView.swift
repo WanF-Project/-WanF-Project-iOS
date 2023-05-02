@@ -15,6 +15,7 @@ class ProfileContentView: UIView {
     
     //MARK: - Properties
     let disposeBag = DisposeBag()
+    var contactInfo: String?
     
     //MARK: - View
     lazy var profileImageView: UIImageView = {
@@ -186,6 +187,22 @@ class ProfileContentView: UIView {
     //MARK: - Function
     func bind(_ viewModel: ProfileContentViewModel) {
         
+        //데이터 연결
+        viewModel.profileData
+            .drive(onNext: { content in
+                // TODO: - 이미지 타입에 맞춰 설정하기
+                self.profileImageView.image = UIImage(named: content.profileImage)
+                self.profileNicknameLabel.text = content.nickname
+                self.profileMajorLabel.text = content.major
+                self.profileEntranceYearLabel.text = content.entranceYear
+                self.profileBirthLabel.text = content.birth
+                self.profileGenderLabel.text = content.gender
+                self.profileMBTILabel.text = content.MBTI
+                self.contactInfo = content.contact
+            })
+            .disposed(by: disposeBag)
+        
+        // 키워드 목록 구성
         bindList(viewModel)
     }
     

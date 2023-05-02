@@ -38,6 +38,7 @@
 		142DBEDC29DC3D1100017603 /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DBEDB29DC3D1100017603 /* SignInModel.swift */; };
 		142DBEDF29DC4DCE00017603 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DBEDE29DC4DCE00017603 /* MainTabBarController.swift */; };
 		142DBEE129DC4FC300017603 /* MainTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DBEE029DC4FC300017603 /* MainTabBarViewModel.swift */; };
+		145457CC2A00DA760014D52F /* ProfileKeywordListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145457CB2A00DA760014D52F /* ProfileKeywordListModel.swift */; };
 		14567E9A29DFDD43000B75EE /* EmailStackViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14567E9929DFDD43000B75EE /* EmailStackViewCellViewModel.swift */; };
 		14567E9C29DFE824000B75EE /* EmailStackViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14567E9B29DFE824000B75EE /* EmailStackViewCellModel.swift */; };
 		14567E9E29E00740000B75EE /* VerifiedStackViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14567E9D29E00740000B75EE /* VerifiedStackViewCellViewModel.swift */; };
@@ -52,6 +53,8 @@
 		14793FC129D84ABA0048D5DD /* NanumSquareNeo-bRg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14793FAF29D836610048D5DD /* NanumSquareNeo-bRg.ttf */; };
 		14793FC229D84ABD0048D5DD /* NanumSquareNeo-cBd.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14793FAD29D836610048D5DD /* NanumSquareNeo-cBd.ttf */; };
 		14793FC329D84AC00048D5DD /* NanumSquareNeo-dEb.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14793FB029D836610048D5DD /* NanumSquareNeo-dEb.ttf */; };
+		14840E4929FE5C8C007BFB1A /* ProfileKeywordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14840E4829FE5C8C007BFB1A /* ProfileKeywordListViewController.swift */; };
+		14840E4B29FE5CCC007BFB1A /* ProfileKeywordListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14840E4A29FE5CCC007BFB1A /* ProfileKeywordListViewModel.swift */; };
 		14870BF129EBBD9400D9643E /* FriendsMatchWritingLectureInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14870BF029EBBD9400D9643E /* FriendsMatchWritingLectureInfoViewModel.swift */; };
 		1496374129ED5ABD0021B4D4 /* FriendsMatchWriting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1496374029ED5ABD0021B4D4 /* FriendsMatchWriting.swift */; };
 		1496374329ED5E610021B4D4 /* FriendsMatchWritingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1496374229ED5E610021B4D4 /* FriendsMatchWritingModel.swift */; };
@@ -71,6 +74,8 @@
 		14BD19F229FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BD19F129FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift */; };
 		14D4C2D929FCF427001ACBC6 /* LeadingAlignmentCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4C2D829FCF427001ACBC6 /* LeadingAlignmentCollectionViewFlowLayout.swift */; };
 		14D4C2DD29FD0407001ACBC6 /* DynamicHeightCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4C2DC29FD0407001ACBC6 /* DynamicHeightCollectionView.swift */; };
+		14D4C2E329FD49B2001ACBC6 /* ProfileContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4C2E229FD49B2001ACBC6 /* ProfileContent.swift */; };
+		14D4C2E529FD4BF9001ACBC6 /* ProfileContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4C2E429FD4BF9001ACBC6 /* ProfileContentModel.swift */; };
 		14D7A90329E92F9B007850BE /* FriendsMatchWritingTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D7A90229E92F9B007850BE /* FriendsMatchWritingTopBarView.swift */; };
 		14D7A90A29E936A3007850BE /* FriendsMatchWritingLectureInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D7A90929E936A3007850BE /* FriendsMatchWritingLectureInfoView.swift */; };
 		14DD370F29DB0D5B00D6A715 /* EmailStackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD370E29DB0D5B00D6A715 /* EmailStackViewCell.swift */; };
@@ -115,6 +120,7 @@
 		142DBEDB29DC3D1100017603 /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
 		142DBEDE29DC4DCE00017603 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		142DBEE029DC4FC300017603 /* MainTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewModel.swift; sourceTree = "<group>"; };
+		145457CB2A00DA760014D52F /* ProfileKeywordListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileKeywordListModel.swift; sourceTree = "<group>"; };
 		14567E9929DFDD43000B75EE /* EmailStackViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailStackViewCellViewModel.swift; sourceTree = "<group>"; };
 		14567E9B29DFE824000B75EE /* EmailStackViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailStackViewCellModel.swift; sourceTree = "<group>"; };
 		14567E9D29E00740000B75EE /* VerifiedStackViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiedStackViewCellViewModel.swift; sourceTree = "<group>"; };
@@ -129,6 +135,8 @@
 		14793FB929D837090048D5DD /* NanumSquareNeo-eHv.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NanumSquareNeo-eHv.ttf"; sourceTree = "<group>"; };
 		14793FBB29D837480048D5DD /* ExUIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIFont.swift; sourceTree = "<group>"; };
 		14793FBD29D83DA60048D5DD /* ExUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIView.swift; sourceTree = "<group>"; };
+		14840E4829FE5C8C007BFB1A /* ProfileKeywordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileKeywordListViewController.swift; sourceTree = "<group>"; };
+		14840E4A29FE5CCC007BFB1A /* ProfileKeywordListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileKeywordListViewModel.swift; sourceTree = "<group>"; };
 		14870BF029EBBD9400D9643E /* FriendsMatchWritingLectureInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingLectureInfoViewModel.swift; sourceTree = "<group>"; };
 		1496374029ED5ABD0021B4D4 /* FriendsMatchWriting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWriting.swift; sourceTree = "<group>"; };
 		1496374229ED5E610021B4D4 /* FriendsMatchWritingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingModel.swift; sourceTree = "<group>"; };
@@ -148,6 +156,8 @@
 		14BD19F129FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentKeywordListCell.swift; sourceTree = "<group>"; };
 		14D4C2D829FCF427001ACBC6 /* LeadingAlignmentCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingAlignmentCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		14D4C2DC29FD0407001ACBC6 /* DynamicHeightCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightCollectionView.swift; sourceTree = "<group>"; };
+		14D4C2E229FD49B2001ACBC6 /* ProfileContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContent.swift; sourceTree = "<group>"; };
+		14D4C2E429FD4BF9001ACBC6 /* ProfileContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentModel.swift; sourceTree = "<group>"; };
 		14D7A90229E92F9B007850BE /* FriendsMatchWritingTopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingTopBarView.swift; sourceTree = "<group>"; };
 		14D7A90929E936A3007850BE /* FriendsMatchWritingLectureInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingLectureInfoView.swift; sourceTree = "<group>"; };
 		14DD370E29DB0D5B00D6A715 /* EmailStackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailStackViewCell.swift; sourceTree = "<group>"; };
@@ -216,6 +226,7 @@
 				1496374029ED5ABD0021B4D4 /* FriendsMatchWriting.swift */,
 				1429B0A429E5129C00891FF8 /* LectureInfoModel.swift */,
 				14982C8029EE8BAC00D388BF /* FriendsMatchDetail.swift */,
+				14D4C2E229FD49B2001ACBC6 /* ProfileContent.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -242,6 +253,7 @@
 		1429B0B129E56ED900891FF8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				145457CD2A00EA7E0014D52F /* ProfileKeywordList */,
 				14D4C2DE29FD0A9C001ACBC6 /* SubComponent */,
 				1429B0B229E56EF300891FF8 /* ProfileMainViewController.swift */,
 				1429B0B429E5710C00891FF8 /* ProfileMainViewModel.swift */,
@@ -287,6 +299,16 @@
 				142DBED629DC2D2C00017603 /* PasswordTextFieldViewModel.swift */,
 			);
 			path = PasswordTextField;
+			sourceTree = "<group>";
+		};
+		145457CD2A00EA7E0014D52F /* ProfileKeywordList */ = {
+			isa = PBXGroup;
+			children = (
+				14840E4829FE5C8C007BFB1A /* ProfileKeywordListViewController.swift */,
+				14840E4A29FE5CCC007BFB1A /* ProfileKeywordListViewModel.swift */,
+				145457CB2A00DA760014D52F /* ProfileKeywordListModel.swift */,
+			);
+			path = ProfileKeywordList;
 			sourceTree = "<group>";
 		};
 		14793FA729D82F1D0048D5DD /* Extension */ = {
@@ -416,6 +438,7 @@
 			children = (
 				14BD19E929FB986700B0E598 /* ProfileContentView.swift */,
 				14BD19ED29FBB63B00B0E598 /* ProfileContentViewModel.swift */,
+				14D4C2E429FD4BF9001ACBC6 /* ProfileContentModel.swift */,
 				14BD19F129FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift */,
 			);
 			path = SubComponent;
@@ -656,13 +679,16 @@
 				142DBEE129DC4FC300017603 /* MainTabBarViewModel.swift in Sources */,
 				1429B0BD29E5760400891FF8 /* FriendsMatchDetailViewController.swift in Sources */,
 				1429B0A329E5122400891FF8 /* FriendsMatchListCellModel.swift in Sources */,
+				14D4C2E329FD49B2001ACBC6 /* ProfileContent.swift in Sources */,
 				142DBEDC29DC3D1100017603 /* SignInModel.swift in Sources */,
 				14DD371129DB0EE700D6A715 /* SignUpIDViewModel.swift in Sources */,
 				14982C9929EEADC200D388BF /* FriendsMatchDetailTextViewModel.swift in Sources */,
 				14DD371329DB1DFB00D6A715 /* VerifiedStackViewCell.swift in Sources */,
+				14840E4B29FE5CCC007BFB1A /* ProfileKeywordListViewModel.swift in Sources */,
 				1429B0BA29E573B000891FF8 /* FriendsMatchWritingViewModel.swift in Sources */,
 				14DD372029DB301400D6A715 /* PasswordTextFieldCell.swift in Sources */,
 				14DD372429DB318900D6A715 /* SignUpPasswordViewModel.swift in Sources */,
+				145457CC2A00DA760014D52F /* ProfileKeywordListModel.swift in Sources */,
 				14982C7329EE657200D388BF /* FriendsMatchDetailTextView.swift in Sources */,
 				14066BB129E1455F00AFB2D2 /* PasswordToCheckTextFieldCellViewModel.swift in Sources */,
 				1429B0B329E56EF300891FF8 /* ProfileMainViewController.swift in Sources */,
@@ -673,7 +699,9 @@
 				14567EA029E00AF6000B75EE /* SignUpIDModel.swift in Sources */,
 				1429B0B829E5731900891FF8 /* FriendsMatchWritingViewController.swift in Sources */,
 				141A781829D7ED46006731F7 /* AppDelegate.swift in Sources */,
+				14D4C2E529FD4BF9001ACBC6 /* ProfileContentModel.swift in Sources */,
 				14D4C2D929FCF427001ACBC6 /* LeadingAlignmentCollectionViewFlowLayout.swift in Sources */,
+				14840E4929FE5C8C007BFB1A /* ProfileKeywordListViewController.swift in Sources */,
 				14D7A90329E92F9B007850BE /* FriendsMatchWritingTopBarView.swift in Sources */,
 				14982C9129EEACD200D388BF /* FriendsMatchDetailModel.swift in Sources */,
 				14AC9B3929E27569009C37A5 /* ClassGroupViewController.swift in Sources */,
