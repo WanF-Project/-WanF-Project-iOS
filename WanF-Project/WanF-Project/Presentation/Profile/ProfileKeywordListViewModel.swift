@@ -20,18 +20,10 @@ struct ProfileKeywordListViewModel {
     let cellData: Driver<[String]>
     let dismissAfterDoneButtonTapped: Driver<Void>
     
-    init(_ model: ProfileKeywordListModel = ProfileKeywordListModel()) {
+    init(_ model: ProfileKeywordListModel = ProfileKeywordListModel(), type: ProfileKeywordType) {
 
         // 키워드 목록
-        cellData = Observable
-            .just(
-                [
-                    "1",
-                    "2",
-                    "3",
-                    "4"
-                ]
-            )
+        cellData = model.getProfileKeywordList(type)
             .asDriver(onErrorDriveWith: .empty())
         
         // 선택 된 아이템 정리
@@ -49,7 +41,7 @@ struct ProfileKeywordListViewModel {
         let saveResult = doneButtonTapped
             .withLatestFrom(keywordsSelected)
             .flatMap { keywords in
-                model.saveProfileKeywordList(keywords, type: .personality)
+                model.saveProfileKeywordList(keywords, type: type)
             }
             .share()
         
