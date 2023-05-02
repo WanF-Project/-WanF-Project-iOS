@@ -15,14 +15,10 @@ struct ProfileKeywordListViewModel {
     // View -> ViewModel
     let doneButtonTapped = PublishRelay<Void>()
     let keywordIndexList = PublishRelay<[IndexPath]>()
-    let viewWillDismiss = PublishSubject<Void>()
     
     // ViewModel -> View
     let cellData: Driver<[String]>
     let dismissAfterDoneButtonTapped: Driver<Void>
-    
-    // ViewModel -> ParentViewModel
-    let didSelectKeywords: Signal<[String]>
     
     init(_ model: ProfileKeywordListModel = ProfileKeywordListModel()) {
 
@@ -67,9 +63,5 @@ struct ProfileKeywordListViewModel {
         dismissAfterDoneButtonTapped = saveValue
             .map{ _ in }
             .asDriver(onErrorDriveWith: .empty())
-        
-        didSelectKeywords = viewWillDismiss
-            .withLatestFrom(keywordsSelected)
-            .asSignal(onErrorJustReturn: [])
     }
 }
