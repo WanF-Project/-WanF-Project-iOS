@@ -71,6 +71,15 @@ class ProfileKeywordListViewController: UIViewController {
         selectedItems
             .bind(to: viewModel.keywordIndexList)
             .disposed(by: disposeBag)
+        
+        // 화면 Dismiss
+        viewModel.dismissAfterDoneButtonTapped
+            .drive (onNext: { _ in
+                viewModel.viewWillDismiss.onNext(Void())
+                
+                self.dismiss(animated: true)
+            })
+            .disposed(by: disposeBag)
     }
     
     func bindTableView(_ viewModel: ProfileKeywordListViewModel) {

@@ -15,13 +15,16 @@ struct ProfileKeywordListViewModel {
     // View -> ViewModel
     let doneButtonTapped = PublishRelay<Void>()
     let keywordIndexList = PublishRelay<[IndexPath]>()
+    let viewWillDismiss = PublishSubject<Void>()
     
     // ViewModel -> View
     let cellData: Driver<[String]>
+    let dismissAfterDoneButtonTapped: Driver<Void>
     
-    //    let dismissAfterDoneButtonTapped: Driver<[String]>
+    // ViewModel -> ParentViewModel
+    let didSelectKeywords: Signal<[String]>
     
-    init() {
+    init(_ model: ProfileKeywordListModel = ProfileKeywordListModel()) {
 
         // 키워드 목록
         cellData = Observable
@@ -46,15 +49,27 @@ struct ProfileKeywordListViewModel {
                 return keywordsSelected
             }
         
-        // 완료 버튼 Tap 시 키워드 스트링으로 찾고 출력하기
-        doneButtonTapped
+        // 완료 버튼 Tap 시 서버 전달
+        let saveResult = doneButtonTapped
             .withLatestFrom(keywordsSelected)
-            .subscribe { list in
-                print(list)
+            .flatMap { keywords in
+                model.saveProfileKeywordList(keywords, type: .personality)
             }
+            .share()
         
+        let saveValue = saveResult
+            .compactMap(model.getSavedProfileKeywordListValue)
+        
+        let saveError = saveResult
+            .compactMap(model.getSavedProfileKeywordListError)
         
         // 서버 전달 성공 시 Dismiss
+        dismissAfterDoneButtonTapped = saveValue
+            .map{ _ in }
+            .asDriver(onErrorDriveWith: .empty())
         
+        didSelectKeywords = viewWillDismiss
+            .withLatestFrom(keywordsSelected)
+            .asSignal(onErrorJustReturn: [])
     }
 }

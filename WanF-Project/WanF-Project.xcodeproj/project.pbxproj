@@ -38,6 +38,7 @@
 		142DBEDC29DC3D1100017603 /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DBEDB29DC3D1100017603 /* SignInModel.swift */; };
 		142DBEDF29DC4DCE00017603 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DBEDE29DC4DCE00017603 /* MainTabBarController.swift */; };
 		142DBEE129DC4FC300017603 /* MainTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DBEE029DC4FC300017603 /* MainTabBarViewModel.swift */; };
+		145457CC2A00DA760014D52F /* ProfileKeywordListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145457CB2A00DA760014D52F /* ProfileKeywordListModel.swift */; };
 		14567E9A29DFDD43000B75EE /* EmailStackViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14567E9929DFDD43000B75EE /* EmailStackViewCellViewModel.swift */; };
 		14567E9C29DFE824000B75EE /* EmailStackViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14567E9B29DFE824000B75EE /* EmailStackViewCellModel.swift */; };
 		14567E9E29E00740000B75EE /* VerifiedStackViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14567E9D29E00740000B75EE /* VerifiedStackViewCellViewModel.swift */; };
@@ -119,6 +120,7 @@
 		142DBEDB29DC3D1100017603 /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
 		142DBEDE29DC4DCE00017603 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		142DBEE029DC4FC300017603 /* MainTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewModel.swift; sourceTree = "<group>"; };
+		145457CB2A00DA760014D52F /* ProfileKeywordListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileKeywordListModel.swift; sourceTree = "<group>"; };
 		14567E9929DFDD43000B75EE /* EmailStackViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailStackViewCellViewModel.swift; sourceTree = "<group>"; };
 		14567E9B29DFE824000B75EE /* EmailStackViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailStackViewCellModel.swift; sourceTree = "<group>"; };
 		14567E9D29E00740000B75EE /* VerifiedStackViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiedStackViewCellViewModel.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				1429B0B429E5710C00891FF8 /* ProfileMainViewModel.swift */,
 				14840E4829FE5C8C007BFB1A /* ProfileKeywordListViewController.swift */,
 				14840E4A29FE5CCC007BFB1A /* ProfileKeywordListViewModel.swift */,
+				145457CB2A00DA760014D52F /* ProfileKeywordListModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -677,6 +680,7 @@
 				1429B0BA29E573B000891FF8 /* FriendsMatchWritingViewModel.swift in Sources */,
 				14DD372029DB301400D6A715 /* PasswordTextFieldCell.swift in Sources */,
 				14DD372429DB318900D6A715 /* SignUpPasswordViewModel.swift in Sources */,
+				145457CC2A00DA760014D52F /* ProfileKeywordListModel.swift in Sources */,
 				14982C7329EE657200D388BF /* FriendsMatchDetailTextView.swift in Sources */,
 				14066BB129E1455F00AFB2D2 /* PasswordToCheckTextFieldCellViewModel.swift in Sources */,
 				1429B0B329E56EF300891FF8 /* ProfileMainViewController.swift in Sources */,
