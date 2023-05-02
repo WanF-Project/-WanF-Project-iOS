@@ -102,6 +102,8 @@ extension ProfileMainViewController {
             profileContentView.profileBirthLabel,
             profileContentView.profileGenderLabel,
             profileContentView.profileMBTILabel,
+            profileContentView.profilePersonalityListTitleLabel,
+            profileContentView.profilePurposeListTitleLabel,
             profileContentView.profileContactButton
         ]
             .forEach { $0.isUserInteractionEnabled = true }
@@ -129,6 +131,12 @@ extension ProfileMainViewController {
         
         let profileContactGesture = UITapGestureRecognizer(target: self, action: #selector(didTapProfileContact))
         profileContentView.profileContactButton.addGestureRecognizer(profileContactGesture)
+        
+        let profilePersonalityListTitleGesture = UITapGestureRecognizer(target: self, action: #selector(didTapProfilePersonalityListTitle))
+        profileContentView.profilePersonalityListTitleLabel.addGestureRecognizer(profilePersonalityListTitleGesture)
+        
+        let profilePurposeListTitleGesture = UITapGestureRecognizer(target: self, action: #selector(didTapProfilePurposeListTitle))
+        profileContentView.profilePurposeListTitleLabel.addGestureRecognizer(profilePurposeListTitleGesture)
         
     }
     
@@ -248,6 +256,20 @@ extension ProfileMainViewController {
             .forEach { alertVC.addAction($0) }
         
         self.present(alertVC, animated: true)
+    }
+    
+    @objc func didTapProfilePersonalityListTitle() {
+        let profileKeywordListVC = ProfileKeywordListViewController()
+        profileKeywordListVC.bind(ProfileKeywordListViewModel(type: .personality))
+        
+        self.present(profileKeywordListVC, animated: true)
+    }
+    
+    @objc func didTapProfilePurposeListTitle() {
+        let profileKeywordListVC = ProfileKeywordListViewController()
+        profileKeywordListVC.bind(ProfileKeywordListViewModel(type: .purpose))
+        
+        self.present(profileKeywordListVC, animated: true)
     }
     
     @objc func didTapProfileContact() {
