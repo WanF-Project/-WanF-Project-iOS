@@ -9,26 +9,25 @@ import Foundation
 
 import RxSwift
 
-// TODO: - 서버 연결 시 재구현
 struct EmailStackViewCellModel {
+    let network = SignUpNetwork()
     
-    func sendEmail(_ email: String) -> Single<Bool>  {
-        return Observable
-            .just(true)
-            .asSingle()
+    func sendEmail(_ email: String) -> Single<Result<Void, WanfError>>  {
+        return network.sendVerificationCode(email: email)
     }
     
-    func getEmailValue(_ result: Bool) -> Bool? {
-        if !result {
+    func getEmailValue(_ result: Result<Void, WanfError>) -> Void? {
+        guard case .success(let value) = result else {
             return nil
         }
-        return true
+        return value
     }
     
-    func getEmailError(_ result: Bool) -> Bool? {
-        if result {
+    func getEmailError(_ result: Result<Void, WanfError>) -> String? {
+        guard case .failure(let error) = result else {
             return nil
         }
-        return true
+        debugPrint("ERROR: \(error.localizedDescription)")
+        return error.localizedDescription
     }
 }

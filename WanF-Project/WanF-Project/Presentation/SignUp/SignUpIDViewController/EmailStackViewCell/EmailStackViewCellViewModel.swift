@@ -42,6 +42,9 @@ struct EmailStackViewCellViewModel {
             .compactMap(model.getEmailValue)
         
         shouldLoadGuidance = emailValue
+            .map({ _ in
+                true
+            })
         
         let emailError = sendEmailResult
             .compactMap(model.getEmailError)
