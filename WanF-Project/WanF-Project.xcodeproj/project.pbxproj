@@ -263,12 +263,10 @@
 			isa = PBXGroup;
 			children = (
 				145457CD2A00EA7E0014D52F /* ProfileKeywordList */,
+				144D30CA2A0616BB00640CCD /* ProfileSingleSelectionList */,
 				14D4C2DE29FD0A9C001ACBC6 /* SubComponent */,
 				1429B0B229E56EF300891FF8 /* ProfileMainViewController.swift */,
 				1429B0B429E5710C00891FF8 /* ProfileMainViewModel.swift */,
-				144D30C22A0606F000640CCD /* ProfileSingleSelectionListViewController.swift */,
-				144D30C42A06076C00640CCD /* ProfileSingleSelectionListViewModel.swift */,
-				144D30C62A06096000640CCD /* ProfileSingleSelectionListModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -311,6 +309,16 @@
 				142DBED629DC2D2C00017603 /* PasswordTextFieldViewModel.swift */,
 			);
 			path = PasswordTextField;
+			sourceTree = "<group>";
+		};
+		144D30CA2A0616BB00640CCD /* ProfileSingleSelectionList */ = {
+			isa = PBXGroup;
+			children = (
+				144D30C22A0606F000640CCD /* ProfileSingleSelectionListViewController.swift */,
+				144D30C42A06076C00640CCD /* ProfileSingleSelectionListViewModel.swift */,
+				144D30C62A06096000640CCD /* ProfileSingleSelectionListModel.swift */,
+			);
+			path = ProfileSingleSelectionList;
 			sourceTree = "<group>";
 		};
 		145457CD2A00EA7E0014D52F /* ProfileKeywordList */ = {
