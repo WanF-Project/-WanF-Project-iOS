@@ -45,7 +45,7 @@ struct ProfileSingleSelectionListModel {
     }
 }
 
-//MARK: - Function of Each Keyword Type
+//MARK: - Function of Each Type
 private extension ProfileSingleSelectionListModel {
     
     func getMajorList() -> Observable<[String]> {
@@ -85,6 +85,7 @@ private extension ProfileSingleSelectionListModel {
     }
 }
 
+//MARK: - Type
 enum ProfileSingleSelectionType {
     case major
     case MBTI
