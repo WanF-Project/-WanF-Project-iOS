@@ -174,10 +174,10 @@ extension ProfileMainViewController {
     }
     
     @objc func didTapProfileMajor() {
-        let profileSingleSelctionListVC = ProfileSingleSelectionListViewController()
-        profileSingleSelctionListVC.bind(ProfileSingleSelectionListViewModel(type: .major))
+        let profileSingleSelectionListVC = ProfileSingleSelectionListViewController()
+        profileSingleSelectionListVC.bind(ProfileSingleSelectionListViewModel(type: .major))
         
-        self.present(profileSingleSelctionListVC, animated: true)
+        self.present(profileSingleSelectionListVC, animated: true)
     }
     
     @objc func didTapProfileEntranceYear() {
@@ -234,10 +234,10 @@ extension ProfileMainViewController {
     }
     
     @objc func didTapProfileMBTI() {
-        let profileSingleSelctionListVC = ProfileSingleSelectionListViewController()
-        profileSingleSelctionListVC.bind(ProfileSingleSelectionListViewModel(type: .MBTI))
+        let profileSingleSelectionListVC = ProfileSingleSelectionListViewController()
+        profileSingleSelectionListVC.bind(ProfileSingleSelectionListViewModel(type: .MBTI))
         
-        self.present(profileSingleSelctionListVC, animated: true)
+        self.present(profileSingleSelectionListVC, animated: true)
     }
     
     @objc func didTapProfilePersonalityListTitle() {
