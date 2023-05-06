@@ -174,19 +174,10 @@ extension ProfileMainViewController {
     }
     
     @objc func didTapProfileMajor() {
-        let alertVC = UIAlertController(title: "전공을 입력하세요", message: nil, preferredStyle: .alert)
-        alertVC.addTextField()
+        let profileSingleSelctionListVC = ProfileSingleSelectionListViewController()
+        profileSingleSelctionListVC.bind(ProfileSingleSelectionListViewModel(type: .major))
         
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
-        let doneAction = UIAlertAction(title: "완료", style: .default)
-        
-        [
-            cancelAction,
-            doneAction
-        ]
-            .forEach { alertVC.addAction($0) }
-        
-        self.present(alertVC, animated: true)
+        self.present(profileSingleSelctionListVC, animated: true)
     }
     
     @objc func didTapProfileEntranceYear() {
@@ -243,19 +234,10 @@ extension ProfileMainViewController {
     }
     
     @objc func didTapProfileMBTI() {
-        let alertVC = UIAlertController(title: "MBTI를 입력하세요", message: nil, preferredStyle: .alert)
-        alertVC.addTextField()
+        let profileSingleSelctionListVC = ProfileSingleSelectionListViewController()
+        profileSingleSelctionListVC.bind(ProfileSingleSelectionListViewModel(type: .MBTI))
         
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
-        let doneAction = UIAlertAction(title: "완료", style: .default)
-        
-        [
-            cancelAction,
-            doneAction
-        ]
-            .forEach { alertVC.addAction($0) }
-        
-        self.present(alertVC, animated: true)
+        self.present(profileSingleSelctionListVC, animated: true)
     }
     
     @objc func didTapProfilePersonalityListTitle() {
