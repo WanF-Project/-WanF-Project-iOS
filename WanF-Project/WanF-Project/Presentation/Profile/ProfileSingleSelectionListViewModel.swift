@@ -13,7 +13,6 @@ import RxCocoa
 struct ProfileSingleSelectionListViewModel {
     
     // View -> ViewModel
-    let doneButtonTapped = PublishRelay<Void>()
     let selectedItemIndex = PublishRelay<IndexPath>()
     
     // ViewModel -> View
@@ -26,16 +25,11 @@ struct ProfileSingleSelectionListViewModel {
         cellData = model.getProfileSingleSelectionList(type)
             .asDriver(onErrorDriveWith: .empty())
         
-        // 선택된 아이템
-        let selectedItem = selectedItemIndex
+        // 아이템 선택 시 서버 전달
+        let saveResult = selectedItemIndex
             .withLatestFrom(cellData) { IndexPath, list in
                 list[IndexPath.row]
             }
-        
-        
-        // 완료 버튼 Tap 시 서버 전달
-        let saveResult = doneButtonTapped
-            .withLatestFrom(selectedItem)
             .flatMap({ item in
                 model.saveProfileSingleSelectionList(item, type: type)
             })

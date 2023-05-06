@@ -17,17 +17,6 @@ class ProfileSingleSelectionListViewController: UIViewController {
     let disposeBag = DisposeBag()
     
     //MARK: - View
-    lazy var doneButton: UIButton = {
-        var attributesString = AttributedString("완료")
-        attributesString.font = .wanfFont(ofSize: 15, weight: .bold)
-        attributesString.foregroundColor = .wanfMint
-        
-        var configure = UIButton.Configuration.plain()
-        configure.attributedTitle = attributesString
-        
-        return UIButton(configuration: configure)
-    }()
-    
     lazy var singleSelectionTableView: UITableView = {
         var tableView = UITableView()
         
@@ -48,11 +37,6 @@ class ProfileSingleSelectionListViewController: UIViewController {
     
     //MARK: - Function
     func bind(_ viewModel: ProfileSingleSelectionListViewModel) {
-        
-        // 완료 버튼 Tap
-        doneButton.rx.tap
-            .bind(to: viewModel.doneButtonTapped)
-            .disposed(by: disposeBag)
         
         // 아이템 목록 구성
         bindTableView(viewModel)
@@ -109,19 +93,10 @@ private extension ProfileSingleSelectionListViewController {
     
     func layout() {
         
-        [
-            doneButton,
-            singleSelectionTableView
-        ]
-            .forEach { view.addSubview($0) }
-        
-        doneButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(25)
-            make.trailing.equalToSuperview().inset(10)
-        }
+        view.addSubview(singleSelectionTableView)
         
         singleSelectionTableView.snp.makeConstraints { make in
-            make.top.equalTo(doneButton.snp.bottom).offset(15)
+            make.top.equalToSuperview().inset(25)
             make.bottom.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(15)
         }
     }
