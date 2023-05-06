@@ -47,7 +47,7 @@ class ProfileSingleSelectionListViewController: UIViewController {
             .disposed(by: disposeBag)
             
         // 화면 Dismiss
-        viewModel.dismissAfterDoneButtonTapped
+        viewModel.dismiss
             .drive (onNext: { _ in
                 self.dismiss(animated: true)
             })

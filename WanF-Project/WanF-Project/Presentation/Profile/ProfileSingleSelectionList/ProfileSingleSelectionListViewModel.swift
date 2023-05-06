@@ -17,7 +17,7 @@ struct ProfileSingleSelectionListViewModel {
     
     // ViewModel -> View
     let cellData: Driver<[String]>
-    let dismissAfterDoneButtonTapped: Driver<Void>
+    let dismiss: Driver<Void>
     
     init(_ model: ProfileSingleSelectionListModel = ProfileSingleSelectionListModel(), type: ProfileSingleSelectionType) {
 
@@ -42,7 +42,7 @@ struct ProfileSingleSelectionListViewModel {
             .compactMap(model.getSavedProfileSingleSelectionListError)
         
         // 서버 전달 성공 시 Dismiss
-        dismissAfterDoneButtonTapped = saveValue
+        dismiss = saveValue
             .map{ _ in }
             .asDriver(onErrorDriveWith: .empty())
     }
