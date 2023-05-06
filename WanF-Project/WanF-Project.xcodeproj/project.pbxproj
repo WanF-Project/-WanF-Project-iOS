@@ -41,6 +41,7 @@
 		144D30C32A0606F000640CCD /* ProfileSingleSelectionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D30C22A0606F000640CCD /* ProfileSingleSelectionListViewController.swift */; };
 		144D30C52A06076C00640CCD /* ProfileSingleSelectionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D30C42A06076C00640CCD /* ProfileSingleSelectionListViewModel.swift */; };
 		144D30C72A06096000640CCD /* ProfileSingleSelectionListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D30C62A06096000640CCD /* ProfileSingleSelectionListModel.swift */; };
+		144D30C92A060E4400640CCD /* WanF.plist in Resources */ = {isa = PBXBuildFile; fileRef = 144D30C82A060E4400640CCD /* WanF.plist */; };
 		145457CC2A00DA760014D52F /* ProfileKeywordListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145457CB2A00DA760014D52F /* ProfileKeywordListModel.swift */; };
 		14567E9A29DFDD43000B75EE /* EmailStackViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14567E9929DFDD43000B75EE /* EmailStackViewCellViewModel.swift */; };
 		14567E9C29DFE824000B75EE /* EmailStackViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14567E9B29DFE824000B75EE /* EmailStackViewCellModel.swift */; };
@@ -126,6 +127,7 @@
 		144D30C22A0606F000640CCD /* ProfileSingleSelectionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSingleSelectionListViewController.swift; sourceTree = "<group>"; };
 		144D30C42A06076C00640CCD /* ProfileSingleSelectionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSingleSelectionListViewModel.swift; sourceTree = "<group>"; };
 		144D30C62A06096000640CCD /* ProfileSingleSelectionListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSingleSelectionListModel.swift; sourceTree = "<group>"; };
+		144D30C82A060E4400640CCD /* WanF.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WanF.plist; sourceTree = "<group>"; };
 		145457CB2A00DA760014D52F /* ProfileKeywordListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileKeywordListModel.swift; sourceTree = "<group>"; };
 		14567E9929DFDD43000B75EE /* EmailStackViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailStackViewCellViewModel.swift; sourceTree = "<group>"; };
 		14567E9B29DFE824000B75EE /* EmailStackViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailStackViewCellModel.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				1429B0A429E5129C00891FF8 /* LectureInfoModel.swift */,
 				14982C8029EE8BAC00D388BF /* FriendsMatchDetail.swift */,
 				14D4C2E229FD49B2001ACBC6 /* ProfileContent.swift */,
+				144D30C82A060E4400640CCD /* WanF.plist */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -637,6 +640,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				144D30C92A060E4400640CCD /* WanF.plist in Resources */,
 				141A782429D7ED46006731F7 /* LaunchScreen.storyboard in Resources */,
 				14793FC029D84AB60048D5DD /* NanumSquareNeo-aLt.ttf in Resources */,
 				14793FC229D84ABD0048D5DD /* NanumSquareNeo-cBd.ttf in Resources */,

@@ -54,8 +54,16 @@ private extension ProfileSingleSelectionListModel {
     }
     
     func getMBTIList() -> Observable<[String]> {
-        return Observable
-            .of(["MBTI1", "MBTI2", "MBTI3", "MBTI4"])
+        
+        if let url = Bundle.main.url(forResource: "WanF", withExtension: "plist") {
+            let dictionary = NSDictionary(contentsOf: url)
+            let items = dictionary?["MBTI"] as? Array<String> ?? []
+            
+            return Observable.of(items)
+        }
+        else {
+            return Observable.of([])
+        }
     }
     
     func saveMajor(_ data: String) -> Observable<Bool> {

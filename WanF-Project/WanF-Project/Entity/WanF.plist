@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>MBTI</key>
+	<array>
+		<string>INTJ</string>
+		<string>INTP</string>
+		<string>ENTJ</string>
+		<string>ENTP</string>
+		<string>INFJ</string>
+		<string>INFP</string>
+		<string>ENFJ</string>
+		<string>ENFP</string>
+		<string>ISTJ</string>
+		<string>ISFJ</string>
+		<string>ESTJ</string>
+		<string>ESFJ</string>
+		<string>ISTP</string>
+		<string>ISFP</string>
+		<string>ESTP</string>
+		<string>ESTP</string>
+		<string>ESFP</string>
+	</array>
+</dict>
+</plist>
