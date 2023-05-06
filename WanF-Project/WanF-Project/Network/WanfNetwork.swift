@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum WanfError {
+enum WanfError: Error {
     case invalidURL
     case invalidJSON
     case networkError
