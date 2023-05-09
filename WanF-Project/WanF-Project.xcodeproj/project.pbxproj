@@ -42,6 +42,10 @@
 		144D30C52A06076C00640CCD /* ProfileSingleSelectionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D30C42A06076C00640CCD /* ProfileSingleSelectionListViewModel.swift */; };
 		144D30C72A06096000640CCD /* ProfileSingleSelectionListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D30C62A06096000640CCD /* ProfileSingleSelectionListModel.swift */; };
 		144D30C92A060E4400640CCD /* WanF.plist in Resources */ = {isa = PBXBuildFile; fileRef = 144D30C82A060E4400640CCD /* WanF.plist */; };
+		144D30CD2A06259700640CCD /* WanfAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D30CC2A06259700640CCD /* WanfAPI.swift */; };
+		144D30D52A06295100640CCD /* WanfNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D30D42A06295100640CCD /* WanfNetwork.swift */; };
+		144D30D72A06870F00640CCD /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D30D62A06870F00640CCD /* SignUpAPI.swift */; };
+		144D30D92A068CE000640CCD /* SignUpNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D30D82A068CE000640CCD /* SignUpNetwork.swift */; };
 		145457CC2A00DA760014D52F /* ProfileKeywordListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145457CB2A00DA760014D52F /* ProfileKeywordListModel.swift */; };
 		14567E9A29DFDD43000B75EE /* EmailStackViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14567E9929DFDD43000B75EE /* EmailStackViewCellViewModel.swift */; };
 		14567E9C29DFE824000B75EE /* EmailStackViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14567E9B29DFE824000B75EE /* EmailStackViewCellModel.swift */; };
@@ -128,6 +132,10 @@
 		144D30C42A06076C00640CCD /* ProfileSingleSelectionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSingleSelectionListViewModel.swift; sourceTree = "<group>"; };
 		144D30C62A06096000640CCD /* ProfileSingleSelectionListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSingleSelectionListModel.swift; sourceTree = "<group>"; };
 		144D30C82A060E4400640CCD /* WanF.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WanF.plist; sourceTree = "<group>"; };
+		144D30CC2A06259700640CCD /* WanfAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WanfAPI.swift; sourceTree = "<group>"; };
+		144D30D42A06295100640CCD /* WanfNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WanfNetwork.swift; sourceTree = "<group>"; };
+		144D30D62A06870F00640CCD /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
+		144D30D82A068CE000640CCD /* SignUpNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNetwork.swift; sourceTree = "<group>"; };
 		145457CB2A00DA760014D52F /* ProfileKeywordListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileKeywordListModel.swift; sourceTree = "<group>"; };
 		14567E9929DFDD43000B75EE /* EmailStackViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailStackViewCellViewModel.swift; sourceTree = "<group>"; };
 		14567E9B29DFE824000B75EE /* EmailStackViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailStackViewCellModel.swift; sourceTree = "<group>"; };
@@ -214,6 +222,7 @@
 		141A781629D7ED46006731F7 /* WanF-Project */ = {
 			isa = PBXGroup;
 			children = (
+				144D30CB2A06257D00640CCD /* Network */,
 				1429B0A129E5118D00891FF8 /* Entity */,
 				14DD371429DB2B9300D6A715 /* Presentation */,
 				141A781729D7ED46006731F7 /* AppDelegate.swift */,
@@ -321,6 +330,16 @@
 			path = ProfileSingleSelectionList;
 			sourceTree = "<group>";
 		};
+		144D30CB2A06257D00640CCD /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1466FA1C2A0A100400910C30 /* SignUpNetwork */,
+				144D30CC2A06259700640CCD /* WanfAPI.swift */,
+				144D30D42A06295100640CCD /* WanfNetwork.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		145457CD2A00EA7E0014D52F /* ProfileKeywordList */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +348,15 @@
 				145457CB2A00DA760014D52F /* ProfileKeywordListModel.swift */,
 			);
 			path = ProfileKeywordList;
+			sourceTree = "<group>";
+		};
+		1466FA1C2A0A100400910C30 /* SignUpNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				144D30D62A06870F00640CCD /* SignUpAPI.swift */,
+				144D30D82A068CE000640CCD /* SignUpNetwork.swift */,
+			);
+			path = SignUpNetwork;
 			sourceTree = "<group>";
 		};
 		14793FA729D82F1D0048D5DD /* Extension */ = {
@@ -677,6 +705,7 @@
 				142DBED029DC1DCB00017603 /* EmailTextField.swift in Sources */,
 				14982C6E29EE580500D388BF /* FriendsMatchDetailInfoView.swift in Sources */,
 				1429B0AE29E53F9D00891FF8 /* FriendsMatchListCell.swift in Sources */,
+				144D30D92A068CE000640CCD /* SignUpNetwork.swift in Sources */,
 				14567E9E29E00740000B75EE /* VerifiedStackViewCellViewModel.swift in Sources */,
 				14066BB329E166B100AFB2D2 /* SignUpPasswordModel.swift in Sources */,
 				142DBEDA29DC2EEB00017603 /* SignInViewModel.swift in Sources */,
@@ -715,6 +744,7 @@
 				14066BB129E1455F00AFB2D2 /* PasswordToCheckTextFieldCellViewModel.swift in Sources */,
 				1429B0B329E56EF300891FF8 /* ProfileMainViewController.swift in Sources */,
 				14DD370F29DB0D5B00D6A715 /* EmailStackViewCell.swift in Sources */,
+				144D30D52A06295100640CCD /* WanfNetwork.swift in Sources */,
 				14793FBE29D83DA60048D5DD /* ExUIView.swift in Sources */,
 				14BD19EA29FB986700B0E598 /* ProfileContentView.swift in Sources */,
 				14982C8129EE8BAC00D388BF /* FriendsMatchDetail.swift in Sources */,
@@ -726,6 +756,7 @@
 				14D4C2D929FCF427001ACBC6 /* LeadingAlignmentCollectionViewFlowLayout.swift in Sources */,
 				14840E4929FE5C8C007BFB1A /* ProfileKeywordListViewController.swift in Sources */,
 				14D7A90329E92F9B007850BE /* FriendsMatchWritingTopBarView.swift in Sources */,
+				144D30CD2A06259700640CCD /* WanfAPI.swift in Sources */,
 				14982C9129EEACD200D388BF /* FriendsMatchDetailModel.swift in Sources */,
 				14AC9B3929E27569009C37A5 /* ClassGroupViewController.swift in Sources */,
 				14E4C9E429EA530F00E2CB62 /* LectureInfoViewController.swift in Sources */,
@@ -733,6 +764,7 @@
 				142DBEDF29DC4DCE00017603 /* MainTabBarController.swift in Sources */,
 				1496374129ED5ABD0021B4D4 /* FriendsMatchWriting.swift in Sources */,
 				14DD372229DB30EC00D6A715 /* PasswordToCheckTextFieldCell.swift in Sources */,
+				144D30D72A06870F00640CCD /* SignUpAPI.swift in Sources */,
 				1496374329ED5E610021B4D4 /* FriendsMatchWritingModel.swift in Sources */,
 				1429B0B529E5710C00891FF8 /* ProfileMainViewModel.swift in Sources */,
 				141A781A29D7ED46006731F7 /* SceneDelegate.swift in Sources */,

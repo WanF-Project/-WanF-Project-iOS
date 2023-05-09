@@ -25,7 +25,7 @@ struct SignUpPasswordViewModel {
     let enableDoneButton: Driver<Bool>
     
     let popToSignUpID: Driver<Void>
-    let presentMainTabBar: Driver<MainTabBarViewModel>
+    let popToRootViewController: Driver<Void>
     let presentAlertForSignUpError: Signal<AlertInfo>
     
     init(email: String, _ model: SignUpPasswordModel = SignUpPasswordModel()) {
@@ -68,7 +68,7 @@ struct SignUpPasswordViewModel {
             }
             .asDriver(onErrorJustReturn: false)
         
-        //완료 버튼
+        //완료 버튼 - 회원가입 완료
         let signUpData = Observable
             .combineLatest(Observable.just(email), password)
 
@@ -80,18 +80,16 @@ struct SignUpPasswordViewModel {
         let signUpValue = signUpResult
             .compactMap(model.getSignUpValue)
         
-        presentMainTabBar = signUpValue
-            .map { _ in
-                return MainTabBarViewModel()
-            }
-            .asDriver(onErrorDriveWith: .empty())
-        
         let signUpError = signUpResult
             .compactMap(model.getSignUpError)
         
+        // 회원 가입 성공
+        popToRootViewController = signUpValue
+            .asDriver(onErrorDriveWith: .empty())
+        
+        // 회원 가입 실패
         presentAlertForSignUpError = signUpError
             .map { _ in
-                // TODO: - 오류 상태코드 별 메세지 지정
                 return (title: "회원가입 실패", message: "")
             }
             .asSignal(onErrorSignalWith: .empty())

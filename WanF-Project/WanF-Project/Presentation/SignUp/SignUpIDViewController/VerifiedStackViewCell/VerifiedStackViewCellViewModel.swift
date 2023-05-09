@@ -15,6 +15,11 @@ class VerifiedStackViewCellViewModel {
     // View -> ViewModel
     let inputedVerificationCode = PublishRelay<String?>()
     
-    // ViewModel -> View
+    // ViewModel -> ParentViewModel
+    let verificationCode: Observable<String>
     
+    init() {
+        verificationCode = inputedVerificationCode
+            .compactMap { $0 }
+    }
 }

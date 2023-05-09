@@ -9,27 +9,33 @@ import Foundation
 
 import RxSwift
 
-// TODO: - 서버 연결 시 재구현
 struct SignUpIDModel {
     
-    func checkVerificationCode(_ code: String) -> Single<Bool> {
-        return Observable
-            .just(true)
-            .asSingle()
+    typealias VerificationInfo = (email: String, code: String)
+    
+    //MARK: - Properties
+    let network = SignUpNetwork()
+    
+    //MARK: - Function
+    
+    func checkVerificationCode(_ info: VerificationInfo) -> Single<Result<Void, WanfError>> {
+        
+        return network.checkVerificationCode(email: info.email, verificationCode: info.code)
     }
     
-    func getVerificationValue(_ result: Bool) -> Bool? {
-        if !result {
+    func getVerificationValue(_ result: Result<Void, WanfError>) -> Void? {
+        guard case .success(let value) = result else {
             return nil
         }
-        return true
+        return value
     }
     
-    func getVerificationError(_ result: Bool) -> Bool? {
-        if result {
+    func getVerificationError(_ result: Result<Void, WanfError>) -> Void? {
+        guard case .failure(let error) = result else {
             return nil
         }
-        return false
+        print("ERROR: \(error.localizedDescription)")
+        return Void()
     }
     
 }

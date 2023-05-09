@@ -76,8 +76,8 @@ class SignUpPasswordViewController: UIViewController {
             })
             .disposed(by: disposebag)
         
-        viewModel.presentMainTabBar
-            .drive(onNext: { viewModel in
+        viewModel.popToRootViewController
+            .drive(onNext: { _ in
                 self.navigationController?.popToRootViewController(animated: true)
             })
             .disposed(by: disposebag)

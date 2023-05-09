@@ -20,6 +20,9 @@ struct EmailStackViewCellViewModel {
     let shouldLoadGuidance: Observable<Bool>
     let shouldPresentAlertForError: Signal<AlertInfo>
     
+    // ViewModel -> ParentViewModel
+    let email: Observable<String>
+    
     init(_ model: EmailStackViewCellModel = EmailStackViewCellModel()) {
         
         //이메일
@@ -27,14 +30,14 @@ struct EmailStackViewCellViewModel {
             .compactMap { $0 }
         let emailAddress = Observable.just("@office.skhu.ac.kr")
         
-        let emailText = Observable
+        email = Observable
             .combineLatest(ID, emailAddress) { ID,  address in
                 ID + address
             }
         
         //전송 버튼
         let sendEmailResult = sendEmailButtonTapped
-            .withLatestFrom(emailText)
+            .withLatestFrom(email)
             .flatMapLatest(model.sendEmail)
             .share()
         
@@ -42,6 +45,9 @@ struct EmailStackViewCellViewModel {
             .compactMap(model.getEmailValue)
         
         shouldLoadGuidance = emailValue
+            .map({ _ in
+                true
+            })
         
         let emailError = sendEmailResult
             .compactMap(model.getEmailError)
