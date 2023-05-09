@@ -60,8 +60,7 @@ struct SignUpIDViewModel {
         
         // 인증 번호 검증 성공
         pushToSignUpPassword = verificationValue
-            .withLatestFrom(emailStackViewCellViewModel.inputedIDText)
-            .compactMap { $0 }
+            .withLatestFrom(email)
             .map { email in SignUpPasswordViewModel(email: email) }
             .asDriver(onErrorDriveWith: .empty())
         
