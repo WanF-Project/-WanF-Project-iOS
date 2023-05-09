@@ -12,6 +12,14 @@ import RxCocoa
 
 struct EmailTextFieldViewModel {
     
+    // View -> ViewModel
     let emailData = PublishRelay<String?>()
     
+    // ViewModel -> ParentViewModel
+    let email: Observable<String>
+    
+    init() {
+        email = emailData
+            .compactMap { $0 }
+    }
 }

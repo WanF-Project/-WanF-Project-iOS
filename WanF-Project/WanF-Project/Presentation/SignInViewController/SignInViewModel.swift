@@ -30,34 +30,30 @@ struct SignInViewModel {
         
         // 로그인 데이터 조합
         let signInData = Observable
-            .combineLatest(emailTextFieldViewModel.emailData, passwordTextFieldViewModel.passwordData)
+            .combineLatest(emailTextFieldViewModel.email, passwordTextFieldViewModel.password)
         
-        // 로그인 시도
+        // 로그인 버튼 - 로그인
         let signInResult = signInButtonTapped
             .withLatestFrom(signInData)
-            .map(model.signIn)
+            .flatMap(model.signIn)
             .share()
         
-        //로그인 성공
         let signInValue = signInResult
             .compactMap(model.getSignInValue)
         
-        //로그인 성공 시 메인 화면 전환
+        let signInError = signInResult
+            .compactMap(model.getSignInError)
+        
+        //로그인 성공 - 메인 화면 전환
         pushToMainTabBar = signInValue
             .map { _ in
                 return MainTabBarViewModel()
             }
             .asDriver(onErrorDriveWith: .empty())
         
-        //로그인 실패
-        let signInError = signInResult
-            .compactMap(model.getSignInError)
-        
-        // 로그인 시도 실패 시 Alert 표시
+        // 로그인 실패 - Alert 표시
         presentAlert = signInError
             .asSignal(onErrorSignalWith: .empty())
-        
-        
         
         // 회원가입 화면 전환
         pushToSignUpID = signUpButtonTapped
