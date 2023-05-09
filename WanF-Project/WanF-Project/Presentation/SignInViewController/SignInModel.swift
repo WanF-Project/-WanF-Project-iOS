@@ -9,20 +9,31 @@ import Foundation
 
 import RxSwift
 
-// TODO: - 서버 연결 시 재구현
 struct SignInModel {
     
-    func signIn(_ signInData: (String?, String?)) -> Single<Bool> {
-        return Observable
-            .just(true)
-            .asSingle()
+    typealias SignInInfo = (email: String, password: String)
+    
+    //MARK: - Properties
+    let network = SignInNetwork()
+    
+    //MARK: - Function
+    
+    func signIn(_ info: SignInInfo) -> Single<Result<Void, WanfError>> {
+        return network.signIn(email: info.email, password: info.password)
     }
     
-    func getSignInValue(_ result: Single<Bool>) -> Bool? {
-        return true
+    func getSignInValue(_ result: Result<Void, WanfError>) -> Void? {
+        guard case .success(let value) = result else {
+            return nil
+        }
+        return value
     }
     
-    func getSignInError(_ result: Single<Bool>) -> Void? {
-        return nil
+    func getSignInError(_ result: Result<Void, WanfError>) -> Void? {
+        guard case .failure(let error) = result else {
+            return nil
+        }
+        print("ERROR: \(error.localizedDescription)")
+        return Void()
     }
 }
