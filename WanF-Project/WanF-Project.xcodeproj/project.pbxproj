@@ -333,10 +333,9 @@
 		144D30CB2A06257D00640CCD /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				1466FA1C2A0A100400910C30 /* SignUpNetwork */,
 				144D30CC2A06259700640CCD /* WanfAPI.swift */,
 				144D30D42A06295100640CCD /* WanfNetwork.swift */,
-				144D30D62A06870F00640CCD /* SignUpAPI.swift */,
-				144D30D82A068CE000640CCD /* SignUpNetwork.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -349,6 +348,15 @@
 				145457CB2A00DA760014D52F /* ProfileKeywordListModel.swift */,
 			);
 			path = ProfileKeywordList;
+			sourceTree = "<group>";
+		};
+		1466FA1C2A0A100400910C30 /* SignUpNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				144D30D62A06870F00640CCD /* SignUpAPI.swift */,
+				144D30D82A068CE000640CCD /* SignUpNetwork.swift */,
+			);
+			path = SignUpNetwork;
 			sourceTree = "<group>";
 		};
 		14793FA729D82F1D0048D5DD /* Extension */ = {
