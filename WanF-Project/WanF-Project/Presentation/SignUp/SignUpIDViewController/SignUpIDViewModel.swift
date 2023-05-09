@@ -68,7 +68,7 @@ struct SignUpIDViewModel {
         // 인증 번호 검증 실패
         presentAlertForVerificationError = verificationError
             .map { _ in
-                return (title: error, message: "")
+                return (title: "인증번호가 일치하지 않습니다", message: "")
             }
             .asSignal(onErrorSignalWith: .empty())
         
