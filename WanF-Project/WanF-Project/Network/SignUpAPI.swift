@@ -37,4 +37,14 @@ class SignUpAPI: WanfAPI {
         return components
     }
     
+    // 회원가입 완료
+    func signUp() -> URLComponents {
+        var components = URLComponents()
+        components.scheme = super.scheme
+        components.host = super.host
+        components.path = self.path + "user"
+        
+        return components
+    }
+    
 }
