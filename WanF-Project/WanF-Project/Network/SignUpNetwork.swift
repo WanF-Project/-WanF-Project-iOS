@@ -38,4 +38,30 @@ class SignUpNetwork: WanfNetwork {
             }
             .asSingle()
     }
+    
+    // 인증 번호 검증
+    func checkVerificationCode(email: String, verificationCode: String) -> Single<Result<Void, WanfError>> {
+        guard let url = api.checkVerificationCode().url else {
+            return .just(.failure(.invalidURL))
+        }
+        
+        let body: Dictionary< String, String > = [
+            "email" : email,
+            "verificationCode" : verificationCode
+        ]
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json;charset=UTF-8", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try? JSONEncoder().encode(body)
+        
+        return super.session.rx.data(request: request)
+            .map { _ in
+                return .success(Void())
+            }
+            .catch { error in
+                return .just(.failure(.networkError))
+            }
+            .asSingle()
+    }
 }

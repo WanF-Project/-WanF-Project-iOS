@@ -27,4 +27,14 @@ class SignUpAPI: WanfAPI {
         return components
     }
     
+    // 인증 번호 검증
+    func checkVerificationCode() -> URLComponents {
+        var components = URLComponents()
+        components.scheme = super.scheme
+        components.host = super.host
+        components.path = self.path + "verification"
+        
+        return components
+    }
+    
 }
