@@ -9,26 +9,31 @@ import Foundation
 
 import RxSwift
 
-// TODO: - 서버 연결 시 재구현
 struct SignUpPasswordModel {
+
+    typealias SignUpInfo = (email: String, password: String)
     
-    func signUp(_ signUpData: (String, String)) -> Single<Bool> {
-        return Observable
-            .just(true)
-            .asSingle()
+    //MARK: - Properties
+    let network = SignUpNetwork()
+    
+    //MARK: - Function
+    
+    func signUp(_ info: SignUpInfo) -> Single<Result<Void, WanfError>> {
+        return network.signUp(email: info.email, password: info.password)
     }
     
-    func getSignUpValue(_ result: Bool) -> Bool? {
-        if !result {
+    func getSignUpValue(_ result: Result<Void, WanfError>) -> Void? {
+        guard case .success(let value) = result else {
             return nil
         }
-        return true
+        return value
     }
     
-    func getSignUpError(_ result: Bool) -> Bool? {
-        if result {
+    func getSignUpError(_ result: Result<Void, WanfError>) -> Void? {
+        guard case .failure(let error) = result else {
             return nil
         }
-        return false
+        print("ERROR: \(error.localizedDescription)")
+        return Void()
     }
 }
