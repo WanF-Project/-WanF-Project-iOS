@@ -13,6 +13,9 @@ import RxCocoa
 
 class VerifiedStackViewCell: UITableViewCell {
     
+    //MARK: - Properties
+    let disposBag = DisposeBag()
+    
     //MARK: - View
     private lazy var verifiedStackView: UIStackView = {
         var stackView = UIStackView()
@@ -63,10 +66,7 @@ class VerifiedStackViewCell: UITableViewCell {
         // View -> ViewModel
         verificationCodeTextField.rx.text
             .bind(to: viewModel.inputedVerificationCode)
-            .disposed(by: DisposeBag())
-        
-        // ViewModel -> View
-        
+            .disposed(by: disposBag)
     }
 }
 

@@ -41,30 +41,34 @@ struct SignUpIDViewModel {
         showGuidance = emailStackViewCellViewModel.shouldLoadGuidance
             .asSignal(onErrorJustReturn: false)
         
-        //다음 버튼
-        let verificationCode = verifiedStackViewCellViewModel.inputedVerificationCode
-            .compactMap { $0 }
+        // 다음 버튼 - 인증 번호 검사
+        let email = emailStackViewCellViewModel.email
+        
+        let verificationCode = verifiedStackViewCellViewModel.verificationCode
         
         let verificationResult = nextButtonTapped
-            .withLatestFrom(verificationCode)
+            .withLatestFrom(email)
+            .withLatestFrom(verificationCode, resultSelector: { return ($0, $1) })
             .flatMapLatest(model.checkVerificationCode)
             .share()
         
         let verificationValue = verificationResult
             .compactMap(model.getVerificationValue)
         
+        let verificationError = verificationResult
+            .compactMap(model.getVerificationError)
+        
+        // 인증 번호 검증 성공
         pushToSignUpPassword = verificationValue
             .withLatestFrom(emailStackViewCellViewModel.inputedIDText)
             .compactMap { $0 }
             .map { email in SignUpPasswordViewModel(email: email) }
             .asDriver(onErrorDriveWith: .empty())
         
-        let verificationError = verificationResult
-            .compactMap(model.getVerificationError)
-        
+        // 인증 번호 검증 실패
         presentAlertForVerificationError = verificationError
             .map { _ in
-                return (title: "인증번호가 일치하지 않습니다", message: "")
+                return (title: error, message: "")
             }
             .asSignal(onErrorSignalWith: .empty())
         
