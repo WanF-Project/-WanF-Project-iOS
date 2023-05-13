@@ -7,7 +7,21 @@
 
 import Foundation
 
-struct FriendsMatchListCellModel {
+struct FriendsMatchListCellModel: Decodable {
+    let id: Int
     let title: String
     let lectureInfo: LectureInfoModel
+    
+    enum CodingKeys: String, CodingKey {
+        case id, title
+        case lectureInfo = "course"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.id = try container.decode(Int.self, forKey: .id)
+        self.title = try container.decode(String.self, forKey: .title)
+        self.lectureInfo = try container.decode(LectureInfoModel.self, forKey: .lectureInfo)
+    }
 }
