@@ -29,7 +29,7 @@ struct LectureInfoViewModel {
         
         // ViewModel -> View
         cellData = Observable
-            .just(LectureInfoModel.lectureInfoCellData)
+            .just([])
             .asDriver(onErrorJustReturn: [])
         
         //아이템 선택 시 dismiss되도록

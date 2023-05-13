@@ -22,7 +22,7 @@ struct FriendsMatchDetailModel {
         if !result {
             return nil
         }
-        return FriendsMatchDetail.detailData
+        return nil
     }
     
     func getDetailError(_ result: Bool) -> Bool? {
