@@ -18,7 +18,6 @@ struct FriendsMatchTabViewModel {
     let friendsMatchListItemSelected = PublishRelay<IndexPath>()
     
     // ViewModel -> View
-    let shouldLoadFriendsMatchList:  Observable<Bool>
     let cellData: Driver<[FriendsMatchListCellModel]>
     
     let pushToProfile: Driver<ProfileMainViewModel>
@@ -46,9 +45,8 @@ struct FriendsMatchTabViewModel {
         // ViewModel -> View
         
         //친구 찾기 List 데이터
-        shouldLoadFriendsMatchList = model.loadFriendsMatchList()
-        
-        let friendsMatchListResult = shouldLoadFriendsMatchList
+        let friendsMatchListResult = model.loadFriendsMatchList()
+            .asObservable()
             .share()
         
         let friendsMatchListValue = friendsMatchListResult
