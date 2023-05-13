@@ -40,4 +40,14 @@ extension AuthAPI {
         
         return components
     }
+    
+    // 토큰 재발급
+    func reissueAuthorization() -> URLComponents {
+        var components = URLComponents()
+        components.scheme = super.scheme
+        components.host = super.host
+        components.path = self.path + "reissue"
+        
+        return components
+    }
 }
