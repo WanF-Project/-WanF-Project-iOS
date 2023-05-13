@@ -9,31 +9,28 @@ import Foundation
 
 import RxSwift
 
-// TODO: - 서버 연결 시 재구현
 struct FriendsMatchTabModel {
     
-    func loadFriendsMatchList() -> Observable<Bool> {
-        return Observable
-            .just(true)
+    let network = FriendsMatchNetwork()
+    
+    func loadFriendsMatchList() -> Single<Result<[FriendsMatchListCellModel], WanfError>> {
+        return network.getAllPosts()
     }
     
-    func getFriendsMatchListValue(_ result: Bool) -> [FriendsMatchListCellModel]? {
-        if !result {
+    func getFriendsMatchListValue(_ result: Result<[FriendsMatchListCellModel], WanfError>) -> [FriendsMatchListCellModel]? {
+        guard case .success(let value) = result else {
             return nil
         }
-        return [
-            FriendsMatchListCellModel(title: "원프에서 같이 수업 들을 사람 구해요!", lectureInfo: LectureInfoModel(lectureName: "소프트웨어 캡스톤 디자인", professorName: "이승진")),
-            FriendsMatchListCellModel(title: "원프에서 같이 수업 들을 사람 구해요!", lectureInfo: LectureInfoModel(lectureName: "소프트웨어 캡스톤 디자인", professorName: "이승진")),
-            FriendsMatchListCellModel(title: "원프에서 같이 수업 들을 사람 구해요!", lectureInfo: LectureInfoModel(lectureName: "소프트웨어 캡스톤 디자인", professorName: "이승진")),
-            FriendsMatchListCellModel(title: "원프에서 같이 수업 들을 사람 구해요!", lectureInfo: LectureInfoModel(lectureName: "소프트웨어 캡스톤 디자인", professorName: "이승진"))
-        ]
+        return value
     }
     
-    func getFriendsMatchListError(_ result: Bool) -> Bool? {
-        if result {
+    func getFriendsMatchListError(_ result: Result<[FriendsMatchListCellModel], WanfError>) -> Void? {
+        guard case .failure(let error) = result else {
             return nil
         }
-        return false
+        let errorDescription = (error as NSError)
+        print("ERROR: \(errorDescription.code) \(errorDescription.localizedDescription)")
+        return Void()
     }
     
 }
