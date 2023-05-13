@@ -75,8 +75,8 @@ extension AuthNetwork {
             .map { _ in
                 return .success(Void())
             }
-            .catch { error in
-                return .just(.failure(.networkError))
+            .catch { [self] error in
+                return self.reissueAuthorization().asObservable()
             }
             .asSingle()
     }
