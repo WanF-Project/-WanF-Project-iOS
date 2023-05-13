@@ -7,16 +7,22 @@
 
 import Foundation
 
-struct LectureInfoModel {
+struct LectureInfoModel: Decodable {
+    let id: Int
     let lectureName: String
     let professorName: String
-}
-
-extension LectureInfoModel {
-    static let lectureInfoCellData = [
-        LectureInfoModel(lectureName: "소프트웨어 캡스톤 디자인", professorName: "이승진"),
-        LectureInfoModel(lectureName: "소프트웨어 캡스톤 디자인", professorName: "이승진"),
-        LectureInfoModel(lectureName: "소프트웨어 캡스톤 디자인", professorName: "이승진"),
-        LectureInfoModel(lectureName: "소프트웨어 캡스톤 디자인", professorName: "이승진")
-    ]
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case lectureName = "name"
+        case professorName = "professor"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.id = try container.decode(Int.self, forKey: .id)
+        self.lectureName = try container.decode(String.self, forKey: .lectureName)
+        self.professorName = try container.decode(String.self, forKey: .professorName)
+    }
 }
