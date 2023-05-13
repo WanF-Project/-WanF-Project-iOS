@@ -10,6 +10,7 @@ import Foundation
 enum WanfError: Error {
     case invalidURL
     case invalidJSON
+    case invalidAuth
     case networkError
     case apiKeyError
 }
