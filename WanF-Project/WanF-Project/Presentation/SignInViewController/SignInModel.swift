@@ -14,7 +14,7 @@ struct SignInModel {
     typealias SignInInfo = (email: String, password: String)
     
     //MARK: - Properties
-    let network = SignInNetwork()
+    let network = AuthNetwork()
     
     //MARK: - Function
     

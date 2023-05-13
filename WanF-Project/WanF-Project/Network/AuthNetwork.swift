@@ -9,10 +9,10 @@ import Foundation
 
 import RxSwift
 
-class SignInNetwork: WanfNetwork {
+class AuthNetwork: WanfNetwork {
     
     //MARK: - Properties
-    let api = SignInAPI()
+    let api = AuthAPI()
     
     init() {
         super.init()

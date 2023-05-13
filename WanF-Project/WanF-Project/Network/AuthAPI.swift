@@ -1,5 +1,5 @@
 //
-//  SignInAPI.swift
+//  AuthAPI.swift
 //  WanF-Project
 //
 //  Created by 임윤휘 on 2023/05/09.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SignInAPI: WanfAPI {
+class AuthAPI: WanfAPI {
     
     //MARK: - Properties
     let path = "/api/v1/auth/"

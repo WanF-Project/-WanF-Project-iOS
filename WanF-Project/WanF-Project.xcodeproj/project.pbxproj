@@ -51,10 +51,10 @@
 		14567E9C29DFE824000B75EE /* EmailStackViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14567E9B29DFE824000B75EE /* EmailStackViewCellModel.swift */; };
 		14567E9E29E00740000B75EE /* VerifiedStackViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14567E9D29E00740000B75EE /* VerifiedStackViewCellViewModel.swift */; };
 		14567EA029E00AF6000B75EE /* SignUpIDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14567E9F29E00AF6000B75EE /* SignUpIDModel.swift */; };
+		1466FA1E2A0A412500910C30 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466FA1D2A0A412500910C30 /* AuthAPI.swift */; };
+		1466FA202A0A428D00910C30 /* AuthNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466FA1F2A0A428D00910C30 /* AuthNetwork.swift */; };
 		1466FA222A0A482B00910C30 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466FA212A0A482B00910C30 /* UserDefaultsManager.swift */; };
 		1466FA242A0A486C00910C30 /* UserDefaultsAuthorizationWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466FA232A0A486C00910C30 /* UserDefaultsAuthorizationWrapper.swift */; };
-		1466FA1E2A0A412500910C30 /* SignInAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466FA1D2A0A412500910C30 /* SignInAPI.swift */; };
-		1466FA202A0A428D00910C30 /* SignInNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466FA1F2A0A428D00910C30 /* SignInNetwork.swift */; };
 		147922ED29DADBCF0052CBA8 /* SignUpIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147922EC29DADBCF0052CBA8 /* SignUpIDViewController.swift */; };
 		14793FA629D8046E0048D5DD /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14793FA529D8046E0048D5DD /* ColorAssets.xcassets */; };
 		14793FA929D831230048D5DD /* ExUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14793FA829D831230048D5DD /* ExUIColor.swift */; };
@@ -145,10 +145,10 @@
 		14567E9B29DFE824000B75EE /* EmailStackViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailStackViewCellModel.swift; sourceTree = "<group>"; };
 		14567E9D29E00740000B75EE /* VerifiedStackViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiedStackViewCellViewModel.swift; sourceTree = "<group>"; };
 		14567E9F29E00AF6000B75EE /* SignUpIDModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpIDModel.swift; sourceTree = "<group>"; };
+		1466FA1D2A0A412500910C30 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		1466FA1F2A0A428D00910C30 /* AuthNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetwork.swift; sourceTree = "<group>"; };
 		1466FA212A0A482B00910C30 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		1466FA232A0A486C00910C30 /* UserDefaultsAuthorizationWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsAuthorizationWrapper.swift; sourceTree = "<group>"; };
-		1466FA1D2A0A412500910C30 /* SignInAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAPI.swift; sourceTree = "<group>"; };
-		1466FA1F2A0A428D00910C30 /* SignInNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInNetwork.swift; sourceTree = "<group>"; };
 		147922EC29DADBCF0052CBA8 /* SignUpIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpIDViewController.swift; sourceTree = "<group>"; };
 		14793FA529D8046E0048D5DD /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
 		14793FA829D831230048D5DD /* ExUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIColor.swift; sourceTree = "<group>"; };
@@ -344,8 +344,8 @@
 				1466FA1C2A0A100400910C30 /* SignUpNetwork */,
 				144D30CC2A06259700640CCD /* WanfAPI.swift */,
 				144D30D42A06295100640CCD /* WanfNetwork.swift */,
-				1466FA1D2A0A412500910C30 /* SignInAPI.swift */,
-				1466FA1F2A0A428D00910C30 /* SignInNetwork.swift */,
+				1466FA1D2A0A412500910C30 /* AuthAPI.swift */,
+				1466FA1F2A0A428D00910C30 /* AuthNetwork.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -739,7 +739,7 @@
 				14AC9B3729E27547009C37A5 /* ClassInfoViewController.swift in Sources */,
 				14793FA929D831230048D5DD /* ExUIColor.swift in Sources */,
 				141A783629D7F1E5006731F7 /* SignInViewController.swift in Sources */,
-				1466FA202A0A428D00910C30 /* SignInNetwork.swift in Sources */,
+				1466FA202A0A428D00910C30 /* AuthNetwork.swift in Sources */,
 				14BD19F229FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift in Sources */,
 				142DBED229DC223A00017603 /* EmailTextFieldViewModel.swift in Sources */,
 				14E4C9E929EA564400E2CB62 /* LectureInfoViewModel.swift in Sources */,
@@ -780,7 +780,7 @@
 				14D7A90329E92F9B007850BE /* FriendsMatchWritingTopBarView.swift in Sources */,
 				144D30CD2A06259700640CCD /* WanfAPI.swift in Sources */,
 				14982C9129EEACD200D388BF /* FriendsMatchDetailModel.swift in Sources */,
-				1466FA1E2A0A412500910C30 /* SignInAPI.swift in Sources */,
+				1466FA1E2A0A412500910C30 /* AuthAPI.swift in Sources */,
 				14AC9B3929E27569009C37A5 /* ClassGroupViewController.swift in Sources */,
 				14E4C9E429EA530F00E2CB62 /* LectureInfoViewController.swift in Sources */,
 				14D7A90A29E936A3007850BE /* FriendsMatchWritingLectureInfoView.swift in Sources */,
