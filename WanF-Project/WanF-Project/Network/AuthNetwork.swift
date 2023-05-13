@@ -76,7 +76,21 @@ extension AuthNetwork {
                 return .success(Void())
             }
             .catch { [self] error in
-                return self.reissueAuthorization().asObservable()
+                
+                let result = self.reissueAuthorization().asObservable()
+                return result
+                    .map { result in
+                        if case .failure(_) = result {
+                            // 로그인 화면 전환
+                            DispatchQueue.main.async {
+                                let signInVC = SignInViewController()
+                                signInVC.bind(SignInViewModel())
+                                SceneDelegate.shared.updateRootViewController(signInVC)
+                            }
+                            return .failure(.invalidAuth)
+                        }
+                        return .success(Void())
+                    }
             }
             .asSingle()
     }
@@ -106,7 +120,7 @@ extension AuthNetwork {
                 return .success(Void())
             }
             .catch { error in
-                    .just(.failure(.networkError))
+                return .just(.failure(.networkError))
             }
             .asSingle()
     }
