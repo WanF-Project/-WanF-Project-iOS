@@ -38,7 +38,7 @@ class FriendsMatchNetwork: WanfNetwork {
             .map { data in
                 do {
                     let decodedData = try JSONDecoder().decode([FriendsMatchListCellModel].self, from: data)
-                    print(decodedData)
+                    
                     return .success(decodedData)
                 }
                 catch {
