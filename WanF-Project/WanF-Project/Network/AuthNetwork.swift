@@ -53,3 +53,31 @@ class AuthNetwork: WanfNetwork {
             .asSingle()
     }
 }
+
+//MARK: - JWT Task
+extension AuthNetwork {
+    
+    // AT 만료 여부 확인
+    final func checkAuthorizationExpired() -> Single<Result<Void, WanfError>> {
+        guard let accessToken = UserDefaultsManager.accessToken else {
+            return .just(.failure(.invalidJSON))
+        }
+        
+        guard let url = api.checkAuthorizationExpired().url else {
+            return .just(.failure(.invalidURL))
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue(accessToken, forHTTPHeaderField: "Authorization")
+        
+        return session.rx.data(request: request)
+            .map { _ in
+                return .success(Void())
+            }
+            .catch { error in
+                return .just(.failure(.networkError))
+            }
+            .asSingle()
+    }
+}

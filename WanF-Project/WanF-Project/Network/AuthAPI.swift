@@ -27,3 +27,17 @@ class AuthAPI: WanfAPI {
         return components
     }
 }
+
+//MARK: - JWT Task
+extension AuthAPI {
+    
+    // AT 만료 여부 확인
+    final func checkAuthorizationExpired() -> URLComponents {
+        var components = URLComponents()
+        components.scheme = super.scheme
+        components.host = super.host
+        components.path = self.path + "validate"
+        
+        return components
+    }
+}
