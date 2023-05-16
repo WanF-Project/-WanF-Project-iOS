@@ -40,6 +40,9 @@
 		142DBEE129DC4FC300017603 /* MainTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DBEE029DC4FC300017603 /* MainTabBarViewModel.swift */; };
 		143661FE2A0F7D7300308028 /* FriendsMatchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143661FD2A0F7D7300308028 /* FriendsMatchAPI.swift */; };
 		143662002A0F7F0500308028 /* FriendsMatchNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143661FF2A0F7F0500308028 /* FriendsMatchNetwork.swift */; };
+		1449E1F62A135375008C70DB /* FriendsMatchCommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1449E1F52A135375008C70DB /* FriendsMatchCommentListView.swift */; };
+		1449E1F82A135687008C70DB /* FriendsMatchCommentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1449E1F72A135687008C70DB /* FriendsMatchCommentListViewModel.swift */; };
+		1449E1FA2A13592A008C70DB /* FriendsMatchCommentEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1449E1F92A13592A008C70DB /* FriendsMatchCommentEntity.swift */; };
 		144D30C32A0606F000640CCD /* ProfileSingleSelectionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D30C22A0606F000640CCD /* ProfileSingleSelectionListViewController.swift */; };
 		144D30C52A06076C00640CCD /* ProfileSingleSelectionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D30C42A06076C00640CCD /* ProfileSingleSelectionListViewModel.swift */; };
 		144D30C72A06096000640CCD /* ProfileSingleSelectionListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D30C62A06096000640CCD /* ProfileSingleSelectionListModel.swift */; };
@@ -136,6 +139,9 @@
 		142DBEE029DC4FC300017603 /* MainTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewModel.swift; sourceTree = "<group>"; };
 		143661FD2A0F7D7300308028 /* FriendsMatchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchAPI.swift; sourceTree = "<group>"; };
 		143661FF2A0F7F0500308028 /* FriendsMatchNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchNetwork.swift; sourceTree = "<group>"; };
+		1449E1F52A135375008C70DB /* FriendsMatchCommentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchCommentListView.swift; sourceTree = "<group>"; };
+		1449E1F72A135687008C70DB /* FriendsMatchCommentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchCommentListViewModel.swift; sourceTree = "<group>"; };
+		1449E1F92A13592A008C70DB /* FriendsMatchCommentEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchCommentEntity.swift; sourceTree = "<group>"; };
 		144D30C22A0606F000640CCD /* ProfileSingleSelectionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSingleSelectionListViewController.swift; sourceTree = "<group>"; };
 		144D30C42A06076C00640CCD /* ProfileSingleSelectionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSingleSelectionListViewModel.swift; sourceTree = "<group>"; };
 		144D30C62A06096000640CCD /* ProfileSingleSelectionListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSingleSelectionListModel.swift; sourceTree = "<group>"; };
@@ -256,6 +262,7 @@
 				1429B0A429E5129C00891FF8 /* LectureInfoModel.swift */,
 				14982C8029EE8BAC00D388BF /* FriendsMatchDetail.swift */,
 				14D4C2E229FD49B2001ACBC6 /* ProfileContent.swift */,
+				1449E1F92A13592A008C70DB /* FriendsMatchCommentEntity.swift */,
 				144D30C82A060E4400640CCD /* WanF.plist */,
 			);
 			path = Entity;
@@ -306,6 +313,7 @@
 		1429B0BB29E575E500891FF8 /* FriendsMatchDetail */ = {
 			isa = PBXGroup;
 			children = (
+				1449E1F22A135262008C70DB /* FriendsMatchComment */,
 				14982C6C29EE56EE00D388BF /* FriendsMatchDetailSubcomponents */,
 				1429B0BC29E5760400891FF8 /* FriendsMatchDetailViewController.swift */,
 				1429B0BE29E5762A00891FF8 /* FriendsMatchDetailViewModel.swift */,
@@ -330,6 +338,15 @@
 				142DBED629DC2D2C00017603 /* PasswordTextFieldViewModel.swift */,
 			);
 			path = PasswordTextField;
+			sourceTree = "<group>";
+		};
+		1449E1F22A135262008C70DB /* FriendsMatchComment */ = {
+			isa = PBXGroup;
+			children = (
+				1449E1F52A135375008C70DB /* FriendsMatchCommentListView.swift */,
+				1449E1F72A135687008C70DB /* FriendsMatchCommentListViewModel.swift */,
+			);
+			path = FriendsMatchComment;
 			sourceTree = "<group>";
 		};
 		144D30CA2A0616BB00640CCD /* ProfileSingleSelectionList */ = {
@@ -749,6 +766,7 @@
 				1466FA202A0A428D00910C30 /* AuthNetwork.swift in Sources */,
 				14BD19F229FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift in Sources */,
 				142DBED229DC223A00017603 /* EmailTextFieldViewModel.swift in Sources */,
+				1449E1F62A135375008C70DB /* FriendsMatchCommentListView.swift in Sources */,
 				14E4C9E929EA564400E2CB62 /* LectureInfoViewModel.swift in Sources */,
 				14982C9729EEAD5800D388BF /* FriendsMatchDetailLectureInfoViewModel.swift in Sources */,
 				14066BAF29E1431300AFB2D2 /* PasswordTextFieldCellViewModel.swift in Sources */,
@@ -768,6 +786,7 @@
 				14DD372029DB301400D6A715 /* PasswordTextFieldCell.swift in Sources */,
 				14DD372429DB318900D6A715 /* SignUpPasswordViewModel.swift in Sources */,
 				145457CC2A00DA760014D52F /* ProfileKeywordListModel.swift in Sources */,
+				1449E1F82A135687008C70DB /* FriendsMatchCommentListViewModel.swift in Sources */,
 				14982C7329EE657200D388BF /* FriendsMatchDetailTextView.swift in Sources */,
 				14066BB129E1455F00AFB2D2 /* PasswordToCheckTextFieldCellViewModel.swift in Sources */,
 				1429B0B329E56EF300891FF8 /* ProfileMainViewController.swift in Sources */,
@@ -799,6 +818,7 @@
 				1496374329ED5E610021B4D4 /* FriendsMatchWritingModel.swift in Sources */,
 				1429B0B529E5710C00891FF8 /* ProfileMainViewModel.swift in Sources */,
 				141A781A29D7ED46006731F7 /* SceneDelegate.swift in Sources */,
+				1449E1FA2A13592A008C70DB /* FriendsMatchCommentEntity.swift in Sources */,
 				144D30C32A0606F000640CCD /* ProfileSingleSelectionListViewController.swift in Sources */,
 				14870BF129EBBD9400D9643E /* FriendsMatchWritingLectureInfoViewModel.swift in Sources */,
 				1466FA242A0A486C00910C30 /* UserDefaultsAuthorizationWrapper.swift in Sources */,
