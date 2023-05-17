@@ -83,6 +83,7 @@
 		14982C9529EEAD3600D388BF /* FriendsMatchDetailInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14982C9429EEAD3600D388BF /* FriendsMatchDetailInfoViewModel.swift */; };
 		14982C9729EEAD5800D388BF /* FriendsMatchDetailLectureInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14982C9629EEAD5800D388BF /* FriendsMatchDetailLectureInfoViewModel.swift */; };
 		14982C9929EEADC200D388BF /* FriendsMatchDetailTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14982C9829EEADC200D388BF /* FriendsMatchDetailTextViewModel.swift */; };
+		149F01622A13859600370FE1 /* DynamicSizeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149F01612A13859600370FE1 /* DynamicSizeTableView.swift */; };
 		14AC9B3529E2751C009C37A5 /* FriendsMatchTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */; };
 		14AC9B3729E27547009C37A5 /* ClassInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */; };
 		14AC9B3929E27569009C37A5 /* ClassGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3829E27569009C37A5 /* ClassGroupViewController.swift */; };
@@ -182,6 +183,7 @@
 		14982C9429EEAD3600D388BF /* FriendsMatchDetailInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchDetailInfoViewModel.swift; sourceTree = "<group>"; };
 		14982C9629EEAD5800D388BF /* FriendsMatchDetailLectureInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchDetailLectureInfoViewModel.swift; sourceTree = "<group>"; };
 		14982C9829EEADC200D388BF /* FriendsMatchDetailTextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchDetailTextViewModel.swift; sourceTree = "<group>"; };
+		149F01612A13859600370FE1 /* DynamicSizeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSizeTableView.swift; sourceTree = "<group>"; };
 		14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabViewController.swift; sourceTree = "<group>"; };
 		14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInfoViewController.swift; sourceTree = "<group>"; };
 		14AC9B3829E27569009C37A5 /* ClassGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassGroupViewController.swift; sourceTree = "<group>"; };
@@ -540,6 +542,7 @@
 				1466FA252A0A4B6B00910C30 /* UserDefaultsManager */,
 				14D4C2D829FCF427001ACBC6 /* LeadingAlignmentCollectionViewFlowLayout.swift */,
 				14D4C2DC29FD0407001ACBC6 /* DynamicHeightCollectionView.swift */,
+				149F01612A13859600370FE1 /* DynamicSizeTableView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -770,6 +773,7 @@
 				14E4C9E929EA564400E2CB62 /* LectureInfoViewModel.swift in Sources */,
 				14982C9729EEAD5800D388BF /* FriendsMatchDetailLectureInfoViewModel.swift in Sources */,
 				14066BAF29E1431300AFB2D2 /* PasswordTextFieldCellViewModel.swift in Sources */,
+				149F01622A13859600370FE1 /* DynamicSizeTableView.swift in Sources */,
 				14AC9B3529E2751C009C37A5 /* FriendsMatchTabViewController.swift in Sources */,
 				142DBED729DC2D2C00017603 /* PasswordTextFieldViewModel.swift in Sources */,
 				142DBED529DC2B0200017603 /* PasswordTextField.swift in Sources */,
