@@ -12,4 +12,13 @@ import RxCocoa
 
 struct FriendsMatchCommentListViewModel {
     
+    // ViewModel -> View
+    let cellData: Driver<[FriendsMatchCommentEntity]>
+    
+    init() {
+        
+        cellData = Observable
+            .just(FriendsMatchCommentEntity.comments)
+            .asDriver(onErrorJustReturn: [])
+    }
 }
