@@ -17,6 +17,7 @@ struct FriendsMatchDetailViewModel {
     let detailInfoViewModel = FriendsMatchDetailInfoViewModel()
     let lectureInfoViewModel = FriendsMatchDetailLectureInfoViewModel()
     let detailTextViewModel = FriendsMatchDetailTextViewModel()
+    let commentListViewModel = FriendsMatchCommentListViewModel()
     
     // View -> ViewModel
     let shouldLoadDetail = PublishSubject<Void>()
@@ -94,7 +95,5 @@ struct FriendsMatchDetailViewModel {
         
         popToRootViewController = deleteDetailValue
             .asDriver(onErrorDriveWith: .empty())
-            
-        
     }
 }

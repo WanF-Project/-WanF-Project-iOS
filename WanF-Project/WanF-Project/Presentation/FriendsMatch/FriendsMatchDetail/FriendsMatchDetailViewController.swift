@@ -21,6 +21,15 @@ class FriendsMatchDetailViewController: UIViewController {
     private lazy var detailInfoView = FriendsMatchDetailInfoView()
     private lazy var lectureInfoView = FriendsMatchDetailLectureInfoView()
     private lazy var detailTextView = FriendsMatchDetailTextView()
+    private lazy var commentListView = FriendsMatchCommentListView()
+    
+    lazy var midBarView: UIView = {
+        let view = UIView()
+        
+        view.backgroundColor = .wanfMint
+        
+        return view
+    }()
     
     private lazy var menuBarItem: UIBarButtonItem = {
         return UIBarButtonItem(image: UIImage(systemName: "ellipsis"))
@@ -51,6 +60,12 @@ class FriendsMatchDetailViewController: UIViewController {
         layout()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        adjustContentViewSize()
+    }
+    
     //MARK: - Function
     func bind(_ viewModel: FriendsMatchDetailViewModel){
         
@@ -60,6 +75,7 @@ class FriendsMatchDetailViewController: UIViewController {
         detailInfoView.bind(viewModel.detailInfoViewModel)
         lectureInfoView.bind(viewModel.lectureInfoViewModel)
         detailTextView.bind(viewModel.detailTextViewModel)
+        commentListView.bind(viewModel.commentListViewModel)
         
         // Load the Detail Data
         viewModel.shouldLoadDetail.onNext(Void())
@@ -72,7 +88,6 @@ class FriendsMatchDetailViewController: UIViewController {
         viewModel.presentMenueActionSheet
             .emit(to: self.rx.presentMenueActionSheet)
             .disposed(by: disposeBag)
-        
     }
 }
 
@@ -91,12 +106,15 @@ private extension FriendsMatchDetailViewController {
         scrollView.addSubview(contentView)
         
         [
-            DetailStackView
+            DetailStackView,
+            midBarView,
+            commentListView
         ]
             .forEach { contentView.addSubview($0) }
         
         let verticalInset = 30.0
         let horizontalInset = 20.0
+        let offset = 15.0
         
         scrollView.snp.makeConstraints { make in
             make.verticalEdges.equalToSuperview()
@@ -111,10 +129,31 @@ private extension FriendsMatchDetailViewController {
         
         DetailStackView.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
-            make.verticalEdges.equalToSuperview()
+            make.top.equalToSuperview()
         }
         
         
+        midBarView.snp.makeConstraints { make in
+            make.top.equalTo(DetailStackView.snp.bottom).offset(offset * 2)
+            make.horizontalEdges.equalToSuperview()
+            make.height.equalTo(1.0)
+            
+        }
+        
+        commentListView.snp.makeConstraints { make in
+            make.top.equalTo(midBarView.snp.bottom).offset(offset)
+            make.bottom.equalToSuperview()
+            make.horizontalEdges.equalToSuperview()
+        }
+    }
+    
+    func adjustContentViewSize() {
+        let contentHeight = contentView.frame.height + commentListView.frame.height
+        contentView.frame.size = CGSize(
+            width: contentView.frame.width,
+            height: contentHeight
+        )
+        scrollView.contentSize = contentView.frame.size
     }
 }
 
