@@ -13,4 +13,7 @@ struct UserDefaultsManager {
     
     @UserDefaultsAuthorizationWrapper("RefreshToken")
     static var refreshToken: String?
+    
+    @UserDefaultsAuthorizationChecked("AccessToken")
+    static var accessTokenChecked: String?
 }

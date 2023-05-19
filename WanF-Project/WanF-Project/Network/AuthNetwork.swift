@@ -58,7 +58,7 @@ class AuthNetwork: WanfNetwork {
 extension AuthNetwork {
     
     // AT 만료 여부 확인
-    final func checkAuthorizationExpired() -> Single<Result<Void, WanfError>> {
+    final func checkAuthorizationExpired() -> Single<Result<String, WanfError>> {
         guard let accessToken = UserDefaultsManager.accessToken else {
             return .just(.failure(.invalidJSON))
         }
@@ -73,7 +73,7 @@ extension AuthNetwork {
         
         return session.rx.data(request: request)
             .map { _ in
-                return .success(Void())
+                return .success(accessToken)
             }
             .catch { [self] error in
                 
@@ -89,7 +89,7 @@ extension AuthNetwork {
                             }
                             return .failure(.invalidAuth)
                         }
-                        return .success(Void())
+                        return .success(accessToken)
                     }
             }
             .asSingle()
