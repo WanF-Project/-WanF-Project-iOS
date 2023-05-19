@@ -21,14 +21,14 @@ struct FriendsMatchWritingViewModel {
     let titleText = PublishRelay<String?>()
     let contentText = PublishRelay<String?>()
     
-    let lectureInfo = PublishRelay<LectureInfoModel>()
+    let lectureInfo = PublishRelay<LectureInfEntity>()
     
     // ViewModel -> View
     let dismiss: Driver<Void>
     let presentAlert: Signal<Void>
     
     // ViewModel -> ChildViewModel
-    let shouldSendLectureInfo: Observable<LectureInfoModel>
+    let shouldSendLectureInfo: Observable<LectureInfEntity>
     let activateDoneButton: Driver<Bool>
     
     let isSelectedLectureInfo: Observable<Bool>

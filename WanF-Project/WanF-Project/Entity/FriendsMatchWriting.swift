@@ -10,5 +10,5 @@ import Foundation
 struct FriendsMatchWriting {
     let title: String
     let content: String
-    let lectureInfo: LectureInfoModel
+    let lectureInfo: LectureInfEntity
 }

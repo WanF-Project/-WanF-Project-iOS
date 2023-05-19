@@ -15,13 +15,13 @@ struct LectureInfoViewModel {
     
     // View -> ViewModel
     let lectureInfoListItemSelected = PublishRelay<IndexPath>()
-    let viewWillDismiss = PublishRelay<LectureInfoModel>()
+    let viewWillDismiss = PublishRelay<LectureInfEntity>()
     
     // ViewModel -> View
-    let cellData: Driver<[LectureInfoModel]>
-    var didSelectLectureInfo: Signal<LectureInfoModel>
+    let cellData: Driver<[LectureInfEntity]>
+    var didSelectLectureInfo: Signal<LectureInfEntity>
     
-    let dismissAfterItemSelected: Driver<LectureInfoModel>
+    let dismissAfterItemSelected: Driver<LectureInfEntity>
     
     init() {
         

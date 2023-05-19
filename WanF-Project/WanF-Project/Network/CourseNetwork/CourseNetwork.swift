@@ -18,7 +18,7 @@ class CourseNetwork: WanfNetwork {
     }
     
     // 모든 강의 조회
-    func getAllCourse() -> Single<Result<[LectureInfoModel], WanfError>> {
+    func getAllCourse() -> Single<Result<[LectureInfEntity], WanfError>> {
         guard let accessToken = UserDefaultsManager.accessTokenChecked else {
             return .just(.failure(.invalidAuth))
         }
@@ -35,7 +35,7 @@ class CourseNetwork: WanfNetwork {
             .map { data in
                 
                 do {
-                    let decodedData = try JSONDecoder().decode([LectureInfoModel].self, from: data)
+                    let decodedData = try JSONDecoder().decode([LectureInfEntity].self, from: data)
                     return .success(decodedData)
                 }
                 catch {

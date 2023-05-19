@@ -20,7 +20,6 @@
 		141A783429D7F168006731F7 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 141A783329D7F168006731F7 /* RxSwift */; };
 		141A783629D7F1E5006731F7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A783529D7F1E5006731F7 /* SignInViewController.swift */; };
 		1429B0A329E5122400891FF8 /* FriendsMatchListCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0A229E5122400891FF8 /* FriendsMatchListCellModel.swift */; };
-		1429B0A529E5129C00891FF8 /* LectureInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0A429E5129C00891FF8 /* LectureInfoModel.swift */; };
 		1429B0A729E5163300891FF8 /* FriendsMatchTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0A629E5163300891FF8 /* FriendsMatchTabViewModel.swift */; };
 		1429B0A929E51CF400891FF8 /* FriendsMatchTabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0A829E51CF400891FF8 /* FriendsMatchTabModel.swift */; };
 		1429B0AE29E53F9D00891FF8 /* FriendsMatchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0AD29E53F9D00891FF8 /* FriendsMatchListCell.swift */; };
@@ -70,6 +69,7 @@
 		147E9B512A1784AA0032E530 /* UserDefaultsAuthorizationChecked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E9B502A1784AA0032E530 /* UserDefaultsAuthorizationChecked.swift */; };
 		147E9B532A178E520032E530 /* CourseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E9B522A178E520032E530 /* CourseAPI.swift */; };
 		147E9B552A178E690032E530 /* CourseNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E9B542A178E690032E530 /* CourseNetwork.swift */; };
+		147E9B582A1792F30032E530 /* LectureInfoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E9B572A1792F30032E530 /* LectureInfoEntity.swift */; };
 		14840E4929FE5C8C007BFB1A /* ProfileKeywordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14840E4829FE5C8C007BFB1A /* ProfileKeywordListViewController.swift */; };
 		14840E4B29FE5CCC007BFB1A /* ProfileKeywordListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14840E4A29FE5CCC007BFB1A /* ProfileKeywordListViewModel.swift */; };
 		14870BF129EBBD9400D9643E /* FriendsMatchWritingLectureInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14870BF029EBBD9400D9643E /* FriendsMatchWritingLectureInfoViewModel.swift */; };
@@ -119,7 +119,6 @@
 		141A782529D7ED46006731F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		141A783529D7F1E5006731F7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		1429B0A229E5122400891FF8 /* FriendsMatchListCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchListCellModel.swift; sourceTree = "<group>"; };
-		1429B0A429E5129C00891FF8 /* LectureInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureInfoModel.swift; sourceTree = "<group>"; };
 		1429B0A629E5163300891FF8 /* FriendsMatchTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabViewModel.swift; sourceTree = "<group>"; };
 		1429B0A829E51CF400891FF8 /* FriendsMatchTabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabModel.swift; sourceTree = "<group>"; };
 		1429B0AD29E53F9D00891FF8 /* FriendsMatchListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchListCell.swift; sourceTree = "<group>"; };
@@ -169,6 +168,7 @@
 		147E9B502A1784AA0032E530 /* UserDefaultsAuthorizationChecked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsAuthorizationChecked.swift; sourceTree = "<group>"; };
 		147E9B522A178E520032E530 /* CourseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseAPI.swift; sourceTree = "<group>"; };
 		147E9B542A178E690032E530 /* CourseNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseNetwork.swift; sourceTree = "<group>"; };
+		147E9B572A1792F30032E530 /* LectureInfoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureInfoEntity.swift; sourceTree = "<group>"; };
 		14840E4829FE5C8C007BFB1A /* ProfileKeywordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileKeywordListViewController.swift; sourceTree = "<group>"; };
 		14840E4A29FE5CCC007BFB1A /* ProfileKeywordListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileKeywordListViewModel.swift; sourceTree = "<group>"; };
 		14870BF029EBBD9400D9643E /* FriendsMatchWritingLectureInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingLectureInfoViewModel.swift; sourceTree = "<group>"; };
@@ -259,10 +259,10 @@
 			children = (
 				1429B0A229E5122400891FF8 /* FriendsMatchListCellModel.swift */,
 				1496374029ED5ABD0021B4D4 /* FriendsMatchWriting.swift */,
-				1429B0A429E5129C00891FF8 /* LectureInfoModel.swift */,
 				14982C8029EE8BAC00D388BF /* FriendsMatchDetail.swift */,
 				14D4C2E229FD49B2001ACBC6 /* ProfileContent.swift */,
 				144D30C82A060E4400640CCD /* WanF.plist */,
+				147E9B572A1792F30032E530 /* LectureInfoEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -760,7 +760,6 @@
 				14982C9529EEAD3600D388BF /* FriendsMatchDetailInfoViewModel.swift in Sources */,
 				1429B0A729E5163300891FF8 /* FriendsMatchTabViewModel.swift in Sources */,
 				1429B0A929E51CF400891FF8 /* FriendsMatchTabModel.swift in Sources */,
-				1429B0A529E5129C00891FF8 /* LectureInfoModel.swift in Sources */,
 				14AC9B3729E27547009C37A5 /* ClassInfoViewController.swift in Sources */,
 				14793FA929D831230048D5DD /* ExUIColor.swift in Sources */,
 				147E9B552A178E690032E530 /* CourseNetwork.swift in Sources */,
@@ -779,6 +778,7 @@
 				147E9B512A1784AA0032E530 /* UserDefaultsAuthorizationChecked.swift in Sources */,
 				1429B0A329E5122400891FF8 /* FriendsMatchListCellModel.swift in Sources */,
 				14D4C2E329FD49B2001ACBC6 /* ProfileContent.swift in Sources */,
+				147E9B582A1792F30032E530 /* LectureInfoEntity.swift in Sources */,
 				142DBEDC29DC3D1100017603 /* SignInModel.swift in Sources */,
 				14DD371129DB0EE700D6A715 /* SignUpIDViewModel.swift in Sources */,
 				14982C9929EEADC200D388BF /* FriendsMatchDetailTextViewModel.swift in Sources */,
