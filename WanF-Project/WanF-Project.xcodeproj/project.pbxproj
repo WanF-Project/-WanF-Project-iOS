@@ -74,7 +74,7 @@
 		14840E4929FE5C8C007BFB1A /* ProfileKeywordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14840E4829FE5C8C007BFB1A /* ProfileKeywordListViewController.swift */; };
 		14840E4B29FE5CCC007BFB1A /* ProfileKeywordListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14840E4A29FE5CCC007BFB1A /* ProfileKeywordListViewModel.swift */; };
 		14870BF129EBBD9400D9643E /* FriendsMatchWritingLectureInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14870BF029EBBD9400D9643E /* FriendsMatchWritingLectureInfoViewModel.swift */; };
-		1496374129ED5ABD0021B4D4 /* FriendsMatchWriting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1496374029ED5ABD0021B4D4 /* FriendsMatchWriting.swift */; };
+		1496374129ED5ABD0021B4D4 /* FriendsMatchWritingEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1496374029ED5ABD0021B4D4 /* FriendsMatchWritingEntity.swift */; };
 		1496374329ED5E610021B4D4 /* FriendsMatchWritingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1496374229ED5E610021B4D4 /* FriendsMatchWritingModel.swift */; };
 		14982C6E29EE580500D388BF /* FriendsMatchDetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14982C6D29EE580500D388BF /* FriendsMatchDetailInfoView.swift */; };
 		14982C7029EE603F00D388BF /* FriendsMatchDetailLectureInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14982C6F29EE603F00D388BF /* FriendsMatchDetailLectureInfoView.swift */; };
@@ -174,7 +174,7 @@
 		14840E4829FE5C8C007BFB1A /* ProfileKeywordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileKeywordListViewController.swift; sourceTree = "<group>"; };
 		14840E4A29FE5CCC007BFB1A /* ProfileKeywordListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileKeywordListViewModel.swift; sourceTree = "<group>"; };
 		14870BF029EBBD9400D9643E /* FriendsMatchWritingLectureInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingLectureInfoViewModel.swift; sourceTree = "<group>"; };
-		1496374029ED5ABD0021B4D4 /* FriendsMatchWriting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWriting.swift; sourceTree = "<group>"; };
+		1496374029ED5ABD0021B4D4 /* FriendsMatchWritingEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingEntity.swift; sourceTree = "<group>"; };
 		1496374229ED5E610021B4D4 /* FriendsMatchWritingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingModel.swift; sourceTree = "<group>"; };
 		14982C6D29EE580500D388BF /* FriendsMatchDetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchDetailInfoView.swift; sourceTree = "<group>"; };
 		14982C6F29EE603F00D388BF /* FriendsMatchDetailLectureInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchDetailLectureInfoView.swift; sourceTree = "<group>"; };
@@ -260,7 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				1429B0A229E5122400891FF8 /* FriendsMatchListCellModel.swift */,
-				1496374029ED5ABD0021B4D4 /* FriendsMatchWriting.swift */,
+				1496374029ED5ABD0021B4D4 /* FriendsMatchWritingEntity.swift */,
 				14982C8029EE8BAC00D388BF /* FriendsMatchDetail.swift */,
 				14D4C2E229FD49B2001ACBC6 /* ProfileContent.swift */,
 				144D30C82A060E4400640CCD /* WanF.plist */,
@@ -816,7 +816,7 @@
 				14E4C9E429EA530F00E2CB62 /* LectureInfoViewController.swift in Sources */,
 				14D7A90A29E936A3007850BE /* FriendsMatchWritingLectureInfoView.swift in Sources */,
 				142DBEDF29DC4DCE00017603 /* MainTabBarController.swift in Sources */,
-				1496374129ED5ABD0021B4D4 /* FriendsMatchWriting.swift in Sources */,
+				1496374129ED5ABD0021B4D4 /* FriendsMatchWritingEntity.swift in Sources */,
 				143661FE2A0F7D7300308028 /* FriendsMatchAPI.swift in Sources */,
 				14DD372229DB30EC00D6A715 /* PasswordToCheckTextFieldCell.swift in Sources */,
 				144D30D72A06870F00640CCD /* SignUpAPI.swift in Sources */,
