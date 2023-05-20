@@ -21,14 +21,14 @@ struct FriendsMatchWritingViewModel {
     let titleText = PublishRelay<String?>()
     let contentText = PublishRelay<String?>()
     
-    let lectureInfo = PublishRelay<LectureInfoModel>()
+    let lectureInfo = PublishRelay<LectureInfEntity>()
     
     // ViewModel -> View
     let dismiss: Driver<Void>
     let presentAlert: Signal<Void>
     
     // ViewModel -> ChildViewModel
-    let shouldSendLectureInfo: Observable<LectureInfoModel>
+    let shouldSendLectureInfo: Observable<LectureInfEntity>
     let activateDoneButton: Driver<Bool>
     
     let isSelectedLectureInfo: Observable<Bool>
@@ -57,7 +57,7 @@ struct FriendsMatchWritingViewModel {
             })
             .asDriver(onErrorJustReturn: false)
         
-        // 저장하기
+        // 새로운 글 생성
         topBarViewModel.shouldSaveFriendsMatchDetailData
             .emit(to: createFriendsMatchDetailData)
             .disposed(by: disposeBag)
@@ -71,12 +71,12 @@ struct FriendsMatchWritingViewModel {
         let detailData = Observable
             .combineLatest(title, content, lectureInfo)
             .compactMap {
-                FriendsMatchWriting(title: $0, content: $1, lectureInfo: $2)
+                FriendsMatchWritingEntity(title: $0, content: $1, lectureID: $2.id)
             }
         
         let saveResult = createFriendsMatchDetailData
             .withLatestFrom(detailData)
-            .flatMap(model.saveFriendsMatchDetail)
+            .flatMap(model.createFriendsMatchDetail)
             .share()
         
         let saveValue = saveResult

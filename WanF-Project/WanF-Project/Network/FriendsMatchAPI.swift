@@ -30,4 +30,15 @@ class FriendsMatchAPI: WanfAPI {
         return components
     }
     
+    // 게시글 생성
+    func createPost() -> URLComponents {
+        var components = URLComponents()
+        components.scheme = super.scheme
+        components.host = super.host
+        components.path = self.path
+        components.queryItems = [self.category]
+        
+        return components
+    }
+    
 }

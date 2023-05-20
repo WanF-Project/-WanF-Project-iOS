@@ -166,7 +166,7 @@ extension Reactive where Base: FriendsMatchDetailViewController {
             
             // TODO: - 추후 수정 기능 구현
 //            let editAction = UIAlertAction(title: "수정", style: .default) { _ in
-//                print("Present FriendsMatchWriting")
+//                print("Present FriendsMatchWritingEntity")
 //            }
             
             let deleteAction = UIAlertAction(title: "삭제", style: .destructive) { _ in
