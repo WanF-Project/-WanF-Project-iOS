@@ -13,29 +13,24 @@ import RxSwift
 struct UserDefaultsAuthorizationChecked {
     
     let key: String
+    let disposeBag = DisposeBag()
     
     init(_ key: String) {
         self.key = key
     }
     
-    var wrappedValue: String? {
+    var wrappedValue: Observable<String?> {
         get {
             let resultObservable = AuthNetwork().checkAuthorizationExpired()
-            var returnedValue: String?
             
-            resultObservable
+            return resultObservable
                 .asObservable()
-                .subscribe { result in
+                .map({ result in
                     if case .success(let value) = result {
-                        returnedValue = value
-                        return Void()
+                        return value
                     }
-                    returnedValue = nil
-                    return Void()
-                }
-                .disposed(by: DisposeBag())
-            
-            return returnedValue
+                    return nil
+                })
         }
         
         set {

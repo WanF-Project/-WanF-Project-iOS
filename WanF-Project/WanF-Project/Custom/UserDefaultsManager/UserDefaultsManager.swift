@@ -7,6 +7,8 @@
 
 import Foundation
 
+import RxSwift
+
 struct UserDefaultsManager {
     @UserDefaultsAuthorizationWrapper("AccessToken")
     static var accessToken: String?
@@ -15,5 +17,5 @@ struct UserDefaultsManager {
     static var refreshToken: String?
     
     @UserDefaultsAuthorizationChecked("AccessToken")
-    static var accessTokenChecked: String?
+    static var accessTokenCheckedObservable: Observable<String?>
 }
