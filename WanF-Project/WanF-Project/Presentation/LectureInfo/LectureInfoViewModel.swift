@@ -23,14 +23,23 @@ struct LectureInfoViewModel {
     
     let dismissAfterItemSelected: Driver<LectureInfEntity>
     
-    init() {
+    init(_ model: LectureInfoModel = LectureInfoModel()) {
         
-        // View -> ViewModel
+        // 모든 강의 목록 조회
+        let loadResult = model.loadAllCourses()
+            .asObservable()
+            .share()
         
-        // ViewModel -> View
-        cellData = Observable
-            .just([])
+        // 모든 강의 목록 조회 성공 - 데이터 목록 반영
+        let loadValue = loadResult
+            .compactMap(model.getAllCoursesValue)
+        
+        cellData = loadValue
             .asDriver(onErrorJustReturn: [])
+        
+        // TODO: - 모든 강의 목록 조회 실패
+        let loadError = loadResult
+            .compactMap(model.getAllCoursesError)
         
         //아이템 선택 시 dismiss되도록
         dismissAfterItemSelected = lectureInfoListItemSelected
