@@ -12,6 +12,7 @@ import RxSwift
 class CourseNetwork: WanfNetwork {
     
     let api = CourseAPI()
+    let disposeBag = DisposeBag()
     
     init() {
         super.init()
@@ -19,21 +20,25 @@ class CourseNetwork: WanfNetwork {
     
     // 모든 강의 조회
     func getAllCourse() -> Single<Result<[LectureInfEntity], WanfError>> {
-        guard let accessToken = UserDefaultsManager.accessTokenChecked else {
-            return .just(.failure(.invalidAuth))
-        }
         
         guard let url = api.getAllCourses().url else {
             return .just(.failure(.invalidURL))
         }
         
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        request.setValue(accessToken, forHTTPHeaderField: "Authorization")
+        let request  = UserDefaultsManager
+            .accessTokenCheckedObservable
+            .map { accessToken in
+                var request = URLRequest(url: url)
+                request.httpMethod = "GET"
+                request.setValue(accessToken, forHTTPHeaderField: "Authorization")
+                return request
+            }
         
-        return super.session.rx.data(request: request)
+        return request
+            .flatMap { request in
+                return super.session.rx.data(request: request)
+            }
             .map { data in
-                
                 do {
                     let decodedData = try JSONDecoder().decode([LectureInfEntity].self, from: data)
                     return .success(decodedData)
