@@ -41,4 +41,13 @@ class FriendsMatchAPI: WanfAPI {
         return components
     }
     
+    // 특정 게시글 조회
+    func getPostDetail(_ id: Int) -> URLComponents {
+        var components = URLComponents()
+        components.scheme = super.scheme
+        components.host = super.host
+        components.path = self.path + "/\(id)"
+        
+        return components
+    }
 }
