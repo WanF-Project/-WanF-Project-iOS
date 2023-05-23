@@ -25,7 +25,7 @@ struct FriendsMatchDetailViewModel {
     let deleteButtonTapped = BehaviorRelay(value: Void())
     
     // ViewModel -> View
-    let detailData: Observable<FriendsMatchDetail>
+    let detailData: Observable<FriendsMatchDetailEntity>
     let presentMenueActionSheet: Signal<Void>
     let popToRootViewController: Driver<Bool>
     
@@ -52,7 +52,7 @@ struct FriendsMatchDetailViewModel {
   
         detailInfo = detailData
             .map({ data in
-                (data.nickname, data.date)
+                (data.profile.nickname, data.date)
             })
         
         detailInfo

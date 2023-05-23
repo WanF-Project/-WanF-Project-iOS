@@ -18,7 +18,7 @@ struct FriendsMatchDetailModel {
             .just(true)
     }
     
-    func getDetailValue(_ result: Bool) -> FriendsMatchDetail? {
+    func getDetailValue(_ result: Bool) -> FriendsMatchDetailEntity? {
         if !result {
             return nil
         }
