@@ -53,7 +53,7 @@ class FriendsMatchCommentListView: DynamicSizeTableView {
                     attributedKey.foregroundColor : UIColor.wanfLabel
                 ]
                 
-                let attributedTitle = NSAttributedString(string: element.profile.nickname, attributes: attributesForTitle)
+                let attributedTitle = NSAttributedString(string: element.profile.nickname ?? "별명", attributes: attributesForTitle)
                 let attributedSubtitle = NSAttributedString(string: element.content, attributes: attributesForSubtitle)
                 
                 configuration.attributedText = attributedTitle
