@@ -84,7 +84,7 @@ class FriendsMatchNetwork: WanfNetwork {
     }
     
     // 특정 게시글 조회
-    func getPostDetail(_ id: Int) -> Single<Result<ProfileContent, WanfError>> {
+    func getPostDetail(_ id: Int) -> Single<Result<FriendsMatchDetailEntity, WanfError>> {
         
         guard let url = api.getPostDetail(id).url else {
             return .just(.failure(.invalidURL))
@@ -104,7 +104,7 @@ class FriendsMatchNetwork: WanfNetwork {
             }
             .map { data in
                 do {
-                    let decoded = try JSONDecoder().decode(ProfileContent.self, from: data)
+                    let decoded = try JSONDecoder().decode(FriendsMatchDetailEntity.self, from: data)
                     return .success(decoded)
                 }
                 catch {
