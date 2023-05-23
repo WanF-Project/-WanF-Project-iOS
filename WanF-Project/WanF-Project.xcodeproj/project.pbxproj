@@ -231,6 +231,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		140B502B2A1C834D00C09F4F /* FriendsMatchNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				143661FF2A0F7F0500308028 /* FriendsMatchNetwork.swift */,
+				143661FD2A0F7D7300308028 /* FriendsMatchAPI.swift */,
+			);
+			path = FriendsMatchNetwork;
+			sourceTree = "<group>";
+		};
 		141A780B29D7ED46006731F7 = {
 			isa = PBXGroup;
 			children = (
@@ -372,14 +381,13 @@
 		144D30CB2A06257D00640CCD /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				140B502B2A1C834D00C09F4F /* FriendsMatchNetwork */,
 				147E9B562A1792300032E530 /* CourseNetwork */,
 				1466FA1C2A0A100400910C30 /* SignUpNetwork */,
 				144D30CC2A06259700640CCD /* WanfAPI.swift */,
 				144D30D42A06295100640CCD /* WanfNetwork.swift */,
 				1466FA1D2A0A412500910C30 /* AuthAPI.swift */,
 				1466FA1F2A0A428D00910C30 /* AuthNetwork.swift */,
-				143661FF2A0F7F0500308028 /* FriendsMatchNetwork.swift */,
-				143661FD2A0F7D7300308028 /* FriendsMatchAPI.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
