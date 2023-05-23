@@ -34,25 +34,28 @@ struct FriendsMatchDetailViewModel {
     let detailLectureInfo: Observable<LectureInfoEntity>
     let detailText: Observable<(String, String)>
     
-    init(_ model: FriendsMatchDetailModel = FriendsMatchDetailModel()) {
+    init(_ model: FriendsMatchDetailModel = FriendsMatchDetailModel(), id: Int) {
         
         //글 상세 데이터 받기
-        let loadDetailResult = shouldLoadDetail
-            .flatMap(model.loadDetail)
+        let loadDetailResult = model.loadDetail(id)
+            .asObservable()
             .share()
         
-        let loadDetailValue = loadDetailResult
-            .compactMap(model.getDetailValue)
-        
+        // TODO: - 추후 구현
+        // 실패 -
         let loadDetailError = loadDetailResult
             .compactMap(model.getDetailError)
         
-        //각 SubView에 데이터 전달
+        // 성공 - 각 SubView에 데이터 전달
+        let loadDetailValue = loadDetailResult
+            .compactMap(model.getDetailValue)
+        
         detailData = loadDetailValue
+            .share()
   
         detailInfo = detailData
             .map({ data in
-                (data.profile.nickname, data.date)
+                (data.profile.nickname ?? "", data.date ?? "")
             })
         
         detailInfo
@@ -77,6 +80,11 @@ struct FriendsMatchDetailViewModel {
         detailText
             .bind(to: detailTextViewModel.detailText)
             .disposed(by: disposeBag)
+        
+//        // TODO: - 추후 구현
+//        // 실패 -
+        let loadDetailError = loadDetailResult
+            .compactMap(model.getDetailError)
         
         // Tap the MenueButton
         presentMenueActionSheet = menueButtonTapped

@@ -9,27 +9,29 @@ import Foundation
 
 import RxSwift
 
-// TODO: - 서버 연결 시 재구현
 struct FriendsMatchDetailModel {
     
+    let network = FriendsMatchNetwork()
+    
     // Load Detail
-    func loadDetail() -> Observable<Bool> {
-        return Observable
-            .just(true)
+    func loadDetail(_ id: Int) -> Single<Result<FriendsMatchDetailEntity, WanfError>> {
+        return network.getPostDetail(id)
     }
     
-    func getDetailValue(_ result: Bool) -> FriendsMatchDetailEntity? {
-        if !result {
+    func getDetailValue(_ result: Result<FriendsMatchDetailEntity, WanfError>) -> FriendsMatchDetailEntity? {
+        guard case .success(let value) = result else {
             return nil
         }
-        return nil
+        print(value)
+        return value
     }
     
-    func getDetailError(_ result: Bool) -> Bool? {
-        if result {
+    func getDetailError(_ result: Result<FriendsMatchDetailEntity, WanfError>) -> Void? {
+        guard case .failure(let error) = result else {
             return nil
         }
-        return false
+        print("ERROR: \(error)")
+        return Void()
     }
     
     // Delete Detail

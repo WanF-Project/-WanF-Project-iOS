@@ -22,11 +22,9 @@ struct FriendsMatchTabViewModel {
     
     let pushToProfile: Driver<ProfileMainViewModel>
     let presentFriendsMatchWriting: Driver<FriendsMatchWritingViewModel>
-    let pushToFriendsMatchDetail: Driver<(indexPath: IndexPath, viewModel: FriendsMatchDetailViewModel)>
+    let pushToFriendsMatchDetail: Driver<FriendsMatchDetailViewModel>
     
     init(_ model: FriendsMatchTabModel = FriendsMatchTabModel()) {
-        
-        // View -> ViewModel
         
         pushToProfile = profileButtonTapped
             .map { ProfileMainViewModel() }
@@ -35,14 +33,6 @@ struct FriendsMatchTabViewModel {
         presentFriendsMatchWriting = addButtonTapped
             .map { FriendsMatchWritingViewModel() }
             .asDriver(onErrorDriveWith: .empty())
-        
-        pushToFriendsMatchDetail = friendsMatchListItemSelected
-            .map({ indexPath in
-                return (indexPath, FriendsMatchDetailViewModel())
-            })
-            .asDriver(onErrorDriveWith: .empty())
-        
-        // ViewModel -> View
         
         //친구 찾기 List 데이터
         let friendsMatchListResult = model.loadFriendsMatchList()
@@ -57,6 +47,16 @@ struct FriendsMatchTabViewModel {
         
         let friendsMatchListError = friendsMatchListResult
             .compactMap(model.getFriendsMatchListError)
+        
+        // 목록 아이템 선택
+        pushToFriendsMatchDetail = friendsMatchListItemSelected
+            .withLatestFrom(cellData, resultSelector: { indexPath, posts in
+                posts[indexPath.row]
+            })
+            .map({ post in
+                return FriendsMatchDetailViewModel(id: post.id)
+            })
+            .asDriver(onErrorDriveWith: .empty())
         
     }
 }
