@@ -10,7 +10,6 @@ import Foundation
 struct ProfileContent {
     let profileImage: String
     let nickname: String
-    let major: String
     let entranceYear: String
     let birth: String
     let gender: String
@@ -18,6 +17,8 @@ struct ProfileContent {
     let personality: [String]
     let purpose: [String]
     let contact: String
+    
+    let major: MajorEntiry
     
     enum Personality: String {
         case personality1 = "느긋함"
@@ -36,4 +37,9 @@ struct ProfileContent {
         case purpose5 = "평타"
         case purpose6 = "놀자"
     }
+}
+
+struct MajorEntiry: Codable {
+    let id: Int
+    let name: String
 }
