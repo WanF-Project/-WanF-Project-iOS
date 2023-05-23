@@ -9,17 +9,17 @@ import Foundation
 
 struct ProfileContent: Codable {
     let id: Int
-    let profileImage: String
-    let nickname: String
-    let entranceYear: String
-    let birth: String
-    let gender: String
-    let mbti: String
+    let profileImage: String?
+    let nickname: String?
+    let entranceYear: Int
+    let birth: Int
+    let gender: String?
+    let mbti: String?
     let personality: [String]
     let purpose: [String]
-    let contact: String
+    let contact: String?
     
-    let major: MajorEntiry
+    let major: MajorEntiry?
     
     enum Personality: String {
         case personality1 = "느긋함"
@@ -47,7 +47,7 @@ struct ProfileContent: Codable {
         case purpose = "goals"
     }
     
-    init(id: Int, image profileImage: String, nickname: String, entranceYear: String, birth: String, gender: String, mbti: String, personality: [String], purpose: [String], contact: String, major: MajorEntiry) {
+    init(id: Int, image profileImage: String, nickname: String, entranceYear: Int, birth: Int, gender: String, mbti: String, personality: [String], purpose: [String], contact: String, major: MajorEntiry) {
         
         self.id = id
         self.profileImage = profileImage
@@ -66,14 +66,14 @@ struct ProfileContent: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         self.id = try container.decode(Int.self, forKey: .id)
-        self.profileImage = try container.decode(String.self, forKey: .profileImage)
-        self.nickname = try container.decode(String.self, forKey: .nickname)
-        self.major = try container.decode(MajorEntiry.self, forKey: .major)
-        self.gender = try container.decode(String.self, forKey: .gender)
-        self.mbti = try container.decode(String.self, forKey: .mbti)
-        self.contact = try container.decode(String.self, forKey: .contact)
-        self.entranceYear = try container.decode(String.self, forKey: .entranceYear)
-        self.birth = try container.decode(String.self, forKey: .birth)
+        self.profileImage = try container.decode(String?.self, forKey: .profileImage)
+        self.nickname = try container.decode(String?.self, forKey: .nickname)
+        self.major = try container.decode(MajorEntiry?.self, forKey: .major)
+        self.gender = try container.decode(String?.self, forKey: .gender)
+        self.mbti = try container.decode(String?.self, forKey: .mbti)
+        self.contact = try container.decode(String?.self, forKey: .contact)
+        self.entranceYear = try container.decode(Int.self, forKey: .entranceYear)
+        self.birth = try container.decode(Int.self, forKey: .birth)
         self.personality = try container.decode([String].self, forKey: .personality)
         self.purpose = try container.decode([String].self, forKey: .purpose)
     }
@@ -97,5 +97,5 @@ struct ProfileContent: Codable {
 
 struct MajorEntiry: Codable {
     let id: Int
-    let name: String
+    let name: String?
 }
