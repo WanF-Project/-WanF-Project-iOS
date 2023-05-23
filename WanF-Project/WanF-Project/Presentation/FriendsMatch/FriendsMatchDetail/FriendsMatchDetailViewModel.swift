@@ -31,7 +31,7 @@ struct FriendsMatchDetailViewModel {
     
     // ViewModel -> ChildViewModel
     let detailInfo: Observable<(String, String)>
-    let detailLectureInfo: Observable<LectureInfEntity>
+    let detailLectureInfo: Observable<LectureInfoEntity>
     let detailText: Observable<(String, String)>
     
     init(_ model: FriendsMatchDetailModel = FriendsMatchDetailModel()) {

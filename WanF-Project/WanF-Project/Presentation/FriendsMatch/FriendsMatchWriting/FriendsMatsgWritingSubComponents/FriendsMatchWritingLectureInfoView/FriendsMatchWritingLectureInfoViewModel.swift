@@ -17,10 +17,10 @@ struct FriendsMatchWritingLectureInfoViewModel {
     let professorName = PublishRelay<String>()
     
     // ViewModel -> View
-    let loadLectureInfo: Driver<LectureInfEntity>
+    let loadLectureInfo: Driver<LectureInfoEntity>
     
     // ParentViewModel -> ViewModel
-    let lectureInfo = PublishRelay<LectureInfEntity>()
+    let lectureInfo = PublishRelay<LectureInfoEntity>()
     
     init() {
         

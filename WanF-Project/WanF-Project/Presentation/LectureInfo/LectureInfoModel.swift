@@ -14,18 +14,18 @@ struct LectureInfoModel {
     let network = CourseNetwork()
     
     // 모든 강의 조회
-    func loadAllCourses() -> Single<Result<[LectureInfEntity], WanfError>> {
+    func loadAllCourses() -> Single<Result<[LectureInfoEntity], WanfError>> {
         return network.getAllCourse()
     }
     
-    func getAllCoursesValue(_ result: Result<[LectureInfEntity], WanfError>) -> [LectureInfEntity]? {
+    func getAllCoursesValue(_ result: Result<[LectureInfoEntity], WanfError>) -> [LectureInfoEntity]? {
         if case .success(let value) = result {
             return value
         }
         return nil
     }
     
-    func getAllCoursesError(_ result: Result<[LectureInfEntity], WanfError>) -> Void? {
+    func getAllCoursesError(_ result: Result<[LectureInfoEntity], WanfError>) -> Void? {
         if case .failure(let error) = result {
             
             print("ERROR: \(error)")

@@ -10,7 +10,7 @@ import Foundation
 struct FriendsMatchListCellModel: Decodable {
     let id: Int
     let title: String
-    let lectureInfo: LectureInfEntity
+    let lectureInfo: LectureInfoEntity
     
     enum CodingKeys: String, CodingKey {
         case id, title
@@ -22,6 +22,6 @@ struct FriendsMatchListCellModel: Decodable {
         
         self.id = try container.decode(Int.self, forKey: .id)
         self.title = try container.decode(String.self, forKey: .title)
-        self.lectureInfo = try container.decode(LectureInfEntity.self, forKey: .lectureInfo)
+        self.lectureInfo = try container.decode(LectureInfoEntity.self, forKey: .lectureInfo)
     }
 }
