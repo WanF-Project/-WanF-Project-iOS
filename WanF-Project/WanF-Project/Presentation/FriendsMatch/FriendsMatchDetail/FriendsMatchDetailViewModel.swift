@@ -41,11 +41,6 @@ struct FriendsMatchDetailViewModel {
             .asObservable()
             .share()
         
-        // TODO: - 추후 구현
-        // 실패 -
-        let loadDetailError = loadDetailResult
-            .compactMap(model.getDetailError)
-        
         // 성공 - 각 SubView에 데이터 전달
         let loadDetailValue = loadDetailResult
             .compactMap(model.getDetailValue)
@@ -81,8 +76,8 @@ struct FriendsMatchDetailViewModel {
             .bind(to: detailTextViewModel.detailText)
             .disposed(by: disposeBag)
         
-//        // TODO: - 추후 구현
-//        // 실패 -
+        // TODO: - 추후 구현
+        // 실패 -
         let loadDetailError = loadDetailResult
             .compactMap(model.getDetailError)
         

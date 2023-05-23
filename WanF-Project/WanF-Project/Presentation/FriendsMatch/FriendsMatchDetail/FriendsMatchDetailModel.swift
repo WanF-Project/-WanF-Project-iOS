@@ -22,7 +22,6 @@ struct FriendsMatchDetailModel {
         guard case .success(let value) = result else {
             return nil
         }
-        print(value)
         return value
     }
     
