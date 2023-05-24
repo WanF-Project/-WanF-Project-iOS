@@ -27,7 +27,7 @@ struct FriendsMatchDetailViewModel {
     // ViewModel -> View
     let detailData: Observable<FriendsMatchDetailEntity>
     let presentMenueActionSheet: Signal<Void>
-    let popToRootViewController: Driver<Bool>
+    let popToRootViewController: Driver<Void>
     
     // ViewModel -> ChildViewModel
     let detailInfo: Observable<(String, String)>
@@ -87,7 +87,9 @@ struct FriendsMatchDetailViewModel {
         
         //Tap the Delete Button
         let deleteDetailResult = deleteButtonTapped
-            .flatMap(model.deleteDetail)
+            .flatMap({ _ in
+                model.deleteDetail(id)
+            })
             .share()
         
         let deleteDetailValue = deleteDetailResult

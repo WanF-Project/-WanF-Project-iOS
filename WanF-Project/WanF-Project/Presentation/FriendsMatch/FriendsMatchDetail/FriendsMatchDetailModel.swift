@@ -34,23 +34,23 @@ struct FriendsMatchDetailModel {
     }
     
     // Delete Detail
-    func deleteDetail() -> Observable<Bool> {
-        return Observable
-            .just(true)
+    func deleteDetail(_ id: Int) -> Single<Result<Void, WanfError>> {
+        return network.deletePostDetail(id)
     }
     
-    func getDeleteDetailValue(_ result: Bool) -> Bool? {
-        if !result {
+    func getDeleteDetailValue(_ result: Result<Void, WanfError>) -> Void? {
+        guard case .success(let value) = result else {
             return nil
         }
-        return true
+        return value
     }
     
-    func getDeleteDetailError(_ result: Bool) -> Bool? {
-        if result {
+    func getDeleteDetailError(_ result: Result<Void, WanfError>) -> Void? {
+        guard case .failure(let error) = result else {
             return nil
         }
-        return false
+        print("ERROR: \(error)")
+        return Void()
     }
     
 }
