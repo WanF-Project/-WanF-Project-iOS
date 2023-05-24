@@ -116,4 +116,31 @@ class FriendsMatchNetwork: WanfNetwork {
             }
             .asSingle()
     }
+    
+    // 게시글 삭제
+    func deletePostDetail(_ id: Int) -> Single<Result<Void, WanfError>> {
+        guard let url = api.deletePostDetail(id).url else {
+            return .just(.failure(.invalidURL))
+        }
+        
+        let request = UserDefaultsManager.accessTokenCheckedObservable
+            .map { accessToken in
+                var request = URLRequest(url: url)
+                request.httpMethod = "DELETE"
+                request.setValue(accessToken, forHTTPHeaderField: "Authorization")
+                return request
+            }
+        
+        return request
+            .flatMap { request in
+                super.session.rx.data(request: request)
+            }
+            .map { _ in
+                    .success(Void())
+            }
+            .catch { error in
+                    .just(.failure(.networkError))
+            }
+            .asSingle()
+    }
 }
