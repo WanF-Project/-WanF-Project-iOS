@@ -15,10 +15,10 @@ struct FriendsMatchDetailLectureInfoViewModel {
     // View -> ViewModel
     
     // ViewModel -> View
-    let loadDetailLectureInfo: Driver<LectureInfEntity>
+    let loadDetailLectureInfo: Driver<LectureInfoEntity>
     
     // ParentViewModel -> ViewModel
-    var detailLectureInfo = PublishRelay<LectureInfEntity>()
+    var detailLectureInfo = PublishRelay<LectureInfoEntity>()
     
     init() {
         

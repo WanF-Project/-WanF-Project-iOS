@@ -25,34 +25,32 @@ struct FriendsMatchDetailViewModel {
     let deleteButtonTapped = BehaviorRelay(value: Void())
     
     // ViewModel -> View
-    let detailData: Observable<FriendsMatchDetail>
+    let detailData: Observable<FriendsMatchDetailEntity>
     let presentMenueActionSheet: Signal<Void>
-    let popToRootViewController: Driver<Bool>
+    let popToRootViewController: Driver<Void>
     
     // ViewModel -> ChildViewModel
     let detailInfo: Observable<(String, String)>
-    let detailLectureInfo: Observable<LectureInfEntity>
+    let detailLectureInfo: Observable<LectureInfoEntity>
     let detailText: Observable<(String, String)>
     
-    init(_ model: FriendsMatchDetailModel = FriendsMatchDetailModel()) {
+    init(_ model: FriendsMatchDetailModel = FriendsMatchDetailModel(), id: Int) {
         
         //글 상세 데이터 받기
-        let loadDetailResult = shouldLoadDetail
-            .flatMap(model.loadDetail)
+        let loadDetailResult = model.loadDetail(id)
+            .asObservable()
             .share()
         
+        // 성공 - 각 SubView에 데이터 전달
         let loadDetailValue = loadDetailResult
             .compactMap(model.getDetailValue)
         
-        let loadDetailError = loadDetailResult
-            .compactMap(model.getDetailError)
-        
-        //각 SubView에 데이터 전달
         detailData = loadDetailValue
+            .share()
   
         detailInfo = detailData
             .map({ data in
-                (data.nickname, data.date)
+                (data.profile.nickname ?? "", data.date ?? "")
             })
         
         detailInfo
@@ -78,13 +76,20 @@ struct FriendsMatchDetailViewModel {
             .bind(to: detailTextViewModel.detailText)
             .disposed(by: disposeBag)
         
+        // TODO: - 추후 구현
+        // 실패 -
+        let loadDetailError = loadDetailResult
+            .compactMap(model.getDetailError)
+        
         // Tap the MenueButton
         presentMenueActionSheet = menueButtonTapped
             .asSignal(onErrorSignalWith: .empty())
         
         //Tap the Delete Button
         let deleteDetailResult = deleteButtonTapped
-            .flatMap(model.deleteDetail)
+            .flatMap({ _ in
+                model.deleteDetail(id)
+            })
             .share()
         
         let deleteDetailValue = deleteDetailResult

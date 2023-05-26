@@ -52,7 +52,7 @@ class FriendsMatchDetailInfoView: UIView {
         viewModel.loadDeatilInfo
             .drive(onNext: { (nickname, date) in
                 self.nicknameLabel.text = nickname
-                self.dateLabel.text = date
+                self.dateLabel.text = DateFormatter().wanfDateFormatted(from: date)
             })
             .disposed(by: disposeBag)
         

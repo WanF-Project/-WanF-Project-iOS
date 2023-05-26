@@ -80,10 +80,9 @@ class FriendsMatchTabViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.pushToFriendsMatchDetail
-            .drive(onNext: { indexPath, viewModel in
+            .drive(onNext: { viewModel in
                 let friendsMatchDetailVC = FriendsMatchDetailViewController()
                 friendsMatchDetailVC.bind(viewModel)
-                // TODO: - 서버 연결 시 IndexPath 전달
                 
                 self.navigationController?.pushViewController(friendsMatchDetailVC, animated: true)
             })

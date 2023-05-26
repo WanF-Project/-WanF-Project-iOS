@@ -18,7 +18,7 @@ struct FriendsMatchCommentListViewModel {
     init() {
         
         cellData = Observable
-            .just(FriendsMatchCommentEntity.comments)
+            .just([])
             .asDriver(onErrorJustReturn: [])
     }
 }

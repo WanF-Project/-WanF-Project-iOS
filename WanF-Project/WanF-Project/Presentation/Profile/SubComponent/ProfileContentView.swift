@@ -191,13 +191,13 @@ class ProfileContentView: UIView {
         viewModel.profileData
             .drive(onNext: { content in
                 // TODO: - 이미지 타입에 맞춰 설정하기
-                self.profileImageView.image = UIImage(named: content.profileImage)
+                self.profileImageView.image = UIImage(named: content.profileImage ?? "")
                 self.profileNicknameLabel.text = content.nickname
-                self.profileMajorLabel.text = content.major
-                self.profileEntranceYearLabel.text = content.entranceYear
-                self.profileBirthLabel.text = content.birth
+                self.profileMajorLabel.text = content.major?.name
+                self.profileEntranceYearLabel.text = content.entranceYear.description
+                self.profileBirthLabel.text = content.birth.description
                 self.profileGenderLabel.text = content.gender
-                self.profileMBTILabel.text = content.MBTI
+                self.profileMBTILabel.text = content.mbti
                 self.contactInfo = content.contact
             })
             .disposed(by: disposeBag)

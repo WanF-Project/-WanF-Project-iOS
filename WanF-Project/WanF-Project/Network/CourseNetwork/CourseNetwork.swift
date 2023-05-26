@@ -19,7 +19,7 @@ class CourseNetwork: WanfNetwork {
     }
     
     // 모든 강의 조회
-    func getAllCourse() -> Single<Result<[LectureInfEntity], WanfError>> {
+    func getAllCourse() -> Single<Result<[LectureInfoEntity], WanfError>> {
         
         guard let url = api.getAllCourses().url else {
             return .just(.failure(.invalidURL))
@@ -40,7 +40,7 @@ class CourseNetwork: WanfNetwork {
             }
             .map { data in
                 do {
-                    let decodedData = try JSONDecoder().decode([LectureInfEntity].self, from: data)
+                    let decodedData = try JSONDecoder().decode([LectureInfoEntity].self, from: data)
                     return .success(decodedData)
                 }
                 catch {

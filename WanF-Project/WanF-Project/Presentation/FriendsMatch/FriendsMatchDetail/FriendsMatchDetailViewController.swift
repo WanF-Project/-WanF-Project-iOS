@@ -77,9 +77,6 @@ class FriendsMatchDetailViewController: UIViewController {
         detailTextView.bind(viewModel.detailTextViewModel)
         commentListView.bind(viewModel.commentListViewModel)
         
-        // Load the Detail Data
-        viewModel.shouldLoadDetail.onNext(Void())
-        
         // MenueButton Action
         menuBarItem.rx.tap
             .bind(to: viewModel.menueButtonTapped)
