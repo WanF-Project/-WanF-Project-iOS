@@ -20,34 +20,37 @@ class FriendsMatchNetwork: WanfNetwork {
     
     //MARK: - Function
     
-    // 전체 글 조회
-    func getAllPosts() -> Single<Result<[FriendsMatchListCellModel], WanfError>> {
-        guard let accessToken = UserDefaultsManager.accessToken else {
-            return .just(.failure(.invalidAuth))
-        }
+    // 전체 게시글 조회
+    func getAllPosts() -> Single<Result<[FriendsMatchListItemEntity], WanfError>> {
         
         guard let url = api.getAllPosts().url else {
             return .just(.failure(.invalidURL))
         }
         
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        request.setValue(accessToken, forHTTPHeaderField: "Authorization")
+        let request = UserDefaultsManager.accessTokenCheckedObservable
+            .map { accessToken in
+                var request = URLRequest(url: url)
+                request.httpMethod = "GET"
+                request.setValue(accessToken, forHTTPHeaderField: "Authorization")
+                return request
+            }
         
-        return session.rx.data(request: request)
+        return request
+            .flatMap { request in
+                super.session.rx.data(request: request)
+            }
             .map { data in
                 do {
-                    let decodedData = try JSONDecoder().decode([FriendsMatchListCellModel].self, from: data)
-                    
-                    return .success(decodedData)
+                    let decoded = try JSONDecoder().decode([FriendsMatchListItemEntity].self, from: data)
+                    return .success(decoded)
                 }
                 catch {
                     return .failure(.invalidJSON)
                 }
             }
-            .catch({ error in
-                return .just(.failure(.networkError))
-            })
+            .catch { error in
+                    .just(.failure(.networkError))
+            }
             .asSingle()
     }
     

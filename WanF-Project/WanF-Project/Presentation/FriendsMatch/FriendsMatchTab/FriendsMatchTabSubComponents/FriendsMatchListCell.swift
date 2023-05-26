@@ -64,7 +64,7 @@ class FriendsMatchListCell: UITableViewCell {
     }
     
     //MARK: - Data
-    func setCellData(_ data: FriendsMatchListCellModel) {
+    func setCellData(_ data: FriendsMatchListItemEntity) {
         let lectureInfo = data.lectureInfo
         
         titleLabel.text = data.title

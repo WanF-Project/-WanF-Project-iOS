@@ -56,6 +56,9 @@ class FriendsMatchTabViewController: UIViewController {
     //MARK: - Function {
     func bind(_ viewModel: FriendsMatchTabViewModel) {
         
+        // Load a list
+        viewModel.loadFriendsMatchList.onNext(Void())
+        
         // View -> ViewModel
         profileBarItem.rx.tap
             .bind(to: viewModel.profileButtonTapped)
