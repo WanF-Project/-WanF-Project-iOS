@@ -12,10 +12,13 @@ import RxCocoa
 
 struct FriendsMatchTabViewModel {
     
+    let disposeBag = DisposeBag()
+    
     // View -> ViewModel
     let profileButtonTapped = PublishRelay<Void>()
     let addButtonTapped = PublishRelay<Void>()
     let friendsMatchListItemSelected = PublishRelay<IndexPath>()
+    let loadFriendsMatchList = PublishSubject<Void>()
     
     // ViewModel -> View
     let cellData: Driver<[FriendsMatchListCellModel]>
@@ -35,9 +38,11 @@ struct FriendsMatchTabViewModel {
             .asDriver(onErrorDriveWith: .empty())
         
         //친구 찾기 List 데이터
-        let friendsMatchListResult = model.loadFriendsMatchList()
-            .asObservable()
+        let friendsMatchListResult = loadFriendsMatchList
+            .flatMap(model.loadFriendsMatchList)
             .share()
+        
+        friendsMatchListResult.subscribe().disposed(by: disposeBag)
         
         let friendsMatchListValue = friendsMatchListResult
             .compactMap(model.getFriendsMatchListValue)
