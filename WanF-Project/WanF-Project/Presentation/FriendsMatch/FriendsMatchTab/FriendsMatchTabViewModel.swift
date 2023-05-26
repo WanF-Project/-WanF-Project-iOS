@@ -19,9 +19,11 @@ struct FriendsMatchTabViewModel {
     let addButtonTapped = PublishRelay<Void>()
     let friendsMatchListItemSelected = PublishRelay<IndexPath>()
     let loadFriendsMatchList = PublishSubject<Void>()
+    let refreshFriendsMatchList = PublishSubject<Void>()
     
     // ViewModel -> View
     let cellData: Driver<[FriendsMatchListItemEntity]>
+    let subject = PublishSubject<Observable<Void>>()
     
     let pushToProfile: Driver<ProfileMainViewModel>
     let presentFriendsMatchWriting: Driver<FriendsMatchWritingViewModel>
@@ -38,11 +40,15 @@ struct FriendsMatchTabViewModel {
             .asDriver(onErrorDriveWith: .empty())
         
         //친구 찾기 List 데이터
-        let friendsMatchListResult = loadFriendsMatchList
+        let friendsMatchListResult = subject
+            .switchLatest()
             .flatMap(model.loadFriendsMatchList)
             .share()
         
         friendsMatchListResult.subscribe().disposed(by: disposeBag)
+        
+        subject.onNext(loadFriendsMatchList)
+        loadFriendsMatchList.onNext(Void())
         
         let friendsMatchListValue = friendsMatchListResult
             .compactMap(model.getFriendsMatchListValue)

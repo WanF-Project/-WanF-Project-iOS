@@ -45,6 +45,8 @@ class FriendsMatchTabViewController: UIViewController {
         return tableView
     }()
     
+    lazy var refreshControl = UIRefreshControl()
+    
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +60,15 @@ class FriendsMatchTabViewController: UIViewController {
         
         // Load a list
         viewModel.loadFriendsMatchList.onNext(Void())
+        
+        // Refresh the list
+        refreshControl.rx.controlEvent(.valueChanged)
+            .bind {[weak self] _ in
+                viewModel.subject.onNext(viewModel.refreshFriendsMatchList)
+                viewModel.refreshFriendsMatchList.onNext(Void())
+                self?.refreshControl.endRefreshing()
+            }
+            .disposed(by: disposeBag)
         
         // View -> ViewModel
         profileBarItem.rx.tap
@@ -107,7 +118,6 @@ class FriendsMatchTabViewController: UIViewController {
     func bindTableView(_ viewModel: FriendsMatchTabViewModel) {
         viewModel.cellData
             .drive(friednsMatchTableView.rx.items) { tv, row, element in
-                
                 guard let cell = tv.dequeueReusableCell(withIdentifier: "FriendsMatchListCell", for: IndexPath(row: row, section: 0)) as? FriendsMatchListCell else { return UITableViewCell() }
                 
                 cell.selectionStyle = .none
@@ -134,6 +144,8 @@ private extension FriendsMatchTabViewController {
     }
     
     func layout() {
+        friednsMatchTableView.refreshControl = refreshControl
+        
         view.addSubview(friednsMatchTableView)
         
         friednsMatchTableView.snp.makeConstraints { make in
