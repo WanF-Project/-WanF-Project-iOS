@@ -23,6 +23,7 @@ struct FriendsMatchDetailViewModel {
     let shouldLoadDetail = PublishSubject<Void>()
     let menueButtonTapped = PublishRelay<Void>()
     let deleteButtonTapped = BehaviorRelay(value: Void())
+    let loadFriendsMatchDetail = PublishRelay<Void>()
     
     // ViewModel -> View
     let detailData: Observable<FriendsMatchDetailEntity>
@@ -37,9 +38,12 @@ struct FriendsMatchDetailViewModel {
     init(_ model: FriendsMatchDetailModel = FriendsMatchDetailModel(), id: Int) {
         
         //글 상세 데이터 받기
-        let loadDetailResult = model.loadDetail(id)
-            .asObservable()
+        let loadDetailResult = loadFriendsMatchDetail
+            .flatMap { _ in
+                model.loadDetail(id)
+            }
             .share()
+        loadDetailResult.subscribe().disposed(by: disposeBag)
         
         // 성공 - 각 SubView에 데이터 전달
         let loadDetailValue = loadDetailResult

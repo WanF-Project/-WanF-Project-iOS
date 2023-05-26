@@ -71,6 +71,9 @@ class FriendsMatchDetailViewController: UIViewController {
         
         self.viewModel = viewModel
         
+        // Load a Detail
+        viewModel.loadFriendsMatchDetail.accept(Void())
+        
         // Bind SubComponent
         detailInfoView.bind(viewModel.detailInfoViewModel)
         lectureInfoView.bind(viewModel.lectureInfoViewModel)
