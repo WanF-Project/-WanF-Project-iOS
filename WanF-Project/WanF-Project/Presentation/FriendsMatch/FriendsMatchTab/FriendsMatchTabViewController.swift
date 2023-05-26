@@ -126,8 +126,6 @@ class FriendsMatchTabViewController: UIViewController {
                 return cell
             }
             .disposed(by: disposeBag)
-        
-//        friednsMatchTableView.rx.
     }
 }
 private extension FriendsMatchTabViewController {
