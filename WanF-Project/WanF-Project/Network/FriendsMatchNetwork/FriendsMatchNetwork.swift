@@ -21,7 +21,7 @@ class FriendsMatchNetwork: WanfNetwork {
     //MARK: - Function
     
     // 전체 게시글 조회
-    func getAllPosts() -> Single<Result<[FriendsMatchListCellModel], WanfError>> {
+    func getAllPosts() -> Single<Result<[FriendsMatchListItemEntity], WanfError>> {
         
         guard let url = api.getAllPosts().url else {
             return .just(.failure(.invalidURL))
@@ -41,7 +41,7 @@ class FriendsMatchNetwork: WanfNetwork {
             }
             .map { data in
                 do {
-                    let decoded = try JSONDecoder().decode([FriendsMatchListCellModel].self, from: data)
+                    let decoded = try JSONDecoder().decode([FriendsMatchListItemEntity].self, from: data)
                     return .success(decoded)
                 }
                 catch {

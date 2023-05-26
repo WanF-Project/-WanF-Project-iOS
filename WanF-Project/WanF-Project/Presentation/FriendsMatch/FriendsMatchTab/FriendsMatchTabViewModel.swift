@@ -21,7 +21,7 @@ struct FriendsMatchTabViewModel {
     let loadFriendsMatchList = PublishSubject<Void>()
     
     // ViewModel -> View
-    let cellData: Driver<[FriendsMatchListCellModel]>
+    let cellData: Driver<[FriendsMatchListItemEntity]>
     
     let pushToProfile: Driver<ProfileMainViewModel>
     let presentFriendsMatchWriting: Driver<FriendsMatchWritingViewModel>
