@@ -278,11 +278,8 @@
 		1429B0A129E5118D00891FF8 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				1429B0A229E5122400891FF8 /* FriendsMatchListItemEntity.swift */,
-				1496374029ED5ABD0021B4D4 /* FriendsMatchWritingEntity.swift */,
-				14982C8029EE8BAC00D388BF /* FriendsMatchDetailEntity.swift */,
+				146F1E5F2A22F7900095502F /* FriendsMatch */,
 				14D4C2E229FD49B2001ACBC6 /* ProfileContent.swift */,
-				1449E1F92A13592A008C70DB /* FriendsMatchCommentEntity.swift */,
 				144D30C82A060E4400640CCD /* WanF.plist */,
 				147E9B572A1792F30032E530 /* LectureInfoEntity.swift */,
 			);
@@ -421,6 +418,17 @@
 				147E9B502A1784AA0032E530 /* UserDefaultsAuthorizationChecked.swift */,
 			);
 			path = UserDefaultsManager;
+			sourceTree = "<group>";
+		};
+		146F1E5F2A22F7900095502F /* FriendsMatch */ = {
+			isa = PBXGroup;
+			children = (
+				1429B0A229E5122400891FF8 /* FriendsMatchListItemEntity.swift */,
+				1496374029ED5ABD0021B4D4 /* FriendsMatchWritingEntity.swift */,
+				14982C8029EE8BAC00D388BF /* FriendsMatchDetailEntity.swift */,
+				1449E1F92A13592A008C70DB /* FriendsMatchCommentEntity.swift */,
+			);
+			path = FriendsMatch;
 			sourceTree = "<group>";
 		};
 		14793FA729D82F1D0048D5DD /* Extension */ = {
