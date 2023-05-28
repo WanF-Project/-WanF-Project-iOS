@@ -17,6 +17,40 @@ class ProfileNetwork: WanfNetwork {
         super.init()
     }
     
+    // 나의 프로필 조회
+    func getMyProfile() -> Single<Result<ProfileContent, WanfError>> {
+        
+        guard let url = api.getMyProfile().url else {
+            return .just(.failure(.invalidJSON))
+        }
+        
+        let request = UserDefaultsManager.accessTokenCheckedObservable
+            .map { accessToken in
+                var request = URLRequest(url: url)
+                request.httpMethod = "GET"
+                request.setValue(accessToken, forHTTPHeaderField: "Authorization")
+                return request
+            }
+        
+        return request
+            .flatMap { request in
+                super.session.rx.data(request: request)
+            }
+            .map { data in
+                do {
+                    let decoded = try JSONDecoder().decode(ProfileContent.self, from: data)
+                    return .success(decoded)
+                }
+                catch {
+                    return .failure(.invalidJSON)
+                }
+            }
+            .catch { error in
+                    .just(.failure(.networkError))
+            }
+            .asSingle()
+    }
+    
     // 목표 리스트 조회
     func getKeywordGoalList() -> Single<Result<KeywordEntity, WanfError>> {
         guard let url = api.getKeyworkGoalList().url else {

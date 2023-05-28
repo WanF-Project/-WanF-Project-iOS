@@ -15,6 +15,16 @@ class ProfilAPI: WanfAPI {
         super.init()
     }
     
+    // 나의 프로필 조회
+    func getMyProfile() -> URLComponents {
+        var components = URLComponents()
+        components.scheme = super.scheme
+        components.host = super.host
+        components.path = self.path
+        
+        return components
+    }
+    
     // 목표 리스트 조회
     func getKeyworkGoalList() -> URLComponents {
         var components = URLComponents()
