@@ -17,22 +17,34 @@ struct ProfileKeywordListViewModel {
     let keywordIndexList = PublishRelay<[IndexPath]>()
     
     // ViewModel -> View
-    let cellData: Driver<[String]>
+    let cellData: Driver<KeywordEntity>
     let dismissAfterDoneButtonTapped: Driver<Void>
     
     init(_ model: ProfileKeywordListModel = ProfileKeywordListModel(), type: ProfileKeywordType) {
 
-        // 키워드 목록
-        cellData = model.getProfileKeywordList(type)
-            .asDriver(onErrorDriveWith: .empty())
+        // 키워드 목록 서버 연결
+        let keywordResult = model.getProfileKeywordList(type)
+            .asObservable()
+            .share()
+        
+        // 키워드 목록 서버 연결 성공 - 목록 할당
+        let keywordValue = keywordResult
+            .compactMap(model.getProfileKeywordListValue)
+        
+        cellData = keywordValue
+            .asDriver(onErrorJustReturn: KeywordEntity())
+        
+        let keywordError = keywordResult
+            .compactMap(model.getProfileKeywordListError)
         
         // 선택 된 아이템 정리
         let keywordsSelected = keywordIndexList
             .withLatestFrom(cellData) { indexList, keywords in
+                guard let keys = (keywords as NSDictionary).allKeys as? [String] else { return [String()] }
                 var keywordsSelected: [String] = []
                 
                 for index in indexList {
-                    keywordsSelected.append(keywords[index.row])
+                    keywordsSelected.append(keys[index.row])
                 }
                 return keywordsSelected
             }
