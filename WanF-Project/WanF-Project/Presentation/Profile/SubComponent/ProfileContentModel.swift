@@ -9,26 +9,27 @@ import Foundation
 
 import RxSwift
 
-// TODO: - 서버 연결 시 재구현
 struct ProfileContentModel {
     
-    func loadProfile() -> Observable<Bool> {
-        return Observable
-            .just(true)
+    let network = ProfileNetwork()
+    
+    func loadProfile() -> Single<Result<ProfileContent, WanfError>> {
+        return network.getMyProfile()
     }
     
-    func getProfileValue(_ result: Bool) -> ProfileContent? {
-        if !result {
+    func getProfileValue(_ result: Result<ProfileContent, WanfError>) -> ProfileContent? {
+        guard case .success(let value) = result else {
             return nil
         }
-        return ProfileContent(id: 0, image: "AppIcon", nickname: "원프", entranceYear: 23, birth: 23, gender: "여자", mbti: "ENFP", personality: ["느긋함", "효율중시", "계획적", "꼼꼼함"], purpose: ["과탑", "친목", "앞자리"], contact: "WanF", major: MajorEntiry(id: 0, name: "IT융합자율학부"))
+        return value
     }
     
-    func getProfileError(_ result: Bool) -> Bool? {
-        if result {
+    func getProfileError(_ result: Result<ProfileContent, WanfError>) -> Void? {
+        guard case .failure(let error) = result else {
             return nil
         }
-        return false
+        print("ERROR: \(error)")
+        return Void()
     }
     
 }

@@ -21,6 +21,7 @@ struct ProfileContentViewModel {
         
         // 프로필 불러오기
         let loadProfile = model.loadProfile()
+            .asObservable()
             .share()
         
         let profileValue = loadProfile
