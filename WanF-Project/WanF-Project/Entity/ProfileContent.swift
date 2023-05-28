@@ -21,24 +21,6 @@ struct ProfileContent: Codable {
     
     let major: MajorEntiry
     
-    enum Personality: String {
-        case personality1 = "느긋함"
-        case personality2 = "효율중시"
-        case personality3 = "계획적"
-        case personality4 = "꼼꼼함"
-        case personality5 = "밝음"
-        case personality6 = "조용함"
-    }
-    
-    enum Purpose: String {
-        case purpose1 = "과탑"
-        case purpose2 = "친목"
-        case purpose3 = "앞자리"
-        case purpose4 = "뒷자리"
-        case purpose5 = "평타"
-        case purpose6 = "놀자"
-    }
-    
     enum CodingKeys: String, CodingKey {
         case id, profileImage, nickname, major, gender, mbti, contact
         case entranceYear = "studentId"
