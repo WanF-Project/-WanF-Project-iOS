@@ -9,17 +9,17 @@ import Foundation
 
 struct ProfileContent: Codable {
     let id: Int
-    let profileImage: String?
-    let nickname: String?
+    let profileImage: String
+    let nickname: String
     let entranceYear: Int
     let birth: Int
-    let gender: String?
-    let mbti: String?
+    let gender: String
+    let mbti: String
     let personality: [String]
     let purpose: [String]
-    let contact: String?
+    let contact: String
     
-    let major: MajorEntiry?
+    let major: MajorEntiry
     
     enum Personality: String {
         case personality1 = "느긋함"
@@ -66,12 +66,12 @@ struct ProfileContent: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         self.id = try container.decode(Int.self, forKey: .id)
-        self.profileImage = try container.decode(String?.self, forKey: .profileImage)
-        self.nickname = try container.decode(String?.self, forKey: .nickname)
-        self.major = try container.decode(MajorEntiry?.self, forKey: .major)
-        self.gender = try container.decode(String?.self, forKey: .gender)
-        self.mbti = try container.decode(String?.self, forKey: .mbti)
-        self.contact = try container.decode(String?.self, forKey: .contact)
+        self.profileImage = try container.decode(String?.self, forKey: .profileImage) ?? "BEAR"
+        self.nickname = try container.decode(String?.self, forKey: .nickname) ?? "별명을 입력해주세요"
+        self.major = try container.decode(MajorEntiry?.self, forKey: .major) ?? MajorEntiry(id: 0, name: "전공을 입력해주세요")
+        self.gender = try container.decode(String?.self, forKey: .gender) ?? "성별"
+        self.mbti = try container.decode(String?.self, forKey: .mbti) ?? "MBTI"
+        self.contact = try container.decode(String?.self, forKey: .contact) ?? "연락처를 입력해주세요"
         self.entranceYear = try container.decode(Int.self, forKey: .entranceYear)
         self.birth = try container.decode(Int.self, forKey: .birth)
         self.personality = try container.decode([String].self, forKey: .personality)
