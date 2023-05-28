@@ -191,11 +191,11 @@ class ProfileContentView: UIView {
         viewModel.profileData
             .drive(onNext: { content in
                 // TODO: - 이미지 타입에 맞춰 설정하기
-                self.profileImageView.image = UIImage(named: content.profileImage ?? "")
+                self.profileImageView.image = UIImage(named: content.profileImage)
                 self.profileNicknameLabel.text = content.nickname
-                self.profileMajorLabel.text = content.major?.name
-                self.profileEntranceYearLabel.text = content.entranceYear.description
-                self.profileBirthLabel.text = content.birth.description
+                self.profileMajorLabel.text = content.major.name
+                self.profileEntranceYearLabel.text = content.entranceYear.description + "학번"
+                self.profileBirthLabel.text = content.birth.description + "살"
                 self.profileGenderLabel.text = content.gender
                 self.profileMBTILabel.text = content.mbti
                 self.contactInfo = content.contact
@@ -262,7 +262,7 @@ private extension ProfileContentView {
         // 프로필 사용자 정보
         profileImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.height.equalTo(50)
+            make.height.equalTo(80)
             make.width.equalTo(profileImageView.snp.height)
             make.top.equalToSuperview().inset(verticalInset)
         }
@@ -303,7 +303,7 @@ private extension ProfileContentView {
         profileMidBarView.snp.makeConstraints { make in
             make.height.equalTo(1)
             make.top.equalTo(profileGenderLabel.snp.bottom).offset(groupOffset + 10)
-            make.width.equalTo(profileMajorLabel)
+            make.width.equalToSuperview().inset(horizontalInset * 3)
             make.centerX.equalToSuperview()
         }
         
