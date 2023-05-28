@@ -99,3 +99,5 @@ struct MajorEntiry: Codable {
     let id: Int
     let name: String?
 }
+
+typealias KeywordEntity = Dictionary<String, String>
