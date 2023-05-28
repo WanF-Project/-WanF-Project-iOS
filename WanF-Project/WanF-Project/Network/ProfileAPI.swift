@@ -24,4 +24,14 @@ class ProfilAPI: WanfAPI {
         
         return components
     }
+    
+    // 성격 리스트 조회
+    func getKeywordPersonalityList() -> URLComponents {
+        var components = URLComponents()
+        components.scheme = super.scheme
+        components.host = super.host
+        components.path = self.path + "/personalities"
+        
+        return components
+    }
 }
