@@ -52,6 +52,8 @@
 		144D30D92A068CE000640CCD /* SignUpNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D30D82A068CE000640CCD /* SignUpNetwork.swift */; };
 		145457CC2A00DA760014D52F /* ProfileKeywordListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145457CB2A00DA760014D52F /* ProfileKeywordListModel.swift */; };
 		1455D25E2A25A6C10090257B /* ProfileContentWritingEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1455D25D2A25A6C10090257B /* ProfileContentWritingEntity.swift */; };
+		1455D2602A25B8940090257B /* MajorNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1455D25F2A25B8940090257B /* MajorNetwork.swift */; };
+		1455D2622A25B8A00090257B /* MajorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1455D2612A25B8A00090257B /* MajorAPI.swift */; };
 		14567E9A29DFDD43000B75EE /* EmailStackViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14567E9929DFDD43000B75EE /* EmailStackViewCellViewModel.swift */; };
 		14567E9C29DFE824000B75EE /* EmailStackViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14567E9B29DFE824000B75EE /* EmailStackViewCellModel.swift */; };
 		14567E9E29E00740000B75EE /* VerifiedStackViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14567E9D29E00740000B75EE /* VerifiedStackViewCellViewModel.swift */; };
@@ -160,6 +162,8 @@
 		144D30D82A068CE000640CCD /* SignUpNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNetwork.swift; sourceTree = "<group>"; };
 		145457CB2A00DA760014D52F /* ProfileKeywordListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileKeywordListModel.swift; sourceTree = "<group>"; };
 		1455D25D2A25A6C10090257B /* ProfileContentWritingEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentWritingEntity.swift; sourceTree = "<group>"; };
+		1455D25F2A25B8940090257B /* MajorNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorNetwork.swift; sourceTree = "<group>"; };
+		1455D2612A25B8A00090257B /* MajorAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorAPI.swift; sourceTree = "<group>"; };
 		14567E9929DFDD43000B75EE /* EmailStackViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailStackViewCellViewModel.swift; sourceTree = "<group>"; };
 		14567E9B29DFE824000B75EE /* EmailStackViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailStackViewCellModel.swift; sourceTree = "<group>"; };
 		14567E9D29E00740000B75EE /* VerifiedStackViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiedStackViewCellViewModel.swift; sourceTree = "<group>"; };
@@ -387,6 +391,7 @@
 		144D30CB2A06257D00640CCD /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				1455D2632A25B8A70090257B /* MajorNetwork */,
 				146F1E662A2311930095502F /* ProfileNetwork */,
 				140B502B2A1C834D00C09F4F /* FriendsMatchNetwork */,
 				147E9B562A1792300032E530 /* CourseNetwork */,
@@ -407,6 +412,15 @@
 				145457CB2A00DA760014D52F /* ProfileKeywordListModel.swift */,
 			);
 			path = ProfileKeywordList;
+			sourceTree = "<group>";
+		};
+		1455D2632A25B8A70090257B /* MajorNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				1455D25F2A25B8940090257B /* MajorNetwork.swift */,
+				1455D2612A25B8A00090257B /* MajorAPI.swift */,
+			);
+			path = MajorNetwork;
 			sourceTree = "<group>";
 		};
 		1466FA1C2A0A100400910C30 /* SignUpNetwork */ = {
@@ -831,6 +845,7 @@
 				14982C9729EEAD5800D388BF /* FriendsMatchDetailLectureInfoViewModel.swift in Sources */,
 				14066BAF29E1431300AFB2D2 /* PasswordTextFieldCellViewModel.swift in Sources */,
 				149F01622A13859600370FE1 /* DynamicSizeTableView.swift in Sources */,
+				1455D2602A25B8940090257B /* MajorNetwork.swift in Sources */,
 				14AC9B3529E2751C009C37A5 /* FriendsMatchTabViewController.swift in Sources */,
 				142DBED729DC2D2C00017603 /* PasswordTextFieldViewModel.swift in Sources */,
 				142DBED529DC2B0200017603 /* PasswordTextField.swift in Sources */,
@@ -888,6 +903,7 @@
 				141A781A29D7ED46006731F7 /* SceneDelegate.swift in Sources */,
 				1449E1FA2A13592A008C70DB /* FriendsMatchCommentEntity.swift in Sources */,
 				144D30C32A0606F000640CCD /* ProfileSingleSelectionListViewController.swift in Sources */,
+				1455D2622A25B8A00090257B /* MajorAPI.swift in Sources */,
 				14870BF129EBBD9400D9643E /* FriendsMatchWritingLectureInfoViewModel.swift in Sources */,
 				1466FA242A0A486C00910C30 /* UserDefaultsAuthorizationWrapper.swift in Sources */,
 				14DD371E29DB2CBB00D6A715 /* SignUpPasswordViewController.swift in Sources */,
