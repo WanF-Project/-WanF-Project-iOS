@@ -144,8 +144,21 @@ extension ProfileMainViewController {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
-        let bearAction = UIAlertAction(title: "곰", style: .default)
-        let catAction = UIAlertAction(title: "고양이", style: .default)
+        
+        let bearAction = UIAlertAction(title: "곰", style: .default) { _ in
+            guard let profile = self.profileContentView.profileData else { return }
+            let profileImageString = "BEAR"
+            let profileWriting = ProfileContentWritingEntity(profileImage: profileImageString, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profile.gender, mbti: profile.mbti, personality: profile.personality, purpose: profile.purpose, contact: profile.contact)
+            self.viewModel?.shouldPatchProfile.accept(profileWriting)
+        }
+        
+        let catAction = UIAlertAction(title: "고양이", style: .default) { _ in
+            print("CAT")
+            guard let profile = self.profileContentView.profileData else { return }
+            let profileImageString = "CAT"
+            let profileWriting = ProfileContentWritingEntity(profileImage: profileImageString, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profile.gender, mbti: profile.mbti, personality: profile.personality, purpose: profile.purpose, contact: profile.contact)
+            self.viewModel?.shouldPatchProfile.accept(profileWriting)
+        }
         
         [
             cancelAction,
