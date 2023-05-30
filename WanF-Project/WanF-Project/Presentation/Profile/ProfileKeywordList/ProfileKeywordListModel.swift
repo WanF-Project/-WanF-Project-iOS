@@ -37,29 +37,34 @@ struct ProfileKeywordListModel {
         return Void()
     }
     
-    func saveProfileKeywordList (_ data: [String], type: ProfileKeywordType) -> Observable<Bool> {
+    func saveProfileKeywordList (_ data: [String], profile: ProfileContent, type: ProfileKeywordType) -> Single<Result<Void, WanfError>> {
         switch type {
         case .personality:
-            return savePersonality(data)
+            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profile.gender, mbti: profile.mbti, personality: data, purpose: profile.purpose, contact: profile.contact)
+            return patchProfile(profileWriting)
         case .purpose:
-            return savePurpose(data)
+            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profile.gender, mbti: profile.mbti, personality: profile.personality, purpose: data, contact: profile.contact)
+            return patchProfile(profileWriting)
         }
-        
-        
     }
     
-    func getSavedProfileKeywordListValue(_ result: Bool) -> Bool? {
-        if !result {
-            return nil
-        }
-        return true
+    func patchProfile(_ profile: ProfileContentWritingEntity) -> Single<Result<Void, WanfError>> {
+        return network.patchMyProfile(profile)
     }
     
-    func getSavedProfileKeywordListError(_ result: Bool) -> Bool? {
-        if result {
+    func getPatchProfileValue(_ result: Result<Void, WanfError>) -> Void? {
+        guard case .success(let value) = result else {
             return nil
         }
-        return false
+        return value
+    }
+    
+    func getPatchProfileError(_ result: Result<Void, WanfError>) -> Void? {
+        guard case .failure(let error) = result else {
+            return nil
+        }
+        print("ERROR: \(error)")
+        return Void()
     }
 }
 
@@ -72,24 +77,6 @@ private extension ProfileKeywordListModel {
     
     func getPurposeList() -> Single<Result<KeywordEntity, WanfError>> {
         return network.getKeywordGoalList()
-    }
-    
-    func savePersonality(_ data: [String]) -> Observable<Bool> {
-        return Observable
-            .just(data)
-            .map {
-                print($0)
-                return true
-            }
-    }
-    
-    func savePurpose(_ data: [String]) -> Observable<Bool> {
-        return Observable
-            .just(data)
-            .map {
-                print($0)
-                return true
-            }
     }
 }
 

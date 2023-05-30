@@ -284,15 +284,19 @@ extension ProfileMainViewController {
     }
     
     @objc func didTapProfilePersonalityListTitle() {
+        guard let profile = self.profileContentView.profileData else { return }
+        
         let profileKeywordListVC = ProfileKeywordListViewController()
-        profileKeywordListVC.bind(ProfileKeywordListViewModel(type: .personality))
+        profileKeywordListVC.bind(ProfileKeywordListViewModel(profile: profile,type: .personality))
         
         self.present(profileKeywordListVC, animated: true)
     }
     
     @objc func didTapProfilePurposeListTitle() {
+        guard let profile = self.profileContentView.profileData else { return }
+        
         let profileKeywordListVC = ProfileKeywordListViewController()
-        profileKeywordListVC.bind(ProfileKeywordListViewModel(type: .purpose))
+        profileKeywordListVC.bind(ProfileKeywordListViewModel(profile: profile, type: .purpose))
         
         self.present(profileKeywordListVC, animated: true)
     }
