@@ -15,6 +15,7 @@ class ProfileContentView: UIView {
     
     //MARK: - Properties
     let disposeBag = DisposeBag()
+    var profileData: ProfileContent?
     var contactInfo: String?
     
     //MARK: - View
@@ -190,14 +191,15 @@ class ProfileContentView: UIView {
         //데이터 연결
         viewModel.profileData
             .drive(onNext: { content in
-                // TODO: - 이미지 타입에 맞춰 설정하기
-                self.profileImageView.image = UIImage(named: content.profileImage)
-                self.profileNicknameLabel.text = content.nickname
-                self.profileMajorLabel.text = content.major.name
+                self.profileData = content
+                
+                self.profileImageView.image = content.profileImage != nil ? UIImage(named: content.profileImage!) : UIImage(systemName: "person")
+                self.profileNicknameLabel.text = content.nickname ?? "별명을 입력하세요"
+                self.profileMajorLabel.text = content.major?.name ?? "전공을 입력하세요"
                 self.profileEntranceYearLabel.text = content.entranceYear.description + "학번"
                 self.profileBirthLabel.text = content.birth.description + "살"
-                self.profileGenderLabel.text = content.gender
-                self.profileMBTILabel.text = content.mbti
+                self.profileGenderLabel.text = content.gender ?? "성별"
+                self.profileMBTILabel.text = content.mbti ?? "MBTI"
                 self.contactInfo = content.contact
             })
             .disposed(by: disposeBag)
