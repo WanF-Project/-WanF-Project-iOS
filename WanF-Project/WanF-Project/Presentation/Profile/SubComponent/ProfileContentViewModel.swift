@@ -12,6 +12,11 @@ import RxCocoa
 
 struct ProfileContentViewModel {
     
+    let disposeBag = DisposeBag()
+    
+    // View -> ViewModel
+    let patchProfile = PublishRelay<ProfileContentWritingEntity>()
+    
     // ViewModel -> View
     let profileData: Driver<ProfileContent>
     let personalityCellData: Driver<[String]>
@@ -45,5 +50,18 @@ struct ProfileContentViewModel {
                 content.purpose
             })
             .asDriver(onErrorDriveWith: .empty())
+        
+        // 프로필 수정
+        let patchProfileResult = patchProfile
+            .flatMap(model.patchProfile)
+            .share()
+        
+        let patchProfileValue = patchProfileResult
+            .compactMap(model.getPatchProfileValue)
+        
+        patchProfileValue.subscribe().disposed(by: disposeBag)
+        
+        let patchProfileError = patchProfileResult
+            .compactMap(model.getPatchProfileError)
     }
 }
