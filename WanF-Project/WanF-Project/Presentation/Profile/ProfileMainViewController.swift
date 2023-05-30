@@ -231,7 +231,14 @@ extension ProfileMainViewController {
         }
         
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
-        let doneAction = UIAlertAction(title: "완료", style: .default)
+        let doneAction = UIAlertAction(title: "완료", style: .default) { _ in
+            guard let profile = self.profileContentView.profileData,
+                  let birth = alertVC.textFields?[0].text,
+                  let profileBirth = Int(birth) else { return }
+            
+            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profileBirth, gender: profile.gender, mbti: profile.mbti, personality: profile.personality, purpose: profile.purpose, contact: profile.contact)
+            self.viewModel?.shouldPatchProfile.accept(profileWriting)
+        }
         
         [
             cancelAction,
