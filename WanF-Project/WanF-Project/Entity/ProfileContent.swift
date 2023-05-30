@@ -7,19 +7,19 @@
 
 import Foundation
 
-struct ProfileContent: Codable {
+struct ProfileContent: Decodable {
     let id: Int
-    let profileImage: String
-    let nickname: String
+    let profileImage: String?
+    let nickname: String?
     let entranceYear: Int
     let birth: Int
-    let gender: String
-    let mbti: String
+    let gender: String?
+    let mbti: String?
     let personality: [String]
     let purpose: [String]
-    let contact: String
+    let contact: String? 
     
-    let major: MajorEntiry
+    let major: MajorEntiry?
     
     enum CodingKeys: String, CodingKey {
         case id, profileImage, nickname, major, gender, mbti, contact
@@ -48,32 +48,16 @@ struct ProfileContent: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         self.id = try container.decode(Int.self, forKey: .id)
-        self.profileImage = try container.decode(String?.self, forKey: .profileImage) ?? "BEAR"
-        self.nickname = try container.decode(String?.self, forKey: .nickname) ?? "별명을 입력해주세요"
-        self.major = try container.decode(MajorEntiry?.self, forKey: .major) ?? MajorEntiry(id: 0, name: "전공을 입력해주세요")
-        self.gender = try container.decode(String?.self, forKey: .gender) ?? "성별"
-        self.mbti = try container.decode(String?.self, forKey: .mbti) ?? "MBTI"
-        self.contact = try container.decode(String?.self, forKey: .contact) ?? "연락처를 입력해주세요"
+        self.profileImage = try container.decode(String?.self, forKey: .profileImage)
+        self.nickname = try container.decode(String?.self, forKey: .nickname)
+        self.major = try container.decode(MajorEntiry?.self, forKey: .major)
+        self.gender = try container.decode(String?.self, forKey: .gender)
+        self.mbti = try container.decode(String?.self, forKey: .mbti)
+        self.contact = try container.decode(String?.self, forKey: .contact)
         self.entranceYear = try container.decode(Int.self, forKey: .entranceYear)
         self.birth = try container.decode(Int.self, forKey: .birth)
         self.personality = try container.decode([String].self, forKey: .personality)
         self.purpose = try container.decode([String].self, forKey: .purpose)
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        
-        try container.encode(self.id, forKey: .id)
-        try container.encode(self.profileImage, forKey: .profileImage)
-        try container.encode(self.nickname, forKey: .nickname)
-        try container.encode(self.major, forKey: .major)
-        try container.encode(self.gender, forKey: .gender)
-        try container.encode(self.mbti, forKey: .mbti)
-        try container.encode(self.contact, forKey: .contact)
-        try container.encode(self.entranceYear, forKey: .entranceYear)
-        try container.encode(self.birth, forKey: .birth)
-        try container.encode(self.personality, forKey: .personality)
-        try container.encode(self.purpose, forKey: .purpose)
     }
 }
 
