@@ -283,12 +283,12 @@ private extension ProfileContentView {
         // 프로필 특징
         profileEntranceYearLabel.snp.makeConstraints { make in
             make.top.equalTo(profileMajorLabel.snp.bottom).offset(groupOffset)
-            make.leading.equalTo(profileMajorLabel).inset(10)
+            make.leading.equalTo(profileImageView)
         }
         
         profileBirthLabel.snp.makeConstraints { make in
             make.top.equalTo(profileEntranceYearLabel)
-            make.trailing.equalTo(profileMajorLabel).inset(10)
+            make.trailing.equalTo(profileImageView)
         }
         
         profileGenderLabel.snp.makeConstraints { make in
