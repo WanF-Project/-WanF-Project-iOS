@@ -253,8 +253,18 @@ extension ProfileMainViewController {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
-        let womanAction = UIAlertAction(title: "여자", style: .default)
-        let manAction = UIAlertAction(title: "남자", style: .default)
+        let womanAction = UIAlertAction(title: "여자", style: .default) { _ in
+            guard let profile = self.profileContentView.profileData else { return }
+            let profileGender = "FEMALE"
+            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profileGender, mbti: profile.mbti, personality: profile.personality, purpose: profile.purpose, contact: profile.contact)
+            self.viewModel?.shouldPatchProfile.accept(profileWriting)
+        }
+        let manAction = UIAlertAction(title: "남자", style: .default) { _ in
+            guard let profile = self.profileContentView.profileData else { return }
+            let profileGender = "MALE"
+            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profileGender, mbti: profile.mbti, personality: profile.personality, purpose: profile.purpose, contact: profile.contact)
+            self.viewModel?.shouldPatchProfile.accept(profileWriting)
+        }
         
         [
             cancelAction,

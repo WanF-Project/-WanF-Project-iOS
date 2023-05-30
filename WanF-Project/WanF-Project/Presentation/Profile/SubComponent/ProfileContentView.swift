@@ -198,9 +198,14 @@ class ProfileContentView: UIView {
                 self.profileMajorLabel.text = content.major?.name ?? "전공을 입력하세요"
                 self.profileEntranceYearLabel.text = content.entranceYear.description + "학번"
                 self.profileBirthLabel.text = content.birth.description + "살"
-                self.profileGenderLabel.text = content.gender ?? "성별"
                 self.profileMBTILabel.text = content.mbti ?? "MBTI"
                 self.contactInfo = content.contact
+                
+                var gender = "성별"
+                if content.gender != nil {
+                    gender = content.gender == "MALE" ? "남자" : "여자"
+                }
+                self.profileGenderLabel.text = gender
             })
             .disposed(by: disposeBag)
         
