@@ -51,6 +51,37 @@ class ProfileNetwork: WanfNetwork {
             .asSingle()
     }
     
+    // 나의 프로필 수정
+    func patchMyProfile(_ profile: ProfileContentWritingEntity) -> Single<Result<Void, WanfError>> {
+        guard let url = api.patchMyProfile().url else {
+            return .just(.failure(.invalidURL))
+        }
+        
+        let request = UserDefaultsManager.accessTokenCheckedObservable
+            .map { accessToken in
+                let body = try? JSONEncoder().encode(profile)
+                
+                var request = URLRequest(url: url)
+                request.httpMethod = "PATCH"
+                request.setValue(accessToken, forHTTPHeaderField: "Authorization")
+                request.setValue("application/json;charset=UTF-8", forHTTPHeaderField: "Content-Type")
+                request.httpBody = body
+                return request
+            }
+        
+        return request
+            .flatMap { request in
+                super.session.rx.data(request: request)
+            }
+            .map { _ in
+                return .success(Void())
+            }
+            .catch { error in
+                return .just(.failure(.networkError))
+            }
+            .asSingle()
+    }
+    
     // 목표 리스트 조회
     func getKeywordGoalList() -> Single<Result<KeywordEntity, WanfError>> {
         guard let url = api.getKeyworkGoalList().url else {
