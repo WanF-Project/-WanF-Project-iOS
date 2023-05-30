@@ -302,7 +302,13 @@ extension ProfileMainViewController {
         alertVC.addTextField()
         
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
-        let doneAction = UIAlertAction(title: "완료", style: .default)
+        let doneAction = UIAlertAction(title: "완료", style: .default) { _ in
+            guard let profile = self.profileContentView.profileData else { return }
+            let profileContact = alertVC.textFields?[0].text
+            
+            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profile.gender, mbti: profile.mbti, personality: profile.personality, purpose: profile.purpose, contact: profileContact)
+            self.viewModel?.shouldPatchProfile.accept(profileWriting)
+        }
         
         [
             cancelAction,
