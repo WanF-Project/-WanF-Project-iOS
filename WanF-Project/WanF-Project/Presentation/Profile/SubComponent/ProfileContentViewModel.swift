@@ -17,6 +17,10 @@ struct ProfileContentViewModel {
     // View -> ViewModel
     let patchProfile = PublishRelay<ProfileContentWritingEntity>()
     
+    let subject = PublishSubject<Observable<Void>>()
+    let loadProfileSubject = PublishSubject<Void>()
+    let refreshProfileSubject = PublishSubject<Void>()
+    
     // ViewModel -> View
     let profileData: Driver<ProfileContent>
     let personalityCellData: Driver<[String]>
@@ -25,15 +29,20 @@ struct ProfileContentViewModel {
     init(_ model: ProfileContentModel = ProfileContentModel()) {
         
         // 프로필 불러오기
-        let loadProfile = model.loadProfile()
-            .asObservable()
+        let loadProfileResult = subject
+            .switchLatest()
+            .flatMap(model.loadProfile)
             .share()
         
-        let profileValue = loadProfile
+        loadProfileResult.subscribe().disposed(by: disposeBag)
+        subject.onNext(loadProfileSubject)
+        loadProfileSubject.onNext(Void())
+        
+        let profileValue = loadProfileResult
             .compactMap(model.getProfileValue)
             .share()
         
-        let profileError = loadProfile
+        let profileError = loadProfileResult
             .compactMap(model.getProfileError)
         
         // 데이터 연결
