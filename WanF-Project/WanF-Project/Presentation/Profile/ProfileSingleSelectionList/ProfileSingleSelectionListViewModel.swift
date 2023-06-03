@@ -16,7 +16,7 @@ struct ProfileSingleSelectionListViewModel {
     let selectedItemIndex = PublishRelay<IndexPath>()
     
     // ViewModel -> View
-    let cellData: Driver<[MajorEntiry]>
+    let cellData: Driver<[MajorEntity]>
     let dismiss: Driver<Void>
     
     init(_ model: ProfileSingleSelectionListModel = ProfileSingleSelectionListModel(), profile: ProfileContent, type: ProfileSingleSelectionType) {

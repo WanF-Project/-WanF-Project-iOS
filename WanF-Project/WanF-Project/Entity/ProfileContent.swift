@@ -19,7 +19,7 @@ struct ProfileContent: Decodable {
     let purpose: KeywordEntity
     let contact: String? 
     
-    let major: MajorEntiry?
+    let major: MajorEntity?
     
     enum CodingKeys: String, CodingKey {
         case id, profileImage, nickname, major, gender, mbti, contact
@@ -29,7 +29,7 @@ struct ProfileContent: Decodable {
         case purpose = "goals"
     }
     
-    init(id: Int, image profileImage: String, nickname: String, entranceYear: Int, birth: Int, gender: KeywordEntity, mbti: String, personality: KeywordEntity, purpose: KeywordEntity, contact: String, major: MajorEntiry) {
+    init(id: Int, image profileImage: String, nickname: String, entranceYear: Int, birth: Int, gender: KeywordEntity, mbti: String, personality: KeywordEntity, purpose: KeywordEntity, contact: String, major: MajorEntity) {
         
         self.id = id
         self.profileImage = profileImage
@@ -50,7 +50,7 @@ struct ProfileContent: Decodable {
         self.id = try container.decode(Int.self, forKey: .id)
         self.profileImage = try container.decode(String?.self, forKey: .profileImage)
         self.nickname = try container.decode(String?.self, forKey: .nickname)
-        self.major = try container.decode(MajorEntiry?.self, forKey: .major)
+        self.major = try container.decode(MajorEntity?.self, forKey: .major)
         self.gender = try container.decode(KeywordEntity?.self, forKey: .gender)
         self.mbti = try container.decode(String?.self, forKey: .mbti)
         self.contact = try container.decode(String?.self, forKey: .contact)
@@ -61,7 +61,7 @@ struct ProfileContent: Decodable {
     }
 }
 
-struct MajorEntiry: Codable {
+struct MajorEntity: Codable {
     let id: Int
     let name: String?
 }

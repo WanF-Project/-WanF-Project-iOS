@@ -15,7 +15,7 @@ struct ProfileSingleSelectionListModel {
     let profileNetwork = ProfileNetwork()
     
     // 전공/MBTI 목록 조회
-    func getProfileSingleSelectionList(_ type: ProfileSingleSelectionType) -> Single<Result<[MajorEntiry], WanfError>> {
+    func getProfileSingleSelectionList(_ type: ProfileSingleSelectionType) -> Single<Result<[MajorEntity], WanfError>> {
         switch type {
         case .major:
             return getMajorList()
@@ -24,14 +24,14 @@ struct ProfileSingleSelectionListModel {
         }
     }
     
-    func getProfileSingleSelectionListValue(_ result: Result<[MajorEntiry], WanfError>) -> [MajorEntiry]? {
+    func getProfileSingleSelectionListValue(_ result: Result<[MajorEntity], WanfError>) -> [MajorEntity]? {
         guard case .success(let value) = result else {
             return nil
         }
         return value
     }
     
-    func getProfileSingleSelectionListError(_ result: Result<[MajorEntiry], WanfError>) -> Void? {
+    func getProfileSingleSelectionListError(_ result: Result<[MajorEntity], WanfError>) -> Void? {
         guard case .failure(let error) = result else {
             return nil
         }
@@ -40,7 +40,7 @@ struct ProfileSingleSelectionListModel {
     }
     
     // 프로필 수정
-    func saveProfileSingleSelectionList (_ single: MajorEntiry, profile: ProfileContent, type: ProfileSingleSelectionType) -> Single<Result<Void, WanfError>> {
+    func saveProfileSingleSelectionList (_ single: MajorEntity, profile: ProfileContent, type: ProfileSingleSelectionType) -> Single<Result<Void, WanfError>> {
         guard let personality = (profile.personality as NSDictionary).allKeys as? Array<String>,
               let purpose = (profile.purpose as NSDictionary).allKeys as? Array<String> else
         { return .just(.failure(.invalidJSON)) }
@@ -76,19 +76,19 @@ struct ProfileSingleSelectionListModel {
 //MARK: - Function of Each Type
 private extension ProfileSingleSelectionListModel {
     
-    func getMajorList() -> Single<Result<[MajorEntiry], WanfError>> {
+    func getMajorList() -> Single<Result<[MajorEntity], WanfError>> {
         return majorNetwork.getAllMajors()
     }
     
-    func getMBTIList() -> Single<Result<[MajorEntiry], WanfError>> {
+    func getMBTIList() -> Single<Result<[MajorEntity], WanfError>> {
         
         if let url = Bundle.main.url(forResource: "WanF", withExtension: "plist") {
             let dictionary = NSDictionary(contentsOf: url)
             let items = dictionary?["MBTI"] as? Array<String> ?? []
-            var mbtiList: [MajorEntiry] = []
+            var mbtiList: [MajorEntity] = []
             
             for id in 0 ..< items.count {
-                mbtiList.append(MajorEntiry(id: id, name: items[id]))
+                mbtiList.append(MajorEntity(id: id, name: items[id]))
             }
             
             return .just(.success(mbtiList))
