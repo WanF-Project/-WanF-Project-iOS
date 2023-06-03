@@ -203,7 +203,7 @@ class ProfileContentView: UIView {
                 
                 var gender = "성별"
                 if content.gender != nil {
-                    gender = content.gender == "MALE" ? "남자" : "여자"
+                    gender = content.gender!.keys.first!
                 }
                 self.profileGenderLabel.text = gender
             })

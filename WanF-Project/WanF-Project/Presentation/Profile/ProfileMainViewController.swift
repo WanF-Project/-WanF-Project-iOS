@@ -146,17 +146,22 @@ extension ProfileMainViewController {
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
         
         let bearAction = UIAlertAction(title: "곰", style: .default) { _ in
-            guard let profile = self.profileContentView.profileData else { return }
+            guard let profile = self.profileContentView.profileData,
+                  let personality = (profile.personality as NSDictionary).allKeys as? Array<String>,
+                  let purpose = (profile.purpose as NSDictionary).allKeys as? Array<String> else { return }
+            
             let profileImageString = "BEAR"
-            let profileWriting = ProfileContentWritingEntity(profileImage: profileImageString, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profile.gender, mbti: profile.mbti, personality: profile.personality, purpose: profile.purpose, contact: profile.contact)
+            let profileWriting = ProfileContentWritingEntity(profileImage: profileImageString, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profile.gender?.keys.first, mbti: profile.mbti, personality: personality, purpose: purpose, contact: profile.contact)
             self.viewModel?.shouldPatchProfile.accept(profileWriting)
         }
         
         let catAction = UIAlertAction(title: "고양이", style: .default) { _ in
-            print("CAT")
-            guard let profile = self.profileContentView.profileData else { return }
+            guard let profile = self.profileContentView.profileData,
+                  let personality = (profile.personality as NSDictionary).allKeys as? Array<String>,
+                  let purpose = (profile.purpose as NSDictionary).allKeys as? Array<String> else { return }
+            
             let profileImageString = "CAT"
-            let profileWriting = ProfileContentWritingEntity(profileImage: profileImageString, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profile.gender, mbti: profile.mbti, personality: profile.personality, purpose: profile.purpose, contact: profile.contact)
+            let profileWriting = ProfileContentWritingEntity(profileImage: profileImageString, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profile.gender?.keys.first, mbti: profile.mbti, personality: personality, purpose: purpose, contact: profile.contact)
             self.viewModel?.shouldPatchProfile.accept(profileWriting)
         }
         
@@ -176,10 +181,12 @@ extension ProfileMainViewController {
         
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
         let doneAction = UIAlertAction(title: "완료", style: .default) { _ in
-            guard let profile = self.profileContentView.profileData else { return }
+            guard let profile = self.profileContentView.profileData,
+                  let personality = (profile.personality as NSDictionary).allKeys as? Array<String>,
+                  let purpose = (profile.purpose as NSDictionary).allKeys as? Array<String> else { return }
             let profileNickname = alertVC.textFields?[0].text
             
-            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profileNickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profile.gender, mbti: profile.mbti, personality: profile.personality, purpose: profile.purpose, contact: profile.contact)
+            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profileNickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profile.gender?.keys.first, mbti: profile.mbti, personality: personality, purpose: purpose, contact: profile.contact)
             self.viewModel?.shouldPatchProfile.accept(profileWriting)
         }
         
@@ -193,8 +200,10 @@ extension ProfileMainViewController {
     }
     
     @objc func didTapProfileMajor() {
+        guard let profile = self.profileContentView.profileData else { return }
+        
         let profileSingleSelectionListVC = ProfileSingleSelectionListViewController()
-        profileSingleSelectionListVC.bind(ProfileSingleSelectionListViewModel(type: .major))
+        profileSingleSelectionListVC.bind(ProfileSingleSelectionListViewModel(profile: profile, type: .major))
         
         self.present(profileSingleSelectionListVC, animated: true)
     }
@@ -208,10 +217,12 @@ extension ProfileMainViewController {
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
         let doneAction = UIAlertAction(title: "완료", style: .default) { _ in
             guard let profile = self.profileContentView.profileData,
+                  let personality = (profile.personality as NSDictionary).allKeys as? Array<String>,
+                  let purpose = (profile.purpose as NSDictionary).allKeys as? Array<String>,
                   let entranceYear = alertVC.textFields?[0].text,
                   let profileEntranceYear = Int(entranceYear) else { return }
             
-            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profileEntranceYear, birth: profile.birth, gender: profile.gender, mbti: profile.mbti, personality: profile.personality, purpose: profile.purpose, contact: profile.contact)
+            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profileEntranceYear, birth: profile.birth, gender: profile.gender?.keys.first, mbti: profile.mbti, personality: personality, purpose: purpose, contact: profile.contact)
             self.viewModel?.shouldPatchProfile.accept(profileWriting)
         }
         
@@ -233,10 +244,12 @@ extension ProfileMainViewController {
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
         let doneAction = UIAlertAction(title: "완료", style: .default) { _ in
             guard let profile = self.profileContentView.profileData,
+                  let personality = (profile.personality as NSDictionary).allKeys as? Array<String>,
+                  let purpose = (profile.purpose as NSDictionary).allKeys as? Array<String>,
                   let birth = alertVC.textFields?[0].text,
                   let profileBirth = Int(birth) else { return }
             
-            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profileBirth, gender: profile.gender, mbti: profile.mbti, personality: profile.personality, purpose: profile.purpose, contact: profile.contact)
+            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profileBirth, gender: profile.gender?.keys.first, mbti: profile.mbti, personality: personality, purpose: purpose, contact: profile.contact)
             self.viewModel?.shouldPatchProfile.accept(profileWriting)
         }
         
@@ -254,15 +267,19 @@ extension ProfileMainViewController {
         
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
         let womanAction = UIAlertAction(title: "여자", style: .default) { _ in
-            guard let profile = self.profileContentView.profileData else { return }
+            guard let profile = self.profileContentView.profileData,
+                  let personality = (profile.personality as NSDictionary).allKeys as? Array<String>,
+                  let purpose = (profile.purpose as NSDictionary).allKeys as? Array<String> else { return }
             let profileGender = "FEMALE"
-            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profileGender, mbti: profile.mbti, personality: profile.personality, purpose: profile.purpose, contact: profile.contact)
+            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profileGender, mbti: profile.mbti, personality: personality, purpose: purpose, contact: profile.contact)
             self.viewModel?.shouldPatchProfile.accept(profileWriting)
         }
         let manAction = UIAlertAction(title: "남자", style: .default) { _ in
-            guard let profile = self.profileContentView.profileData else { return }
+            guard let profile = self.profileContentView.profileData,
+                  let personality = (profile.personality as NSDictionary).allKeys as? Array<String>,
+                  let purpose = (profile.purpose as NSDictionary).allKeys as? Array<String> else { return }
             let profileGender = "MALE"
-            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profileGender, mbti: profile.mbti, personality: profile.personality, purpose: profile.purpose, contact: profile.contact)
+            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profileGender, mbti: profile.mbti, personality: personality, purpose: purpose, contact: profile.contact)
             self.viewModel?.shouldPatchProfile.accept(profileWriting)
         }
         
@@ -277,8 +294,10 @@ extension ProfileMainViewController {
     }
     
     @objc func didTapProfileMBTI() {
+        guard let profile = self.profileContentView.profileData else { return }
+        
         let profileSingleSelectionListVC = ProfileSingleSelectionListViewController()
-        profileSingleSelectionListVC.bind(ProfileSingleSelectionListViewModel(type: .MBTI))
+        profileSingleSelectionListVC.bind(ProfileSingleSelectionListViewModel(profile: profile, type: .MBTI))
         
         self.present(profileSingleSelectionListVC, animated: true)
     }
@@ -307,10 +326,12 @@ extension ProfileMainViewController {
         
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
         let doneAction = UIAlertAction(title: "완료", style: .default) { _ in
-            guard let profile = self.profileContentView.profileData else { return }
+            guard let profile = self.profileContentView.profileData,
+                  let personality = (profile.personality as NSDictionary).allKeys as? Array<String>,
+                  let purpose = (profile.purpose as NSDictionary).allKeys as? Array<String> else { return }
             let profileContact = alertVC.textFields?[0].text
             
-            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profile.gender, mbti: profile.mbti, personality: profile.personality, purpose: profile.purpose, contact: profileContact)
+            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profile.gender?.keys.first, mbti: profile.mbti, personality: personality, purpose: purpose, contact: profileContact)
             self.viewModel?.shouldPatchProfile.accept(profileWriting)
         }
         

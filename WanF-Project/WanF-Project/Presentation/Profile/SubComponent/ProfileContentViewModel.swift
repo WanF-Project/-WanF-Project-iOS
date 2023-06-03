@@ -31,6 +31,7 @@ struct ProfileContentViewModel {
         
         let profileValue = loadProfile
             .compactMap(model.getProfileValue)
+            .share()
         
         let profileError = loadProfile
             .compactMap(model.getProfileError)
@@ -41,13 +42,17 @@ struct ProfileContentViewModel {
         
         personalityCellData = profileValue
             .map({ content in
-                content.personality
+                guard let personality = (content.personality as NSDictionary).allValues as? Array<String> else
+                { return [] }
+                return personality
             })
             .asDriver(onErrorDriveWith: .empty())
         
         purposeCellData = profileValue
             .map({ content in
-                content.purpose
+                guard let purpose = (content.purpose as NSDictionary).allValues as? Array<String> else
+                { return [] }
+                return purpose
             })
             .asDriver(onErrorDriveWith: .empty())
         

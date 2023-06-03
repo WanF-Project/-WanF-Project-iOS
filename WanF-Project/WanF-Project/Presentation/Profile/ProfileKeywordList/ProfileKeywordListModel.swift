@@ -38,12 +38,16 @@ struct ProfileKeywordListModel {
     }
     
     func saveProfileKeywordList (_ data: [String], profile: ProfileContent, type: ProfileKeywordType) -> Single<Result<Void, WanfError>> {
+        guard let personality = (profile.personality as NSDictionary).allKeys as? Array<String>,
+              let purpose = (profile.purpose as NSDictionary).allKeys as? Array<String> else
+        { return .just(.failure(.invalidJSON)) }
+        
         switch type {
         case .personality:
-            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profile.gender, mbti: profile.mbti, personality: data, purpose: profile.purpose, contact: profile.contact)
+            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profile.gender?.keys.first, mbti: profile.mbti, personality: data, purpose: purpose, contact: profile.contact)
             return patchProfile(profileWriting)
         case .purpose:
-            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profile.gender, mbti: profile.mbti, personality: profile.personality, purpose: data, contact: profile.contact)
+            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profile.gender?.keys.first, mbti: profile.mbti, personality: personality, purpose: data, contact: profile.contact)
             return patchProfile(profileWriting)
         }
     }
