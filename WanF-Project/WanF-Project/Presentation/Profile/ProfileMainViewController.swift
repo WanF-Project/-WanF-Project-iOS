@@ -13,6 +13,7 @@ import RxCocoa
 
 class ProfileMainViewController: UIViewController {
     
+    let disposeBag = DisposeBag()
     let profileContentView = ProfileContentView()
     var viewModel: ProfileMainViewModel?
     
@@ -30,6 +31,8 @@ class ProfileMainViewController: UIViewController {
         return label
     }()
     
+    let refreshControl = UIRefreshControl()
+    
     //MARK: -  LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,12 +48,23 @@ class ProfileMainViewController: UIViewController {
         
         // Bind Subcomponent
         profileContentView.bind(viewModel.profileContentViewModel)
+        
+        // Refresh
+        refreshControl.rx.controlEvent(.valueChanged)
+            .withLatestFrom(Observable.just(refreshControl))
+            .subscribe(onNext: { refreshControl in
+                viewModel.shouldRefreshProfile.accept(Void())
+                refreshControl.endRefreshing()
+            })
+            .disposed(by: disposeBag)
     }
 }
 
 private extension ProfileMainViewController {
     func configureView() {
         view.backgroundColor = .wanfBackground
+        
+        scrollView.refreshControl = refreshControl
         
         navigationItem.title = "프로필"
         navigationController?.navigationBar.titleTextAttributes = [
