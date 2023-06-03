@@ -288,12 +288,12 @@ private extension ProfileContentView {
         // 프로필 특징
         profileEntranceYearLabel.snp.makeConstraints { make in
             make.top.equalTo(profileMajorLabel.snp.bottom).offset(groupOffset)
-            make.leading.equalTo(profileImageView)
+            make.leading.equalTo(profileMidBarView)
         }
         
         profileBirthLabel.snp.makeConstraints { make in
             make.top.equalTo(profileEntranceYearLabel)
-            make.trailing.equalTo(profileImageView)
+            make.trailing.equalTo(profileMidBarView)
         }
         
         profileGenderLabel.snp.makeConstraints { make in
@@ -310,7 +310,7 @@ private extension ProfileContentView {
         profileMidBarView.snp.makeConstraints { make in
             make.height.equalTo(1)
             make.top.equalTo(profileGenderLabel.snp.bottom).offset(groupOffset + 10)
-            make.width.equalToSuperview().inset(horizontalInset * 3)
+            make.width.equalTo(self.frame.width / 2)
             make.centerX.equalToSuperview()
         }
         
@@ -323,7 +323,7 @@ private extension ProfileContentView {
         profilePersonalityListView.snp.makeConstraints { make in
             make.top.equalTo(profilePersonalityListTitleLabel.snp.bottom).offset(13)
             make.centerX.equalToSuperview()
-            make.width.equalTo(profileMajorLabel)
+            make.width.equalTo(profileMidBarView)
         }
         
         profilePurposeListTitleLabel.snp.makeConstraints { make in
@@ -334,7 +334,7 @@ private extension ProfileContentView {
         profilePurposeListView.snp.makeConstraints { make in
             make.top.equalTo(profilePurposeListTitleLabel.snp.bottom).offset(13)
             make.centerX.equalToSuperview()
-            make.width.equalTo(profileMajorLabel)
+            make.width.equalTo(profileMidBarView)
         }
         
         // 프로필 연락처
