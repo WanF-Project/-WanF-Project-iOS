@@ -13,10 +13,10 @@ struct ProfileContent: Decodable {
     let nickname: String?
     let entranceYear: Int
     let birth: Int
-    let gender: String?
+    let gender: KeywordEntity?
     let mbti: String?
-    let personality: [String]
-    let purpose: [String]
+    let personality: KeywordEntity
+    let purpose: KeywordEntity
     let contact: String? 
     
     let major: MajorEntiry?
@@ -29,7 +29,7 @@ struct ProfileContent: Decodable {
         case purpose = "goals"
     }
     
-    init(id: Int, image profileImage: String, nickname: String, entranceYear: Int, birth: Int, gender: String, mbti: String, personality: [String], purpose: [String], contact: String, major: MajorEntiry) {
+    init(id: Int, image profileImage: String, nickname: String, entranceYear: Int, birth: Int, gender: KeywordEntity, mbti: String, personality: KeywordEntity, purpose: KeywordEntity, contact: String, major: MajorEntiry) {
         
         self.id = id
         self.profileImage = profileImage
@@ -51,13 +51,13 @@ struct ProfileContent: Decodable {
         self.profileImage = try container.decode(String?.self, forKey: .profileImage)
         self.nickname = try container.decode(String?.self, forKey: .nickname)
         self.major = try container.decode(MajorEntiry?.self, forKey: .major)
-        self.gender = try container.decode(String?.self, forKey: .gender)
+        self.gender = try container.decode(KeywordEntity?.self, forKey: .gender)
         self.mbti = try container.decode(String?.self, forKey: .mbti)
         self.contact = try container.decode(String?.self, forKey: .contact)
         self.entranceYear = try container.decode(Int.self, forKey: .entranceYear)
         self.birth = try container.decode(Int.self, forKey: .birth)
-        self.personality = try container.decode([String].self, forKey: .personality)
-        self.purpose = try container.decode([String].self, forKey: .purpose)
+        self.personality = try container.decode(KeywordEntity.self, forKey: .personality)
+        self.purpose = try container.decode(KeywordEntity.self, forKey: .purpose)
     }
 }
 
