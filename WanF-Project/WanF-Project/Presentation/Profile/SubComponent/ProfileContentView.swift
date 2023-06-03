@@ -15,6 +15,7 @@ class ProfileContentView: UIView {
     
     //MARK: - Properties
     let disposeBag = DisposeBag()
+    var profileData: ProfileContent?
     var contactInfo: String?
     
     //MARK: - View
@@ -190,15 +191,21 @@ class ProfileContentView: UIView {
         //데이터 연결
         viewModel.profileData
             .drive(onNext: { content in
-                // TODO: - 이미지 타입에 맞춰 설정하기
-                self.profileImageView.image = UIImage(named: content.profileImage ?? "")
-                self.profileNicknameLabel.text = content.nickname
-                self.profileMajorLabel.text = content.major?.name
-                self.profileEntranceYearLabel.text = content.entranceYear.description
-                self.profileBirthLabel.text = content.birth.description
-                self.profileGenderLabel.text = content.gender
-                self.profileMBTILabel.text = content.mbti
+                self.profileData = content
+                
+                self.profileImageView.image = content.profileImage != nil ? UIImage(named: content.profileImage!) : UIImage(systemName: "person")
+                self.profileNicknameLabel.text = content.nickname ?? "별명을 입력하세요"
+                self.profileMajorLabel.text = content.major?.name ?? "전공을 입력하세요"
+                self.profileEntranceYearLabel.text = content.entranceYear.description + "학번"
+                self.profileBirthLabel.text = content.birth.description + "살"
+                self.profileMBTILabel.text = content.mbti ?? "MBTI"
                 self.contactInfo = content.contact
+                
+                var gender = "성별"
+                if content.gender != nil {
+                    gender = content.gender!.keys.first!
+                }
+                self.profileGenderLabel.text = gender
             })
             .disposed(by: disposeBag)
         
@@ -262,7 +269,7 @@ private extension ProfileContentView {
         // 프로필 사용자 정보
         profileImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.height.equalTo(50)
+            make.height.equalTo(80)
             make.width.equalTo(profileImageView.snp.height)
             make.top.equalToSuperview().inset(verticalInset)
         }
@@ -281,12 +288,12 @@ private extension ProfileContentView {
         // 프로필 특징
         profileEntranceYearLabel.snp.makeConstraints { make in
             make.top.equalTo(profileMajorLabel.snp.bottom).offset(groupOffset)
-            make.leading.equalTo(profileMajorLabel).inset(10)
+            make.leading.equalTo(profileMidBarView)
         }
         
         profileBirthLabel.snp.makeConstraints { make in
             make.top.equalTo(profileEntranceYearLabel)
-            make.trailing.equalTo(profileMajorLabel).inset(10)
+            make.trailing.equalTo(profileMidBarView)
         }
         
         profileGenderLabel.snp.makeConstraints { make in
@@ -303,7 +310,7 @@ private extension ProfileContentView {
         profileMidBarView.snp.makeConstraints { make in
             make.height.equalTo(1)
             make.top.equalTo(profileGenderLabel.snp.bottom).offset(groupOffset + 10)
-            make.width.equalTo(profileMajorLabel)
+            make.width.equalTo(self.frame.width / 2)
             make.centerX.equalToSuperview()
         }
         
@@ -316,7 +323,7 @@ private extension ProfileContentView {
         profilePersonalityListView.snp.makeConstraints { make in
             make.top.equalTo(profilePersonalityListTitleLabel.snp.bottom).offset(13)
             make.centerX.equalToSuperview()
-            make.width.equalTo(profileMajorLabel)
+            make.width.equalTo(profileMidBarView)
         }
         
         profilePurposeListTitleLabel.snp.makeConstraints { make in
@@ -327,7 +334,7 @@ private extension ProfileContentView {
         profilePurposeListView.snp.makeConstraints { make in
             make.top.equalTo(profilePurposeListTitleLabel.snp.bottom).offset(13)
             make.centerX.equalToSuperview()
-            make.width.equalTo(profileMajorLabel)
+            make.width.equalTo(profileMidBarView)
         }
         
         // 프로필 연락처

@@ -61,14 +61,14 @@ class ProfileSingleSelectionListViewController: UIViewController {
                 let cell = tv.dequeueReusableCell(withIdentifier: "singleSelectionListCell", for: IndexPath(row: row, section: 0))
 
                 var configuration = UIListContentConfiguration.cell()
-                configuration.text = element
+                configuration.text = element.name
 
                 let attributedKey = NSAttributedString.Key.self
                 let attributes = [
                     attributedKey.font : UIFont.wanfFont(ofSize: 15, weight: .regular),
                     attributedKey.foregroundColor : UIColor.wanfLabel
                 ]
-                let attributedTitle = NSAttributedString(string: element, attributes: attributes)
+                let attributedTitle = NSAttributedString(string: element.name ?? "", attributes: attributes)
 
                 configuration.attributedText = attributedTitle
 

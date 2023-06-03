@@ -87,14 +87,14 @@ class ProfileKeywordListViewController: UIViewController {
                 let cell = tv.dequeueReusableCell(withIdentifier: "KeywordListCell", for: IndexPath(row: row, section: 0))
 
                 var configuration = UIListContentConfiguration.cell()
-                configuration.text = element
+                configuration.text = element.value
 
                 let attributedKey = NSAttributedString.Key.self
                 let attributes = [
                     attributedKey.font : UIFont.wanfFont(ofSize: 15, weight: .regular),
                     attributedKey.foregroundColor : UIColor.wanfLabel
                 ]
-                let attributedTitle = NSAttributedString(string: element, attributes: attributes)
+                let attributedTitle = NSAttributedString(string: element.value, attributes: attributes)
 
                 configuration.attributedText = attributedTitle
 

@@ -12,6 +12,11 @@ import RxCocoa
 
 struct ProfileContentViewModel {
     
+    let disposeBag = DisposeBag()
+    
+    // View -> ViewModel
+    let patchProfile = PublishRelay<ProfileContentWritingEntity>()
+    
     // ViewModel -> View
     let profileData: Driver<ProfileContent>
     let personalityCellData: Driver<[String]>
@@ -21,10 +26,12 @@ struct ProfileContentViewModel {
         
         // 프로필 불러오기
         let loadProfile = model.loadProfile()
+            .asObservable()
             .share()
         
         let profileValue = loadProfile
             .compactMap(model.getProfileValue)
+            .share()
         
         let profileError = loadProfile
             .compactMap(model.getProfileError)
@@ -35,14 +42,31 @@ struct ProfileContentViewModel {
         
         personalityCellData = profileValue
             .map({ content in
-                content.personality
+                guard let personality = (content.personality as NSDictionary).allValues as? Array<String> else
+                { return [] }
+                return personality
             })
             .asDriver(onErrorDriveWith: .empty())
         
         purposeCellData = profileValue
             .map({ content in
-                content.purpose
+                guard let purpose = (content.purpose as NSDictionary).allValues as? Array<String> else
+                { return [] }
+                return purpose
             })
             .asDriver(onErrorDriveWith: .empty())
+        
+        // 프로필 수정
+        let patchProfileResult = patchProfile
+            .flatMap(model.patchProfile)
+            .share()
+        
+        let patchProfileValue = patchProfileResult
+            .compactMap(model.getPatchProfileValue)
+        
+        patchProfileValue.subscribe().disposed(by: disposeBag)
+        
+        let patchProfileError = patchProfileResult
+            .compactMap(model.getPatchProfileError)
     }
 }

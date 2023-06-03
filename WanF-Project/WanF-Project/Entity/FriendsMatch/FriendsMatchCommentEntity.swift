@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FriendsMatchCommentEntity: Codable {
+struct FriendsMatchCommentEntity: Decodable {
     let id: Int
     let content: String
     let profile: ProfileContent

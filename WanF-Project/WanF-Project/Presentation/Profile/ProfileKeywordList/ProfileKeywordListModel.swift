@@ -9,10 +9,11 @@ import Foundation
 
 import RxSwift
 
-// TODO: - 서버 연결 시 재구현
 struct ProfileKeywordListModel {
     
-    func getProfileKeywordList(_ type: ProfileKeywordType) -> Observable<[String]> {
+    let network = ProfileNetwork()
+    
+    func getProfileKeywordList(_ type: ProfileKeywordType) -> Single<Result<KeywordEntity, WanfError>> {
         switch type {
         case .personality:
             return getPersonalityList()
@@ -21,61 +22,65 @@ struct ProfileKeywordListModel {
         }
     }
     
-    func saveProfileKeywordList (_ data: [String], type: ProfileKeywordType) -> Observable<Bool> {
+    func getProfileKeywordListValue(_ result: Result<KeywordEntity, WanfError>) -> KeywordEntity? {
+        guard case .success(let value) = result else {
+            return nil
+        }
+        return value
+    }
+    
+    func getProfileKeywordListError(_ result: Result<KeywordEntity, WanfError>) -> Void? {
+        guard case .failure(let error) = result else{
+            return nil
+        }
+        print("EEROR: \(error)")
+        return Void()
+    }
+    
+    func saveProfileKeywordList (_ data: [String], profile: ProfileContent, type: ProfileKeywordType) -> Single<Result<Void, WanfError>> {
+        guard let personality = (profile.personality as NSDictionary).allKeys as? Array<String>,
+              let purpose = (profile.purpose as NSDictionary).allKeys as? Array<String> else
+        { return .just(.failure(.invalidJSON)) }
+        
         switch type {
         case .personality:
-            return savePersonality(data)
+            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profile.gender?.keys.first, mbti: profile.mbti, personality: data, purpose: purpose, contact: profile.contact)
+            return patchProfile(profileWriting)
         case .purpose:
-            return savePurpose(data)
+            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profile.gender?.keys.first, mbti: profile.mbti, personality: personality, purpose: data, contact: profile.contact)
+            return patchProfile(profileWriting)
         }
-        
-        
     }
     
-    func getSavedProfileKeywordListValue(_ result: Bool) -> Bool? {
-        if !result {
-            return nil
-        }
-        return true
+    func patchProfile(_ profile: ProfileContentWritingEntity) -> Single<Result<Void, WanfError>> {
+        return network.patchMyProfile(profile)
     }
     
-    func getSavedProfileKeywordListError(_ result: Bool) -> Bool? {
-        if result {
+    func getPatchProfileValue(_ result: Result<Void, WanfError>) -> Void? {
+        guard case .success(let value) = result else {
             return nil
         }
-        return false
+        return value
+    }
+    
+    func getPatchProfileError(_ result: Result<Void, WanfError>) -> Void? {
+        guard case .failure(let error) = result else {
+            return nil
+        }
+        print("ERROR: \(error)")
+        return Void()
     }
 }
 
 //MARK: - Function of Each Keyword Type
 private extension ProfileKeywordListModel {
     
-    func getPersonalityList() -> Observable<[String]> {
-        return Observable
-            .of(["성격1", "성격2", "성격3", "성격4"])
+    func getPersonalityList() -> Single<Result<KeywordEntity, WanfError>> {
+        return network.getKeywordPersonalityList()
     }
     
-    func getPurposeList() -> Observable<[String]> {
-        return Observable
-            .of(["목표1", "목표2", "목표3", "목표4"])
-    }
-    
-    func savePersonality(_ data: [String]) -> Observable<Bool> {
-        return Observable
-            .just(data)
-            .map {
-                print($0)
-                return true
-            }
-    }
-    
-    func savePurpose(_ data: [String]) -> Observable<Bool> {
-        return Observable
-            .just(data)
-            .map {
-                print($0)
-                return true
-            }
+    func getPurposeList() -> Single<Result<KeywordEntity, WanfError>> {
+        return network.getKeywordGoalList()
     }
 }
 
