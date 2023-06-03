@@ -9,10 +9,13 @@ import Foundation
 
 import RxSwift
 
-// TODO: - 서버 연결 시 재구현
 struct ProfileSingleSelectionListModel {
     
-    func getProfileSingleSelectionList(_ type: ProfileSingleSelectionType) -> Observable<[String]> {
+    let majorNetwork = MajorNetwork()
+    let profileNetwork = ProfileNetwork()
+    
+    // 전공/MBTI 목록 조회
+    func getProfileSingleSelectionList(_ type: ProfileSingleSelectionType) -> Single<Result<[MajorEntiry], WanfError>> {
         switch type {
         case .major:
             return getMajorList()
@@ -21,67 +24,87 @@ struct ProfileSingleSelectionListModel {
         }
     }
     
-    func saveProfileSingleSelectionList (_ data: String, type: ProfileSingleSelectionType) -> Observable<Bool> {
+    func getProfileSingleSelectionListValue(_ result: Result<[MajorEntiry], WanfError>) -> [MajorEntiry]? {
+        guard case .success(let value) = result else {
+            return nil
+        }
+        return value
+    }
+    
+    func getProfileSingleSelectionListError(_ result: Result<[MajorEntiry], WanfError>) -> Void? {
+        guard case .failure(let error) = result else {
+            return nil
+        }
+        print("ERROR: \(error)")
+        return Void()
+    }
+    
+    // 프로필 수정
+    func saveProfileSingleSelectionList (_ single: MajorEntiry, profile: ProfileContent, type: ProfileSingleSelectionType) -> Single<Result<Void, WanfError>> {
+        guard let personality = (profile.personality as NSDictionary).allKeys as? Array<String>,
+              let purpose = (profile.purpose as NSDictionary).allKeys as? Array<String> else
+        { return .just(.failure(.invalidJSON)) }
+        
         switch type {
         case .major:
-            return saveMajor(data)
+            let majorId = single.id
+            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: majorId, entranceYear: profile.entranceYear, birth: profile.birth, gender: profile.gender?.keys.first, mbti: profile.mbti, personality: personality, purpose: purpose, contact: profile.contact)
+            return saveMajor(profileWriting)
         case .MBTI:
-            return saveMBTI(data)
+            let mbti = single.name ?? "MBTI"
+            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profile.gender?.keys.first, mbti: mbti, personality: personality, purpose: purpose, contact: profile.contact)
+            return saveMBTI(profileWriting)
         }
     }
     
-    func getSavedProfileSingleSelectionListValue(_ result: Bool) -> Bool? {
-        if !result {
+    func getSavedProfileSingleSelectionListValue(_ result: Result<Void, WanfError>) -> Void? {
+        guard case .success(let value) = result else {
             return nil
         }
-        return true
+        return value
     }
     
-    func getSavedProfileSingleSelectionListError(_ result: Bool) -> Bool? {
-        if result {
+    func getSavedProfileSingleSelectionListError(_ result: Result<Void, WanfError>) -> Void? {
+        guard case .failure(let error) = result else {
             return nil
         }
-        return false
+        print("ERROR: \(error)")
+        return Void()
     }
 }
 
 //MARK: - Function of Each Type
 private extension ProfileSingleSelectionListModel {
     
-    func getMajorList() -> Observable<[String]> {
-        return Observable
-            .of(["전공1", "전공2", "전공3", "전공4"])
+    func getMajorList() -> Single<Result<[MajorEntiry], WanfError>> {
+        return majorNetwork.getAllMajors()
     }
     
-    func getMBTIList() -> Observable<[String]> {
+    func getMBTIList() -> Single<Result<[MajorEntiry], WanfError>> {
         
         if let url = Bundle.main.url(forResource: "WanF", withExtension: "plist") {
             let dictionary = NSDictionary(contentsOf: url)
             let items = dictionary?["MBTI"] as? Array<String> ?? []
+            var mbtiList: [MajorEntiry] = []
             
-            return Observable.of(items)
+            for id in 0 ..< items.count {
+                mbtiList.append(MajorEntiry(id: id, name: items[id]))
+            }
+            
+            return .just(.success(mbtiList))
         }
         else {
-            return Observable.of([])
+            return .just(.failure(.networkError))
         }
     }
     
-    func saveMajor(_ data: String) -> Observable<Bool> {
-        return Observable
-            .just(data)
-            .map {
-                print($0)
-                return true
-            }
+    // 프로필 수정
+    func saveMajor(_ data: ProfileContentWritingEntity) -> Single<Result<Void, WanfError>> {
+        return profileNetwork.patchMyProfile(data)
     }
     
-    func saveMBTI(_ data: String) -> Observable<Bool> {
-        return Observable
-            .just(data)
-            .map {
-                print($0)
-                return true
-            }
+    func saveMBTI(_ data: ProfileContentWritingEntity) -> Single<Result<Void, WanfError>> {
+        return .just(.success(Void()))
     }
 }
 
