@@ -18,7 +18,7 @@ class MajorNetwork: WanfNetwork {
     }
     
     // 모든 전공 조회
-    func getAllMajors<T: Decodable>() -> Single<Result<[T], WanfError>> {
+    func getAllMajors() -> Single<Result<[MajorEntiry], WanfError>> {
         
         guard let url = api.getAllMajors().url else {
             return .just(.failure(.invalidURL))
@@ -38,7 +38,7 @@ class MajorNetwork: WanfNetwork {
             }
             .map { data in
                 do {
-                    let decoded = try JSONDecoder().decode([T].self, from: data)
+                    let decoded = try JSONDecoder().decode([MajorEntiry].self, from: data)
                     return .success(decoded)
                 }
                 catch {
