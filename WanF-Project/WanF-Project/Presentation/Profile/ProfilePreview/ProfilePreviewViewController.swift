@@ -54,7 +54,7 @@ private extension ProfilePreviewViewController {
         containerView.snp.makeConstraints { make in
             make.verticalEdges.equalToSuperview().inset(30)
             make.horizontalEdges.equalToSuperview().inset(15)
-            make.width.equalTo(scrollView.snp.width)
+            make.width.equalTo(scrollView.snp.width).inset(15)
         }
         
         profileContentView.snp.makeConstraints { make in
