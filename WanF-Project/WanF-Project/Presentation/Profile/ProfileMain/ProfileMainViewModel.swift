@@ -18,10 +18,20 @@ struct ProfileMainViewModel {
     let profileContentViewModel = ProfileContentViewModel()
     
     // View -> ViewModel
+    let shouldLoadProfile = PublishRelay<Void>()
     let shouldPatchProfile = PublishRelay<ProfileContentWritingEntity>()
     let shouldRefreshProfile = PublishRelay<Void>()
     
     init() {
+        
+        // 프로필 조회
+        shouldLoadProfile
+            .withLatestFrom(Observable.just(profileContentViewModel))
+            .subscribe(onNext: { viewModel in
+                viewModel.subject.onNext(viewModel.loadProfileSubject)
+                viewModel.loadProfileSubject.onNext(Void())
+            })
+            .disposed(by: disposeBag)
         
         // 프로필 수정
         shouldPatchProfile

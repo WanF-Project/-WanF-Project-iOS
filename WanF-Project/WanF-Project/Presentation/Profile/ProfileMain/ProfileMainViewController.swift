@@ -49,6 +49,9 @@ class ProfileMainViewController: UIViewController {
         // Bind Subcomponent
         profileContentView.bind(viewModel.profileContentViewModel)
         
+        // Load
+        viewModel.shouldLoadProfile.accept(Void())
+        
         // Refresh
         refreshControl.rx.controlEvent(.valueChanged)
             .withLatestFrom(Observable.just(refreshControl))

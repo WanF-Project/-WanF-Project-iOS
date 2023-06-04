@@ -35,8 +35,6 @@ struct ProfileContentViewModel {
             .share()
         
         loadProfileResult.subscribe().disposed(by: disposeBag)
-        subject.onNext(loadProfileSubject)
-        loadProfileSubject.onNext(Void())
         
         let profileValue = loadProfileResult
             .compactMap(model.getProfileValue)
