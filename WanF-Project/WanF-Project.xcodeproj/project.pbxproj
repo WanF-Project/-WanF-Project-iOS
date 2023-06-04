@@ -74,6 +74,8 @@
 		14793FC129D84ABA0048D5DD /* NanumSquareNeo-bRg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14793FAF29D836610048D5DD /* NanumSquareNeo-bRg.ttf */; };
 		14793FC229D84ABD0048D5DD /* NanumSquareNeo-cBd.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14793FAD29D836610048D5DD /* NanumSquareNeo-cBd.ttf */; };
 		14793FC329D84AC00048D5DD /* NanumSquareNeo-dEb.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14793FB029D836610048D5DD /* NanumSquareNeo-dEb.ttf */; };
+		147E1C2C2A2C841E00B42E4D /* ProfilePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E1C2B2A2C841E00B42E4D /* ProfilePreviewViewController.swift */; };
+		147E1C2E2A2C860B00B42E4D /* ProfilePreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E1C2D2A2C860B00B42E4D /* ProfilePreviewViewModel.swift */; };
 		147E9B512A1784AA0032E530 /* UserDefaultsAuthorizationChecked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E9B502A1784AA0032E530 /* UserDefaultsAuthorizationChecked.swift */; };
 		147E9B532A178E520032E530 /* CourseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E9B522A178E520032E530 /* CourseAPI.swift */; };
 		147E9B552A178E690032E530 /* CourseNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E9B542A178E690032E530 /* CourseNetwork.swift */; };
@@ -184,6 +186,8 @@
 		14793FB929D837090048D5DD /* NanumSquareNeo-eHv.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NanumSquareNeo-eHv.ttf"; sourceTree = "<group>"; };
 		14793FBB29D837480048D5DD /* ExUIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIFont.swift; sourceTree = "<group>"; };
 		14793FBD29D83DA60048D5DD /* ExUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIView.swift; sourceTree = "<group>"; };
+		147E1C2B2A2C841E00B42E4D /* ProfilePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePreviewViewController.swift; sourceTree = "<group>"; };
+		147E1C2D2A2C860B00B42E4D /* ProfilePreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePreviewViewModel.swift; sourceTree = "<group>"; };
 		147E9B502A1784AA0032E530 /* UserDefaultsAuthorizationChecked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsAuthorizationChecked.swift; sourceTree = "<group>"; };
 		147E9B522A178E520032E530 /* CourseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseAPI.swift; sourceTree = "<group>"; };
 		147E9B542A178E690032E530 /* CourseNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseNetwork.swift; sourceTree = "<group>"; };
@@ -319,11 +323,8 @@
 		1429B0B129E56ED900891FF8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				145457CD2A00EA7E0014D52F /* ProfileKeywordList */,
-				144D30CA2A0616BB00640CCD /* ProfileSingleSelectionList */,
-				14D4C2DE29FD0A9C001ACBC6 /* SubComponent */,
-				1429B0B229E56EF300891FF8 /* ProfileMainViewController.swift */,
-				1429B0B429E5710C00891FF8 /* ProfileMainViewModel.swift */,
+				147E1C292A2C83D400B42E4D /* ProfileMain */,
+				147E1C2A2A2C83FE00B42E4D /* ProfilePreview */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -493,6 +494,27 @@
 				14793FB029D836610048D5DD /* NanumSquareNeo-dEb.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		147E1C292A2C83D400B42E4D /* ProfileMain */ = {
+			isa = PBXGroup;
+			children = (
+				145457CD2A00EA7E0014D52F /* ProfileKeywordList */,
+				144D30CA2A0616BB00640CCD /* ProfileSingleSelectionList */,
+				14D4C2DE29FD0A9C001ACBC6 /* SubComponent */,
+				1429B0B229E56EF300891FF8 /* ProfileMainViewController.swift */,
+				1429B0B429E5710C00891FF8 /* ProfileMainViewModel.swift */,
+			);
+			path = ProfileMain;
+			sourceTree = "<group>";
+		};
+		147E1C2A2A2C83FE00B42E4D /* ProfilePreview */ = {
+			isa = PBXGroup;
+			children = (
+				147E1C2B2A2C841E00B42E4D /* ProfilePreviewViewController.swift */,
+				147E1C2D2A2C860B00B42E4D /* ProfilePreviewViewModel.swift */,
+			);
+			path = ProfilePreview;
 			sourceTree = "<group>";
 		};
 		147E9B562A1792300032E530 /* CourseNetwork */ = {
@@ -822,6 +844,7 @@
 				142DBED029DC1DCB00017603 /* EmailTextField.swift in Sources */,
 				14982C6E29EE580500D388BF /* FriendsMatchDetailInfoView.swift in Sources */,
 				1429B0AE29E53F9D00891FF8 /* FriendsMatchListCell.swift in Sources */,
+				147E1C2C2A2C841E00B42E4D /* ProfilePreviewViewController.swift in Sources */,
 				143662002A0F7F0500308028 /* FriendsMatchNetwork.swift in Sources */,
 				144D30D92A068CE000640CCD /* SignUpNetwork.swift in Sources */,
 				14567E9E29E00740000B75EE /* VerifiedStackViewCellViewModel.swift in Sources */,
@@ -841,6 +864,7 @@
 				14BD19F229FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift in Sources */,
 				142DBED229DC223A00017603 /* EmailTextFieldViewModel.swift in Sources */,
 				1449E1F62A135375008C70DB /* FriendsMatchCommentListView.swift in Sources */,
+				147E1C2E2A2C860B00B42E4D /* ProfilePreviewViewModel.swift in Sources */,
 				14E4C9E929EA564400E2CB62 /* LectureInfoViewModel.swift in Sources */,
 				14982C9729EEAD5800D388BF /* FriendsMatchDetailLectureInfoViewModel.swift in Sources */,
 				14066BAF29E1431300AFB2D2 /* PasswordTextFieldCellViewModel.swift in Sources */,
