@@ -82,6 +82,41 @@ class ProfileNetwork: WanfNetwork {
             .asSingle()
     }
     
+    // 특정 프로필 조회
+    func getSpecificProfile(_ id: Int) -> Single<Result<ProfileContent, WanfError>> {
+        
+        guard let url = api.getSpecificProfile(id).url else {
+            return .just(.failure(.invalidURL))
+        }
+        
+        let request = UserDefaultsManager.accessTokenCheckedObservable
+            .map { accessToken in
+                var request = URLRequest(url: url)
+                request.httpMethod = "GET"
+                request.setValue(accessToken, forHTTPHeaderField: "Authorization")
+                
+                return request
+            }
+        
+        return request
+            .flatMap { request in
+                super.session.rx.data(request: request)
+            }
+            .map { data in
+                do {
+                    let decoded = try JSONDecoder().decode(ProfileContent.self, from: data)
+                    return .success(decoded)
+                }
+                catch {
+                    return .failure(.invalidJSON)
+                }
+            }
+            .catch { error in
+                return .just(.failure(.networkError))
+            }
+            .asSingle()
+    }
+    
     // 목표 리스트 조회
     func getKeywordGoalList() -> Single<Result<KeywordEntity, WanfError>> {
         guard let url = api.getKeyworkGoalList().url else {
