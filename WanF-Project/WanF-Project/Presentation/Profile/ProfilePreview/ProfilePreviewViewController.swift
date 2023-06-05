@@ -27,7 +27,7 @@ class ProfilePreviewViewController: UIViewController {
     }
     
     //MARK: - Function
-    func bind(_ viewModel: ProfilePreviewViewModel) {
+    func bind(_ viewModel: ProfilePreviewViewModel, id: Int) {
         // Bind Subcomponent View
         profileContentView.bind(viewModel.profileContentViewModel)
         

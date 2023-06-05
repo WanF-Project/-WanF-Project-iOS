@@ -89,6 +89,16 @@ class FriendsMatchDetailViewController: UIViewController {
         viewModel.presentMenueActionSheet
             .emit(to: self.rx.presentMenueActionSheet)
             .disposed(by: disposeBag)
+        
+        // Present ProfilePreview
+        viewModel.presentProfilePreview
+            .drive(onNext: { id in
+                let profileProviewVC = ProfilePreviewViewController()
+                profileProviewVC.bind(ProfilePreviewViewModel(), id: id)
+                
+                self.present(profileProviewVC, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -168,10 +178,7 @@ extension FriendsMatchDetailViewController {
     }
     
     @objc func didTabNickname(){
-        let profileProviewVC = ProfilePreviewViewController()
-        profileProviewVC.bind(ProfilePreviewViewModel())
-        
-        self.present(profileProviewVC, animated: true)
+        viewModel?.didTabNickname.accept(Void())
     }
 }
 
