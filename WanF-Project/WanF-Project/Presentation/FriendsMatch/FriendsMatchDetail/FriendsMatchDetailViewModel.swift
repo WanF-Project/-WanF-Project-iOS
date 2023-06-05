@@ -24,11 +24,13 @@ struct FriendsMatchDetailViewModel {
     let menueButtonTapped = PublishRelay<Void>()
     let deleteButtonTapped = BehaviorRelay(value: Void())
     let loadFriendsMatchDetail = PublishRelay<Void>()
+    let didTabNickname = PublishRelay<Void>()
     
     // ViewModel -> View
     let detailData: Observable<FriendsMatchDetailEntity>
     let presentMenueActionSheet: Signal<Void>
     let popToRootViewController: Driver<Void>
+    let presentProfilePreview: Driver<Int>
     
     // ViewModel -> ChildViewModel
     let detailInfo: Observable<(String, String)>
@@ -52,6 +54,13 @@ struct FriendsMatchDetailViewModel {
         detailData = loadDetailValue
             .share()
   
+        presentProfilePreview = Observable
+            .combineLatest(detailData, didTabNickname)
+            .map({ data, _ in
+                return data.profile.id
+            })
+            .asDriver(onErrorDriveWith: .empty())
+        
         detailInfo = detailData
             .map({ data in
                 (data.profile.nickname ?? "", data.date ?? "")

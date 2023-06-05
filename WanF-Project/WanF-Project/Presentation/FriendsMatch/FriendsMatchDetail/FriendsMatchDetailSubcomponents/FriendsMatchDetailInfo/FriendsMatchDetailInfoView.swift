@@ -17,7 +17,7 @@ class FriendsMatchDetailInfoView: UIView {
     let disposeBag = DisposeBag()
     
     //MARK: - View
-    private lazy var nicknameLabel: UILabel = {
+    lazy var nicknameLabel: UILabel = {
         let label = UILabel()
         
         label.text = "별명"

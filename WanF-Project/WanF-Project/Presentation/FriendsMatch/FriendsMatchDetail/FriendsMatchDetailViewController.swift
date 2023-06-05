@@ -58,6 +58,7 @@ class FriendsMatchDetailViewController: UIViewController {
         
         configureView()
         layout()
+        configureGesture()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -87,6 +88,16 @@ class FriendsMatchDetailViewController: UIViewController {
         
         viewModel.presentMenueActionSheet
             .emit(to: self.rx.presentMenueActionSheet)
+            .disposed(by: disposeBag)
+        
+        // Present ProfilePreview
+        viewModel.presentProfilePreview
+            .drive(onNext: { id in
+                let profileProviewVC = ProfilePreviewViewController()
+                profileProviewVC.bind(ProfilePreviewViewModel(), id: id)
+                
+                self.present(profileProviewVC, animated: true)
+            })
             .disposed(by: disposeBag)
     }
 }
@@ -154,6 +165,20 @@ private extension FriendsMatchDetailViewController {
             height: contentHeight
         )
         scrollView.contentSize = contentView.frame.size
+    }
+}
+
+//MARK: - Tab Gesture
+extension FriendsMatchDetailViewController {
+    func configureGesture() {
+        
+        let nicknameGesture = UITapGestureRecognizer(target: self, action: #selector(didTabNickname))
+        detailInfoView.nicknameLabel.isUserInteractionEnabled = true
+        detailInfoView.nicknameLabel.addGestureRecognizer(nicknameGesture)
+    }
+    
+    @objc func didTabNickname(){
+        viewModel?.didTabNickname.accept(Void())
     }
 }
 

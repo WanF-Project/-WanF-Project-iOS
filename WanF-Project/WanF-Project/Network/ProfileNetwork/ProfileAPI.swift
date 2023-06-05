@@ -35,6 +35,16 @@ class ProfilAPI: WanfAPI {
         return components
     }
     
+    // 특정 프로필 조회
+    func getSpecificProfile(_ id: Int) -> URLComponents {
+        var components = URLComponents()
+        components.scheme = super.scheme
+        components.host = super.host
+        components.path = self.path + "/\(id)"
+        
+        return components
+    }
+    
     // 목표 리스트 조회
     func getKeyworkGoalList() -> URLComponents {
         var components = URLComponents()

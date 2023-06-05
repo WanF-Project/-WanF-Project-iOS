@@ -15,7 +15,6 @@ class ProfilePreviewViewController: UIViewController {
     
     //MARK: - View
     let scrollView = UIScrollView()
-    let containerView = UIView()
     let profileContentView = ProfileContentView()
     
     //MARK: - LifeCycle
@@ -27,9 +26,12 @@ class ProfilePreviewViewController: UIViewController {
     }
     
     //MARK: - Function
-    func bind(_ viewModel: ProfilePreviewViewModel) {
+    func bind(_ viewModel: ProfilePreviewViewModel, id: Int) {
         // Bind Subcomponent View
         profileContentView.bind(viewModel.profileContentViewModel)
+        
+        // Load Profile Preview
+        viewModel.shouldLoadProfilePreview.accept(id)
         
     }
 }
@@ -41,24 +43,21 @@ private extension ProfilePreviewViewController {
         view.backgroundColor = .wanfBackground
         
         view.addSubview(scrollView)
-        scrollView.addSubview(containerView)
-        containerView.addSubview(profileContentView)
+        scrollView.addSubview(profileContentView)
     }
     
     func layout() {
+        
+        let inset = 50.0
         
         scrollView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
         
-        containerView.snp.makeConstraints { make in
-            make.verticalEdges.equalToSuperview().inset(30)
-            make.horizontalEdges.equalToSuperview().inset(15)
-            make.width.equalTo(scrollView.snp.width).inset(15)
-        }
-        
         profileContentView.snp.makeConstraints { make in
-            make.top.horizontalEdges.equalToSuperview()
+            make.top.equalToSuperview().inset(inset)
+            make.horizontalEdges.equalToSuperview().inset(inset)
+            make.width.equalTo(scrollView.snp.width).inset(inset)
         }
     }
 }
