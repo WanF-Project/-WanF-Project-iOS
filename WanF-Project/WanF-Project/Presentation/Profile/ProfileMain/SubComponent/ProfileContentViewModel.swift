@@ -21,6 +21,8 @@ struct ProfileContentViewModel {
     let loadProfileSubject = PublishSubject<Void>()
     let refreshProfileSubject = PublishSubject<Void>()
     
+    let loadProfilePreview = PublishRelay<Int>()
+    
     // ViewModel -> View
     let profileData: Driver<ProfileContent>
     let personalityCellData: Driver<[String]>
@@ -43,11 +45,24 @@ struct ProfileContentViewModel {
         let profileError = loadProfileResult
             .compactMap(model.getProfileError)
         
+        // 특정 프로필 조회
+        let loadProfilePreviewResult = loadProfilePreview
+            .flatMap(model.loadProfilePreview)
+            .share()
+        
+        let profilePreviewValue = loadProfilePreviewResult
+            .compactMap(model.getProfilePreviewValue)
+        
+        let profilePreviewError = loadProfilePreviewResult
+            .compactMap(model.getProfilePreviewError)
+        
         // 데이터 연결
         profileData = profileValue
+            .amb(profilePreviewValue)
             .asDriver(onErrorDriveWith: .empty())
         
         personalityCellData = profileValue
+            .amb(profilePreviewValue)
             .map({ content in
                 guard let personality = (content.personality as NSDictionary).allValues as? Array<String> else
                 { return [] }
@@ -56,6 +71,7 @@ struct ProfileContentViewModel {
             .asDriver(onErrorDriveWith: .empty())
         
         purposeCellData = profileValue
+            .amb(profilePreviewValue)
             .map({ content in
                 guard let purpose = (content.purpose as NSDictionary).allValues as? Array<String> else
                 { return [] }

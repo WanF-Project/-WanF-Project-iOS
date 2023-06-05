@@ -52,4 +52,24 @@ struct ProfileContentModel {
         print("ERROR: \(error)")
         return Void()
     }
+    
+    // 특정 프로필 조회
+    func loadProfilePreview(_ id: Int) -> Single<Result<ProfileContent, WanfError>> {
+        return network.getSpecificProfile(id)
+    }
+    
+    func getProfilePreviewValue(_ result: Result<ProfileContent, WanfError>) -> ProfileContent? {
+        guard case .success(let value) = result else {
+            return nil
+        }
+        return value
+    }
+    
+    func getProfilePreviewError(_ result: Result<ProfileContent, WanfError>) -> Void? {
+        guard case .failure(let error) = result else {
+            return nil
+        }
+        print("ERROR: \(error)")
+        return Void()
+    }
 }

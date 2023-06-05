@@ -31,6 +31,9 @@ class ProfilePreviewViewController: UIViewController {
         // Bind Subcomponent View
         profileContentView.bind(viewModel.profileContentViewModel)
         
+        // Load Profile Preview
+        viewModel.shouldLoadProfilePreview.accept(id)
+        
     }
 }
 
