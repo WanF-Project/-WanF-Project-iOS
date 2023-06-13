@@ -185,7 +185,6 @@ private extension FriendsMatchDetailViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(verticalInset)
             make.trailing.equalTo(view.safeAreaLayoutGuide).inset(horizontalInset + 5)
         }
-        commentAddButton.layoutIfNeeded()
         
         scrollView.snp.makeConstraints { make in
             make.verticalEdges.equalToSuperview()
