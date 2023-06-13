@@ -23,6 +23,27 @@ class FriendsMatchDetailViewController: UIViewController {
     private lazy var detailTextView = FriendsMatchDetailTextView()
     private lazy var commentListView = FriendsMatchCommentListView()
     
+    private lazy var commentAddButton: UIButton = {
+        var configuration = UIButton.Configuration.filled()
+        configuration.image = UIImage(systemName: "plus")
+        configuration.baseForegroundColor = .wanfMint
+        configuration.baseBackgroundColor = .wanfBackground
+        
+        var background = UIBackgroundConfiguration.clear()
+        background.cornerRadius = 25
+        background.strokeColor = .wanfMint
+        background.strokeWidth = 1.5
+        
+        configuration.background = background
+        
+        var button = UIButton(configuration: configuration)
+        button.layer.shadowColor = UIColor.wanfGray.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 5)
+        button.layer.shadowOpacity = 0.7
+        
+        return button
+    }()
+    
     lazy var midBarView: UIView = {
         let view = UIView()
         
@@ -99,6 +120,33 @@ class FriendsMatchDetailViewController: UIViewController {
                 self.present(profileProviewVC, animated: true)
             })
             .disposed(by: disposeBag)
+        
+        // Present Comment Alert
+        commentAddButton.rx.tap
+            .bind(to: viewModel.shouldPresentCommentAlert)
+            .disposed(by: disposeBag)
+        
+        viewModel.presentCommentAlert
+            .drive(onNext: {
+                let alert = UIAlertController(title: "댓글", message: nil, preferredStyle: .alert)
+                alert.addTextField { textfield in
+                    textfield.placeholder = "댓글을 입력하세요"
+                }
+                
+                let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+                let doneAction = UIAlertAction(title: "완료", style: .default) { _ in
+                    print("Save the Comment")
+                }
+                
+                [
+                    cancelAction,
+                    doneAction
+                ]
+                    .forEach { alert.addAction($0) }
+                
+                self.present(alert, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -112,7 +160,12 @@ private extension FriendsMatchDetailViewController {
     }
     
     func layout() {
-        view.addSubview(scrollView)
+        
+        [
+            scrollView,
+            commentAddButton
+        ]
+            .forEach { view.addSubview($0) }
         
         scrollView.addSubview(contentView)
         
@@ -126,6 +179,12 @@ private extension FriendsMatchDetailViewController {
         let verticalInset = 30.0
         let horizontalInset = 20.0
         let offset = 15.0
+        
+        commentAddButton.snp.makeConstraints { make in
+            make.height.width.equalTo(50)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(verticalInset)
+            make.trailing.equalTo(view.safeAreaLayoutGuide).inset(horizontalInset + 5)
+        }
         
         scrollView.snp.makeConstraints { make in
             make.verticalEdges.equalToSuperview()
