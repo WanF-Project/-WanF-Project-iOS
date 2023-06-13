@@ -13,6 +13,9 @@ import RxCocoa
 
 class ProfilePreviewViewController: UIViewController {
     
+    //MARK: - Properties
+    let disposeBag = DisposeBag()
+    
     //MARK: - View
     let scrollView = UIScrollView()
     let profileContentView = ProfileContentView()
@@ -32,6 +35,18 @@ class ProfilePreviewViewController: UIViewController {
         
         // Load Profile Preview
         viewModel.shouldLoadProfilePreview.accept(id)
+        
+        // Present ActivityView for Contact
+        profileContentView.profileContactButton.rx.tap
+            .bind(to: viewModel.shouldPresentActivity)
+            .disposed(by: disposeBag)
+        
+        viewModel.presentActivity
+            .drive(onNext: { contact in
+                let activityVC = UIActivityViewController(activityItems: [contact], applicationActivities: [])
+                self.present(activityVC, animated: true)
+            })
+            .disposed(by: disposeBag)
         
     }
 }
