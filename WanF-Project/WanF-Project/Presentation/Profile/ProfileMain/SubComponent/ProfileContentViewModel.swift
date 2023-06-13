@@ -22,7 +22,6 @@ struct ProfileContentViewModel {
     let refreshProfileSubject = PublishSubject<Void>()
     
     let loadProfilePreview = PublishRelay<Int>()
-    let shouldPresentActivoty = PublishRelay<String>()
     
     // ViewModel -> View
     let profileData: Driver<ProfileContent>
