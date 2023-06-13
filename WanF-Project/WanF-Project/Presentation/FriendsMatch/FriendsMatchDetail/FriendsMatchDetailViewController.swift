@@ -120,6 +120,33 @@ class FriendsMatchDetailViewController: UIViewController {
                 self.present(profileProviewVC, animated: true)
             })
             .disposed(by: disposeBag)
+        
+        // Present Comment Alert
+        commentAddButton.rx.tap
+            .bind(to: viewModel.shouldPresentCommentAlert)
+            .disposed(by: disposeBag)
+        
+        viewModel.presentCommentAlert
+            .drive(onNext: {
+                let alert = UIAlertController(title: "댓글", message: nil, preferredStyle: .alert)
+                alert.addTextField { textfield in
+                    textfield.placeholder = "댓글을 입력하세요"
+                }
+                
+                let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+                let doneAction = UIAlertAction(title: "완료", style: .default) { _ in
+                    print("Save the Comment")
+                }
+                
+                [
+                    cancelAction,
+                    doneAction
+                ]
+                    .forEach { alert.addAction($0) }
+                
+                self.present(alert, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 }
 

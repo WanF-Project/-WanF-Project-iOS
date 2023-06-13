@@ -25,12 +25,14 @@ struct FriendsMatchDetailViewModel {
     let deleteButtonTapped = BehaviorRelay(value: Void())
     let loadFriendsMatchDetail = PublishRelay<Void>()
     let didTabNickname = PublishRelay<Void>()
+    let shouldPresentCommentAlert = PublishRelay<Void>()
     
     // ViewModel -> View
     let detailData: Observable<FriendsMatchDetailEntity>
     let presentMenueActionSheet: Signal<Void>
     let popToRootViewController: Driver<Void>
     let presentProfilePreview: Driver<Int>
+    let presentCommentAlert: Driver<Void>
     
     // ViewModel -> ChildViewModel
     let detailInfo: Observable<(String, String)>
@@ -112,6 +114,10 @@ struct FriendsMatchDetailViewModel {
             .compactMap(model.getDeleteDetailError)
         
         popToRootViewController = deleteDetailValue
+            .asDriver(onErrorDriveWith: .empty())
+        
+        // Present Comment Alert
+        presentCommentAlert = shouldPresentCommentAlert
             .asDriver(onErrorDriveWith: .empty())
     }
 }
