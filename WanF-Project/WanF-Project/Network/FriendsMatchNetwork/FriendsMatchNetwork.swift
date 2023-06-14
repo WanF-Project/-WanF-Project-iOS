@@ -146,4 +146,37 @@ class FriendsMatchNetwork: WanfNetwork {
             }
             .asSingle()
     }
+    
+    // 댓글 작성
+    func postComment(_ postId: Int, content: FriendsMatchCommentRequestEntity) -> Single<Result<Void, WanfError>> {
+        
+        guard let url = api.postComment(postId).url else {
+            return .just(.failure(.invalidURL))
+        }
+        
+        let requset = UserDefaultsManager.accessTokenCheckedObservable
+            .map { accessToken in
+                let body = try? JSONEncoder().encode(content)
+                
+                var request = URLRequest(url: url)
+                request.httpBody = body
+                request.httpMethod = "POST"
+                request.setValue(accessToken, forHTTPHeaderField: "Authorization")
+                request.setValue("application/json;charset=UTF-8", forHTTPHeaderField: "Content-Type")
+                
+                return request
+            }
+        
+        return requset
+            .flatMap { request in
+                super.session.rx.data(request: request)
+            }
+            .map { _ in
+                return .success(Void())
+            }
+            .catch { error in
+                    .just(.failure(.networkError))
+            }
+            .asSingle()
+    }
 }

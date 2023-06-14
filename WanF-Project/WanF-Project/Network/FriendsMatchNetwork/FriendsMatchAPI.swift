@@ -60,4 +60,14 @@ class FriendsMatchAPI: WanfAPI {
         
         return components
     }
+    
+    // 댓글 작성
+    func postComment(_ postId: Int) -> URLComponents {
+        var components = URLComponents()
+        components.scheme = super.scheme
+        components.host = super.host
+        components.path = self.path + "/\(postId)/comments"
+        
+        return components
+    }
 }
