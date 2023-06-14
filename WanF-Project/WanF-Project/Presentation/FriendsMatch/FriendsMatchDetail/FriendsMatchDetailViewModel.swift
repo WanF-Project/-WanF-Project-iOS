@@ -26,6 +26,7 @@ struct FriendsMatchDetailViewModel {
     let loadFriendsMatchDetail = PublishRelay<Void>()
     let didTabNickname = PublishRelay<Void>()
     let shouldPresentCommentAlert = PublishRelay<Void>()
+    let shouldSaveComment = PublishRelay<FriendsMatchCommentRequestEntity>()
     
     // ViewModel -> View
     let detailData: Observable<FriendsMatchDetailEntity>
@@ -129,5 +130,23 @@ struct FriendsMatchDetailViewModel {
         // Present Comment Alert
         presentCommentAlert = shouldPresentCommentAlert
             .asDriver(onErrorDriveWith: .empty())
+        
+        // Save the Comment
+        let commentSavedResult = shouldSaveComment
+            .withLatestFrom(detailData) { content, data in
+                return (postId: data.id, content: content)
+            }
+            .flatMap {
+                model.postComment($0.postId, content: $0.content)
+            }
+            .share()
+        
+        let commentSavedValue = commentSavedResult
+            .compactMap(model.getDeleteDetailValue)
+        
+        commentSavedResult.subscribe().disposed(by: disposeBag)
+        
+        let commentSavedError = commentSavedResult
+            .compactMap(model.getDeleteDetailError)
     }
 }
