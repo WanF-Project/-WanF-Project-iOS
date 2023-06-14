@@ -15,10 +15,12 @@ struct FriendsMatchCommentListViewModel {
     // ViewModel -> View
     let cellData: Driver<[FriendsMatchCommentEntity]>
     
+    // ParentViewModel -> ViewModel
+    let detailComments = PublishRelay<[FriendsMatchCommentEntity]>()
+    
     init() {
         
-        cellData = Observable
-            .just([])
-            .asDriver(onErrorJustReturn: [])
+        cellData = detailComments
+            .asDriver(onErrorDriveWith: .empty())
     }
 }

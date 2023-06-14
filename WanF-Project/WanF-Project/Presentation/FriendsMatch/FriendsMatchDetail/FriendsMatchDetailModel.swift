@@ -53,4 +53,24 @@ struct FriendsMatchDetailModel {
         return Void()
     }
     
+    // Save the Comment
+    func postComment(_ postId: Int, content: FriendsMatchCommentRequestEntity) -> Single<Result<Void, WanfError>> {
+        return network.postComment(postId, content: content)
+    }
+    
+    func postCommentValue(_ result: Result<Void, WanfError>) -> Void? {
+        guard case .success(let value) = result else {
+            return nil
+        }
+        return value
+    }
+    
+    func postCommentError(_ result: Result<Void, WanfError>) -> Void? {
+        guard case .failure(let error) = result else {
+            return nil
+        }
+        print("ERROR: \(error)")
+        return Void()
+    }
+    
 }

@@ -26,6 +26,7 @@ struct FriendsMatchDetailViewModel {
     let loadFriendsMatchDetail = PublishRelay<Void>()
     let didTabNickname = PublishRelay<Void>()
     let shouldPresentCommentAlert = PublishRelay<Void>()
+    let shouldSaveComment = PublishRelay<FriendsMatchCommentRequestEntity>()
     
     // ViewModel -> View
     let detailData: Observable<FriendsMatchDetailEntity>
@@ -38,6 +39,7 @@ struct FriendsMatchDetailViewModel {
     let detailInfo: Observable<(String, String)>
     let detailLectureInfo: Observable<LectureInfoEntity>
     let detailText: Observable<(String, String)>
+    let detailComments: Observable<[FriendsMatchCommentEntity]>
     
     init(_ model: FriendsMatchDetailModel = FriendsMatchDetailModel(), id: Int) {
         
@@ -91,6 +93,15 @@ struct FriendsMatchDetailViewModel {
             .bind(to: detailTextViewModel.detailText)
             .disposed(by: disposeBag)
         
+        detailComments = detailData
+            .map({ data in
+                return data.comments
+            })
+        
+        detailComments
+            .bind(to: commentListViewModel.detailComments)
+            .disposed(by: disposeBag)
+        
         // TODO: - 추후 구현
         // 실패 -
         let loadDetailError = loadDetailResult
@@ -119,5 +130,23 @@ struct FriendsMatchDetailViewModel {
         // Present Comment Alert
         presentCommentAlert = shouldPresentCommentAlert
             .asDriver(onErrorDriveWith: .empty())
+        
+        // Save the Comment
+        let commentSavedResult = shouldSaveComment
+            .withLatestFrom(detailData) { content, data in
+                return (postId: data.id, content: content)
+            }
+            .flatMap {
+                model.postComment($0.postId, content: $0.content)
+            }
+            .share()
+        
+        let commentSavedValue = commentSavedResult
+            .compactMap(model.getDeleteDetailValue)
+        
+        commentSavedResult.subscribe().disposed(by: disposeBag)
+        
+        let commentSavedError = commentSavedResult
+            .compactMap(model.getDeleteDetailError)
     }
 }
