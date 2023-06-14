@@ -38,6 +38,7 @@ struct FriendsMatchDetailViewModel {
     let detailInfo: Observable<(String, String)>
     let detailLectureInfo: Observable<LectureInfoEntity>
     let detailText: Observable<(String, String)>
+    let detailComments: Observable<[FriendsMatchCommentEntity]>
     
     init(_ model: FriendsMatchDetailModel = FriendsMatchDetailModel(), id: Int) {
         
@@ -89,6 +90,15 @@ struct FriendsMatchDetailViewModel {
 
         detailText
             .bind(to: detailTextViewModel.detailText)
+            .disposed(by: disposeBag)
+        
+        detailComments = detailData
+            .map({ data in
+                return data.comments
+            })
+        
+        detailComments
+            .bind(to: commentListViewModel.detailComments)
             .disposed(by: disposeBag)
         
         // TODO: - 추후 구현
