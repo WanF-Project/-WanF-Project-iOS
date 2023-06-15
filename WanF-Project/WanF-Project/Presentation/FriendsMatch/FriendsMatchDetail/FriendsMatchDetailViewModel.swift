@@ -28,7 +28,7 @@ struct FriendsMatchDetailViewModel {
     let shouldPresentCommentAlert = PublishRelay<Void>()
     let shouldSaveComment = PublishRelay<FriendsMatchCommentRequestEntity>()
     
-    let subject = PublishSubject<Observable<Int>>()
+    let commentSubject = PublishSubject<Observable<Int>>()
     let presentDetailProfileSubject = PublishSubject<Int>()
     let presentCommentProfileSubject = PublishSubject<Int>()
     
@@ -62,7 +62,7 @@ struct FriendsMatchDetailViewModel {
         detailData = loadDetailValue
             .share()
         
-        presentProfilePreview = subject
+        presentProfilePreview = commentSubject
             .switchLatest()
             .asDriver(onErrorDriveWith: .empty())
         
@@ -154,7 +154,7 @@ struct FriendsMatchDetailViewModel {
         didTabNickname
             .withLatestFrom(detailData)
             .subscribe(onNext: { [self] data in
-                self.subject.onNext(self.presentDetailProfileSubject)
+                self.commentSubject.onNext(self.presentDetailProfileSubject)
                 self.presentDetailProfileSubject.onNext(data.profile.id)
             })
             .disposed(by: disposeBag)
@@ -164,7 +164,7 @@ struct FriendsMatchDetailViewModel {
                 data.comments[indexPath.row].profile.id
             })
             .subscribe(onNext: { [self] id in
-                self.subject.onNext(self.presentCommentProfileSubject)
+                self.commentSubject.onNext(self.presentCommentProfileSubject)
                 self.presentCommentProfileSubject.onNext(id)
             })
             .disposed(by: disposeBag)
