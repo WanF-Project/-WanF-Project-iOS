@@ -85,7 +85,7 @@ class FriendsMatchDetailViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        adjustContentViewSize()
+//        adjustContentViewSize()
     }
     
     //MARK: - Function
@@ -215,6 +215,7 @@ private extension FriendsMatchDetailViewController {
             make.top.equalTo(midBarView.snp.bottom).offset(offset)
             make.bottom.equalToSuperview()
             make.horizontalEdges.equalToSuperview()
+            make.height.equalTo(500)
         }
     }
     

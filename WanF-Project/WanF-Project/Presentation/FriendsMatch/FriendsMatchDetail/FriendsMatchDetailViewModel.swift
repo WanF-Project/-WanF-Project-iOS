@@ -28,6 +28,10 @@ struct FriendsMatchDetailViewModel {
     let shouldPresentCommentAlert = PublishRelay<Void>()
     let shouldSaveComment = PublishRelay<FriendsMatchCommentRequestEntity>()
     
+    let subject = PublishSubject<Observable<Int>>()
+    let presentDetailProfileSubject = PublishSubject<Int>()
+    let presentCommentProfileSubject = PublishSubject<Int>()
+    
     // ViewModel -> View
     let detailData: Observable<FriendsMatchDetailEntity>
     let presentMenueActionSheet: Signal<Void>
@@ -57,12 +61,9 @@ struct FriendsMatchDetailViewModel {
         
         detailData = loadDetailValue
             .share()
-  
-        presentProfilePreview = Observable
-            .combineLatest(detailData, didTabNickname)
-            .map({ data, _ in
-                return data.profile.id
-            })
+        
+        presentProfilePreview = subject
+            .switchLatest()
             .asDriver(onErrorDriveWith: .empty())
         
         detailInfo = detailData
@@ -148,5 +149,24 @@ struct FriendsMatchDetailViewModel {
         
         let commentSavedError = commentSavedResult
             .compactMap(model.getDeleteDetailError)
+        
+        // 프로필 미리보기
+        didTabNickname
+            .withLatestFrom(detailData)
+            .subscribe(onNext: { [self] data in
+                self.subject.onNext(self.presentDetailProfileSubject)
+                self.presentDetailProfileSubject.onNext(data.profile.id)
+            })
+            .disposed(by: disposeBag)
+        
+        commentListViewModel.shouldPresentCommentProfile
+            .withLatestFrom(detailData, resultSelector: { indexPath, data in
+                data.comments[indexPath.row].profile.id
+            })
+            .subscribe(onNext: { [self] id in
+                self.subject.onNext(self.presentCommentProfileSubject)
+                self.presentCommentProfileSubject.onNext(id)
+            })
+            .disposed(by: disposeBag)
     }
 }

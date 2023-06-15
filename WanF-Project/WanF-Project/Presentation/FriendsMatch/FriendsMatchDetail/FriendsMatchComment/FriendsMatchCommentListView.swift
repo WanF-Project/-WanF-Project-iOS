@@ -63,8 +63,13 @@ class FriendsMatchCommentListView: DynamicSizeTableView {
                 
                 cell.contentConfiguration = configuration
                 cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-                
+                cell.selectionStyle = .none
             }
+            .disposed(by: disposeBag)
+        
+        // Present ProfilePreview
+        self.rx.itemSelected
+            .bind(to: viewModel.shouldPresentCommentProfile)
             .disposed(by: disposeBag)
     }
 }
