@@ -12,6 +12,11 @@ import RxCocoa
 
 struct FriendsMatchCommentListViewModel {
     
+    let disposeBag = DisposeBag()
+    
+    // View -> ViewModel
+    let shouldPresentCommentProfile = PublishRelay<IndexPath>()
+    
     // ViewModel -> View
     let cellData: Driver<[FriendsMatchCommentEntity]>
     
