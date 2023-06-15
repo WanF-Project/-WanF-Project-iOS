@@ -27,10 +27,15 @@ struct FriendsMatchDetailViewModel {
     let didTabNickname = PublishRelay<Void>()
     let shouldPresentCommentAlert = PublishRelay<Void>()
     let shouldSaveComment = PublishRelay<FriendsMatchCommentRequestEntity>()
+    let shouldRefreshDetail = PublishRelay<Void>()
     
-    let subject = PublishSubject<Observable<Int>>()
+    let commentSubject = PublishSubject<Observable<Int>>()
     let presentDetailProfileSubject = PublishSubject<Int>()
     let presentCommentProfileSubject = PublishSubject<Int>()
+    
+    let detailSubject = PublishSubject<Observable<Void>>()
+    let loadDetailSubject = PublishSubject<Void>()
+    let refreshDetailSubject = PublishSubject<Void>()
     
     // ViewModel -> View
     let detailData: Observable<FriendsMatchDetailEntity>
@@ -48,7 +53,8 @@ struct FriendsMatchDetailViewModel {
     init(_ model: FriendsMatchDetailModel = FriendsMatchDetailModel(), id: Int) {
         
         //글 상세 데이터 받기
-        let loadDetailResult = loadFriendsMatchDetail
+        let loadDetailResult = detailSubject
+            .switchLatest()
             .flatMap { _ in
                 model.loadDetail(id)
             }
@@ -62,7 +68,7 @@ struct FriendsMatchDetailViewModel {
         detailData = loadDetailValue
             .share()
         
-        presentProfilePreview = subject
+        presentProfilePreview = commentSubject
             .switchLatest()
             .asDriver(onErrorDriveWith: .empty())
         
@@ -150,11 +156,11 @@ struct FriendsMatchDetailViewModel {
         let commentSavedError = commentSavedResult
             .compactMap(model.getDeleteDetailError)
         
-        // 프로필 미리보기
+        // Send Next Event to Subjects
         didTabNickname
             .withLatestFrom(detailData)
             .subscribe(onNext: { [self] data in
-                self.subject.onNext(self.presentDetailProfileSubject)
+                self.commentSubject.onNext(self.presentDetailProfileSubject)
                 self.presentDetailProfileSubject.onNext(data.profile.id)
             })
             .disposed(by: disposeBag)
@@ -164,8 +170,23 @@ struct FriendsMatchDetailViewModel {
                 data.comments[indexPath.row].profile.id
             })
             .subscribe(onNext: { [self] id in
-                self.subject.onNext(self.presentCommentProfileSubject)
+                self.commentSubject.onNext(self.presentCommentProfileSubject)
                 self.presentCommentProfileSubject.onNext(id)
+            })
+            .disposed(by: disposeBag)
+        
+        loadFriendsMatchDetail
+            .subscribe(onNext: { [self] in
+                self.detailSubject.onNext(self.loadDetailSubject)
+                self.loadDetailSubject.onNext(Void())
+            })
+            .disposed(by: disposeBag)
+        
+        shouldRefreshDetail
+            .subscribe(onNext: { [self] in
+                self.detailSubject.onNext(self.refreshDetailSubject)
+                self.refreshDetailSubject.onNext(Void())
+                
             })
             .disposed(by: disposeBag)
     }

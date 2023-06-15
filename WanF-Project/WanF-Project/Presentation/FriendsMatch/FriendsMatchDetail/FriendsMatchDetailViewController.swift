@@ -23,6 +23,8 @@ class FriendsMatchDetailViewController: UIViewController {
     private lazy var detailTextView = FriendsMatchDetailTextView()
     private lazy var commentListView = FriendsMatchCommentListView()
     
+    private lazy var refreshControl = UIRefreshControl()
+    
     private lazy var commentAddButton: UIButton = {
         var configuration = UIButton.Configuration.filled()
         configuration.image = UIImage(systemName: "plus")
@@ -96,6 +98,16 @@ class FriendsMatchDetailViewController: UIViewController {
         // Load a Detail
         viewModel.loadFriendsMatchDetail.accept(Void())
         
+        // Refresh the Detail
+        refreshControl.rx.controlEvent(.valueChanged)
+            .subscribe(onNext: { _ in
+                viewModel.shouldRefreshDetail.accept(Void())
+                DispatchQueue.main.async {
+                    self.refreshControl.endRefreshing()
+                }
+            })
+            .disposed(by: disposeBag)
+        
         // Bind SubComponent
         detailInfoView.bind(viewModel.detailInfoViewModel)
         lectureInfoView.bind(viewModel.lectureInfoViewModel)
@@ -158,6 +170,8 @@ private extension FriendsMatchDetailViewController {
         view.backgroundColor = .wanfBackground
         
         navigationItem.rightBarButtonItem = menuBarItem
+        
+        scrollView.refreshControl = refreshControl
     }
     
     func layout() {
