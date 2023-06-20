@@ -11,8 +11,8 @@ struct ProfileContent: Decodable {
     let id: Int
     let profileImage: String?
     let nickname: String?
-    let entranceYear: Int
-    let birth: Int
+    let entranceYear: Int?
+    let birth: Int?
     let gender: KeywordEntity?
     let mbti: String?
     let personality: KeywordEntity
@@ -54,8 +54,8 @@ struct ProfileContent: Decodable {
         self.gender = try container.decode(KeywordEntity?.self, forKey: .gender)
         self.mbti = try container.decode(String?.self, forKey: .mbti)
         self.contact = try container.decode(String?.self, forKey: .contact)
-        self.entranceYear = try container.decode(Int.self, forKey: .entranceYear)
-        self.birth = try container.decode(Int.self, forKey: .birth)
+        self.entranceYear = try container.decode(Int?.self, forKey: .entranceYear)
+        self.birth = try container.decode(Int?.self, forKey: .birth)
         self.personality = try container.decode(KeywordEntity.self, forKey: .personality)
         self.purpose = try container.decode(KeywordEntity.self, forKey: .purpose)
     }

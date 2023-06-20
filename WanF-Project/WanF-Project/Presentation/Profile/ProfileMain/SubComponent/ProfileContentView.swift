@@ -196,8 +196,8 @@ class ProfileContentView: UIView {
                 self.profileImageView.image = content.profileImage != nil ? UIImage(named: content.profileImage!) : UIImage(systemName: "person")
                 self.profileNicknameLabel.text = content.nickname ?? "별명을 입력하세요"
                 self.profileMajorLabel.text = content.major?.name ?? "전공을 입력하세요"
-                self.profileEntranceYearLabel.text = content.entranceYear.description + "학번"
-                self.profileBirthLabel.text = content.birth.description + "살"
+                self.profileEntranceYearLabel.text = (content.entranceYear ?? 0).description + "학번"
+                self.profileBirthLabel.text = (content.birth ?? 0).description + "살"
                 self.profileMBTILabel.text = content.mbti ?? "MBTI"
                 self.contactInfo = content.contact
                 
