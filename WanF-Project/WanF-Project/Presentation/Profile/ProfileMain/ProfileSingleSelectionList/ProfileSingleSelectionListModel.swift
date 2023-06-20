@@ -104,7 +104,7 @@ private extension ProfileSingleSelectionListModel {
     }
     
     func saveMBTI(_ data: ProfileContentWritingEntity) -> Single<Result<Void, WanfError>> {
-        return .just(.success(Void()))
+        return profileNetwork.patchMyProfile(data)
     }
 }
 
