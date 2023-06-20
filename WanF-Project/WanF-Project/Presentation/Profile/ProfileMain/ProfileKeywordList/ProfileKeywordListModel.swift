@@ -44,10 +44,10 @@ struct ProfileKeywordListModel {
         
         switch type {
         case .personality:
-            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profile.gender?.keys.first, mbti: profile.mbti, personality: data, purpose: purpose, contact: profile.contact)
+            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear ?? 0, birth: profile.birth ?? 0, gender: profile.gender?.keys.first, mbti: profile.mbti, personality: data, purpose: purpose, contact: profile.contact)
             return patchProfile(profileWriting)
         case .purpose:
-            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear, birth: profile.birth, gender: profile.gender?.keys.first, mbti: profile.mbti, personality: personality, purpose: data, contact: profile.contact)
+            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear ?? 0, birth: profile.birth ?? 0, gender: profile.gender?.keys.first, mbti: profile.mbti, personality: personality, purpose: data, contact: profile.contact)
             return patchProfile(profileWriting)
         }
     }
