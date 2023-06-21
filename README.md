@@ -3,12 +3,7 @@
 
 
 # WanF
-```
-2023.03.08 - 06.20 (약 3개월)
-
-수업 친구 매칭 서비스
-같이 수업을 듣고 정보를 공유할 친구를 찾을 수 있도록 돕는 성공회대학교 전용 플랫폼입니다.
-```
+<img width="1028" alt="스크린샷 2023-06-21 오후 7 03 23" src="https://github.com/WanF-Project/WanF-Project-iOS/assets/65601189/0ae58ee9-c1a7-4bbd-89b6-a5fca2b80948">
 
 <br>
 <br>
