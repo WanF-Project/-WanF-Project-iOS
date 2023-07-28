@@ -17,7 +17,7 @@ class CourseInfoListViewController: UIViewController {
     let disposeBag = DisposeBag()
     
     //MARK: - View
-    lazy var searchBar = CSSearchBar()
+    lazy var searchBar = CSSearchBarView()
     
     lazy var lectureInfoTableView: UITableView = {
         var tableView = UITableView()

@@ -1,5 +1,5 @@
 //
-//  CSSearchBar.swift
+//  CSSearchBarView.swift
 //  WanF-Project
 //
 //  Created by 임윤휘 on 2023/07/28.
@@ -30,7 +30,7 @@ class CSSearchBar: UISearchBar {
 }
 
 //MARK: - Configure
-private extension CSSearchBar {
+private extension CSSearchBarView {
     func configureView() {
         self.searchBarStyle = .minimal
     }
