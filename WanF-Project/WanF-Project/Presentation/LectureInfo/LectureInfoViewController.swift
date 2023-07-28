@@ -17,6 +17,8 @@ class LectureInfoViewController: UIViewController {
     let disposeBag = DisposeBag()
     
     //MARK: - View
+    lazy var searchBar = CSSearchBar()
+    
     lazy var lectureInfoTableView: UITableView = {
         var tableView = UITableView()
         
@@ -94,15 +96,29 @@ class LectureInfoViewController: UIViewController {
 
 private extension LectureInfoViewController {
     func configureView() {
+        
         view.backgroundColor = .wanfBackground
+        
+        [
+            searchBar,
+            lectureInfoTableView
+        ]
+            .forEach { view.addSubview($0) }
     }
     
     func layout() {
-        view.addSubview(lectureInfoTableView)
+        
+        let verticalInset = 30.0
+        let horizontalInset = 15.0
+        
+        searchBar.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(verticalInset)
+            make.horizontalEdges.equalToSuperview().inset(horizontalInset)
+        }
         
         lectureInfoTableView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(50)
-            make.bottom.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(15)
+            make.top.equalTo(searchBar.snp.bottom)
+            make.bottom.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(horizontalInset)
         }
     }
 }
