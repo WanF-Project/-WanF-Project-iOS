@@ -148,7 +148,7 @@ class FriendsMatchDetailViewController: UIViewController {
                 let cancelAction = UIAlertAction(title: "취소", style: .cancel)
                 let doneAction = UIAlertAction(title: "완료", style: .default) { _ in
                     guard let content = alert.textFields?.first?.text else { return }
-                    viewModel.shouldSaveComment.accept(FriendsMatchCommentRequestEntity(content: content))
+                    viewModel.shouldSaveComment.accept(CommentRequestEntity(content: content))
                 }
                 
                 [

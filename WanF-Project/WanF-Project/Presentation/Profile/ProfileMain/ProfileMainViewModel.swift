@@ -19,7 +19,7 @@ struct ProfileMainViewModel {
     
     // View -> ViewModel
     let shouldLoadProfile = PublishRelay<Void>()
-    let shouldPatchProfile = PublishRelay<ProfileContentWritingEntity>()
+    let shouldPatchProfile = PublishRelay<ProfileRequestEntity>()
     let shouldRefreshProfile = PublishRelay<Void>()
     
     init() {

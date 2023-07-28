@@ -256,8 +256,8 @@ private extension FriendsMatchWritingViewController {
 //MARK: - Object-C
 extension FriendsMatchWritingViewController {
     @objc func didTapLectureInfoView() {
-        let lectureInfoVC = LectureInfoViewController()
-        let lectureInfoViewModel = LectureInfoViewModel()
+        let lectureInfoVC = CourseInfoListViewController()
+        let lectureInfoViewModel = CourseInfoListViewModel()
         lectureInfoVC.bind(lectureInfoViewModel)
         
         if self.viewModel != nil {

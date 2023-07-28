@@ -1,5 +1,5 @@
 //
-//  ProfileContentWritingEntity.swift
+//  ProfileRequestEntity.swift
 //  WanF-Project
 //
 //  Created by 임윤휘 on 2023/05/30.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProfileContentWritingEntity: Encodable {
+struct ProfileRequestEntity: Encodable {
     let profileImage: String?
     let nickname: String?
     let majorId: Int?

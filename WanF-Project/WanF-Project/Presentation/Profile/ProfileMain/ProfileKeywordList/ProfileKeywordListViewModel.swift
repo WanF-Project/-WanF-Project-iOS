@@ -20,7 +20,7 @@ struct ProfileKeywordListViewModel {
     let cellData: Driver<KeywordEntity>
     let dismissAfterDoneButtonTapped: Driver<Void>
     
-    init(_ model: ProfileKeywordListModel = ProfileKeywordListModel(), profile: ProfileContent, type: ProfileKeywordType) {
+    init(_ model: ProfileKeywordListModel = ProfileKeywordListModel(), profile: ProfileResponseEntity, type: ProfileKeywordType) {
 
         // 키워드 목록 서버 연결
         let keywordResult = model.getProfileKeywordList(type)

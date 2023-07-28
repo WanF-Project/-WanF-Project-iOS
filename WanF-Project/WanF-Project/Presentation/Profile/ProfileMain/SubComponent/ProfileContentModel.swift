@@ -14,18 +14,18 @@ struct ProfileContentModel {
     let network = ProfileNetwork()
     
     // 나의 프로필 조회
-    func loadProfile() -> Single<Result<ProfileContent, WanfError>> {
+    func loadProfile() -> Single<Result<ProfileResponseEntity, WanfError>> {
         return network.getMyProfile()
     }
     
-    func getProfileValue(_ result: Result<ProfileContent, WanfError>) -> ProfileContent? {
+    func getProfileValue(_ result: Result<ProfileResponseEntity, WanfError>) -> ProfileResponseEntity? {
         guard case .success(let value) = result else {
             return nil
         }
         return value
     }
     
-    func getProfileError(_ result: Result<ProfileContent, WanfError>) -> Void? {
+    func getProfileError(_ result: Result<ProfileResponseEntity, WanfError>) -> Void? {
         guard case .failure(let error) = result else {
             return nil
         }
@@ -34,7 +34,7 @@ struct ProfileContentModel {
     }
     
     // 나의 프로필 수정
-    func patchProfile(_ profile: ProfileContentWritingEntity) -> Single<Result<Void, WanfError>> {
+    func patchProfile(_ profile: ProfileRequestEntity) -> Single<Result<Void, WanfError>> {
         return network.patchMyProfile(profile)
     }
     
@@ -54,18 +54,18 @@ struct ProfileContentModel {
     }
     
     // 특정 프로필 조회
-    func loadProfilePreview(_ id: Int) -> Single<Result<ProfileContent, WanfError>> {
+    func loadProfilePreview(_ id: Int) -> Single<Result<ProfileResponseEntity, WanfError>> {
         return network.getSpecificProfile(id)
     }
     
-    func getProfilePreviewValue(_ result: Result<ProfileContent, WanfError>) -> ProfileContent? {
+    func getProfilePreviewValue(_ result: Result<ProfileResponseEntity, WanfError>) -> ProfileResponseEntity? {
         guard case .success(let value) = result else {
             return nil
         }
         return value
     }
     
-    func getProfilePreviewError(_ result: Result<ProfileContent, WanfError>) -> Void? {
+    func getProfilePreviewError(_ result: Result<ProfileResponseEntity, WanfError>) -> Void? {
         guard case .failure(let error) = result else {
             return nil
         }

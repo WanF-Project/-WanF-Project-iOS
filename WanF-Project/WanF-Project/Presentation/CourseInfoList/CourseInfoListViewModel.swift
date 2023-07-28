@@ -1,5 +1,5 @@
 //
-//  LectureInfoViewModel.swift
+//  CourseInfoListViewModel.swift
 //  WanF-Project
 //
 //  Created by 임윤휘 on 2023/04/15.
@@ -11,19 +11,19 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-struct LectureInfoViewModel {
+struct CourseInfoListViewModel {
     
     // View -> ViewModel
     let lectureInfoListItemSelected = PublishRelay<IndexPath>()
-    let viewWillDismiss = PublishRelay<LectureInfoEntity>()
+    let viewWillDismiss = PublishRelay<CourseEntity>()
     
     // ViewModel -> View
-    let cellData: Driver<[LectureInfoEntity]>
-    var didSelectLectureInfo: Signal<LectureInfoEntity>
+    let cellData: Driver<[CourseEntity]>
+    var didSelectLectureInfo: Signal<CourseEntity>
     
-    let dismissAfterItemSelected: Driver<LectureInfoEntity>
+    let dismissAfterItemSelected: Driver<CourseEntity>
     
-    init(_ model: LectureInfoModel = LectureInfoModel()) {
+    init(_ model: CourseInfoListModel = CourseInfoListModel()) {
         
         // 모든 강의 목록 조회
         let loadResult = model.loadAllCourses()

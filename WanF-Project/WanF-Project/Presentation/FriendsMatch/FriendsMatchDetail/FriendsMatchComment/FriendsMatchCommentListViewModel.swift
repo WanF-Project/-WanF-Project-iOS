@@ -18,10 +18,10 @@ struct FriendsMatchCommentListViewModel {
     let shouldPresentCommentProfile = PublishRelay<IndexPath>()
     
     // ViewModel -> View
-    let cellData: Driver<[FriendsMatchCommentEntity]>
+    let cellData: Driver<[CommentResponseEntity]>
     
     // ParentViewModel -> ViewModel
-    let detailComments = PublishRelay<[FriendsMatchCommentEntity]>()
+    let detailComments = PublishRelay<[CommentResponseEntity]>()
     
     init() {
         

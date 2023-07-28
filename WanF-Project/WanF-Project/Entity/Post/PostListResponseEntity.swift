@@ -1,5 +1,5 @@
 //
-//  FriendsMatchListItemEntity.swift
+//  PostListResponseEntity.swift
 //  WanF-Project
 //
 //  Created by 임윤휘 on 2023/04/11.
@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct FriendsMatchListItemEntity: Decodable {
+struct PostListResponseEntity: Decodable {
     let id: Int
     let title: String
-    let lectureInfo: LectureInfoEntity
+    let lectureInfo: CourseEntity
     
     enum CodingKeys: String, CodingKey {
         case id, title
@@ -22,6 +22,6 @@ struct FriendsMatchListItemEntity: Decodable {
         
         self.id = try container.decode(Int.self, forKey: .id)
         self.title = try container.decode(String.self, forKey: .title)
-        self.lectureInfo = try container.decode(LectureInfoEntity.self, forKey: .lectureInfo)
+        self.lectureInfo = try container.decode(CourseEntity.self, forKey: .lectureInfo)
     }
 }

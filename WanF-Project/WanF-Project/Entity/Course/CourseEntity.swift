@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LectureInfoEntity: Decodable {
+struct CourseEntity: Decodable {
     let id: Int
     let lectureName: String
     let professorName: String

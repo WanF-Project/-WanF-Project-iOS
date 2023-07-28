@@ -18,7 +18,7 @@ class ProfileNetwork: WanfNetwork {
     }
     
     // 나의 프로필 조회
-    func getMyProfile() -> Single<Result<ProfileContent, WanfError>> {
+    func getMyProfile() -> Single<Result<ProfileResponseEntity, WanfError>> {
         
         guard let url = api.getMyProfile().url else {
             return .just(.failure(.invalidJSON))
@@ -38,7 +38,7 @@ class ProfileNetwork: WanfNetwork {
             }
             .map { data in
                 do {
-                    let decoded = try JSONDecoder().decode(ProfileContent.self, from: data)
+                    let decoded = try JSONDecoder().decode(ProfileResponseEntity.self, from: data)
                     return .success(decoded)
                 }
                 catch {
@@ -52,7 +52,7 @@ class ProfileNetwork: WanfNetwork {
     }
     
     // 나의 프로필 수정
-    func patchMyProfile(_ profile: ProfileContentWritingEntity) -> Single<Result<Void, WanfError>> {
+    func patchMyProfile(_ profile: ProfileRequestEntity) -> Single<Result<Void, WanfError>> {
         guard let url = api.patchMyProfile().url else {
             return .just(.failure(.invalidURL))
         }
@@ -83,7 +83,7 @@ class ProfileNetwork: WanfNetwork {
     }
     
     // 특정 프로필 조회
-    func getSpecificProfile(_ id: Int) -> Single<Result<ProfileContent, WanfError>> {
+    func getSpecificProfile(_ id: Int) -> Single<Result<ProfileResponseEntity, WanfError>> {
         
         guard let url = api.getSpecificProfile(id).url else {
             return .just(.failure(.invalidURL))
@@ -104,7 +104,7 @@ class ProfileNetwork: WanfNetwork {
             }
             .map { data in
                 do {
-                    let decoded = try JSONDecoder().decode(ProfileContent.self, from: data)
+                    let decoded = try JSONDecoder().decode(ProfileResponseEntity.self, from: data)
                     return .success(decoded)
                 }
                 catch {

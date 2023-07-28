@@ -17,7 +17,7 @@ struct FriendsMatchWritingModel {
     //MARK: - Function
     
     // 새로운 글 생성
-    func createFriendsMatchDetail(_ data: FriendsMatchWritingEntity) -> Single<Result<Void, WanfError>> {
+    func createFriendsMatchDetail(_ data: PostRequestEntity) -> Single<Result<Void, WanfError>> {
         return network.createPost(data)
     }
     

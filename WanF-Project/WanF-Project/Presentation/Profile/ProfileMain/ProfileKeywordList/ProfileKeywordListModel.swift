@@ -37,22 +37,22 @@ struct ProfileKeywordListModel {
         return Void()
     }
     
-    func saveProfileKeywordList (_ data: [String], profile: ProfileContent, type: ProfileKeywordType) -> Single<Result<Void, WanfError>> {
+    func saveProfileKeywordList (_ data: [String], profile: ProfileResponseEntity, type: ProfileKeywordType) -> Single<Result<Void, WanfError>> {
         guard let personality = (profile.personality as NSDictionary).allKeys as? Array<String>,
               let purpose = (profile.purpose as NSDictionary).allKeys as? Array<String> else
         { return .just(.failure(.invalidJSON)) }
         
         switch type {
         case .personality:
-            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear ?? 0, birth: profile.birth ?? 0, gender: profile.gender?.keys.first, mbti: profile.mbti, personality: data, purpose: purpose, contact: profile.contact)
+            let profileWriting = ProfileRequestEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear ?? 0, birth: profile.birth ?? 0, gender: profile.gender?.keys.first, mbti: profile.mbti, personality: data, purpose: purpose, contact: profile.contact)
             return patchProfile(profileWriting)
         case .purpose:
-            let profileWriting = ProfileContentWritingEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear ?? 0, birth: profile.birth ?? 0, gender: profile.gender?.keys.first, mbti: profile.mbti, personality: personality, purpose: data, contact: profile.contact)
+            let profileWriting = ProfileRequestEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profile.entranceYear ?? 0, birth: profile.birth ?? 0, gender: profile.gender?.keys.first, mbti: profile.mbti, personality: personality, purpose: data, contact: profile.contact)
             return patchProfile(profileWriting)
         }
     }
     
-    func patchProfile(_ profile: ProfileContentWritingEntity) -> Single<Result<Void, WanfError>> {
+    func patchProfile(_ profile: ProfileRequestEntity) -> Single<Result<Void, WanfError>> {
         return network.patchMyProfile(profile)
     }
     

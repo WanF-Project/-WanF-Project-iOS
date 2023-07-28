@@ -1,5 +1,5 @@
 //
-//  LectureInfoViewController.swift
+//  CourseInfoListViewController.swift
 //  WanF-Project
 //
 //  Created by 임윤휘 on 2023/04/15.
@@ -11,7 +11,7 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-class LectureInfoViewController: UIViewController {
+class CourseInfoListViewController: UIViewController {
     
     //MARK: - Properties
     let disposeBag = DisposeBag()
@@ -38,7 +38,7 @@ class LectureInfoViewController: UIViewController {
     }
     
     //MARK: - Function
-    func bind(_ viewModel: LectureInfoViewModel) {
+    func bind(_ viewModel: CourseInfoListViewModel) {
         
         // View -> ViewModel
         lectureInfoTableView.rx.itemSelected
@@ -60,7 +60,7 @@ class LectureInfoViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    func bindTableView(_ viewModel: LectureInfoViewModel) {
+    func bindTableView(_ viewModel: CourseInfoListViewModel) {
         viewModel.cellData
             .drive(lectureInfoTableView.rx.items) { tv, row, element in
                 
@@ -94,7 +94,7 @@ class LectureInfoViewController: UIViewController {
     }
 }
 
-private extension LectureInfoViewController {
+private extension CourseInfoListViewController {
     func configureView() {
         
         view.backgroundColor = .wanfBackground
