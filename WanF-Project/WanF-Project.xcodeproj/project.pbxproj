@@ -39,6 +39,7 @@
 		142DBEE129DC4FC300017603 /* MainTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DBEE029DC4FC300017603 /* MainTabBarViewModel.swift */; };
 		143661FE2A0F7D7300308028 /* FriendsMatchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143661FD2A0F7D7300308028 /* FriendsMatchAPI.swift */; };
 		143662002A0F7F0500308028 /* FriendsMatchNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143661FF2A0F7F0500308028 /* FriendsMatchNetwork.swift */; };
+		143AE33E2A738F8A00056647 /* CSSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143AE33D2A738F8A00056647 /* CSSearchBar.swift */; };
 		1449E1F62A135375008C70DB /* FriendsMatchCommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1449E1F52A135375008C70DB /* FriendsMatchCommentListView.swift */; };
 		1449E1F82A135687008C70DB /* FriendsMatchCommentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1449E1F72A135687008C70DB /* FriendsMatchCommentListViewModel.swift */; };
 		1449E1FA2A13592A008C70DB /* FriendsMatchCommentEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1449E1F92A13592A008C70DB /* FriendsMatchCommentEntity.swift */; };
@@ -152,6 +153,7 @@
 		142DBEE029DC4FC300017603 /* MainTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewModel.swift; sourceTree = "<group>"; };
 		143661FD2A0F7D7300308028 /* FriendsMatchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchAPI.swift; sourceTree = "<group>"; };
 		143661FF2A0F7F0500308028 /* FriendsMatchNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchNetwork.swift; sourceTree = "<group>"; };
+		143AE33D2A738F8A00056647 /* CSSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSearchBar.swift; sourceTree = "<group>"; };
 		1449E1F52A135375008C70DB /* FriendsMatchCommentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchCommentListView.swift; sourceTree = "<group>"; };
 		1449E1F72A135687008C70DB /* FriendsMatchCommentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchCommentListViewModel.swift; sourceTree = "<group>"; };
 		1449E1F92A13592A008C70DB /* FriendsMatchCommentEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchCommentEntity.swift; sourceTree = "<group>"; };
@@ -637,6 +639,7 @@
 				14D4C2D829FCF427001ACBC6 /* LeadingAlignmentCollectionViewFlowLayout.swift */,
 				14D4C2DC29FD0407001ACBC6 /* DynamicHeightCollectionView.swift */,
 				149F01612A13859600370FE1 /* DynamicSizeTableView.swift */,
+				143AE33D2A738F8A00056647 /* CSSearchBar.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -901,6 +904,7 @@
 				1429B0B329E56EF300891FF8 /* ProfileMainViewController.swift in Sources */,
 				14DD370F29DB0D5B00D6A715 /* EmailStackViewCell.swift in Sources */,
 				144D30D52A06295100640CCD /* WanfNetwork.swift in Sources */,
+				143AE33E2A738F8A00056647 /* CSSearchBar.swift in Sources */,
 				14793FBE29D83DA60048D5DD /* ExUIView.swift in Sources */,
 				14BD19EA29FB986700B0E598 /* ProfileContentView.swift in Sources */,
 				14982C8129EE8BAC00D388BF /* FriendsMatchDetailEntity.swift in Sources */,
