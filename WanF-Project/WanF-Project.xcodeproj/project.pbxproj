@@ -296,11 +296,11 @@
 		1429B0A129E5118D00891FF8 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				146F1E5F2A22F7900095502F /* FriendsMatch */,
-				14D4C2E229FD49B2001ACBC6 /* ProfileResponseEntity.swift */,
+				143AE3452A739FEF00056647 /* Post */,
+				143AE3462A739FFB00056647 /* Comment */,
+				143AE3442A739FD000056647 /* Profile */,
+				143AE3472A73A02A00056647 /* Course */,
 				144D30C82A060E4400640CCD /* WanF.plist */,
-				147E9B572A1792F30032E530 /* CourseEntity.swift */,
-				1455D25D2A25A6C10090257B /* ProfileRequestEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -384,6 +384,42 @@
 			path = CourseInfoList;
 			sourceTree = "<group>";
 		};
+		143AE3442A739FD000056647 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				14D4C2E229FD49B2001ACBC6 /* ProfileResponseEntity.swift */,
+				1455D25D2A25A6C10090257B /* ProfileRequestEntity.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		143AE3452A739FEF00056647 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				1429B0A229E5122400891FF8 /* PostListResponseEntity.swift */,
+				1496374029ED5ABD0021B4D4 /* PostRequestEntity.swift */,
+				14982C8029EE8BAC00D388BF /* PostResponseEntity.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		143AE3462A739FFB00056647 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				1449E1F92A13592A008C70DB /* CommentResponseEntity.swift */,
+				14962D972A399CFF0049625C /* CommentRequestEntity.swift */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
+		143AE3472A73A02A00056647 /* Course */ = {
+			isa = PBXGroup;
+			children = (
+				147E9B572A1792F30032E530 /* CourseEntity.swift */,
+			);
+			path = Course;
+			sourceTree = "<group>";
+		};
 		1449E1F22A135262008C70DB /* FriendsMatchComment */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,18 +491,6 @@
 				147E9B502A1784AA0032E530 /* UserDefaultsAuthorizationChecked.swift */,
 			);
 			path = UserDefaultsManager;
-			sourceTree = "<group>";
-		};
-		146F1E5F2A22F7900095502F /* FriendsMatch */ = {
-			isa = PBXGroup;
-			children = (
-				1429B0A229E5122400891FF8 /* PostListResponseEntity.swift */,
-				1496374029ED5ABD0021B4D4 /* PostRequestEntity.swift */,
-				14982C8029EE8BAC00D388BF /* PostResponseEntity.swift */,
-				1449E1F92A13592A008C70DB /* CommentResponseEntity.swift */,
-				14962D972A399CFF0049625C /* CommentRequestEntity.swift */,
-			);
-			path = FriendsMatch;
 			sourceTree = "<group>";
 		};
 		146F1E662A2311930095502F /* ProfileNetwork */ = {
