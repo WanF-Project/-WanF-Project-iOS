@@ -40,6 +40,7 @@
 		143661FE2A0F7D7300308028 /* FriendsMatchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143661FD2A0F7D7300308028 /* FriendsMatchAPI.swift */; };
 		143662002A0F7F0500308028 /* FriendsMatchNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143661FF2A0F7F0500308028 /* FriendsMatchNetwork.swift */; };
 		143AE33E2A738F8A00056647 /* CSSearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143AE33D2A738F8A00056647 /* CSSearchBarView.swift */; };
+		143AE34C2A73B80700056647 /* CSSearchBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143AE34B2A73B80700056647 /* CSSearchBarViewModel.swift */; };
 		1449E1F62A135375008C70DB /* FriendsMatchCommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1449E1F52A135375008C70DB /* FriendsMatchCommentListView.swift */; };
 		1449E1F82A135687008C70DB /* FriendsMatchCommentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1449E1F72A135687008C70DB /* FriendsMatchCommentListViewModel.swift */; };
 		1449E1FA2A13592A008C70DB /* CommentResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1449E1F92A13592A008C70DB /* CommentResponseEntity.swift */; };
@@ -154,6 +155,7 @@
 		143661FD2A0F7D7300308028 /* FriendsMatchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchAPI.swift; sourceTree = "<group>"; };
 		143661FF2A0F7F0500308028 /* FriendsMatchNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchNetwork.swift; sourceTree = "<group>"; };
 		143AE33D2A738F8A00056647 /* CSSearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSearchBarView.swift; sourceTree = "<group>"; };
+		143AE34B2A73B80700056647 /* CSSearchBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSearchBarViewModel.swift; sourceTree = "<group>"; };
 		1449E1F52A135375008C70DB /* FriendsMatchCommentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchCommentListView.swift; sourceTree = "<group>"; };
 		1449E1F72A135687008C70DB /* FriendsMatchCommentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchCommentListViewModel.swift; sourceTree = "<group>"; };
 		1449E1F92A13592A008C70DB /* CommentResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponseEntity.swift; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				143AE33D2A738F8A00056647 /* CSSearchBarView.swift */,
+				143AE34B2A73B80700056647 /* CSSearchBarViewModel.swift */,
 			);
 			path = SCSearchBar;
 			sourceTree = "<group>";
@@ -876,6 +879,7 @@
 				14BD19EE29FBB63B00B0E598 /* ProfileContentViewModel.swift in Sources */,
 				14D4C2DD29FD0407001ACBC6 /* DynamicHeightCollectionView.swift in Sources */,
 				14567E9C29DFE824000B75EE /* EmailStackViewCellModel.swift in Sources */,
+				143AE34C2A73B80700056647 /* CSSearchBarViewModel.swift in Sources */,
 				147E9B532A178E520032E530 /* CourseAPI.swift in Sources */,
 				14E4C9EB29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift in Sources */,
 				147922ED29DADBCF0052CBA8 /* SignUpIDViewController.swift in Sources */,
