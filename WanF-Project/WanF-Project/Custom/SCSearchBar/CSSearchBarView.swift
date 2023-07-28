@@ -28,20 +28,19 @@ class CSSearchBarView: UISearchBar {
         super.init(frame: .zero)
         
         configureView()
-        bind(CSSearchBarViewModel())
     }
     
     //MARK: - Function
-    func bind(_ model: CSSearchBarViewModel) {
+    func bind(_ viewModel: CSSearchBarViewModel) {
         self.rx.searchButtonClicked
-            .bind(to: model.searchButtonTapped)
+            .bind(to: viewModel.searchButtonTapped)
             .disposed(by: disposeBag)
         
         self.rx.text
-            .bind(to: model.searchWord)
+            .bind(to: viewModel.searchWord)
             .disposed(by: disposeBag)
         
-        model.searchButtonTapped
+        viewModel.searchButtonTapped
             .bind(to: self.rx.endEditing)
             .disposed(by: disposeBag)
     }
