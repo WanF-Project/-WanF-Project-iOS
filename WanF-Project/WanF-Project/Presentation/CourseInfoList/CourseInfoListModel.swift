@@ -1,5 +1,5 @@
 //
-//  LectureInfoModel.swift
+//  CourseInfoListModel.swift
 //  WanF-Project
 //
 //  Created by 임윤휘 on 2023/05/19.
@@ -9,7 +9,7 @@ import Foundation
 
 import RxSwift
 
-struct LectureInfoModel {
+struct CourseInfoListModel {
     
     let network = CourseNetwork()
     
