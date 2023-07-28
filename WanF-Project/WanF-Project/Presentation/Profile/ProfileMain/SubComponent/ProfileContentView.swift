@@ -15,7 +15,7 @@ class ProfileContentView: UIView {
     
     //MARK: - Properties
     let disposeBag = DisposeBag()
-    var profileData: ProfileContent?
+    var profileData: ProfileResponseEntity?
     var contactInfo: String?
     
     //MARK: - View

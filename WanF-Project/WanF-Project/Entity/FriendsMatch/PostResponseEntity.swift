@@ -1,5 +1,5 @@
 //
-//  FriendsMatchDetailEntity.swift
+//  PostResponseEntity.swift
 //  WanF-Project
 //
 //  Created by 임윤휘 on 2023/04/18.
@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct FriendsMatchDetailEntity: Decodable {
+struct PostResponseEntity: Decodable {
     let id: Int
     let date: String
     let title: String
     let content: String
 
-    let profile: ProfileContent
-    let lectureInfo: LectureInfoEntity
-    let comments: [FriendsMatchCommentEntity]
+    let profile: ProfileResponseEntity
+    let lectureInfo: CourseEntity
+    let comments: [CommentResponseEntity]
     
     enum CodingKeys: String, CodingKey {
         case id, title, content, profile, comments
@@ -31,8 +31,8 @@ struct FriendsMatchDetailEntity: Decodable {
         self.title = try container.decode(String.self, forKey: .title)
         self.content = try container.decode(String.self, forKey: .content)
         
-        self.profile = try container.decode(ProfileContent.self, forKey: .profile)
-        self.lectureInfo = try container.decode(LectureInfoEntity.self, forKey: .lectureInfo)
-        self.comments = try container.decode([FriendsMatchCommentEntity].self, forKey: .comments)
+        self.profile = try container.decode(ProfileResponseEntity.self, forKey: .profile)
+        self.lectureInfo = try container.decode(CourseEntity.self, forKey: .lectureInfo)
+        self.comments = try container.decode([CommentResponseEntity].self, forKey: .comments)
     }
 }

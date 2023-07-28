@@ -21,7 +21,7 @@ class FriendsMatchNetwork: WanfNetwork {
     //MARK: - Function
     
     // 전체 게시글 조회
-    func getAllPosts() -> Single<Result<[FriendsMatchListItemEntity], WanfError>> {
+    func getAllPosts() -> Single<Result<[PostListResponseEntity], WanfError>> {
         
         guard let url = api.getAllPosts().url else {
             return .just(.failure(.invalidURL))
@@ -41,7 +41,7 @@ class FriendsMatchNetwork: WanfNetwork {
             }
             .map { data in
                 do {
-                    let decoded = try JSONDecoder().decode([FriendsMatchListItemEntity].self, from: data)
+                    let decoded = try JSONDecoder().decode([PostListResponseEntity].self, from: data)
                     return .success(decoded)
                 }
                 catch {
@@ -55,7 +55,7 @@ class FriendsMatchNetwork: WanfNetwork {
     }
     
     // 게시글 생성
-    func createPost(_ post: FriendsMatchWritingEntity) -> Single<Result<Void, WanfError>> {
+    func createPost(_ post: PostRequestEntity) -> Single<Result<Void, WanfError>> {
         guard let url = api.createPost().url else {
             return .just(.failure(.invalidURL))
         }
@@ -87,7 +87,7 @@ class FriendsMatchNetwork: WanfNetwork {
     }
     
     // 특정 게시글 조회
-    func getPostDetail(_ id: Int) -> Single<Result<FriendsMatchDetailEntity, WanfError>> {
+    func getPostDetail(_ id: Int) -> Single<Result<PostResponseEntity, WanfError>> {
         
         guard let url = api.getPostDetail(id).url else {
             return .just(.failure(.invalidURL))
@@ -107,7 +107,7 @@ class FriendsMatchNetwork: WanfNetwork {
             }
             .map { data in
                 do {
-                    let decoded = try JSONDecoder().decode(FriendsMatchDetailEntity.self, from: data)
+                    let decoded = try JSONDecoder().decode(PostResponseEntity.self, from: data)
                     return .success(decoded)
                 }
                 catch {
@@ -148,7 +148,7 @@ class FriendsMatchNetwork: WanfNetwork {
     }
     
     // 댓글 작성
-    func postComment(_ postId: Int, content: FriendsMatchCommentRequestEntity) -> Single<Result<Void, WanfError>> {
+    func postComment(_ postId: Int, content: CommentRequestEntity) -> Single<Result<Void, WanfError>> {
         
         guard let url = api.postComment(postId).url else {
             return .just(.failure(.invalidURL))

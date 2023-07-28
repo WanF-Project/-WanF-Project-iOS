@@ -15,7 +15,7 @@ struct ProfileContentViewModel {
     let disposeBag = DisposeBag()
     
     // View -> ViewModel
-    let patchProfile = PublishRelay<ProfileContentWritingEntity>()
+    let patchProfile = PublishRelay<ProfileRequestEntity>()
     
     let subject = PublishSubject<Observable<Void>>()
     let loadProfileSubject = PublishSubject<Void>()
@@ -24,7 +24,7 @@ struct ProfileContentViewModel {
     let loadProfilePreview = PublishRelay<Int>()
     
     // ViewModel -> View
-    let profileData: Driver<ProfileContent>
+    let profileData: Driver<ProfileResponseEntity>
     let personalityCellData: Driver<[String]>
     let purposeCellData: Driver<[String]>
     

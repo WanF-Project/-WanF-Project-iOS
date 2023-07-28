@@ -22,7 +22,7 @@ struct FriendsMatchTabViewModel {
     let refreshFriendsMatchList = PublishSubject<Void>()
     
     // ViewModel -> View
-    let cellData: Driver<[FriendsMatchListItemEntity]>
+    let cellData: Driver<[PostListResponseEntity]>
     let subject = PublishSubject<Observable<Void>>()
     
     let pushToProfile: Driver<ProfileMainViewModel>

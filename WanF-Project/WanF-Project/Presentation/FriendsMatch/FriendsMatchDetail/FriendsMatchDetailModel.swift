@@ -14,18 +14,18 @@ struct FriendsMatchDetailModel {
     let network = FriendsMatchNetwork()
     
     // Load Detail
-    func loadDetail(_ id: Int) -> Single<Result<FriendsMatchDetailEntity, WanfError>> {
+    func loadDetail(_ id: Int) -> Single<Result<PostResponseEntity, WanfError>> {
         return network.getPostDetail(id)
     }
     
-    func getDetailValue(_ result: Result<FriendsMatchDetailEntity, WanfError>) -> FriendsMatchDetailEntity? {
+    func getDetailValue(_ result: Result<PostResponseEntity, WanfError>) -> PostResponseEntity? {
         guard case .success(let value) = result else {
             return nil
         }
         return value
     }
     
-    func getDetailError(_ result: Result<FriendsMatchDetailEntity, WanfError>) -> Void? {
+    func getDetailError(_ result: Result<PostResponseEntity, WanfError>) -> Void? {
         guard case .failure(let error) = result else {
             return nil
         }
@@ -54,7 +54,7 @@ struct FriendsMatchDetailModel {
     }
     
     // Save the Comment
-    func postComment(_ postId: Int, content: FriendsMatchCommentRequestEntity) -> Single<Result<Void, WanfError>> {
+    func postComment(_ postId: Int, content: CommentRequestEntity) -> Single<Result<Void, WanfError>> {
         return network.postComment(postId, content: content)
     }
     

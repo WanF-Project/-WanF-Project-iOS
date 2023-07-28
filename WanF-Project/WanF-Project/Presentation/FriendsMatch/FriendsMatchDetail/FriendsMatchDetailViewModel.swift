@@ -26,7 +26,7 @@ struct FriendsMatchDetailViewModel {
     let loadFriendsMatchDetail = PublishRelay<Void>()
     let didTabNickname = PublishRelay<Void>()
     let shouldPresentCommentAlert = PublishRelay<Void>()
-    let shouldSaveComment = PublishRelay<FriendsMatchCommentRequestEntity>()
+    let shouldSaveComment = PublishRelay<CommentRequestEntity>()
     let shouldRefreshDetail = PublishRelay<Void>()
     
     let commentSubject = PublishSubject<Observable<Int>>()
@@ -38,7 +38,7 @@ struct FriendsMatchDetailViewModel {
     let refreshDetailSubject = PublishSubject<Void>()
     
     // ViewModel -> View
-    let detailData: Observable<FriendsMatchDetailEntity>
+    let detailData: Observable<PostResponseEntity>
     let presentMenueActionSheet: Signal<Void>
     let popToRootViewController: Driver<Void>
     let presentProfilePreview: Driver<Int>
@@ -46,9 +46,9 @@ struct FriendsMatchDetailViewModel {
     
     // ViewModel -> ChildViewModel
     let detailInfo: Observable<(String, String)>
-    let detailLectureInfo: Observable<LectureInfoEntity>
+    let detailLectureInfo: Observable<CourseEntity>
     let detailText: Observable<(String, String)>
-    let detailComments: Observable<[FriendsMatchCommentEntity]>
+    let detailComments: Observable<[CommentResponseEntity]>
     
     init(_ model: FriendsMatchDetailModel = FriendsMatchDetailModel(), id: Int) {
         

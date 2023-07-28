@@ -19,7 +19,7 @@ struct ProfileSingleSelectionListViewModel {
     let cellData: Driver<[MajorEntity]>
     let dismiss: Driver<Void>
     
-    init(_ model: ProfileSingleSelectionListModel = ProfileSingleSelectionListModel(), profile: ProfileContent, type: ProfileSingleSelectionType) {
+    init(_ model: ProfileSingleSelectionListModel = ProfileSingleSelectionListModel(), profile: ProfileResponseEntity, type: ProfileSingleSelectionType) {
 
         // 키워드 목록
         let singleListResult = model.getProfileSingleSelectionList(type)

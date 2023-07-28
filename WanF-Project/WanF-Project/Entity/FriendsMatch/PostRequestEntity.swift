@@ -1,5 +1,5 @@
 //
-//  FriendsMatchWritingEntity.swift
+//  PostRequestEntity.swift
 //  WanF-Project
 //
 //  Created by 임윤휘 on 2023/04/17.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FriendsMatchWritingEntity: Encodable {
+struct PostRequestEntity: Encodable {
     let title: String
     let content: String
     let lectureID: Int

@@ -21,14 +21,14 @@ struct FriendsMatchWritingViewModel {
     let titleText = PublishRelay<String?>()
     let contentText = PublishRelay<String?>()
     
-    let lectureInfo = PublishRelay<LectureInfoEntity>()
+    let lectureInfo = PublishRelay<CourseEntity>()
     
     // ViewModel -> View
     let dismiss: Driver<Void>
     let presentAlert: Signal<Void>
     
     // ViewModel -> ChildViewModel
-    let shouldSendLectureInfo: Observable<LectureInfoEntity>
+    let shouldSendLectureInfo: Observable<CourseEntity>
     let activateDoneButton: Driver<Bool>
     
     let isSelectedLectureInfo: Observable<Bool>
@@ -71,7 +71,7 @@ struct FriendsMatchWritingViewModel {
         let detailData = Observable
             .combineLatest(title, content, lectureInfo)
             .compactMap {
-                FriendsMatchWritingEntity(title: $0, content: $1, lectureID: $2.id)
+                PostRequestEntity(title: $0, content: $1, lectureID: $2.id)
             }
         
         let saveResult = createFriendsMatchDetailData

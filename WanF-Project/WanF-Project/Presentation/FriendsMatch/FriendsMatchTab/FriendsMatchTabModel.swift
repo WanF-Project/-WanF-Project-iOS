@@ -13,18 +13,18 @@ struct FriendsMatchTabModel {
     
     let network = FriendsMatchNetwork()
     
-    func loadFriendsMatchList() -> Single<Result<[FriendsMatchListItemEntity], WanfError>> {
+    func loadFriendsMatchList() -> Single<Result<[PostListResponseEntity], WanfError>> {
         return network.getAllPosts()
     }
     
-    func getFriendsMatchListValue(_ result: Result<[FriendsMatchListItemEntity], WanfError>) -> [FriendsMatchListItemEntity]? {
+    func getFriendsMatchListValue(_ result: Result<[PostListResponseEntity], WanfError>) -> [PostListResponseEntity]? {
         guard case .success(let value) = result else {
             return nil
         }
         return value
     }
     
-    func getFriendsMatchListError(_ result: Result<[FriendsMatchListItemEntity], WanfError>) -> Void? {
+    func getFriendsMatchListError(_ result: Result<[PostListResponseEntity], WanfError>) -> Void? {
         guard case .failure(let error) = result else {
             return nil
         }

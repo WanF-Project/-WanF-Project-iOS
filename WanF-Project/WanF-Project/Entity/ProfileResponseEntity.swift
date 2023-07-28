@@ -1,5 +1,5 @@
 //
-//  ProfileContent.swift
+//  ProfileResponseEntity.swift
 //  WanF-Project
 //
 //  Created by 임윤휘 on 2023/04/29.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProfileContent: Decodable {
+struct ProfileResponseEntity: Decodable {
     let id: Int
     let profileImage: String?
     let nickname: String?
