@@ -16,6 +16,9 @@ struct CourseInfoListViewModel {
     // Properties
     let disposeBag = DisposeBag()
     
+    // Subcomponent ViewModel
+    let searchBarViewModel = CSSearchBarViewModel()
+    
     // View -> ViewModel
     let shouldLoad = PublishRelay<Void>()
     let lectureInfoListItemSelected = PublishRelay<IndexPath>()
@@ -74,6 +77,30 @@ struct CourseInfoListViewModel {
         //dismiss할 때 이전 화면으로 데이터 전달
         didSelectLectureInfo = viewWillDismiss
             .asSignal(onErrorSignalWith: .empty())
+
+        // 강의 정보 검색
+        let searchResult = searchBarViewModel.shouldSearch
+            .asObservable()
+            .flatMap(model.searchCourse)
+            .share()
+        
+        let searchValue = searchResult
+            .compactMap(model.getSearchCourseValue)
+        
+        searchValue
+            .withLatestFrom(Observable.just((subject, searchValueSubject))) {
+                (value: $0, subject: $1.0, searchSubject: $1.1)
+            }
+            .subscribe(onNext: {
+                $0.subject.onNext($0.searchSubject)
+                $0.searchSubject.onNext($0.value)
+            })
+            .disposed(by: disposeBag)
+        
+        // TODO: - 오류 작업
+        let searchError = searchResult
+            .compactMap(model.getSearchCourseError)
+        
     }
 }
 

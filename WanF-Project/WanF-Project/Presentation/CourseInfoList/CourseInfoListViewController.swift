@@ -43,6 +43,9 @@ class CourseInfoListViewController: UIViewController {
         //Load
         viewModel.shouldLoad.accept(Void())
         
+        // Subcomponent Bind
+        searchBar.bind(viewModel.searchBarViewModel)
+        
         // View -> ViewModel
         lectureInfoTableView.rx.itemSelected
             .bind(to: viewModel.lectureInfoListItemSelected)
