@@ -53,8 +53,8 @@ class FriendsMatchWritingLectureInfoView: UIView {
     func bind(_ viewModel: FriendsMatchWritingLectureInfoViewModel) {
         viewModel.loadLectureInfo
             .drive(onNext: { lectureInfo in
-                self.lectureNameLabel.text = lectureInfo.lectureName
-                self.professorNameLabel.text = lectureInfo.professorName
+                self.lectureNameLabel.text = lectureInfo.name
+                self.professorNameLabel.text = lectureInfo.professor
                 
                 self.isSelected = true
             })

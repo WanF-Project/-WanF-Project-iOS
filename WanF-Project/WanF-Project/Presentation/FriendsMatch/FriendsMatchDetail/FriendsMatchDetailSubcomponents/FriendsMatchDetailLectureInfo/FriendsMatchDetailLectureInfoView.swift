@@ -53,8 +53,8 @@ class FriendsMatchDetailLectureInfoView: UIView {
         // View 데이터 연결
         viewModel.loadDetailLectureInfo
             .drive(onNext: { info in
-                self.lectureNameLabel.text = info.lectureName
-                self.professorNameLabel.text = info.professorName
+                self.lectureNameLabel.text = info.name
+                self.professorNameLabel.text = info.professor
             })
             .disposed(by: disposeBag)
         

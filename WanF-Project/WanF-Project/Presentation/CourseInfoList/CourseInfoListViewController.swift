@@ -67,16 +67,16 @@ class CourseInfoListViewController: UIViewController {
                 let cell = tv.dequeueReusableCell(withIdentifier: "LectureInfoListCell", for: IndexPath(row: row, section: 0))
                 
                 var configuration = UIListContentConfiguration.valueCell()
-                configuration.text = element.lectureName
-                configuration.secondaryText = element.professorName
+                configuration.text = element.name
+                configuration.secondaryText = element.professor
                 
                 let attributedKey = NSAttributedString.Key.self
                 let attributes = [
                     attributedKey.font : UIFont.wanfFont(ofSize: 15, weight: .regular),
                     attributedKey.foregroundColor : UIColor.wanfLabel
                 ]
-                let attributedTitle = NSAttributedString(string: element.lectureName, attributes: attributes)
-                let attributedSubtitle = NSAttributedString(string: element.professorName, attributes: attributes)
+                let attributedTitle = NSAttributedString(string: element.name, attributes: attributes)
+                let attributedSubtitle = NSAttributedString(string: element.professor, attributes: attributes)
                 
                 configuration.attributedText = attributedTitle
                 configuration.secondaryAttributedText = attributedSubtitle
