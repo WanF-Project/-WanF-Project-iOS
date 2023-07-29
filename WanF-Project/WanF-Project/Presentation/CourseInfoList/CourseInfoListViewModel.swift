@@ -13,7 +13,11 @@ import RxCocoa
 
 struct CourseInfoListViewModel {
     
+    // Properties
+    let disposeBag = DisposeBag()
+    
     // View -> ViewModel
+    let shouldLoad = PublishRelay<Void>()
     let lectureInfoListItemSelected = PublishRelay<IndexPath>()
     let viewWillDismiss = PublishRelay<CourseEntity>()
     
@@ -23,23 +27,42 @@ struct CourseInfoListViewModel {
     
     let dismissAfterItemSelected: Driver<CourseEntity>
     
+    let subject = PublishSubject<Observable<[CourseEntity]>>()
+    let loadValueSubject = PublishSubject<[CourseEntity]>()
+    let searchValueSubject = PublishSubject<[CourseEntity]>()
+    
     init(_ model: CourseInfoListModel = CourseInfoListModel()) {
         
         // 모든 강의 목록 조회
-        let loadResult = model.loadAllCourses()
-            .asObservable()
+        let loadResult = shouldLoad
+            .flatMap(model.loadAllCourses)
             .share()
         
-        // 모든 강의 목록 조회 성공 - 데이터 목록 반영
         let loadValue = loadResult
             .compactMap(model.getAllCoursesValue)
         
-        cellData = loadValue
-            .asDriver(onErrorJustReturn: [])
-        
+        loadValue
+            .withLatestFrom(Observable.just((subject, loadValueSubject))){
+                (
+                    value: $0,
+                    subject: $1.0,
+                    loadSubject: $1.1
+                )
+            }
+            .subscribe(onNext: {
+                $0.subject.onNext($0.loadSubject)
+                $0.loadSubject.onNext($0.value)
+            })
+            .disposed(by: disposeBag)
+            
         // TODO: - 모든 강의 목록 조회 실패
         let loadError = loadResult
             .compactMap(model.getAllCoursesError)
+        
+        // 강의 목록 반영
+        cellData = subject
+            .switchLatest()
+            .asDriver(onErrorDriveWith: .empty())
         
         //아이템 선택 시 dismiss되도록
         dismissAfterItemSelected = lectureInfoListItemSelected

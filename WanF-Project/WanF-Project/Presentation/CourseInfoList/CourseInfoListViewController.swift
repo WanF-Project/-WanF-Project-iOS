@@ -40,6 +40,9 @@ class CourseInfoListViewController: UIViewController {
     //MARK: - Function
     func bind(_ viewModel: CourseInfoListViewModel) {
         
+        //Load
+        viewModel.shouldLoad.accept(Void())
+        
         // View -> ViewModel
         lectureInfoTableView.rx.itemSelected
             .bind(to: viewModel.lectureInfoListItemSelected)
