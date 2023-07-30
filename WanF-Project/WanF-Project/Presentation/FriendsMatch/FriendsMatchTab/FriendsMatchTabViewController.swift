@@ -25,6 +25,12 @@ class FriendsMatchTabViewController: UIViewController {
         return item
     }()
     
+    private lazy var searchBarItem: UIBarButtonItem = {
+        let item = UIBarButtonItem()
+        item.image = UIImage(systemName: "magnifyingglass")
+        return item
+    }()
+    
     private lazy var addBarItem: UIBarButtonItem = {
         let item = UIBarButtonItem()
         
@@ -132,7 +138,7 @@ private extension FriendsMatchTabViewController {
     func configureView() {
         view.backgroundColor = .wanfBackground
         
-        navigationItem.title = "수업 친구 찾기"
+        navigationItem.title = "강의 친구 찾기"
         navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor : UIColor.wanfLabel,
             NSAttributedString.Key.font : UIFont.wanfFont(ofSize: 15, weight: .bold)
@@ -140,7 +146,7 @@ private extension FriendsMatchTabViewController {
         
         navigationController?.navigationBar.tintColor = .wanfMint
         navigationItem.leftBarButtonItem = profileBarItem
-        navigationItem.rightBarButtonItem = addBarItem
+        navigationItem.rightBarButtonItems = [addBarItem, searchBarItem]
     }
     
     func layout() {
