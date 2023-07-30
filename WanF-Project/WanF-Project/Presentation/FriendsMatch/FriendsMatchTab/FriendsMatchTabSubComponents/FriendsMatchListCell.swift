@@ -68,7 +68,7 @@ class FriendsMatchListCell: UITableViewCell {
         let lectureInfo = data.lectureInfo
         
         titleLabel.text = data.title
-        subtitleLabel.text = "\(lectureInfo.lectureName) : \(lectureInfo.professorName)"
+        subtitleLabel.text = "\(lectureInfo.name) : \(lectureInfo.professor)"
     }
 }
 
