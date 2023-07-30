@@ -52,5 +52,40 @@ class CourseNetwork: WanfNetwork {
             }
             .asSingle()
     }
+    
+    // 강의 검색
+    func getCoursesSearched(_ searchWord: String) -> Single<Result<[CourseEntity], WanfError>> {
+        guard let url = api.getCoursesSearched(searchWord).url else {
+            return .just(.failure(.invalidURL))
+        }
+        
+        let request = UserDefaultsManager
+            .accessTokenCheckedObservable
+            .map { accessToken in
+                var request = URLRequest(url: url)
+                request.httpMethod = "GET"
+                request.setValue("application/json;charset=UTF-8", forHTTPHeaderField: "accept")
+                request.setValue(accessToken, forHTTPHeaderField: "Authorization")
+                return request
+            }
+        
+        return request
+            .flatMap { requst in
+                super.session.rx.data(request: requst)
+            }
+            .map { data in
+                do {
+                    let decoded = try JSONDecoder().decode([CourseEntity].self, from: data)
+                    return .success(decoded)
+                }
+                catch {
+                    return .failure(.invalidJSON)
+                }
+            }
+            .catch({ error in
+                return .just(.failure(.networkError))
+            })
+            .asSingle()
+    }
 }
 

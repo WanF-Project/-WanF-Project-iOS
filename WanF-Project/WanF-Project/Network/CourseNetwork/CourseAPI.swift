@@ -25,4 +25,15 @@ class CourseAPI: WanfAPI {
         return components
     }
     
+    // 강의 검색
+    func getCoursesSearched(_ value: String) -> URLComponents {
+        var components = URLComponents()
+        components.scheme = super.scheme
+        components.host = super.host
+        components.path = self.path + "/search"
+        components.queryItems = [URLQueryItem(name: "query", value: value)]
+        
+        return components
+    }
+    
 }
