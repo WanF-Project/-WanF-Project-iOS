@@ -34,11 +34,9 @@ struct CourseInfoListModel {
         return nil
     }
     
-    // TODO: - 서버 연결 시 구현
     // 강의 검색
     func searchCourse(_ searchWord: String) -> Single<Result<[CourseEntity], WanfError>> {
-        let courses = [CourseEntity(id: 1, name: "말과글", professor: "원프")]
-        return Single.just(.success(courses))
+        return network.getCoursesSearched(searchWord)
     }
     
     func getSearchCourseValue(_ result: Result<[CourseEntity], WanfError>) -> [CourseEntity]? {
