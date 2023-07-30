@@ -81,6 +81,10 @@ class FriendsMatchTabViewController: UIViewController {
             .bind(to: viewModel.profileButtonTapped)
             .disposed(by: disposeBag)
         
+        searchBarItem.rx.tap
+            .bind(to: viewModel.searchButtonTapped)
+            .disposed(by: disposeBag)
+        
         addBarItem.rx.tap
             .bind(to: viewModel.addButtonTapped)
             .disposed(by: disposeBag)
@@ -107,6 +111,16 @@ class FriendsMatchTabViewController: UIViewController {
                 self.navigationController?.pushViewController(friendsMatchDetailVC, animated: true)
             })
             .disposed(by: disposeBag)
+        
+        viewModel.pushToSearch
+            .drive(onNext: { viewModel in
+                let searchVC = FriendsMatchSearchViewController()
+                searchVC.bind(viewModel)
+                
+                self.navigationController?.pushViewController(searchVC, animated: true)
+            })
+            .disposed(by: disposeBag)
+            
         
         viewModel.presentFriendsMatchWriting
             .drive(onNext: { viewModel in
