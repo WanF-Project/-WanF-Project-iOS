@@ -25,6 +25,12 @@ class FriendsMatchTabViewController: UIViewController {
         return item
     }()
     
+    private lazy var searchBarItem: UIBarButtonItem = {
+        let item = UIBarButtonItem()
+        item.image = UIImage(systemName: "magnifyingglass")
+        return item
+    }()
+    
     private lazy var addBarItem: UIBarButtonItem = {
         let item = UIBarButtonItem()
         
@@ -33,17 +39,7 @@ class FriendsMatchTabViewController: UIViewController {
         return item
     }()
     
-    lazy var friednsMatchTableView: UITableView = {
-        let tableView = UITableView()
-        
-        tableView.backgroundColor = .wanfBackground
-        tableView.separatorStyle = .none
-        tableView.rowHeight = 120
-        
-        tableView.register(FriendsMatchListCell.self, forCellReuseIdentifier: "FriendsMatchListCell")
-        
-        return tableView
-    }()
+    lazy var friednsMatchTableView = FriendsMatchTableView()
     
     lazy var refreshControl = UIRefreshControl()
     
@@ -75,6 +71,10 @@ class FriendsMatchTabViewController: UIViewController {
             .bind(to: viewModel.profileButtonTapped)
             .disposed(by: disposeBag)
         
+        searchBarItem.rx.tap
+            .bind(to: viewModel.searchButtonTapped)
+            .disposed(by: disposeBag)
+        
         addBarItem.rx.tap
             .bind(to: viewModel.addButtonTapped)
             .disposed(by: disposeBag)
@@ -101,6 +101,16 @@ class FriendsMatchTabViewController: UIViewController {
                 self.navigationController?.pushViewController(friendsMatchDetailVC, animated: true)
             })
             .disposed(by: disposeBag)
+        
+        viewModel.pushToSearch
+            .drive(onNext: { viewModel in
+                let searchVC = FriendsMatchSearchViewController()
+                searchVC.bind(viewModel)
+                
+                self.navigationController?.pushViewController(searchVC, animated: true)
+            })
+            .disposed(by: disposeBag)
+            
         
         viewModel.presentFriendsMatchWriting
             .drive(onNext: { viewModel in
@@ -132,7 +142,7 @@ private extension FriendsMatchTabViewController {
     func configureView() {
         view.backgroundColor = .wanfBackground
         
-        navigationItem.title = "수업 친구 찾기"
+        navigationItem.title = "강의 친구 찾기"
         navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor : UIColor.wanfLabel,
             NSAttributedString.Key.font : UIFont.wanfFont(ofSize: 15, weight: .bold)
@@ -140,7 +150,7 @@ private extension FriendsMatchTabViewController {
         
         navigationController?.navigationBar.tintColor = .wanfMint
         navigationItem.leftBarButtonItem = profileBarItem
-        navigationItem.rightBarButtonItem = addBarItem
+        navigationItem.rightBarButtonItems = [addBarItem, searchBarItem]
     }
     
     func layout() {

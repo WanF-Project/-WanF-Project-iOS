@@ -10,18 +10,5 @@ import Foundation
 struct PostListResponseEntity: Decodable {
     let id: Int
     let title: String
-    let lectureInfo: CourseEntity
-    
-    enum CodingKeys: String, CodingKey {
-        case id, title
-        case lectureInfo = "course"
-    }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        self.id = try container.decode(Int.self, forKey: .id)
-        self.title = try container.decode(String.self, forKey: .title)
-        self.lectureInfo = try container.decode(CourseEntity.self, forKey: .lectureInfo)
-    }
+    let course: CourseEntity
 }

@@ -16,6 +16,7 @@ struct FriendsMatchTabViewModel {
     
     // View -> ViewModel
     let profileButtonTapped = PublishRelay<Void>()
+    let searchButtonTapped = PublishRelay<Void>()
     let addButtonTapped = PublishRelay<Void>()
     let friendsMatchListItemSelected = PublishRelay<IndexPath>()
     let loadFriendsMatchList = PublishSubject<Void>()
@@ -26,6 +27,7 @@ struct FriendsMatchTabViewModel {
     let subject = PublishSubject<Observable<Void>>()
     
     let pushToProfile: Driver<ProfileMainViewModel>
+    let pushToSearch: Driver<FriendsMatchSearchViewModel>
     let presentFriendsMatchWriting: Driver<FriendsMatchWritingViewModel>
     let pushToFriendsMatchDetail: Driver<FriendsMatchDetailViewModel>
     
@@ -33,6 +35,10 @@ struct FriendsMatchTabViewModel {
         
         pushToProfile = profileButtonTapped
             .map { ProfileMainViewModel() }
+            .asDriver(onErrorDriveWith: .empty())
+        
+        pushToSearch = searchButtonTapped
+            .map{FriendsMatchSearchViewModel()}
             .asDriver(onErrorDriveWith: .empty())
         
         presentFriendsMatchWriting = addButtonTapped
