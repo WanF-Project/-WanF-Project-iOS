@@ -30,12 +30,11 @@ class FriendsMatchSearchViewController: UIViewController {
     //MARK: - Function
     func bind(_ viewModel: FriendsMatchSearchViewModel) {
         
-        // 임시 데이터
-        let posts = [
-            PostListResponseEntity(id: 0, title: "테스트1", course: CourseEntity(id: 0, name: "강의명1", professor: "교수명1")),
-            PostListResponseEntity(id: 0, title: "테스트2", course: CourseEntity(id: 0, name: "강의명2", professor: "교수명2"))
-        ]
-        Driver.just(posts)
+        // Bind Subcomponent
+        searchBar.bind(viewModel.searchBarViewModel)
+        
+        // Configure list
+        viewModel.cellData
             .drive(postTableView.rx.items(cellIdentifier: "FriendsMatchListCell", cellType: FriendsMatchListCell.self)){ row, element, cell in
                 cell.selectionStyle = .none
                 cell.setCellData(element)
@@ -50,6 +49,7 @@ class FriendsMatchSearchViewController: UIViewController {
 private extension FriendsMatchSearchViewController {
     func configureView() {
         self.view.backgroundColor = .wanfBackground
+        searchBar.placeholder = "강의명을 입력하세요"
         
         [
             searchBar,

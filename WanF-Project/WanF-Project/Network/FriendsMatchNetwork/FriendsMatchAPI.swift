@@ -70,4 +70,23 @@ class FriendsMatchAPI: WanfAPI {
         
         return components
     }
+    
+    // 게시글 검색
+    func searchPosts(_ searchWord: String, pageable: PageableEntity) -> URLComponents {
+        let queryItems = [
+            self.category,
+            URLQueryItem(name: "query", value: searchWord),
+            URLQueryItem(name: "page", value: pageable.page.description),
+            URLQueryItem(name: "size", value: pageable.size.description),
+            URLQueryItem(name: "sort", value: pageable.sort.description)
+        ]
+        
+        var components = URLComponents()
+        components.scheme = super.scheme
+        components.host = super.host
+        components.path = self.path + "/search"
+        components.queryItems = queryItems
+        
+        return components
+    }
 }

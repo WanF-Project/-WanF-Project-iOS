@@ -50,6 +50,7 @@ class CSSearchBarView: UISearchBar {
 private extension CSSearchBarView {
     func configureView() {
         self.searchBarStyle = .minimal
+        self.tintColor = .wanfMint
     }
 }
 
