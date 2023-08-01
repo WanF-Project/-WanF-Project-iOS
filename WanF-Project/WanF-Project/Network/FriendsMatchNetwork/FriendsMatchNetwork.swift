@@ -179,4 +179,38 @@ class FriendsMatchNetwork: WanfNetwork {
             }
             .asSingle()
     }
+    
+    // 게시글 검색
+    func searchPosts(_ searchWord: String, pageable: PageableEntity) -> Single<Result<SlicePostPaginationResponseEntity, WanfError>> {
+        
+        guard let url = api.searchPosts(searchWord, pageable: pageable).url else {
+            return .just(.failure(.invalidURL))
+        }
+        
+        let request = UserDefaultsManager.accessTokenCheckedObservable
+            .map { accessToken in
+                var request = URLRequest(url: url)
+                request.httpMethod = "GET"
+                request.setValue(accessToken, forHTTPHeaderField: "Authorization")
+                request.setValue("application/json;charset=UTF-8", forHTTPHeaderField: "Content-Type")
+                return request
+            }
+        
+        return request
+            .flatMap { request in
+                super.session.rx.data(request: request)
+            }
+            .map { data in
+                do {
+                    let decoded = try JSONDecoder().decode(SlicePostPaginationResponseEntity.self, from: data)
+                    return .success(decoded)
+                } catch {
+                    return .failure(.invalidJSON)
+                }
+            }
+            .catch { error in
+                    .just(.failure(.networkError))
+            }
+            .asSingle()
+    }
 }
