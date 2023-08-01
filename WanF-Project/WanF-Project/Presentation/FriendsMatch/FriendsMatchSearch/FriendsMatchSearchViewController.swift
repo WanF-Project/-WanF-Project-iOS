@@ -50,6 +50,7 @@ class FriendsMatchSearchViewController: UIViewController {
 private extension FriendsMatchSearchViewController {
     func configureView() {
         self.view.backgroundColor = .wanfBackground
+        searchBar.placeholder = "강의명을 입력하세요"
         
         [
             searchBar,
