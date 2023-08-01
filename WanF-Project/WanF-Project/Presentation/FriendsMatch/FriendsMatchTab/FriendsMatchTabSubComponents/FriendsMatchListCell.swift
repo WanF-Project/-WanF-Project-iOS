@@ -65,7 +65,7 @@ class FriendsMatchListCell: UITableViewCell {
     
     //MARK: - Data
     func setCellData(_ data: PostListResponseEntity) {
-        let lectureInfo = data.lectureInfo
+        let lectureInfo = data.course
         
         titleLabel.text = data.title
         subtitleLabel.text = "\(lectureInfo.name) : \(lectureInfo.professor)"
