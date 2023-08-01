@@ -39,17 +39,7 @@ class FriendsMatchTabViewController: UIViewController {
         return item
     }()
     
-    lazy var friednsMatchTableView: UITableView = {
-        let tableView = UITableView()
-        
-        tableView.backgroundColor = .wanfBackground
-        tableView.separatorStyle = .none
-        tableView.rowHeight = 120
-        
-        tableView.register(FriendsMatchListCell.self, forCellReuseIdentifier: "FriendsMatchListCell")
-        
-        return tableView
-    }()
+    lazy var friednsMatchTableView = FriendsMatchTableView()
     
     lazy var refreshControl = UIRefreshControl()
     

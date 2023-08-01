@@ -64,6 +64,7 @@
 		1466FA202A0A428D00910C30 /* AuthNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466FA1F2A0A428D00910C30 /* AuthNetwork.swift */; };
 		1466FA222A0A482B00910C30 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466FA212A0A482B00910C30 /* UserDefaultsManager.swift */; };
 		1466FA242A0A486C00910C30 /* UserDefaultsAuthorizationWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466FA232A0A486C00910C30 /* UserDefaultsAuthorizationWrapper.swift */; };
+		146A01732A78D152004E140E /* FriendsMatchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146A01722A78D152004E140E /* FriendsMatchTableView.swift */; };
 		146F1E632A22FC810095502F /* ProfileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F1E622A22FC810095502F /* ProfileAPI.swift */; };
 		146F1E652A22FC8E0095502F /* ProfileNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F1E642A22FC8E0095502F /* ProfileNetwork.swift */; };
 		147922ED29DADBCF0052CBA8 /* SignUpIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147922EC29DADBCF0052CBA8 /* SignUpIDViewController.swift */; };
@@ -181,6 +182,7 @@
 		1466FA1F2A0A428D00910C30 /* AuthNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetwork.swift; sourceTree = "<group>"; };
 		1466FA212A0A482B00910C30 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		1466FA232A0A486C00910C30 /* UserDefaultsAuthorizationWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsAuthorizationWrapper.swift; sourceTree = "<group>"; };
+		146A01722A78D152004E140E /* FriendsMatchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTableView.swift; sourceTree = "<group>"; };
 		146F1E622A22FC810095502F /* ProfileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPI.swift; sourceTree = "<group>"; };
 		146F1E642A22FC8E0095502F /* ProfileNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNetwork.swift; sourceTree = "<group>"; };
 		147922EC29DADBCF0052CBA8 /* SignUpIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpIDViewController.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				1429B0AD29E53F9D00891FF8 /* FriendsMatchListCell.swift */,
+				146A01722A78D152004E140E /* FriendsMatchTableView.swift */,
 			);
 			path = FriendsMatchTabSubComponents;
 			sourceTree = "<group>";
@@ -921,6 +924,7 @@
 				142DBED229DC223A00017603 /* EmailTextFieldViewModel.swift in Sources */,
 				1449E1F62A135375008C70DB /* FriendsMatchCommentListView.swift in Sources */,
 				147E1C2E2A2C860B00B42E4D /* ProfilePreviewViewModel.swift in Sources */,
+				146A01732A78D152004E140E /* FriendsMatchTableView.swift in Sources */,
 				14E4C9E929EA564400E2CB62 /* CourseInfoListViewModel.swift in Sources */,
 				14982C9729EEAD5800D388BF /* FriendsMatchDetailLectureInfoViewModel.swift in Sources */,
 				14066BAF29E1431300AFB2D2 /* PasswordTextFieldCellViewModel.swift in Sources */,
