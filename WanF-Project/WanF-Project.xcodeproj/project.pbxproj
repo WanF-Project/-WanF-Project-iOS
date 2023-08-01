@@ -67,6 +67,7 @@
 		146A01732A78D152004E140E /* FriendsMatchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146A01722A78D152004E140E /* FriendsMatchTableView.swift */; };
 		146A01752A78E76B004E140E /* PageableEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146A01742A78E76B004E140E /* PageableEntity.swift */; };
 		146A01772A78EF6E004E140E /* SlicePostPaginationResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146A01762A78EF6E004E140E /* SlicePostPaginationResponseEntity.swift */; };
+		146A01792A78FC88004E140E /* FriendsMatchSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146A01782A78FC88004E140E /* FriendsMatchSearchModel.swift */; };
 		146F1E632A22FC810095502F /* ProfileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F1E622A22FC810095502F /* ProfileAPI.swift */; };
 		146F1E652A22FC8E0095502F /* ProfileNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F1E642A22FC8E0095502F /* ProfileNetwork.swift */; };
 		147922ED29DADBCF0052CBA8 /* SignUpIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147922EC29DADBCF0052CBA8 /* SignUpIDViewController.swift */; };
@@ -187,6 +188,7 @@
 		146A01722A78D152004E140E /* FriendsMatchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTableView.swift; sourceTree = "<group>"; };
 		146A01742A78E76B004E140E /* PageableEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageableEntity.swift; sourceTree = "<group>"; };
 		146A01762A78EF6E004E140E /* SlicePostPaginationResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlicePostPaginationResponseEntity.swift; sourceTree = "<group>"; };
+		146A01782A78FC88004E140E /* FriendsMatchSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchSearchModel.swift; sourceTree = "<group>"; };
 		146F1E622A22FC810095502F /* ProfileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPI.swift; sourceTree = "<group>"; };
 		146F1E642A22FC8E0095502F /* ProfileNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNetwork.swift; sourceTree = "<group>"; };
 		147922EC29DADBCF0052CBA8 /* SignUpIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpIDViewController.swift; sourceTree = "<group>"; };
@@ -797,6 +799,7 @@
 			children = (
 				14DEF35E2A7648440082BA27 /* FriendsMatchSearchViewController.swift */,
 				14DEF3602A7648830082BA27 /* FriendsMatchSearchViewModel.swift */,
+				146A01782A78FC88004E140E /* FriendsMatchSearchModel.swift */,
 			);
 			path = FriendsMatchSearch;
 			sourceTree = "<group>";
@@ -910,6 +913,7 @@
 				142DBED029DC1DCB00017603 /* EmailTextField.swift in Sources */,
 				14982C6E29EE580500D388BF /* FriendsMatchDetailInfoView.swift in Sources */,
 				1429B0AE29E53F9D00891FF8 /* FriendsMatchListCell.swift in Sources */,
+				146A01792A78FC88004E140E /* FriendsMatchSearchModel.swift in Sources */,
 				147E1C2C2A2C841E00B42E4D /* ProfilePreviewViewController.swift in Sources */,
 				143662002A0F7F0500308028 /* FriendsMatchNetwork.swift in Sources */,
 				144D30D92A068CE000640CCD /* SignUpNetwork.swift in Sources */,
