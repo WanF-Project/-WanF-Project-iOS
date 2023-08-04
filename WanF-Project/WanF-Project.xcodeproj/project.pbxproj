@@ -11,6 +11,7 @@
 		14066BB129E1455F00AFB2D2 /* PasswordToCheckTextFieldCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14066BB029E1455F00AFB2D2 /* PasswordToCheckTextFieldCellViewModel.swift */; };
 		14066BB329E166B100AFB2D2 /* SignUpPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14066BB229E166B100AFB2D2 /* SignUpPasswordModel.swift */; };
 		1409170F2A7CECDD00B27131 /* SettingControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409170E2A7CECDD00B27131 /* SettingControlView.swift */; };
+		140917112A7CED9C00B27131 /* ProfileSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140917102A7CED9C00B27131 /* ProfileSettingView.swift */; };
 		141A781829D7ED46006731F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A781729D7ED46006731F7 /* AppDelegate.swift */; };
 		141A781A29D7ED46006731F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A781929D7ED46006731F7 /* SceneDelegate.swift */; };
 		141A782129D7ED46006731F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 141A782029D7ED46006731F7 /* Assets.xcassets */; };
@@ -137,6 +138,7 @@
 		14066BB029E1455F00AFB2D2 /* PasswordToCheckTextFieldCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordToCheckTextFieldCellViewModel.swift; sourceTree = "<group>"; };
 		14066BB229E166B100AFB2D2 /* SignUpPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPasswordModel.swift; sourceTree = "<group>"; };
 		1409170E2A7CECDD00B27131 /* SettingControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingControlView.swift; sourceTree = "<group>"; };
+		140917102A7CED9C00B27131 /* ProfileSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingView.swift; sourceTree = "<group>"; };
 		141A781429D7ED46006731F7 /* WanF-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WanF-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		141A781729D7ED46006731F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		141A781929D7ED46006731F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -694,6 +696,7 @@
 			children = (
 				14D1FC562A7B7E2900159E79 /* ProfileSettingPhotoButton.swift */,
 				1409170E2A7CECDD00B27131 /* SettingControlView.swift */,
+				140917102A7CED9C00B27131 /* ProfileSettingView.swift */,
 			);
 			path = ProfileCreate;
 			sourceTree = "<group>";
@@ -1007,6 +1010,7 @@
 				14982C9129EEACD200D388BF /* FriendsMatchDetailModel.swift in Sources */,
 				1466FA1E2A0A412500910C30 /* AuthAPI.swift in Sources */,
 				14AC9B3929E27569009C37A5 /* ClassGroupViewController.swift in Sources */,
+				140917112A7CED9C00B27131 /* ProfileSettingView.swift in Sources */,
 				14E4C9E429EA530F00E2CB62 /* CourseInfoListViewController.swift in Sources */,
 				14D7A90A29E936A3007850BE /* FriendsMatchWritingLectureInfoView.swift in Sources */,
 				14D1FC572A7B7E2900159E79 /* ProfileSettingPhotoButton.swift in Sources */,
