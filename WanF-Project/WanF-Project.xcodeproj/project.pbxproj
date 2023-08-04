@@ -12,6 +12,7 @@
 		14066BB329E166B100AFB2D2 /* SignUpPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14066BB229E166B100AFB2D2 /* SignUpPasswordModel.swift */; };
 		1409170F2A7CECDD00B27131 /* SettingControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409170E2A7CECDD00B27131 /* SettingControlView.swift */; };
 		140917112A7CED9C00B27131 /* ProfileSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140917102A7CED9C00B27131 /* ProfileSettingView.swift */; };
+		140917132A7CEECB00B27131 /* ProfileCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140917122A7CEECB00B27131 /* ProfileCreateViewController.swift */; };
 		141A781829D7ED46006731F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A781729D7ED46006731F7 /* AppDelegate.swift */; };
 		141A781A29D7ED46006731F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A781929D7ED46006731F7 /* SceneDelegate.swift */; };
 		141A782129D7ED46006731F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 141A782029D7ED46006731F7 /* Assets.xcassets */; };
@@ -139,6 +140,7 @@
 		14066BB229E166B100AFB2D2 /* SignUpPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPasswordModel.swift; sourceTree = "<group>"; };
 		1409170E2A7CECDD00B27131 /* SettingControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingControlView.swift; sourceTree = "<group>"; };
 		140917102A7CED9C00B27131 /* ProfileSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingView.swift; sourceTree = "<group>"; };
+		140917122A7CEECB00B27131 /* ProfileCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreateViewController.swift; sourceTree = "<group>"; };
 		141A781429D7ED46006731F7 /* WanF-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WanF-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		141A781729D7ED46006731F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		141A781929D7ED46006731F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -697,6 +699,7 @@
 				14D1FC562A7B7E2900159E79 /* ProfileSettingPhotoButton.swift */,
 				1409170E2A7CECDD00B27131 /* SettingControlView.swift */,
 				140917102A7CED9C00B27131 /* ProfileSettingView.swift */,
+				140917122A7CEECB00B27131 /* ProfileCreateViewController.swift */,
 			);
 			path = ProfileCreate;
 			sourceTree = "<group>";
@@ -984,6 +987,7 @@
 				1449E1F82A135687008C70DB /* FriendsMatchCommentListViewModel.swift in Sources */,
 				14982C7329EE657200D388BF /* FriendsMatchDetailTextView.swift in Sources */,
 				14066BB129E1455F00AFB2D2 /* PasswordToCheckTextFieldCellViewModel.swift in Sources */,
+				140917132A7CEECB00B27131 /* ProfileCreateViewController.swift in Sources */,
 				146F1E652A22FC8E0095502F /* ProfileNetwork.swift in Sources */,
 				1455D25E2A25A6C10090257B /* ProfileRequestEntity.swift in Sources */,
 				1429B0B329E56EF300891FF8 /* ProfileMainViewController.swift in Sources */,
