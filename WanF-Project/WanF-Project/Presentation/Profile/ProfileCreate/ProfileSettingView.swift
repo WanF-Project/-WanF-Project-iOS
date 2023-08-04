@@ -12,6 +12,8 @@ class ProfileSettingView: UIView {
     //MARK: - View
     let scrollView = UIScrollView()
     let profileInfoStack = UIStackView()
+    let profilePersonalityView = ProfileKeywordSettingView(title: "성격")
+    let profileGoalView = ProfileKeywordSettingView(title: "목표")
     
     let preImageView: UIImageView = {
         let imageView = UIImageView()
@@ -67,7 +69,9 @@ private extension ProfileSettingView {
         
         [
             preImageView,
-            profileInfoStack
+            profileInfoStack,
+            profilePersonalityView,
+            profileGoalView
         ]
             .forEach { scrollView.addSubview($0) }
         
@@ -94,8 +98,19 @@ private extension ProfileSettingView {
         
         profileInfoStack.snp.makeConstraints { make in
             make.top.equalTo(preImageView.snp.bottom).offset(30)
-            make.horizontalEdges.equalToSuperview().inset(20)
-            make.bottom.equalToSuperview().inset(15)
+            make.horizontalEdges.equalToSuperview().inset(30)
+            make.width.equalToSuperview().inset(30)
+        }
+        
+        profilePersonalityView.snp.makeConstraints { make in
+            make.top.equalTo(profileInfoStack.snp.bottom).offset(30)
+            make.horizontalEdges.equalTo(profileInfoStack)
+        }
+        
+        profileGoalView.snp.makeConstraints { make in
+            make.top.equalTo(profilePersonalityView.snp.bottom).offset(30)
+            make.horizontalEdges.equalTo(profileInfoStack)
+            make.bottom.equalToSuperview().inset(30)
         }
     }
 }
