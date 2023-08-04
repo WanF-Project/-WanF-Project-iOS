@@ -46,12 +46,12 @@ private extension ProfileCreateViewController {
     func layout() {
         
         doneButton.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalToSuperview().inset(50)
             make.centerX.equalToSuperview()
         }
         
         profileSettingView.snp.makeConstraints { make in
-            make.top.equalTo(doneButton.snp.bottom).offset(15)
+            make.top.equalTo(doneButton.snp.bottom).offset(30)
             make.horizontalEdges.equalToSuperview()
             make.bottom.equalToSuperview()
         }
@@ -95,6 +95,20 @@ private extension ProfileCreateViewController {
             profileSingleSelectionListVC.bind(ProfileSingleSelectionListViewModel(profile: nil, type: .MBTI))
             
             self.present(profileSingleSelectionListVC, animated: true)
+        }
+        
+        // Personality
+        profileSettingView.profilePersonalityView.handler = {
+            let profileKeywordListVC = ProfileKeywordListViewController()
+            profileKeywordListVC.bind(ProfileKeywordListViewModel(profile: nil,type: .personality))
+            self.present(profileKeywordListVC, animated: true)
+        }
+        
+        // Goal
+        profileSettingView.profileGoalView.handler = {
+            let profileKeywordListVC = ProfileKeywordListViewController()
+            profileKeywordListVC.bind(ProfileKeywordListViewModel(profile: nil,type: .purpose))
+            self.present(profileKeywordListVC, animated: true)
         }
     }
 }
