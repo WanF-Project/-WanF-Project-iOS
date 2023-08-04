@@ -20,7 +20,7 @@ struct ProfileKeywordListViewModel {
     let cellData: Driver<KeywordEntity>
     let dismissAfterDoneButtonTapped: Driver<Void>
     
-    init(_ model: ProfileKeywordListModel = ProfileKeywordListModel(), profile: ProfileResponseEntity, type: ProfileKeywordType) {
+    init(_ model: ProfileKeywordListModel = ProfileKeywordListModel(), profile: ProfileResponseEntity?, type: ProfileKeywordType) {
 
         // 키워드 목록 서버 연결
         let keywordResult = model.getProfileKeywordList(type)
@@ -53,7 +53,7 @@ struct ProfileKeywordListViewModel {
         let saveResult = doneButtonTapped
             .withLatestFrom(keywordsSelected)
             .flatMap { keywords in
-                model.saveProfileKeywordList(keywords, profile: profile, type: type)
+                model.saveProfileKeywordList(keywords, profile: profile!, type: type)
             }
             .share()
         
