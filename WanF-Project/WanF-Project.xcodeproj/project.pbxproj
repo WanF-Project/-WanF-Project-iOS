@@ -13,6 +13,8 @@
 		1409170F2A7CECDD00B27131 /* SettingControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409170E2A7CECDD00B27131 /* SettingControlView.swift */; };
 		140917112A7CED9C00B27131 /* ProfileSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140917102A7CED9C00B27131 /* ProfileSettingView.swift */; };
 		140917132A7CEECB00B27131 /* ProfileCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140917122A7CEECB00B27131 /* ProfileCreateViewController.swift */; };
+		140917152A7CF18C00B27131 /* ProfileKeywordSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140917142A7CF18C00B27131 /* ProfileKeywordSettingView.swift */; };
+		140917172A7CF66200B27131 /* ProfileKeywordSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140917162A7CF66200B27131 /* ProfileKeywordSettingViewModel.swift */; };
 		141A781829D7ED46006731F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A781729D7ED46006731F7 /* AppDelegate.swift */; };
 		141A781A29D7ED46006731F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A781929D7ED46006731F7 /* SceneDelegate.swift */; };
 		141A782129D7ED46006731F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 141A782029D7ED46006731F7 /* Assets.xcassets */; };
@@ -141,6 +143,8 @@
 		1409170E2A7CECDD00B27131 /* SettingControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingControlView.swift; sourceTree = "<group>"; };
 		140917102A7CED9C00B27131 /* ProfileSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingView.swift; sourceTree = "<group>"; };
 		140917122A7CEECB00B27131 /* ProfileCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreateViewController.swift; sourceTree = "<group>"; };
+		140917142A7CF18C00B27131 /* ProfileKeywordSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileKeywordSettingView.swift; sourceTree = "<group>"; };
+		140917162A7CF66200B27131 /* ProfileKeywordSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileKeywordSettingViewModel.swift; sourceTree = "<group>"; };
 		141A781429D7ED46006731F7 /* WanF-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WanF-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		141A781729D7ED46006731F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		141A781929D7ED46006731F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -700,6 +704,8 @@
 				1409170E2A7CECDD00B27131 /* SettingControlView.swift */,
 				140917102A7CED9C00B27131 /* ProfileSettingView.swift */,
 				140917122A7CEECB00B27131 /* ProfileCreateViewController.swift */,
+				140917142A7CF18C00B27131 /* ProfileKeywordSettingView.swift */,
+				140917162A7CF66200B27131 /* ProfileKeywordSettingViewModel.swift */,
 			);
 			path = ProfileCreate;
 			sourceTree = "<group>";
@@ -926,6 +932,7 @@
 				14793FBC29D837480048D5DD /* ExUIFont.swift in Sources */,
 				14567E9A29DFDD43000B75EE /* EmailStackViewCellViewModel.swift in Sources */,
 				14BD19EE29FBB63B00B0E598 /* ProfileContentViewModel.swift in Sources */,
+				140917152A7CF18C00B27131 /* ProfileKeywordSettingView.swift in Sources */,
 				14D4C2DD29FD0407001ACBC6 /* DynamicHeightCollectionView.swift in Sources */,
 				14567E9C29DFE824000B75EE /* EmailStackViewCellModel.swift in Sources */,
 				143AE34C2A73B80700056647 /* CSSearchBarViewModel.swift in Sources */,
@@ -1033,6 +1040,7 @@
 				14870BF129EBBD9400D9643E /* FriendsMatchWritingLectureInfoViewModel.swift in Sources */,
 				1466FA242A0A486C00910C30 /* UserDefaultsAuthorizationWrapper.swift in Sources */,
 				14DD371E29DB2CBB00D6A715 /* SignUpPasswordViewController.swift in Sources */,
+				140917172A7CF66200B27131 /* ProfileKeywordSettingViewModel.swift in Sources */,
 				14D1FC512A7B733B00159E79 /* WanfTopButton.swift in Sources */,
 				14962D982A399CFF0049625C /* CommentRequestEntity.swift in Sources */,
 			);
