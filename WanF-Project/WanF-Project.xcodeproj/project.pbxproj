@@ -15,6 +15,8 @@
 		140917132A7CEECB00B27131 /* ProfileCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140917122A7CEECB00B27131 /* ProfileCreateViewController.swift */; };
 		140917152A7CF18C00B27131 /* ProfileKeywordSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140917142A7CF18C00B27131 /* ProfileKeywordSettingView.swift */; };
 		140917172A7CF66200B27131 /* ProfileKeywordSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140917162A7CF66200B27131 /* ProfileKeywordSettingViewModel.swift */; };
+		1409171D2A7D0B4000B27131 /* ProfileSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409171C2A7D0B4000B27131 /* ProfileSettingViewModel.swift */; };
+		1409171F2A7D0B5800B27131 /* ProfileCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409171E2A7D0B5800B27131 /* ProfileCreateViewModel.swift */; };
 		141A781829D7ED46006731F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A781729D7ED46006731F7 /* AppDelegate.swift */; };
 		141A781A29D7ED46006731F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A781929D7ED46006731F7 /* SceneDelegate.swift */; };
 		141A782129D7ED46006731F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 141A782029D7ED46006731F7 /* Assets.xcassets */; };
@@ -145,6 +147,8 @@
 		140917122A7CEECB00B27131 /* ProfileCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreateViewController.swift; sourceTree = "<group>"; };
 		140917142A7CF18C00B27131 /* ProfileKeywordSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileKeywordSettingView.swift; sourceTree = "<group>"; };
 		140917162A7CF66200B27131 /* ProfileKeywordSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileKeywordSettingViewModel.swift; sourceTree = "<group>"; };
+		1409171C2A7D0B4000B27131 /* ProfileSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewModel.swift; sourceTree = "<group>"; };
+		1409171E2A7D0B5800B27131 /* ProfileCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreateViewModel.swift; sourceTree = "<group>"; };
 		141A781429D7ED46006731F7 /* WanF-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WanF-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		141A781729D7ED46006731F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		141A781929D7ED46006731F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -706,6 +710,8 @@
 				140917122A7CEECB00B27131 /* ProfileCreateViewController.swift */,
 				140917142A7CF18C00B27131 /* ProfileKeywordSettingView.swift */,
 				140917162A7CF66200B27131 /* ProfileKeywordSettingViewModel.swift */,
+				1409171C2A7D0B4000B27131 /* ProfileSettingViewModel.swift */,
+				1409171E2A7D0B5800B27131 /* ProfileCreateViewModel.swift */,
 			);
 			path = ProfileCreate;
 			sourceTree = "<group>";
@@ -977,6 +983,7 @@
 				142DBEE129DC4FC300017603 /* MainTabBarViewModel.swift in Sources */,
 				1429B0BD29E5760400891FF8 /* FriendsMatchDetailViewController.swift in Sources */,
 				147E9B512A1784AA0032E530 /* UserDefaultsAuthorizationChecked.swift in Sources */,
+				1409171D2A7D0B4000B27131 /* ProfileSettingViewModel.swift in Sources */,
 				1429B0A329E5122400891FF8 /* PostListResponseEntity.swift in Sources */,
 				14D4C2E329FD49B2001ACBC6 /* ProfileResponseEntity.swift in Sources */,
 				1484C75D2A1E1BD500014FD4 /* ExDateFormatter.swift in Sources */,
@@ -1016,6 +1023,7 @@
 				14DEF3612A7648830082BA27 /* FriendsMatchSearchViewModel.swift in Sources */,
 				14840E4929FE5C8C007BFB1A /* ProfileKeywordListViewController.swift in Sources */,
 				14D7A90329E92F9B007850BE /* FriendsMatchWritingTopBarView.swift in Sources */,
+				1409171F2A7D0B5800B27131 /* ProfileCreateViewModel.swift in Sources */,
 				144D30CD2A06259700640CCD /* WanfAPI.swift in Sources */,
 				146A01772A78EF6E004E140E /* SlicePostPaginationResponseEntity.swift in Sources */,
 				14982C9129EEACD200D388BF /* FriendsMatchDetailModel.swift in Sources */,

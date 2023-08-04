@@ -44,6 +44,11 @@ class ProfileSettingView: UIView {
         configure()
         layout()
     }
+    
+    func bind(_ viewModel: ProfileSettingViewModel) {
+        profilePersonalityView.bind(viewModel.profileKeywordSettingViewModel)
+        profileGoalView.bind(viewModel.profileKeywordSettingViewModel)
+    }
 }
 
 //MARK: - Configure
