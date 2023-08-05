@@ -51,7 +51,7 @@ private extension ProfileCreateViewController {
         
         doneButton.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(50)
-            make.centerX.equalToSuperview()
+            make.trailing.equalToSuperview().inset(15)
         }
         
         profileSettingView.snp.makeConstraints { make in

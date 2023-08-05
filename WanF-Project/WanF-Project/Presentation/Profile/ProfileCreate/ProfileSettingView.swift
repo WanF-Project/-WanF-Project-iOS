@@ -94,7 +94,7 @@ private extension ProfileSettingView {
             make.width.equalTo(150)
             make.height.equalTo(300)
             make.top.equalToSuperview().inset(15)
-            make.centerX.equalToSuperview()
+            make.leading.equalToSuperview().inset(30)
         }
         
         settingPhotoButton.snp.makeConstraints { make in
