@@ -32,6 +32,10 @@ class SettingControlView: UIControl {
         return label
     }()
     
+    lazy var keyboardToolBar = CSKeyboardToolBar {
+        self.endEditing(true)
+    }
+    
     lazy var contentTextField: UITextField = {
         let textField = UITextField()
         
@@ -41,6 +45,7 @@ class SettingControlView: UIControl {
         textField.tintColor = .wanfMint
         textField.font = .wanfFont(ofSize: 15, weight: .regular)
         textField.isEnabled = false
+        textField.inputAccessoryView = keyboardToolBar
         
         return textField
     }()
