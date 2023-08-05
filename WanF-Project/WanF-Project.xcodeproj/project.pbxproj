@@ -549,6 +549,19 @@
 			path = ProfileNetwork;
 			sourceTree = "<group>";
 		};
+		147823C92A7E00E0003DC9CE /* ProfileCeateSubcomponent */ = {
+			isa = PBXGroup;
+			children = (
+				14D1FC562A7B7E2900159E79 /* ProfileSettingPhotoButton.swift */,
+				1409170E2A7CECDD00B27131 /* SettingControlView.swift */,
+				140917102A7CED9C00B27131 /* ProfileSettingView.swift */,
+				140917142A7CF18C00B27131 /* ProfileKeywordSettingView.swift */,
+				140917162A7CF66200B27131 /* ProfileKeywordSettingViewModel.swift */,
+				1409171C2A7D0B4000B27131 /* ProfileSettingViewModel.swift */,
+			);
+			path = ProfileCeateSubcomponent;
+			sourceTree = "<group>";
+		};
 		14793FA729D82F1D0048D5DD /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -706,13 +719,8 @@
 		14D1FC522A7B75F600159E79 /* ProfileCreate */ = {
 			isa = PBXGroup;
 			children = (
-				14D1FC562A7B7E2900159E79 /* ProfileSettingPhotoButton.swift */,
-				1409170E2A7CECDD00B27131 /* SettingControlView.swift */,
-				140917102A7CED9C00B27131 /* ProfileSettingView.swift */,
+				147823C92A7E00E0003DC9CE /* ProfileCeateSubcomponent */,
 				140917122A7CEECB00B27131 /* ProfileCreateViewController.swift */,
-				140917142A7CF18C00B27131 /* ProfileKeywordSettingView.swift */,
-				140917162A7CF66200B27131 /* ProfileKeywordSettingViewModel.swift */,
-				1409171C2A7D0B4000B27131 /* ProfileSettingViewModel.swift */,
 				1409171E2A7D0B5800B27131 /* ProfileCreateViewModel.swift */,
 			);
 			path = ProfileCreate;
