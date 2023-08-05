@@ -7,7 +7,13 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
+
 class ProfileSettingView: UIView {
+    
+    //MARK: - Properties
+    let disposeBag = DisposeBag()
     
     //MARK: - View
     let scrollView = UIScrollView()
@@ -46,8 +52,35 @@ class ProfileSettingView: UIView {
     }
     
     func bind(_ viewModel: ProfileSettingViewModel) {
+        
+        // Bind Subcomponents
         profilePersonalityView.bind(viewModel.profileKeywordSettingViewModel)
         profileGoalView.bind(viewModel.profileKeywordSettingViewModel)
+        
+        // Bind Data
+        nameContorol.contentTextField.rx.text
+            .bind(to: viewModel.nameData)
+            .disposed(by: disposeBag)
+        
+        majorControl.contentTextField.rx.text
+            .bind(to: viewModel.majorData)
+            .disposed(by: disposeBag)
+        
+        studentIdControl.contentTextField.rx.text
+            .bind(to: viewModel.studentIDData)
+            .disposed(by: disposeBag)
+        
+        ageControl.contentTextField.rx.text
+            .bind(to: viewModel.ageData)
+            .disposed(by: disposeBag)
+        
+        genderControl.contentTextField.rx.text
+            .bind(to: viewModel.genderData)
+            .disposed(by: disposeBag)
+        
+        mbtiControl.contentTextField.rx.text
+            .bind(to: viewModel.mbtiData)
+            .disposed(by: disposeBag)
     }
 }
 
