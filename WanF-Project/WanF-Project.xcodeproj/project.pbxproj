@@ -467,6 +467,40 @@
 			path = SCSearchBar;
 			sourceTree = "<group>";
 		};
+		14473D5A2A7E3F6C00A0E23B /* ProfileSettingPhotoButton */ = {
+			isa = PBXGroup;
+			children = (
+				14D1FC562A7B7E2900159E79 /* ProfileSettingPhotoButton.swift */,
+			);
+			path = ProfileSettingPhotoButton;
+			sourceTree = "<group>";
+		};
+		14473D5B2A7E3F7D00A0E23B /* SettingControlView */ = {
+			isa = PBXGroup;
+			children = (
+				1409170E2A7CECDD00B27131 /* SettingControlView.swift */,
+			);
+			path = SettingControlView;
+			sourceTree = "<group>";
+		};
+		14473D5C2A7E3F8A00A0E23B /* ProfileSettingView */ = {
+			isa = PBXGroup;
+			children = (
+				140917102A7CED9C00B27131 /* ProfileSettingView.swift */,
+				1409171C2A7D0B4000B27131 /* ProfileSettingViewModel.swift */,
+			);
+			path = ProfileSettingView;
+			sourceTree = "<group>";
+		};
+		14473D5D2A7E3F9700A0E23B /* ProfileKeywordSettingView */ = {
+			isa = PBXGroup;
+			children = (
+				140917142A7CF18C00B27131 /* ProfileKeywordSettingView.swift */,
+				140917162A7CF66200B27131 /* ProfileKeywordSettingViewModel.swift */,
+			);
+			path = ProfileKeywordSettingView;
+			sourceTree = "<group>";
+		};
 		1449E1F22A135262008C70DB /* FriendsMatchComment */ = {
 			isa = PBXGroup;
 			children = (
@@ -552,12 +586,10 @@
 		147823C92A7E00E0003DC9CE /* ProfileCeateSubcomponent */ = {
 			isa = PBXGroup;
 			children = (
-				14D1FC562A7B7E2900159E79 /* ProfileSettingPhotoButton.swift */,
-				1409170E2A7CECDD00B27131 /* SettingControlView.swift */,
-				140917102A7CED9C00B27131 /* ProfileSettingView.swift */,
-				140917142A7CF18C00B27131 /* ProfileKeywordSettingView.swift */,
-				140917162A7CF66200B27131 /* ProfileKeywordSettingViewModel.swift */,
-				1409171C2A7D0B4000B27131 /* ProfileSettingViewModel.swift */,
+				14473D5C2A7E3F8A00A0E23B /* ProfileSettingView */,
+				14473D5D2A7E3F9700A0E23B /* ProfileKeywordSettingView */,
+				14473D5B2A7E3F7D00A0E23B /* SettingControlView */,
+				14473D5A2A7E3F6C00A0E23B /* ProfileSettingPhotoButton */,
 			);
 			path = ProfileCeateSubcomponent;
 			sourceTree = "<group>";
