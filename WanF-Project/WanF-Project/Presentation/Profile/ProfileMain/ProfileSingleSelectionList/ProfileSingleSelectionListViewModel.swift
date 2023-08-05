@@ -19,7 +19,7 @@ struct ProfileSingleSelectionListViewModel {
     let cellData: Driver<[MajorEntity]>
     let dismiss: Driver<Void>
     
-    init(_ model: ProfileSingleSelectionListModel = ProfileSingleSelectionListModel(), profile: ProfileResponseEntity, type: ProfileSingleSelectionType) {
+    init(_ model: ProfileSingleSelectionListModel = ProfileSingleSelectionListModel(), profile: ProfileResponseEntity?, type: ProfileSingleSelectionType) {
 
         // 키워드 목록
         let singleListResult = model.getProfileSingleSelectionList(type)
@@ -38,7 +38,7 @@ struct ProfileSingleSelectionListViewModel {
                 list[IndexPath.row]
             }
             .flatMap({ item in
-                model.saveProfileSingleSelectionList(item, profile: profile, type: type)
+                model.saveProfileSingleSelectionList(item, profile: profile!, type: type)
             })
             .share()
         

@@ -17,24 +17,9 @@ class FriendsMatchWritingTopBarView: UIView {
     let disposeBag = DisposeBag()
     
     //MARK: -  View
-    private lazy var cancelButton: UIButton = {
-        var configuration = UIButton.Configuration.plain()
-        configuration.image = UIImage(systemName: "xmark")
-        configuration.baseForegroundColor = .wanfMint
-        
-        return UIButton(configuration: configuration)
-    }()
+    private lazy var cancelButton: UIButton = wanfCancelButton()
     
-    lazy var doneButton: UIButton = {
-        var configuration = UIButton.Configuration.plain()
-        configuration.image = UIImage(systemName: "checkmark")
-        configuration.baseForegroundColor = .wanfMint
-        
-        let button = UIButton(configuration: configuration)
-        button.isEnabled = false
-        
-        return button
-    }()
+    lazy var doneButton: UIButton = wanfDoneButton()
     
     //MARK: - LifeCycle
     override func layoutSubviews() {
