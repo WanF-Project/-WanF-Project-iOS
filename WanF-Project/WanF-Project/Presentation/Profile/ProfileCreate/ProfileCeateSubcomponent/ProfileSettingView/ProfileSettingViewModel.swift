@@ -16,7 +16,7 @@ class ProfileSettingViewModel {
     let profileKeywordSettingViewModel = ProfileKeywordSettingViewModel()
     
     // ViewModel -> Parent ViewModel
-    let shouldMakeDoneActive: Signal<ProfileRequestEntity>
+    let shouldMakeDoneButtonActive: Signal<ProfileRequestEntity>
     
     // View -> ViewModel
     let nameData = PublishRelay<String?>()
@@ -55,7 +55,7 @@ class ProfileSettingViewModel {
             .filter { !$0.isEmpty }
         
         // 완료 버튼 활성화
-        shouldMakeDoneActive = Observable
+        shouldMakeDoneButtonActive = Observable
             .combineLatest(name, major, studentID, age, gender, mbti, personalityData, goalData) {
                 return ProfileRequestEntity(profileImage: "BEAR", nickname: $0, majorId: Int($1)!, entranceYear: Int($2)!, birth: Int($3)!, gender: $4, mbti: $5, personality: $6, purpose: $7, contact: "")
             }
