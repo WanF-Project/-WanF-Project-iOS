@@ -14,6 +14,7 @@ class ProfileSettingViewModel {
     
     // Subcomponent ViewModel
     let profileKeywordSettingViewModel = ProfileKeywordSettingViewModel()
+    let settingControlViewModel = SettingControlViewModel()
     
     // ViewModel -> Parent ViewModel
     let shouldMakeDoneButtonActive: Signal<ProfileRequestEntity>

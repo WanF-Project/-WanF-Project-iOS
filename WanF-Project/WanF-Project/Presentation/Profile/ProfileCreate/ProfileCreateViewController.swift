@@ -7,6 +7,7 @@
 
 import UIKit
 
+import SnapKit
 import RxSwift
 import RxCocoa
 
@@ -14,6 +15,7 @@ class ProfileCreateViewController: UIViewController {
     
     //MARK: - Properties
     let disposeBag = DisposeBag()
+    var viewModel: ProfileCreateViewModel?
     
     //MARK: - View
     let doneButton = wanfDoneButton()
@@ -31,6 +33,8 @@ class ProfileCreateViewController: UIViewController {
     
     //MARK: - Function
     func bind(_ viewModel: ProfileCreateViewModel) {
+        
+        self.viewModel = viewModel
         
         // Bind Subcomponents
         profileSettingView.bind(viewModel.profileSettingViewModel)
@@ -81,7 +85,12 @@ private extension ProfileCreateViewController {
         // Major
         profileSettingView.majorControl.handler = {
             let profileSingleSelectionListVC = ProfileSingleSelectionListViewController()
-            profileSingleSelectionListVC.bind(ProfileSingleSelectionListViewModel(profile: nil, type: .major))
+            let profileSingleSelectionListViewModel = ProfileSingleSelectionListViewModel(profile: nil, type: .major)
+            profileSingleSelectionListVC.bind(profileSingleSelectionListViewModel)
+            
+            profileSingleSelectionListViewModel.selectedData
+                .bind(to: self.viewModel!.profileSettingViewModel.settingControlViewModel.major)
+                .disposed(by: self.disposeBag)
             
             self.present(profileSingleSelectionListVC, animated: true)
         }

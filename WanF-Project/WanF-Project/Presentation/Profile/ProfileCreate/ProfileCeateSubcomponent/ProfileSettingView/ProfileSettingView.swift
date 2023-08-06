@@ -7,6 +7,7 @@
 
 import UIKit
 
+import SnapKit
 import RxSwift
 import RxCocoa
 
@@ -56,6 +57,7 @@ class ProfileSettingView: UIView {
         // Bind Subcomponents
         profilePersonalityView.bind(viewModel.profileKeywordSettingViewModel)
         profileGoalView.bind(viewModel.profileKeywordSettingViewModel)
+        majorControl.bind(viewModel.settingControlViewModel)
         
         // Bind Data
         nameContorol.contentTextField.rx.text

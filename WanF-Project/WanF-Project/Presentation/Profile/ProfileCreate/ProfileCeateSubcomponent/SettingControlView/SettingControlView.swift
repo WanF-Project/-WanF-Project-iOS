@@ -7,6 +7,10 @@
 
 import UIKit
 
+import SnapKit
+import RxSwift
+import RxCocoa
+
 enum SettingControlType {
     case text
     case number
@@ -20,6 +24,8 @@ class SettingControlView: UIControl {
     var placeholder: String
     var type: SettingControlType
     var handler: (() -> Void) = { }
+    
+    let disposeBag = DisposeBag()
     
     //MARK: - View
     lazy var titleLabel: UILabel = {
@@ -77,6 +83,14 @@ class SettingControlView: UIControl {
     }
     
     //MARK: - Function
+    func bind(_ viewModel: SettingControlViewModel) {
+        viewModel.text
+            .drive(onNext: {
+                self.contentTextField.text = $0
+            })
+            .disposed(by: disposeBag)
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         switch type {
         case .text:
