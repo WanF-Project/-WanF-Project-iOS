@@ -7,7 +7,13 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
+
 class ProfileCreateViewController: UIViewController {
+    
+    //MARK: - Properties
+    let disposeBag = DisposeBag()
     
     //MARK: - View
     let doneButton = wanfDoneButton()
@@ -25,7 +31,16 @@ class ProfileCreateViewController: UIViewController {
     
     //MARK: - Function
     func bind(_ viewModel: ProfileCreateViewModel) {
+        
+        // Bind Subcomponents
         profileSettingView.bind(viewModel.profileSettingViewModel)
+        
+        // Make DoneButton Active
+        viewModel.makeDoneButtonActive
+            .emit(onNext: { profile in
+                self.doneButton.isEnabled = true
+            })
+            .disposed(by: disposeBag)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
