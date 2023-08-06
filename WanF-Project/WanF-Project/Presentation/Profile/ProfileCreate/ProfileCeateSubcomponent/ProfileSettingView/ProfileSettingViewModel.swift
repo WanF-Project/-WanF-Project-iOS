@@ -35,9 +35,16 @@ class ProfileSettingViewModel {
             .compactMap { $0 }
             .filter { !$0.isEmpty }
         
-        let major = majorData
+        let majorID = majorData
             .compactMap { $0 }
             .filter { !$0.isEmpty }
+            .withLatestFrom(Observable.just(settingControlViewModel)) { _, viewModel in
+                viewModel
+            }
+            .flatMap { viewModel in
+                viewModel.major
+            }
+            .map { $0.id }
 
         let studentID = studentIDData
             .compactMap { $0 }
@@ -57,8 +64,8 @@ class ProfileSettingViewModel {
         
         // 완료 버튼 활성화
         shouldMakeDoneButtonActive = Observable
-            .combineLatest(name, major, studentID, age, gender, mbti, personalityData, goalData) {
-                return ProfileRequestEntity(profileImage: "BEAR", nickname: $0, majorId: Int($1)!, entranceYear: Int($2)!, birth: Int($3)!, gender: $4, mbti: $5, personality: $6, purpose: $7, contact: "")
+            .combineLatest(name, majorID, studentID, age, gender, mbti, personalityData, goalData) {
+                return ProfileRequestEntity(profileImage: "BEAR", nickname: $0, majorId: $1, entranceYear: Int($2)!, birth: Int($3)!, gender: $4, mbti: $5, personality: $6, purpose: $7, contact: "")
             }
             .asSignal(onErrorSignalWith: .empty())
     }
