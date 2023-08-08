@@ -10,20 +10,20 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-struct ProfileSingleSelectionListViewModel {
+struct ProfileSingleSelectionListViewModel<T: Nameable> {
     
     // View -> ViewModel
     let selectedItemIndex = PublishRelay<IndexPath>()
     
     // ViewModel -> View
-    let cellData: Driver<[MajorEntity]>
-    let selectedData: Observable<MajorEntity>
+    let cellData: Driver<[T]>
+    let selectedData: Observable<T>
     let dismiss: Driver<Void>
     
-    init(_ model: ProfileSingleSelectionListModel = ProfileSingleSelectionListModel(), profile: ProfileResponseEntity?, type: ProfileSingleSelectionType) {
+    init(_ model: ProfileSingleSelectionListModel<T> = ProfileSingleSelectionListModel()) {
 
         // 키워드 목록
-        let singleListResult = model.getProfileSingleSelectionList(type)
+        let singleListResult = model.getProfileSingleSelectionList()
             .asObservable()
             .share()
         

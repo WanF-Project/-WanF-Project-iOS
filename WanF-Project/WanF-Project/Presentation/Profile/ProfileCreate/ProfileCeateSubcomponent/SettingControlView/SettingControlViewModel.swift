@@ -21,7 +21,7 @@ struct SettingControlViewModel {
     init() {
         
         major
-            .map { $0.name ?? "" }
+            .map { $0.name }
             .bind(to: stringValue)
             .disposed(by: disposeBag)
         

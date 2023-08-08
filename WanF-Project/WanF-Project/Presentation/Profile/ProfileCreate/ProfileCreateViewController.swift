@@ -84,8 +84,8 @@ private extension ProfileCreateViewController {
         
         // Major
         profileSettingView.majorControl.handler = {
-            let profileSingleSelectionListVC = ProfileSingleSelectionListViewController()
-            let profileSingleSelectionListViewModel = ProfileSingleSelectionListViewModel(profile: nil, type: .major)
+            let profileSingleSelectionListVC = ProfileSingleSelectionListViewController<MajorEntity>()
+            let profileSingleSelectionListViewModel = ProfileSingleSelectionListViewModel<MajorEntity>()
             profileSingleSelectionListVC.bind(profileSingleSelectionListViewModel)
             
             profileSingleSelectionListViewModel.selectedData
@@ -118,8 +118,8 @@ private extension ProfileCreateViewController {
         
         // MBTI
         profileSettingView.mbtiControl.handler = {
-            let profileSingleSelectionListVC = ProfileSingleSelectionListViewController()
-            profileSingleSelectionListVC.bind(ProfileSingleSelectionListViewModel(profile: nil, type: .MBTI))
+            let profileSingleSelectionListVC = ProfileSingleSelectionListViewController<MbtiEntity>()
+            profileSingleSelectionListVC.bind(ProfileSingleSelectionListViewModel<MbtiEntity>())
             
             self.present(profileSingleSelectionListVC, animated: true)
         }

@@ -219,8 +219,8 @@ extension ProfileMainViewController {
     @objc func didTapProfileMajor() {
         guard let profile = self.profileContentView.profileData else { return }
         
-        let profileSingleSelectionListVC = ProfileSingleSelectionListViewController()
-        profileSingleSelectionListVC.bind(ProfileSingleSelectionListViewModel(profile: profile, type: .major))
+        let profileSingleSelectionListVC = ProfileSingleSelectionListViewController<MajorEntity>()
+        profileSingleSelectionListVC.bind(ProfileSingleSelectionListViewModel<MajorEntity>())
         
         self.present(profileSingleSelectionListVC, animated: true)
     }
@@ -239,7 +239,7 @@ extension ProfileMainViewController {
                   let entranceYear = alertVC.textFields?[0].text,
                   let profileEntranceYear = Int(entranceYear) else { return }
             
-            let profileWriting = ProfileRequestEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profileEntranceYear ?? 0, birth: profile.birth ?? 0, gender: profile.gender?.keys.first, mbti: profile.mbti, personality: personality, purpose: purpose, contact: profile.contact)
+            let profileWriting = ProfileRequestEntity(profileImage: profile.profileImage, nickname: profile.nickname, majorId: profile.major?.id, entranceYear: profileEntranceYear, birth: profile.birth ?? 0, gender: profile.gender?.keys.first, mbti: profile.mbti, personality: personality, purpose: purpose, contact: profile.contact)
             self.viewModel?.shouldPatchProfile.accept(profileWriting)
         }
         
@@ -313,8 +313,8 @@ extension ProfileMainViewController {
     @objc func didTapProfileMBTI() {
         guard let profile = self.profileContentView.profileData else { return }
         
-        let profileSingleSelectionListVC = ProfileSingleSelectionListViewController()
-        profileSingleSelectionListVC.bind(ProfileSingleSelectionListViewModel(profile: profile, type: .MBTI))
+        let profileSingleSelectionListVC = ProfileSingleSelectionListViewController<MbtiEntity>()
+        profileSingleSelectionListVC.bind(ProfileSingleSelectionListViewModel<MbtiEntity>())
         
         self.present(profileSingleSelectionListVC, animated: true)
     }
