@@ -14,13 +14,13 @@ struct SettingControlViewModel {
     
     let disposeBag = DisposeBag()
     
-    let major = PublishRelay<MajorEntity>()
+    let nameableValue = PublishRelay<any Nameable>()
     let stringValue = PublishRelay<String>()
     let text: Driver<String>
     
     init() {
         
-        major
+        nameableValue
             .map { $0.name }
             .bind(to: stringValue)
             .disposed(by: disposeBag)

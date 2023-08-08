@@ -59,6 +59,7 @@ class ProfileSettingView: UIView {
         profileGoalView.bind(viewModel.profileKeywordSettingViewModel)
         majorControl.bind(viewModel.majorControlViewModel)
         genderControl.bind(viewModel.genderControlViewModel)
+        mbtiControl.bind(viewModel.mbtiControlViewModel)
         
         // Bind Data
         nameContorol.contentTextField.rx.text

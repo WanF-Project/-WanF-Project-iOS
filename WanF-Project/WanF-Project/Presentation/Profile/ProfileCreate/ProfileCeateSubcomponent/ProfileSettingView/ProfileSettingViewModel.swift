@@ -16,6 +16,7 @@ class ProfileSettingViewModel {
     let profileKeywordSettingViewModel = ProfileKeywordSettingViewModel()
     let majorControlViewModel = SettingControlViewModel()
     let genderControlViewModel = SettingControlViewModel()
+    let mbtiControlViewModel = SettingControlViewModel()
     
     // ViewModel -> Parent ViewModel
     let shouldMakeDoneButtonActive: Signal<ProfileRequestEntity>
@@ -43,7 +44,7 @@ class ProfileSettingViewModel {
                 viewModel
             }
             .flatMap { viewModel in
-                viewModel.major
+                viewModel.nameableValue
             }
             .map { $0.id }
 

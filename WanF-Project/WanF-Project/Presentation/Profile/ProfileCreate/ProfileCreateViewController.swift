@@ -89,7 +89,8 @@ private extension ProfileCreateViewController {
             profileSingleSelectionListVC.bind(profileSingleSelectionListViewModel)
             
             profileSingleSelectionListViewModel.selectedData
-                .bind(to: self.viewModel!.profileSettingViewModel.majorControlViewModel.major)
+                .map { $0 as any Nameable }
+                .bind(to: self.viewModel!.profileSettingViewModel.majorControlViewModel.nameableValue)
                 .disposed(by: self.disposeBag)
             
             self.present(profileSingleSelectionListVC, animated: true)
@@ -119,7 +120,13 @@ private extension ProfileCreateViewController {
         // MBTI
         profileSettingView.mbtiControl.handler = {
             let profileSingleSelectionListVC = ProfileSingleSelectionListViewController<MbtiEntity>()
-            profileSingleSelectionListVC.bind(ProfileSingleSelectionListViewModel<MbtiEntity>())
+            let profileSingleSelectionListViewModel = ProfileSingleSelectionListViewModel<MbtiEntity>()
+            profileSingleSelectionListVC.bind(profileSingleSelectionListViewModel)
+            
+            profileSingleSelectionListViewModel.selectedData
+                .map { $0 as any Nameable }
+                .bind(to: self.viewModel!.profileSettingViewModel.mbtiControlViewModel.nameableValue)
+                .disposed(by: self.disposeBag)
             
             self.present(profileSingleSelectionListVC, animated: true)
         }
