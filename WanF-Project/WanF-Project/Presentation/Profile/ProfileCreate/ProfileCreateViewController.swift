@@ -89,7 +89,7 @@ private extension ProfileCreateViewController {
             profileSingleSelectionListVC.bind(profileSingleSelectionListViewModel)
             
             profileSingleSelectionListViewModel.selectedData
-                .bind(to: self.viewModel!.profileSettingViewModel.settingControlViewModel.major)
+                .bind(to: self.viewModel!.profileSettingViewModel.majorControlViewModel.major)
                 .disposed(by: self.disposeBag)
             
             self.present(profileSingleSelectionListVC, animated: true)
@@ -97,15 +97,14 @@ private extension ProfileCreateViewController {
         
         // Gender
         profileSettingView.genderControl.handler = {
-            let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let handler: (UIAlertAction) -> Void = { action in
+                self.viewModel?.profileSettingViewModel.genderControlViewModel.stringValue.accept(action.title ?? "")
+            }
             
+            let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             let cancelAction = UIAlertAction(title: "취소", style: .cancel)
-            let womanAction = UIAlertAction(title: "여자", style: .default) { _ in
-                
-            }
-            let manAction = UIAlertAction(title: "남자", style: .default) { _ in
-                
-            }
+            let womanAction = UIAlertAction(title: "여자", style: .default, handler: handler)
+            let manAction = UIAlertAction(title: "남자", style: .default, handler: handler)
             
             [
                 cancelAction,

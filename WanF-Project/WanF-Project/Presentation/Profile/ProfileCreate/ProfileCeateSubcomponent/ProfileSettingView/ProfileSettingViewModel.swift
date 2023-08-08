@@ -14,7 +14,8 @@ class ProfileSettingViewModel {
     
     // Subcomponent ViewModel
     let profileKeywordSettingViewModel = ProfileKeywordSettingViewModel()
-    let settingControlViewModel = SettingControlViewModel()
+    let majorControlViewModel = SettingControlViewModel()
+    let genderControlViewModel = SettingControlViewModel()
     
     // ViewModel -> Parent ViewModel
     let shouldMakeDoneButtonActive: Signal<ProfileRequestEntity>
@@ -38,7 +39,7 @@ class ProfileSettingViewModel {
         let majorID = majorData
             .compactMap { $0 }
             .filter { !$0.isEmpty }
-            .withLatestFrom(Observable.just(settingControlViewModel)) { _, viewModel in
+            .withLatestFrom(Observable.just(majorControlViewModel)) { _, viewModel in
                 viewModel
             }
             .flatMap { viewModel in
