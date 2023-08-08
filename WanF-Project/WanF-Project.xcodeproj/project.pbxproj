@@ -138,6 +138,7 @@
 		14E4C9E429EA530F00E2CB62 /* CourseInfoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4C9E329EA530F00E2CB62 /* CourseInfoListViewController.swift */; };
 		14E4C9E929EA564400E2CB62 /* CourseInfoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4C9E829EA564400E2CB62 /* CourseInfoListViewModel.swift */; };
 		14E4C9EB29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4C9EA29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift */; };
+		14F5E8D82A821AB100A2228B /* Nameable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F5E8D72A821AB100A2228B /* Nameable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -270,6 +271,7 @@
 		14E4C9E329EA530F00E2CB62 /* CourseInfoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoListViewController.swift; sourceTree = "<group>"; };
 		14E4C9E829EA564400E2CB62 /* CourseInfoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoListViewModel.swift; sourceTree = "<group>"; };
 		14E4C9EA29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingTopBarViewModel.swift; sourceTree = "<group>"; };
+		14F5E8D72A821AB100A2228B /* Nameable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nameable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +317,7 @@
 		141A781629D7ED46006731F7 /* WanF-Project */ = {
 			isa = PBXGroup;
 			children = (
+				14F5E8D62A821A9700A2228B /* Protocol */,
 				144D30CB2A06257D00640CCD /* Network */,
 				1429B0A129E5118D00891FF8 /* Entity */,
 				14DD371429DB2B9300D6A715 /* Presentation */,
@@ -894,6 +897,14 @@
 			path = FriendsMatchWritingTopBar;
 			sourceTree = "<group>";
 		};
+		14F5E8D62A821A9700A2228B /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				14F5E8D72A821AB100A2228B /* Nameable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1077,6 +1088,7 @@
 				1466FA1E2A0A412500910C30 /* AuthAPI.swift in Sources */,
 				14AC9B3929E27569009C37A5 /* ClassGroupViewController.swift in Sources */,
 				140917112A7CED9C00B27131 /* ProfileSettingView.swift in Sources */,
+				14F5E8D82A821AB100A2228B /* Nameable.swift in Sources */,
 				14E4C9E429EA530F00E2CB62 /* CourseInfoListViewController.swift in Sources */,
 				14D7A90A29E936A3007850BE /* FriendsMatchWritingLectureInfoView.swift in Sources */,
 				14D1FC572A7B7E2900159E79 /* ProfileSettingPhotoButton.swift in Sources */,
