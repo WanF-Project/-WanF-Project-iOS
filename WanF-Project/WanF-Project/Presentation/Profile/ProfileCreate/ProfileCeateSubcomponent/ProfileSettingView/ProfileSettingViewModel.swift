@@ -12,6 +12,9 @@ import RxCocoa
 
 class ProfileSettingViewModel {
     
+    // Propertise
+    let disposeBag = DisposeBag()
+    
     // Subcomponent ViewModel
     let nameControlViewModel = SettingControlViewModel()
     let majorControlViewModel = SettingControlViewModel()
@@ -26,53 +29,44 @@ class ProfileSettingViewModel {
     // ViewModel -> Parent ViewModel
     let shouldMakeDoneButtonActive: Signal<ProfileRequestEntity>
     
-    // View -> ViewModel
-    let nameData = PublishRelay<String?>()
-    let majorData = PublishRelay<String?>()
-    let studentIDData = PublishRelay<String?>()
-    let ageData = PublishRelay<String?>()
-    let genderData = PublishRelay<String?>()
-    let mbtiData = PublishRelay<String?>()
-    let personalityData = PublishRelay<[String]>()
-    let goalData = PublishRelay<[String]>()
+    // ViewModel
+    let personalities = PublishRelay<[String]>()
+    let goals = PublishRelay<[String]>()
     
     init() {
         
-        let name = nameData
-            .compactMap { $0 }
+        let name = nameControlViewModel.stringValue
             .filter { !$0.isEmpty }
         
-        let majorID = majorData
-            .compactMap { $0 }
-            .filter { !$0.isEmpty }
-            .withLatestFrom(Observable.just(majorControlViewModel)) { _, viewModel in
-                viewModel
-            }
-            .flatMap { viewModel in
-                viewModel.nameableValue
-            }
+        let majorID = majorControlViewModel.nameableValue
             .map { $0.id }
 
-        let studentID = studentIDData
+        let studentID = studentIDControlViewModel.stringValue
             .compactMap { $0 }
             .filter { !$0.isEmpty }
+            .compactMap { Int($0) }
 
-        let age = ageData
+        let ageNumber = ageControlViewModel.stringValue
             .compactMap { $0 }
             .filter { !$0.isEmpty }
+            .compactMap { Int($0) }
 
-        let gender = genderData
-            .compactMap { $0 }
-            .filter { !$0.isEmpty }
-
-        let mbti = mbtiData
-            .compactMap { $0 }
-            .filter { !$0.isEmpty }
+        let gender = genderControlViewModel.stringValue
+        
+        let mbti = mbtiControlViewModel.stringValue
+        
+        personalitySettingViewModel.keyOfItems
+            .bind(to: personalities)
+            .disposed(by: disposeBag)
+        
+        goalSettingViewModel.keyOfItems
+            .bind(to: goals)
+            .disposed(by: disposeBag)
         
         // 완료 버튼 활성화
         shouldMakeDoneButtonActive = Observable
-            .combineLatest(name, majorID, studentID, age, gender, mbti, personalityData, goalData) {
-                return ProfileRequestEntity(profileImage: "BEAR", nickname: $0, majorId: $1, entranceYear: Int($2)!, birth: Int($3)!, gender: $4, mbti: $5, personality: $6, purpose: $7, contact: "")
+            .combineLatest(name, majorID, studentID, ageNumber, gender, mbti, personalities, goals) {
+                return ProfileRequestEntity(profileImage: "BEAR", nickname: $0, majorId: $1, entranceYear: $2, birth: $3, gender: $4, mbti: $5, personality: $6, purpose: $7, contact: "")
             }
             .asSignal(onErrorSignalWith: .empty())
     }

@@ -84,6 +84,11 @@ class SettingControlView: UIControl {
     
     //MARK: - Function
     func bind(_ viewModel: SettingControlViewModel) {
+        self.contentTextField.rx.text
+            .compactMap { $0 }
+            .bind(to: viewModel.stringValue)
+            .disposed(by: disposeBag)
+        
         viewModel.text
             .drive(onNext: {
                 self.contentTextField.text = $0
