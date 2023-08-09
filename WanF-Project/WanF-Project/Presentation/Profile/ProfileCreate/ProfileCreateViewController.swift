@@ -45,6 +45,11 @@ class ProfileCreateViewController: UIViewController {
                 self.doneButton.isEnabled = true
             })
             .disposed(by: disposeBag)
+        
+        // Tap DoneButton
+        doneButton.rx.tap
+            .bind(to: viewModel.doneButtonTapped)
+            .disposed(by: disposeBag)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
