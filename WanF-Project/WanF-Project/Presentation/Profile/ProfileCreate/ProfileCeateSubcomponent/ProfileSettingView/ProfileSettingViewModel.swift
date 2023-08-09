@@ -13,10 +13,15 @@ import RxCocoa
 class ProfileSettingViewModel {
     
     // Subcomponent ViewModel
-    let profileKeywordSettingViewModel = ProfileKeywordSettingViewModel()
+    let nameControlViewModel = SettingControlViewModel()
     let majorControlViewModel = SettingControlViewModel()
+    let studentIDControlViewModel = SettingControlViewModel()
+    let ageControlViewModel = SettingControlViewModel()
     let genderControlViewModel = SettingControlViewModel()
     let mbtiControlViewModel = SettingControlViewModel()
+    
+    let personalitySettingViewModel = ProfileKeywordSettingViewModel()
+    let goalSettingViewModel = ProfileKeywordSettingViewModel()
     
     // ViewModel -> Parent ViewModel
     let shouldMakeDoneButtonActive: Signal<ProfileRequestEntity>

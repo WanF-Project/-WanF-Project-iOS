@@ -134,14 +134,27 @@ private extension ProfileCreateViewController {
         // Personality
         profileSettingView.profilePersonalityView.handler = {
             let profileKeywordListVC = ProfileKeywordListViewController()
-            profileKeywordListVC.bind(ProfileKeywordListViewModel(profile: nil,type: .personality))
+            let profileKeywordListViewModel = ProfileKeywordListViewModel(type: .personality)
+            profileKeywordListVC.bind(profileKeywordListViewModel)
+            
+            profileKeywordListViewModel.selectedData
+                .bind(to: self.viewModel!.profileSettingViewModel.personalitySettingViewModel.keywords)
+                .disposed(by: self.disposeBag)
+            
+            
             self.present(profileKeywordListVC, animated: true)
         }
         
         // Goal
         profileSettingView.profileGoalView.handler = {
             let profileKeywordListVC = ProfileKeywordListViewController()
-            profileKeywordListVC.bind(ProfileKeywordListViewModel(profile: nil,type: .purpose))
+            let profileKeywordListViewModel = ProfileKeywordListViewModel(type: .purpose)
+            profileKeywordListVC.bind(profileKeywordListViewModel)
+            
+            profileKeywordListViewModel.selectedData
+                .bind(to: self.viewModel!.profileSettingViewModel.goalSettingViewModel.keywords)
+                .disposed(by: self.disposeBag)
+            
             self.present(profileKeywordListVC, animated: true)
         }
     }

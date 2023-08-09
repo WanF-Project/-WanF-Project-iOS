@@ -323,7 +323,7 @@ extension ProfileMainViewController {
         guard let profile = self.profileContentView.profileData else { return }
         
         let profileKeywordListVC = ProfileKeywordListViewController()
-        profileKeywordListVC.bind(ProfileKeywordListViewModel(profile: profile,type: .personality))
+        profileKeywordListVC.bind(ProfileKeywordListViewModel(type: .personality))
         
         self.present(profileKeywordListVC, animated: true)
     }
@@ -332,7 +332,7 @@ extension ProfileMainViewController {
         guard let profile = self.profileContentView.profileData else { return }
         
         let profileKeywordListVC = ProfileKeywordListViewController()
-        profileKeywordListVC.bind(ProfileKeywordListViewModel(profile: profile, type: .purpose))
+        profileKeywordListVC.bind(ProfileKeywordListViewModel(type: .purpose))
         
         self.present(profileKeywordListVC, animated: true)
     }

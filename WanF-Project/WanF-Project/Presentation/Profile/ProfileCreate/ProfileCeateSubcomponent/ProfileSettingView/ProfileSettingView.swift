@@ -55,8 +55,8 @@ class ProfileSettingView: UIView {
     func bind(_ viewModel: ProfileSettingViewModel) {
         
         // Bind Subcomponents
-        profilePersonalityView.bind(viewModel.profileKeywordSettingViewModel)
-        profileGoalView.bind(viewModel.profileKeywordSettingViewModel)
+        profilePersonalityView.bind(viewModel.personalitySettingViewModel)
+        profileGoalView.bind(viewModel.goalSettingViewModel)
         majorControl.bind(viewModel.majorControlViewModel)
         genderControl.bind(viewModel.genderControlViewModel)
         mbtiControl.bind(viewModel.mbtiControlViewModel)

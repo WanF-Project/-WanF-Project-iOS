@@ -12,12 +12,29 @@ import RxCocoa
 
 struct ProfileKeywordSettingViewModel {
     
+    // Parent ViewModel -> ViewModel
+    let keywords = PublishRelay<KeywordDictionary>()
+    
+    // ViewModel -> View
     let cellData: Driver<[String]>
+    
+    // ViewModel -> Parent ViewModel
+    let keyOfItems: Observable<[String]>
+    let valueOfItems: Observable<[String]>
     
     init() {
         
-        cellData = Observable
-            .just(["임시 데이터", "임시 데이터", "임시 데이터", "임시 데이터", "임시 데이터", "임시 데이터", "임시 데이터"])
+        let items = keywords
+            .asObservable()
+            .share()
+        
+        keyOfItems = items
+            .map { $0.keys }
+        
+        valueOfItems = items
+            .map { $0.values }
+        
+        cellData = valueOfItems
             .asDriver(onErrorDriveWith: .empty())
     }
 }
