@@ -16,6 +16,8 @@ class ProfileSettingViewModel {
     let disposeBag = DisposeBag()
     
     // Subcomponent ViewModel
+    let settingPhotoButtonViewModel = ProfileSettingPhotoButtonViewModel()
+    
     let nameControlViewModel = SettingControlViewModel()
     let majorControlViewModel = SettingControlViewModel()
     let studentIDControlViewModel = SettingControlViewModel()

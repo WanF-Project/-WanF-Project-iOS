@@ -50,6 +50,8 @@ class ProfileSettingView: UIView {
     func bind(_ viewModel: ProfileSettingViewModel) {
         
         // Bind Subcomponents
+        settingPhotoButton.bind(viewModel.settingPhotoButtonViewModel)
+        
         nameContorol.bind(viewModel.nameControlViewModel)
         majorControl.bind(viewModel.majorControlViewModel)
         studentIdControl.bind(viewModel.studentIDControlViewModel)
