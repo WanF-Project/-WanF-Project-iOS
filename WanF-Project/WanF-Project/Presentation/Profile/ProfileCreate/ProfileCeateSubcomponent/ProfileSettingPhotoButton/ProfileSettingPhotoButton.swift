@@ -9,6 +9,18 @@ import UIKit
 
 class ProfileSettingPhotoButton: UIControl {
     
+    let preImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.backgroundColor = .wanfMint
+        return imageView
+    }()
+    
+    let backgroundView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.backgroundColor = .wanfDarkGray.withAlphaComponent(0.5)
+        return imageView
+    }()
+    
     let symbolImageView: UIImageView = {
         let imageView = UIImageView()
         
@@ -32,16 +44,35 @@ class ProfileSettingPhotoButton: UIControl {
         configure()
         layout()
     }
+    
+    //MARK: - Function
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.sendActions(for: .touchUpInside)
+    }
 }
 
 //MARK: - Configure
 private extension ProfileSettingPhotoButton {
     func configure() {
-        backgroundColor = .wanfDarkGray.withAlphaComponent(0.5)
-        self.addSubview(symbolImageView)
+        
+        [
+            preImageView,
+            backgroundView,
+            symbolImageView
+        ]
+            .forEach { self.addSubview($0) }
     }
     
     func layout() {
+        
+        preImageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        backgroundView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         symbolImageView.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
