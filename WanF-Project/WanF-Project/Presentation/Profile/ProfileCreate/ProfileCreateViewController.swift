@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 import SnapKit
 import RxSwift
@@ -16,6 +17,9 @@ class ProfileCreateViewController: UIViewController {
     //MARK: - Properties
     let disposeBag = DisposeBag()
     var viewModel: ProfileCreateViewModel?
+    
+    var selection: PHPickerResult?
+    var selecteAssetIdentifier: String?
     
     //MARK: - View
     let doneButton = wanfDoneButton()
@@ -54,13 +58,32 @@ class ProfileCreateViewController: UIViewController {
         // Present PhotoKit
         viewModel.presentPhotoPicker
             .drive(onNext: {
-                print("Present")
+                var configuration = PHPickerConfiguration(photoLibrary: .shared())
+                configuration.filter = .images
+                configuration.selectionLimit = 1
+                
+                let picker = PHPickerViewController(configuration: configuration)
+                picker.delegate = self
+                self.present(picker, animated: true)
             })
             .disposed(by: disposeBag)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    func displayProfileImage() {
+        guard let itemProvider = self.selection?.itemProvider else { return }
+        
+        if itemProvider.canLoadObject(ofClass: UIImage.self) {
+            itemProvider.loadObject(ofClass: UIImage.self) { item, error in
+                guard let image = item as? UIImage else { return }
+                DispatchQueue.main.async {
+                    self.viewModel?.profileSettingViewModel.settingPhotoButtonViewModel.shouldChangePreImage.accept(image)
+                }
+            }
+        }
     }
 }
 
@@ -195,5 +218,19 @@ private extension ProfileCreateViewController {
             bottomOffset = view.bounds.maxY - viewIntersection.minY
         }
         profileSettingView.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bottomOffset, right: 0)
+    }
+}
+
+extension ProfileCreateViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        guard let result = results.first,
+              let assetIdentifier = result.assetIdentifier else { return }
+        
+        selection = result
+        selecteAssetIdentifier = assetIdentifier
+        
+        displayProfileImage()
+        
+        dismiss(animated: true)
     }
 }
