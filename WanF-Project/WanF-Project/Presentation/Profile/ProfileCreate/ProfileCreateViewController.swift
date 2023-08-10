@@ -50,6 +50,13 @@ class ProfileCreateViewController: UIViewController {
         doneButton.rx.tap
             .bind(to: viewModel.doneButtonTapped)
             .disposed(by: disposeBag)
+        
+        // Present PhotoKit
+        viewModel.presentPhotoPicker
+            .drive(onNext: {
+                print("Present")
+            })
+            .disposed(by: disposeBag)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

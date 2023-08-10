@@ -17,6 +17,7 @@ class ProfileCreateViewModel {
     
     // ViewModel -> View
     let makeDoneButtonActive: Signal<ProfileRequestEntity>
+    let presentPhotoPicker: Driver<Void>
     
     // View -> ViewModel
     let doneButtonTapped = PublishRelay<Void>()
@@ -34,5 +35,8 @@ class ProfileCreateViewModel {
             .subscribe(onNext: {_ in
                 print("Did Tap DoneButton")
             })
+        
+        // Present Photo Picker
+        presentPhotoPicker = profileSettingViewModel.shouldPresentPhotoPicker
     }
 }

@@ -28,6 +28,10 @@ class ProfileSettingViewModel {
     
     // ViewModel -> Parent ViewModel
     let shouldMakeDoneButtonActive: Signal<ProfileRequestEntity>
+    let shouldPresentPhotoPicker: Driver<Void>
+    
+    // View -> ViewModel
+    let photoButtonTapped = PublishRelay<Void>()
     
     // ViewModel
     let personalities = PublishRelay<[String]>()
@@ -69,5 +73,9 @@ class ProfileSettingViewModel {
                 return ProfileRequestEntity(profileImage: "BEAR", nickname: $0, majorId: $1, entranceYear: $2, birth: $3, gender: $4, mbti: $5, personality: $6, purpose: $7, contact: "")
             }
             .asSignal(onErrorSignalWith: .empty())
+        
+        // Present Photo Picker
+        shouldPresentPhotoPicker = photoButtonTapped
+            .asDriver(onErrorDriveWith: .empty())
     }
 }
