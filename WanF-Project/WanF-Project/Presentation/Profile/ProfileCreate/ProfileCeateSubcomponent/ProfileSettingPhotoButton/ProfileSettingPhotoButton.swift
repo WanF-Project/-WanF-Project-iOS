@@ -7,8 +7,15 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
+
 class ProfileSettingPhotoButton: UIControl {
     
+    //MARK: - Properties
+    let disposeBag = DisposeBag()
+    
+    //MARK: - View
     let preImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .wanfMint
@@ -46,6 +53,14 @@ class ProfileSettingPhotoButton: UIControl {
     }
     
     //MARK: - Function
+    func bind(_ viewModel: ProfileSettingPhotoButtonViewModel) {
+        viewModel.preImage
+            .drive(onNext: {
+                self.preImageView.image = $0
+            })
+            .disposed(by: disposeBag)
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.sendActions(for: .touchUpInside)
     }
