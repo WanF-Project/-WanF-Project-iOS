@@ -63,7 +63,8 @@ private extension MainTabBarController {
         
         tabBar.tintColor = .wanfGray
         self.viewControllers = [
-            friendsMatchVC
+            friendsMatchVC,
+            clubListVC
         ]
     }
 }
