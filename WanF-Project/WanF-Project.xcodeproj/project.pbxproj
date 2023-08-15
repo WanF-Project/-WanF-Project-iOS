@@ -113,7 +113,7 @@
 		149F01622A13859600370FE1 /* DynamicSizeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149F01612A13859600370FE1 /* DynamicSizeTableView.swift */; };
 		14AC9B3529E2751C009C37A5 /* FriendsMatchTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */; };
 		14AC9B3729E27547009C37A5 /* ClassInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */; };
-		14AC9B3929E27569009C37A5 /* ClassGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3829E27569009C37A5 /* ClassGroupViewController.swift */; };
+		14AC9B3929E27569009C37A5 /* ClubListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3829E27569009C37A5 /* ClubListViewController.swift */; };
 		14BD19EA29FB986700B0E598 /* ProfileContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BD19E929FB986700B0E598 /* ProfileContentView.swift */; };
 		14BD19EE29FBB63B00B0E598 /* ProfileContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BD19ED29FBB63B00B0E598 /* ProfileContentViewModel.swift */; };
 		14BD19F229FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BD19F129FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift */; };
@@ -244,7 +244,7 @@
 		149F01612A13859600370FE1 /* DynamicSizeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSizeTableView.swift; sourceTree = "<group>"; };
 		14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabViewController.swift; sourceTree = "<group>"; };
 		14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInfoViewController.swift; sourceTree = "<group>"; };
-		14AC9B3829E27569009C37A5 /* ClassGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassGroupViewController.swift; sourceTree = "<group>"; };
+		14AC9B3829E27569009C37A5 /* ClubListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListViewController.swift; sourceTree = "<group>"; };
 		14BD19E929FB986700B0E598 /* ProfileContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentView.swift; sourceTree = "<group>"; };
 		14BD19ED29FBB63B00B0E598 /* ProfileContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentViewModel.swift; sourceTree = "<group>"; };
 		14BD19F129FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentKeywordListCell.swift; sourceTree = "<group>"; };
@@ -540,6 +540,14 @@
 			path = UserDefaultsManager;
 			sourceTree = "<group>";
 		};
+		146EA3402A8B4FC0005E010B /* Club */ = {
+			isa = PBXGroup;
+			children = (
+				14AC9B3829E27569009C37A5 /* ClubListViewController.swift */,
+			);
+			path = Club;
+			sourceTree = "<group>";
+		};
 		146F1E662A2311930095502F /* ProfileNetwork */ = {
 			isa = PBXGroup;
 			children = (
@@ -708,14 +716,6 @@
 			path = ClassInfo;
 			sourceTree = "<group>";
 		};
-		14AC9B3329E274EB009C37A5 /* ClassGroup */ = {
-			isa = PBXGroup;
-			children = (
-				14AC9B3829E27569009C37A5 /* ClassGroupViewController.swift */,
-			);
-			path = ClassGroup;
-			sourceTree = "<group>";
-		};
 		14D1FC522A7B75F600159E79 /* ProfileCreate */ = {
 			isa = PBXGroup;
 			children = (
@@ -763,10 +763,10 @@
 		14DD371429DB2B9300D6A715 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				146EA3402A8B4FC0005E010B /* Club */,
 				143AE33F2A73978800056647 /* CourseInfoList */,
 				14AC9B3129E274C0009C37A5 /* FriendsMatch */,
 				14AC9B3229E274E3009C37A5 /* ClassInfo */,
-				14AC9B3329E274EB009C37A5 /* ClassGroup */,
 				1429B0B129E56ED900891FF8 /* Profile */,
 				14DD371629DB2BD300D6A715 /* SignUp */,
 				14DD371529DB2BA800D6A715 /* SignInViewController */,
@@ -1040,7 +1040,7 @@
 				146A01772A78EF6E004E140E /* SlicePostPaginationResponseEntity.swift in Sources */,
 				14982C9129EEACD200D388BF /* FriendsMatchDetailModel.swift in Sources */,
 				1466FA1E2A0A412500910C30 /* AuthAPI.swift in Sources */,
-				14AC9B3929E27569009C37A5 /* ClassGroupViewController.swift in Sources */,
+				14AC9B3929E27569009C37A5 /* ClubListViewController.swift in Sources */,
 				140917112A7CED9C00B27131 /* ProfileSettingView.swift in Sources */,
 				14E4C9E429EA530F00E2CB62 /* CourseInfoListViewController.swift in Sources */,
 				14D7A90A29E936A3007850BE /* FriendsMatchWritingLectureInfoView.swift in Sources */,

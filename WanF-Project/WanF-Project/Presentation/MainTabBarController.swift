@@ -34,9 +34,9 @@ class MainTabBarController: UITabBarController {
         return viewController
     }()
     
-    private lazy var classGroupVC: UINavigationController = {
-        let viewController = UINavigationController(rootViewController: ClassGroupViewController())
-        let item = UITabBarItem(title: "수업 모임", image: UIImage(systemName: "rectangle.3.group.bubble.left.fill"), tag: 2)
+    private lazy var clubListVC: UINavigationController = {
+        let viewController = UINavigationController(rootViewController: ClubListViewController())
+        let item = UITabBarItem(title: "강의 모임", image: UIImage(systemName: "rectangle.3.group.bubble.left.fill"), tag: 2)
         
         viewController.tabBarItem = item
         
