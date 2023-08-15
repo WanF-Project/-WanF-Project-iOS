@@ -14,11 +14,13 @@ class ClubListViewController: UIViewController {
     
     private let profileBarButton = ProfileBarButtonItem()
     private let addBarButton = AddBarButtonItem()
+    private let clubListView = ClubListTableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configure()
+        layout()
     }
 }
 
@@ -40,5 +42,15 @@ private extension ClubListViewController {
         
         view.backgroundColor = .wanfBackground
         configureNavigationBar()
+        
+        view.addSubview(clubListView)
+    }
+    
+    func layout() {
+        clubListView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(5)
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.horizontalEdges.equalToSuperview()
+        }
     }
 }
