@@ -11,10 +11,34 @@ import RxSwift
 import RxCocoa
 
 class ClubListViewController: UIViewController {
-
+    
+    private let profileBarButton = ProfileBarButtonItem()
+    private let addBarButton = AddBarButtonItem()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configure()
+    }
+}
 
-        view.backgroundColor = .wanfDarkGray
+private extension ClubListViewController {
+    
+    func configureNavigationBar() {
+        
+        navigationItem.title = "나의 모임"
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor : UIColor.wanfLabel,
+            NSAttributedString.Key.font : UIFont.wanfFont(ofSize: 15, weight: .bold)
+        ]
+        navigationController?.navigationBar.tintColor = .wanfMint
+        navigationItem.leftBarButtonItem = profileBarButton
+        navigationItem.rightBarButtonItem = addBarButton
+    }
+    
+    func configure() {
+        
+        view.backgroundColor = .wanfBackground
+        configureNavigationBar()
     }
 }
