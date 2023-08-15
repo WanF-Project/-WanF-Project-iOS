@@ -78,6 +78,7 @@
 		146EA3422A8B522C005E010B /* ProfileBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146EA3412A8B522C005E010B /* ProfileBarButtonItem.swift */; };
 		146EA3442A8B52FE005E010B /* AddBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146EA3432A8B52FE005E010B /* AddBarButtonItem.swift */; };
 		146EA3492A8B55F0005E010B /* ClubListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146EA3482A8B55F0005E010B /* ClubListTableViewCell.swift */; };
+		146EA34D2A8B8E28005E010B /* ClubListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146EA34C2A8B8E28005E010B /* ClubListTableView.swift */; };
 		146F1E632A22FC810095502F /* ProfileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F1E622A22FC810095502F /* ProfileAPI.swift */; };
 		146F1E652A22FC8E0095502F /* ProfileNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F1E642A22FC8E0095502F /* ProfileNetwork.swift */; };
 		147823C82A7DF9F7003DC9CE /* CSKeyboardToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147823C72A7DF9F7003DC9CE /* CSKeyboardToolBar.swift */; };
@@ -212,6 +213,7 @@
 		146EA3412A8B522C005E010B /* ProfileBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBarButtonItem.swift; sourceTree = "<group>"; };
 		146EA3432A8B52FE005E010B /* AddBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBarButtonItem.swift; sourceTree = "<group>"; };
 		146EA3482A8B55F0005E010B /* ClubListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListTableViewCell.swift; sourceTree = "<group>"; };
+		146EA34C2A8B8E28005E010B /* ClubListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListTableView.swift; sourceTree = "<group>"; };
 		146F1E622A22FC810095502F /* ProfileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPI.swift; sourceTree = "<group>"; };
 		146F1E642A22FC8E0095502F /* ProfileNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNetwork.swift; sourceTree = "<group>"; };
 		147823C72A7DF9F7003DC9CE /* CSKeyboardToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSKeyboardToolBar.swift; sourceTree = "<group>"; };
@@ -559,6 +561,7 @@
 			isa = PBXGroup;
 			children = (
 				146EA3482A8B55F0005E010B /* ClubListTableViewCell.swift */,
+				146EA34C2A8B8E28005E010B /* ClubListTableView.swift */,
 			);
 			path = ClubListSubcomponents;
 			sourceTree = "<group>";
@@ -1063,6 +1066,7 @@
 				14AC9B3929E27569009C37A5 /* ClubListViewController.swift in Sources */,
 				140917112A7CED9C00B27131 /* ProfileSettingView.swift in Sources */,
 				14E4C9E429EA530F00E2CB62 /* CourseInfoListViewController.swift in Sources */,
+				146EA34D2A8B8E28005E010B /* ClubListTableView.swift in Sources */,
 				14D7A90A29E936A3007850BE /* FriendsMatchWritingLectureInfoView.swift in Sources */,
 				14D1FC572A7B7E2900159E79 /* ProfileSettingPhotoButton.swift in Sources */,
 				142DBEDF29DC4DCE00017603 /* MainTabBarController.swift in Sources */,
