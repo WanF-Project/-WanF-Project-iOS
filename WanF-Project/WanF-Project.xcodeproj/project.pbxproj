@@ -75,6 +75,8 @@
 		146A01752A78E76B004E140E /* PageableEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146A01742A78E76B004E140E /* PageableEntity.swift */; };
 		146A01772A78EF6E004E140E /* SlicePostPaginationResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146A01762A78EF6E004E140E /* SlicePostPaginationResponseEntity.swift */; };
 		146A01792A78FC88004E140E /* FriendsMatchSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146A01782A78FC88004E140E /* FriendsMatchSearchModel.swift */; };
+		146EA3422A8B522C005E010B /* ProfileBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146EA3412A8B522C005E010B /* ProfileBarButtonItem.swift */; };
+		146EA3442A8B52FE005E010B /* AddBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146EA3432A8B52FE005E010B /* AddBarButtonItem.swift */; };
 		146F1E632A22FC810095502F /* ProfileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F1E622A22FC810095502F /* ProfileAPI.swift */; };
 		146F1E652A22FC8E0095502F /* ProfileNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F1E642A22FC8E0095502F /* ProfileNetwork.swift */; };
 		147823C82A7DF9F7003DC9CE /* CSKeyboardToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147823C72A7DF9F7003DC9CE /* CSKeyboardToolBar.swift */; };
@@ -206,6 +208,8 @@
 		146A01742A78E76B004E140E /* PageableEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageableEntity.swift; sourceTree = "<group>"; };
 		146A01762A78EF6E004E140E /* SlicePostPaginationResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlicePostPaginationResponseEntity.swift; sourceTree = "<group>"; };
 		146A01782A78FC88004E140E /* FriendsMatchSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchSearchModel.swift; sourceTree = "<group>"; };
+		146EA3412A8B522C005E010B /* ProfileBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBarButtonItem.swift; sourceTree = "<group>"; };
+		146EA3432A8B52FE005E010B /* AddBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBarButtonItem.swift; sourceTree = "<group>"; };
 		146F1E622A22FC810095502F /* ProfileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPI.swift; sourceTree = "<group>"; };
 		146F1E642A22FC8E0095502F /* ProfileNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNetwork.swift; sourceTree = "<group>"; };
 		147823C72A7DF9F7003DC9CE /* CSKeyboardToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSKeyboardToolBar.swift; sourceTree = "<group>"; };
@@ -747,6 +751,8 @@
 				14D4C2DC29FD0407001ACBC6 /* DynamicHeightCollectionView.swift */,
 				149F01612A13859600370FE1 /* DynamicSizeTableView.swift */,
 				14D1FC502A7B733B00159E79 /* WanfTopButton.swift */,
+				146EA3412A8B522C005E010B /* ProfileBarButtonItem.swift */,
+				146EA3432A8B52FE005E010B /* AddBarButtonItem.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -971,6 +977,7 @@
 				1429B0BF29E5762A00891FF8 /* FriendsMatchDetailViewModel.swift in Sources */,
 				144D30C52A06076C00640CCD /* ProfileSingleSelectionListViewModel.swift in Sources */,
 				14982C7029EE603F00D388BF /* FriendsMatchDetailLectureInfoView.swift in Sources */,
+				146EA3442A8B52FE005E010B /* AddBarButtonItem.swift in Sources */,
 				14982C9529EEAD3600D388BF /* FriendsMatchDetailInfoViewModel.swift in Sources */,
 				1429B0A729E5163300891FF8 /* FriendsMatchTabViewModel.swift in Sources */,
 				1429B0A929E51CF400891FF8 /* FriendsMatchTabModel.swift in Sources */,
@@ -978,6 +985,7 @@
 				14793FA929D831230048D5DD /* ExUIColor.swift in Sources */,
 				147E9B552A178E690032E530 /* CourseNetwork.swift in Sources */,
 				141A783629D7F1E5006731F7 /* SignInViewController.swift in Sources */,
+				146EA3422A8B522C005E010B /* ProfileBarButtonItem.swift in Sources */,
 				1466FA202A0A428D00910C30 /* AuthNetwork.swift in Sources */,
 				14BD19F229FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift in Sources */,
 				142DBED229DC223A00017603 /* EmailTextFieldViewModel.swift in Sources */,

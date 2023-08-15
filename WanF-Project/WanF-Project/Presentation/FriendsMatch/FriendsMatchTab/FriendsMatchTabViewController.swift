@@ -17,13 +17,7 @@ class FriendsMatchTabViewController: UIViewController {
     let disposeBag = DisposeBag()
     
     //MARK: - View
-    private lazy var profileBarItem: UIBarButtonItem = {
-        let item = UIBarButtonItem()
-        
-        item.image = UIImage(systemName: "person.crop.circle.fill")
-        
-        return item
-    }()
+    private lazy var profileBarItem = ProfileBarButtonItem()
     
     private lazy var searchBarItem: UIBarButtonItem = {
         let item = UIBarButtonItem()
@@ -31,13 +25,7 @@ class FriendsMatchTabViewController: UIViewController {
         return item
     }()
     
-    private lazy var addBarItem: UIBarButtonItem = {
-        let item = UIBarButtonItem()
-        
-        item.image = UIImage(systemName: "plus")
-        
-        return item
-    }()
+    private lazy var addBarItem = AddBarButtonItem()
     
     lazy var friednsMatchTableView = FriendsMatchTableView()
     
