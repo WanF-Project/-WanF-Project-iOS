@@ -12,6 +12,10 @@ import RxCocoa
 
 class ClubListViewController: UIViewController {
     
+    //MARK: - Properties
+    let disposeBag = DisposeBag()
+    
+    //MARK: - View
     private let profileBarButton = ProfileBarButtonItem()
     private let addBarButton = AddBarButtonItem()
     private let clubListView = ClubListTableView()
@@ -26,6 +30,39 @@ class ClubListViewController: UIViewController {
     //MARK: - Function
     func bind(_ viewModel: ClubListViewModel) {
         
+        // View -> ViewModel
+        addBarButton.rx.tap
+            .bind(to: viewModel.addButtonTapped)
+            .disposed(by: disposeBag)
+        
+        // ViewModel -> View
+        viewModel.presentAddActionSheet
+            .drive(onNext: {
+                self.presentAddActionSheet()
+            })
+            .disposed(by: disposeBag)
+        
+    }
+    
+    func presentAddActionSheet() {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        actionSheet.view.tintColor = .wanfNavy
+        let createAction = UIAlertAction(title: "모임 생성", style: .default) { _ in
+            print("Create")
+        }
+        let joinAction = UIAlertAction(title: "모임 입장", style: .default) { _ in
+            print("Join")
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+        
+        [
+            createAction,
+            joinAction,
+            cancelAction
+        ]
+            .forEach {  actionSheet.addAction($0) }
+        
+        self.present(actionSheet, animated: true)
     }
 }
 

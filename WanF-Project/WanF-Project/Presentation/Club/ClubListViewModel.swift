@@ -11,4 +11,15 @@ import RxSwift
 import RxCocoa
 
 struct ClubListViewModel {
+    
+    // View -> ViewModel
+    let addButtonTapped = PublishRelay<Void>()
+    
+    // ViewModel -> View
+    let presentAddActionSheet: Driver<Void>
+    
+    init() {
+        presentAddActionSheet = addButtonTapped
+            .asDriver(onErrorDriveWith: .empty())
+    }
 }
