@@ -22,6 +22,11 @@ class ClubListViewController: UIViewController {
         configure()
         layout()
     }
+    
+    //MARK: - Function
+    func bind(_ viewModel: ClubListViewModel) {
+        
+    }
 }
 
 private extension ClubListViewController {
