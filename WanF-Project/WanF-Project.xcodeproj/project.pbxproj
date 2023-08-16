@@ -531,6 +531,16 @@
 			path = MajorNetwork;
 			sourceTree = "<group>";
 		};
+		1463ADE42A8CAB53002845B8 /* ClubList */ = {
+			isa = PBXGroup;
+			children = (
+				146EA3452A8B5593005E010B /* ClubListSubcomponents */,
+				14AC9B3829E27569009C37A5 /* ClubListViewController.swift */,
+				1463ADE02A8C9182002845B8 /* ClubListViewModel.swift */,
+			);
+			path = ClubList;
+			sourceTree = "<group>";
+		};
 		1466FA1C2A0A100400910C30 /* SignUpNetwork */ = {
 			isa = PBXGroup;
 			children = (
@@ -553,9 +563,7 @@
 		146EA3402A8B4FC0005E010B /* Club */ = {
 			isa = PBXGroup;
 			children = (
-				146EA3452A8B5593005E010B /* ClubListSubcomponents */,
-				14AC9B3829E27569009C37A5 /* ClubListViewController.swift */,
-				1463ADE02A8C9182002845B8 /* ClubListViewModel.swift */,
+				1463ADE42A8CAB53002845B8 /* ClubList */,
 			);
 			path = Club;
 			sourceTree = "<group>";
