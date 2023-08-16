@@ -38,17 +38,24 @@ class ClubListViewController: UIViewController {
         // ViewModel -> View
         viewModel.presentAddActionSheet
             .drive(onNext: {
-                self.presentAddActionSheet()
+                self.presentAddActionSheet(viewModel)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.presentCreateAlert
+            .drive(onNext: {
+                self.presentCreateAlert()
             })
             .disposed(by: disposeBag)
         
     }
     
-    func presentAddActionSheet() {
+    func presentAddActionSheet(_ viewModel: ClubListViewModel) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         actionSheet.view.tintColor = .wanfNavy
+        
         let createAction = UIAlertAction(title: "모임 생성", style: .default) { _ in
-            print("Create")
+            viewModel.createActionTapped.accept(Void())
         }
         let joinAction = UIAlertAction(title: "모임 입장", style: .default) { _ in
             print("Join")
@@ -63,6 +70,34 @@ class ClubListViewController: UIViewController {
             .forEach {  actionSheet.addAction($0) }
         
         self.present(actionSheet, animated: true)
+    }
+    
+    func presentCreateAlert() {
+        let alert = UIAlertController(title: "모임 생성", message: nil, preferredStyle: .alert)
+        
+        alert.addTextField() { $0.placeholder = "모임명" }
+        alert.addTextField() {
+            $0.placeholder = "모임 최대 인원수"
+            $0.keyboardType = .numberPad
+        }
+        alert.addTextField() {
+            $0.placeholder = "모임 입장 비밀번호"
+            $0.keyboardType = .numberPad
+        }
+        
+        
+        let doneAction = UIAlertAction(title: "완료", style: .default) {_ in
+            print("Done")
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+        
+        [
+            doneAction,
+            cancelAction
+        ]
+            .forEach {  alert.addAction($0) }
+        
+        self.present(alert, animated: true)
     }
 }
 

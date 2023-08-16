@@ -14,12 +14,17 @@ struct ClubListViewModel {
     
     // View -> ViewModel
     let addButtonTapped = PublishRelay<Void>()
+    let createActionTapped = PublishRelay<Void>()
     
     // ViewModel -> View
     let presentAddActionSheet: Driver<Void>
+    let presentCreateAlert: Driver<Void>
     
     init() {
         presentAddActionSheet = addButtonTapped
+            .asDriver(onErrorDriveWith: .empty())
+        
+        presentCreateAlert = createActionTapped
             .asDriver(onErrorDriveWith: .empty())
     }
 }
