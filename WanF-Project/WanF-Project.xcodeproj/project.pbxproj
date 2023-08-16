@@ -67,6 +67,7 @@
 		14567E9C29DFE824000B75EE /* EmailStackViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14567E9B29DFE824000B75EE /* EmailStackViewCellModel.swift */; };
 		14567E9E29E00740000B75EE /* VerifiedStackViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14567E9D29E00740000B75EE /* VerifiedStackViewCellViewModel.swift */; };
 		14567EA029E00AF6000B75EE /* SignUpIDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14567E9F29E00AF6000B75EE /* SignUpIDModel.swift */; };
+		1463ADE12A8C9182002845B8 /* ClubListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1463ADE02A8C9182002845B8 /* ClubListViewModel.swift */; };
 		1466FA1E2A0A412500910C30 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466FA1D2A0A412500910C30 /* AuthAPI.swift */; };
 		1466FA202A0A428D00910C30 /* AuthNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466FA1F2A0A428D00910C30 /* AuthNetwork.swift */; };
 		1466FA222A0A482B00910C30 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466FA212A0A482B00910C30 /* UserDefaultsManager.swift */; };
@@ -202,6 +203,7 @@
 		14567E9B29DFE824000B75EE /* EmailStackViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailStackViewCellModel.swift; sourceTree = "<group>"; };
 		14567E9D29E00740000B75EE /* VerifiedStackViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiedStackViewCellViewModel.swift; sourceTree = "<group>"; };
 		14567E9F29E00AF6000B75EE /* SignUpIDModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpIDModel.swift; sourceTree = "<group>"; };
+		1463ADE02A8C9182002845B8 /* ClubListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListViewModel.swift; sourceTree = "<group>"; };
 		1466FA1D2A0A412500910C30 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		1466FA1F2A0A428D00910C30 /* AuthNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetwork.swift; sourceTree = "<group>"; };
 		1466FA212A0A482B00910C30 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
@@ -529,6 +531,16 @@
 			path = MajorNetwork;
 			sourceTree = "<group>";
 		};
+		1463ADE42A8CAB53002845B8 /* ClubList */ = {
+			isa = PBXGroup;
+			children = (
+				146EA3452A8B5593005E010B /* ClubListSubcomponents */,
+				14AC9B3829E27569009C37A5 /* ClubListViewController.swift */,
+				1463ADE02A8C9182002845B8 /* ClubListViewModel.swift */,
+			);
+			path = ClubList;
+			sourceTree = "<group>";
+		};
 		1466FA1C2A0A100400910C30 /* SignUpNetwork */ = {
 			isa = PBXGroup;
 			children = (
@@ -551,8 +563,7 @@
 		146EA3402A8B4FC0005E010B /* Club */ = {
 			isa = PBXGroup;
 			children = (
-				146EA3452A8B5593005E010B /* ClubListSubcomponents */,
-				14AC9B3829E27569009C37A5 /* ClubListViewController.swift */,
+				1463ADE42A8CAB53002845B8 /* ClubList */,
 			);
 			path = Club;
 			sourceTree = "<group>";
@@ -972,6 +983,7 @@
 				140917152A7CF18C00B27131 /* ProfileKeywordSettingView.swift in Sources */,
 				14D4C2DD29FD0407001ACBC6 /* DynamicHeightCollectionView.swift in Sources */,
 				14567E9C29DFE824000B75EE /* EmailStackViewCellModel.swift in Sources */,
+				1463ADE12A8C9182002845B8 /* ClubListViewModel.swift in Sources */,
 				143AE34C2A73B80700056647 /* CSSearchBarViewModel.swift in Sources */,
 				147E9B532A178E520032E530 /* CourseAPI.swift in Sources */,
 				14E4C9EB29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift in Sources */,
