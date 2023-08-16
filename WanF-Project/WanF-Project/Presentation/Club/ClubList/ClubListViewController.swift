@@ -44,13 +44,13 @@ class ClubListViewController: UIViewController {
         
         viewModel.presentCreateAlert
             .drive(onNext: {
-                self.presentCreateAlert()
+                self.presentCreateAlert(viewModel)
             })
             .disposed(by: disposeBag)
         
         viewModel.presentJoinAlert
             .drive(onNext: {
-                self.presentJoinAlert()
+                self.presentJoinAlert(viewModel)
             })
             .disposed(by: disposeBag)
         
@@ -77,7 +77,7 @@ class ClubListViewController: UIViewController {
         self.present(actionSheet, animated: true)
     }
     
-    func presentCreateAlert() {
+    func presentCreateAlert(_ viewModel: ClubListViewModel) {
         let alert = UIAlertController(title: "모임 생성", message: nil, preferredStyle: .alert)
         
         alert.addTextField() { $0.placeholder = "모임명" }
@@ -91,7 +91,7 @@ class ClubListViewController: UIViewController {
         }
         
         let doneAction = UIAlertAction(title: "완료", style: .default) {_ in
-            print("Done")
+            viewModel.createClubTapped.accept(Void())
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
         
@@ -104,7 +104,7 @@ class ClubListViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
-    func presentJoinAlert() {
+    func presentJoinAlert(_ viewModel: ClubListViewModel) {
         let alert = UIAlertController(title: "모임 입장", message: nil, preferredStyle: .alert)
         
         alert.addTextField() { $0.placeholder = "ID" }
@@ -114,7 +114,7 @@ class ClubListViewController: UIViewController {
         }
         
         let doneAction = UIAlertAction(title: "완료", style: .default) {_ in
-            print("Done")
+            viewModel.joinClubTapped.accept(Void())
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
         
