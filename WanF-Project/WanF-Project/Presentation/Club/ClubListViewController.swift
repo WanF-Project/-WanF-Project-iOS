@@ -58,7 +58,6 @@ class ClubListViewController: UIViewController {
     
     func presentAddActionSheet(_ viewModel: ClubListViewModel) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        actionSheet.view.tintColor = .wanfNavy
         
         let createAction = UIAlertAction(title: "모임 생성", style: .default) { _ in
             viewModel.createActionTapped.accept(Void())
