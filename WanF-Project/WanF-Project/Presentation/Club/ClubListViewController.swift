@@ -48,6 +48,12 @@ class ClubListViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        viewModel.presentJoinAlert
+            .drive(onNext: {
+                self.presentJoinAlert()
+            })
+            .disposed(by: disposeBag)
+        
     }
     
     func presentAddActionSheet(_ viewModel: ClubListViewModel) {
@@ -58,7 +64,7 @@ class ClubListViewController: UIViewController {
             viewModel.createActionTapped.accept(Void())
         }
         let joinAction = UIAlertAction(title: "모임 입장", style: .default) { _ in
-            print("Join")
+            viewModel.joinActionTapped.accept(Void())
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
         
@@ -85,6 +91,28 @@ class ClubListViewController: UIViewController {
             $0.keyboardType = .numberPad
         }
         
+        let doneAction = UIAlertAction(title: "완료", style: .default) {_ in
+            print("Done")
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+        
+        [
+            doneAction,
+            cancelAction
+        ]
+            .forEach {  alert.addAction($0) }
+        
+        self.present(alert, animated: true)
+    }
+    
+    func presentJoinAlert() {
+        let alert = UIAlertController(title: "모임 입장", message: nil, preferredStyle: .alert)
+        
+        alert.addTextField() { $0.placeholder = "ID" }
+        alert.addTextField() {
+            $0.placeholder = "비밀번호"
+            $0.keyboardType = .numberPad
+        }
         
         let doneAction = UIAlertAction(title: "완료", style: .default) {_ in
             print("Done")
