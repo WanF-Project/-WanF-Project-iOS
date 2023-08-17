@@ -24,4 +24,14 @@ class ClubAPI: WanfAPI {
         
         return components
     }
+    
+    /// 모임 비밀번호 조회
+    func getClubPassword(_ clubID: Int) -> URLComponents {
+        var components = URLComponents()
+        components.scheme = super.scheme
+        components.host = super.host
+        components.path = self.path + "/\(clubID)/password"
+        
+        return components
+    }
 }
