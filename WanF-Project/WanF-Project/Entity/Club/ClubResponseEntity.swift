@@ -8,7 +8,7 @@
 import Foundation
 
 /// 모임 요청에 대한 응답
-struct ClubResponseEntity {
+struct ClubResponseEntity: Decodable {
     let id: Int
     let name: String
 }
