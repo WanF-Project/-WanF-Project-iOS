@@ -28,13 +28,13 @@ class ClubListTableView: UITableView {
         super.init(frame: .zero, style: .plain)
         
         configure()
+    }
+    
+    func bind(_ viewModel: ClubListTableViewModel) {
         
-        // 임시 데이터
-        let cellData = Observable.just(["모임 1", " 모임 2", "모임 3"]).asDriver(onErrorDriveWith: .empty())
-        
-        cellData
+        viewModel.cellData
             .drive(self.rx.items(cellIdentifier: "ClubListTableViewCell", cellType: ClubListTableViewCell.self)){ row, element, cell  in
-                cell.configureCell(title: element)
+                cell.configureCell(title: element.name)
                 cell.selectionStyle = .none
             }
             .disposed(by: disposeBag)
