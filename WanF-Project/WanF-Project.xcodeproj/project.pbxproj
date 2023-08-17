@@ -142,7 +142,7 @@
 		14E4C9E429EA530F00E2CB62 /* CourseInfoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4C9E329EA530F00E2CB62 /* CourseInfoListViewController.swift */; };
 		14E4C9E929EA564400E2CB62 /* CourseInfoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4C9E829EA564400E2CB62 /* CourseInfoListViewModel.swift */; };
 		14E4C9EB29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4C9EA29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift */; };
-		14F52BC22A8DEED800A09F92 /* ClubResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BC12A8DEED800A09F92 /* ClubResponse.swift */; };
+		14F52BC22A8DEED800A09F92 /* ClubResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BC12A8DEED800A09F92 /* ClubResponseEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -279,7 +279,7 @@
 		14E4C9E329EA530F00E2CB62 /* CourseInfoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoListViewController.swift; sourceTree = "<group>"; };
 		14E4C9E829EA564400E2CB62 /* CourseInfoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoListViewModel.swift; sourceTree = "<group>"; };
 		14E4C9EA29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingTopBarViewModel.swift; sourceTree = "<group>"; };
-		14F52BC12A8DEED800A09F92 /* ClubResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubResponse.swift; sourceTree = "<group>"; };
+		14F52BC12A8DEED800A09F92 /* ClubResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubResponseEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -896,7 +896,7 @@
 		14F52BC02A8DEEC800A09F92 /* Club */ = {
 			isa = PBXGroup;
 			children = (
-				14F52BC12A8DEED800A09F92 /* ClubResponse.swift */,
+				14F52BC12A8DEED800A09F92 /* ClubResponseEntity.swift */,
 			);
 			path = Club;
 			sourceTree = "<group>";
@@ -1008,7 +1008,7 @@
 				147E1C2C2A2C841E00B42E4D /* ProfilePreviewViewController.swift in Sources */,
 				143662002A0F7F0500308028 /* FriendsMatchNetwork.swift in Sources */,
 				144D30D92A068CE000640CCD /* SignUpNetwork.swift in Sources */,
-				14F52BC22A8DEED800A09F92 /* ClubResponse.swift in Sources */,
+				14F52BC22A8DEED800A09F92 /* ClubResponseEntity.swift in Sources */,
 				14567E9E29E00740000B75EE /* VerifiedStackViewCellViewModel.swift in Sources */,
 				14066BB329E166B100AFB2D2 /* SignUpPasswordModel.swift in Sources */,
 				142DBEDA29DC2EEB00017603 /* SignInViewModel.swift in Sources */,
