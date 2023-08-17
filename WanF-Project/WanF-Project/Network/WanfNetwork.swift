@@ -15,6 +15,12 @@ enum WanfError: Error {
     case apiKeyError
 }
 
+enum WanfHttpMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case delete = "DELETE"
+}
+
 class WanfNetwork {
     let session: URLSession
     
