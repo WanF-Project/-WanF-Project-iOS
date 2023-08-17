@@ -142,6 +142,11 @@
 		14E4C9E429EA530F00E2CB62 /* CourseInfoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4C9E329EA530F00E2CB62 /* CourseInfoListViewController.swift */; };
 		14E4C9E929EA564400E2CB62 /* CourseInfoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4C9E829EA564400E2CB62 /* CourseInfoListViewModel.swift */; };
 		14E4C9EB29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4C9EA29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift */; };
+		14F52BC22A8DEED800A09F92 /* ClubResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BC12A8DEED800A09F92 /* ClubResponseEntity.swift */; };
+		14F52BC52A8DEFA900A09F92 /* ClubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BC42A8DEFA900A09F92 /* ClubAPI.swift */; };
+		14F52BC72A8DF32300A09F92 /* ClubNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BC62A8DF32300A09F92 /* ClubNetwork.swift */; };
+		14F52BC92A8DF8A500A09F92 /* ClubListTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BC82A8DF8A500A09F92 /* ClubListTableViewModel.swift */; };
+		14F52BCB2A8DFA9E00A09F92 /* ClubListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BCA2A8DFA9E00A09F92 /* ClubListModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -278,6 +283,11 @@
 		14E4C9E329EA530F00E2CB62 /* CourseInfoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoListViewController.swift; sourceTree = "<group>"; };
 		14E4C9E829EA564400E2CB62 /* CourseInfoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoListViewModel.swift; sourceTree = "<group>"; };
 		14E4C9EA29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingTopBarViewModel.swift; sourceTree = "<group>"; };
+		14F52BC12A8DEED800A09F92 /* ClubResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubResponseEntity.swift; sourceTree = "<group>"; };
+		14F52BC42A8DEFA900A09F92 /* ClubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAPI.swift; sourceTree = "<group>"; };
+		14F52BC62A8DF32300A09F92 /* ClubNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubNetwork.swift; sourceTree = "<group>"; };
+		14F52BC82A8DF8A500A09F92 /* ClubListTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListTableViewModel.swift; sourceTree = "<group>"; };
+		14F52BCA2A8DFA9E00A09F92 /* ClubListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -340,6 +350,7 @@
 		1429B0A129E5118D00891FF8 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				14F52BC02A8DEEC800A09F92 /* Club */,
 				143AE3452A739FEF00056647 /* Post */,
 				143AE3462A739FFB00056647 /* Comment */,
 				143AE3442A739FD000056647 /* Profile */,
@@ -499,6 +510,7 @@
 		144D30CB2A06257D00640CCD /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				14F52BC32A8DEF6F00A09F92 /* ClubNetwork */,
 				1455D2632A25B8A70090257B /* MajorNetwork */,
 				146F1E662A2311930095502F /* ProfileNetwork */,
 				140B502B2A1C834D00C09F4F /* FriendsMatchNetwork */,
@@ -537,6 +549,7 @@
 				146EA3452A8B5593005E010B /* ClubListSubcomponents */,
 				14AC9B3829E27569009C37A5 /* ClubListViewController.swift */,
 				1463ADE02A8C9182002845B8 /* ClubListViewModel.swift */,
+				14F52BCA2A8DFA9E00A09F92 /* ClubListModel.swift */,
 			);
 			path = ClubList;
 			sourceTree = "<group>";
@@ -573,6 +586,7 @@
 			children = (
 				146EA3482A8B55F0005E010B /* ClubListTableViewCell.swift */,
 				146EA34C2A8B8E28005E010B /* ClubListTableView.swift */,
+				14F52BC82A8DF8A500A09F92 /* ClubListTableViewModel.swift */,
 			);
 			path = ClubListSubcomponents;
 			sourceTree = "<group>";
@@ -890,6 +904,23 @@
 			path = FriendsMatchWritingTopBar;
 			sourceTree = "<group>";
 		};
+		14F52BC02A8DEEC800A09F92 /* Club */ = {
+			isa = PBXGroup;
+			children = (
+				14F52BC12A8DEED800A09F92 /* ClubResponseEntity.swift */,
+			);
+			path = Club;
+			sourceTree = "<group>";
+		};
+		14F52BC32A8DEF6F00A09F92 /* ClubNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				14F52BC42A8DEFA900A09F92 /* ClubAPI.swift */,
+				14F52BC62A8DF32300A09F92 /* ClubNetwork.swift */,
+			);
+			path = ClubNetwork;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -997,6 +1028,7 @@
 				147E1C2C2A2C841E00B42E4D /* ProfilePreviewViewController.swift in Sources */,
 				143662002A0F7F0500308028 /* FriendsMatchNetwork.swift in Sources */,
 				144D30D92A068CE000640CCD /* SignUpNetwork.swift in Sources */,
+				14F52BC22A8DEED800A09F92 /* ClubResponseEntity.swift in Sources */,
 				14567E9E29E00740000B75EE /* VerifiedStackViewCellViewModel.swift in Sources */,
 				14066BB329E166B100AFB2D2 /* SignUpPasswordModel.swift in Sources */,
 				142DBEDA29DC2EEB00017603 /* SignInViewModel.swift in Sources */,
@@ -1019,12 +1051,14 @@
 				147E1C2E2A2C860B00B42E4D /* ProfilePreviewViewModel.swift in Sources */,
 				146A01732A78D152004E140E /* FriendsMatchTableView.swift in Sources */,
 				14E4C9E929EA564400E2CB62 /* CourseInfoListViewModel.swift in Sources */,
+				14F52BC92A8DF8A500A09F92 /* ClubListTableViewModel.swift in Sources */,
 				14982C9729EEAD5800D388BF /* FriendsMatchDetailLectureInfoViewModel.swift in Sources */,
 				14066BAF29E1431300AFB2D2 /* PasswordTextFieldCellViewModel.swift in Sources */,
 				149F01622A13859600370FE1 /* DynamicSizeTableView.swift in Sources */,
 				1455D2602A25B8940090257B /* MajorNetwork.swift in Sources */,
 				14AC9B3529E2751C009C37A5 /* FriendsMatchTabViewController.swift in Sources */,
 				142DBED729DC2D2C00017603 /* PasswordTextFieldViewModel.swift in Sources */,
+				14F52BC72A8DF32300A09F92 /* ClubNetwork.swift in Sources */,
 				142DBED529DC2B0200017603 /* PasswordTextField.swift in Sources */,
 				142DBEE129DC4FC300017603 /* MainTabBarViewModel.swift in Sources */,
 				1429B0BD29E5760400891FF8 /* FriendsMatchDetailViewController.swift in Sources */,
@@ -1045,6 +1079,7 @@
 				14DD372429DB318900D6A715 /* SignUpPasswordViewModel.swift in Sources */,
 				145457CC2A00DA760014D52F /* ProfileKeywordListModel.swift in Sources */,
 				1449E1F82A135687008C70DB /* FriendsMatchCommentListViewModel.swift in Sources */,
+				14F52BCB2A8DFA9E00A09F92 /* ClubListModel.swift in Sources */,
 				14982C7329EE657200D388BF /* FriendsMatchDetailTextView.swift in Sources */,
 				14066BB129E1455F00AFB2D2 /* PasswordToCheckTextFieldCellViewModel.swift in Sources */,
 				140917132A7CEECB00B27131 /* ProfileCreateViewController.swift in Sources */,
@@ -1068,6 +1103,7 @@
 				14DEF35F2A7648440082BA27 /* FriendsMatchSearchViewController.swift in Sources */,
 				14DEF3612A7648830082BA27 /* FriendsMatchSearchViewModel.swift in Sources */,
 				14840E4929FE5C8C007BFB1A /* ProfileKeywordListViewController.swift in Sources */,
+				14F52BC52A8DEFA900A09F92 /* ClubAPI.swift in Sources */,
 				14D7A90329E92F9B007850BE /* FriendsMatchWritingTopBarView.swift in Sources */,
 				146EA3492A8B55F0005E010B /* ClubListTableViewCell.swift in Sources */,
 				1409171F2A7D0B5800B27131 /* ProfileCreateViewModel.swift in Sources */,
