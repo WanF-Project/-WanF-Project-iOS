@@ -146,6 +146,7 @@
 		14F52BC52A8DEFA900A09F92 /* ClubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BC42A8DEFA900A09F92 /* ClubAPI.swift */; };
 		14F52BC72A8DF32300A09F92 /* ClubNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BC62A8DF32300A09F92 /* ClubNetwork.swift */; };
 		14F52BC92A8DF8A500A09F92 /* ClubListTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BC82A8DF8A500A09F92 /* ClubListTableViewModel.swift */; };
+		14F52BCB2A8DFA9E00A09F92 /* ClubListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BCA2A8DFA9E00A09F92 /* ClubListModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -286,6 +287,7 @@
 		14F52BC42A8DEFA900A09F92 /* ClubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAPI.swift; sourceTree = "<group>"; };
 		14F52BC62A8DF32300A09F92 /* ClubNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubNetwork.swift; sourceTree = "<group>"; };
 		14F52BC82A8DF8A500A09F92 /* ClubListTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListTableViewModel.swift; sourceTree = "<group>"; };
+		14F52BCA2A8DFA9E00A09F92 /* ClubListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -547,6 +549,7 @@
 				146EA3452A8B5593005E010B /* ClubListSubcomponents */,
 				14AC9B3829E27569009C37A5 /* ClubListViewController.swift */,
 				1463ADE02A8C9182002845B8 /* ClubListViewModel.swift */,
+				14F52BCA2A8DFA9E00A09F92 /* ClubListModel.swift */,
 			);
 			path = ClubList;
 			sourceTree = "<group>";
@@ -1076,6 +1079,7 @@
 				14DD372429DB318900D6A715 /* SignUpPasswordViewModel.swift in Sources */,
 				145457CC2A00DA760014D52F /* ProfileKeywordListModel.swift in Sources */,
 				1449E1F82A135687008C70DB /* FriendsMatchCommentListViewModel.swift in Sources */,
+				14F52BCB2A8DFA9E00A09F92 /* ClubListModel.swift in Sources */,
 				14982C7329EE657200D388BF /* FriendsMatchDetailTextView.swift in Sources */,
 				14066BB129E1455F00AFB2D2 /* PasswordToCheckTextFieldCellViewModel.swift in Sources */,
 				140917132A7CEECB00B27131 /* ProfileCreateViewController.swift in Sources */,
