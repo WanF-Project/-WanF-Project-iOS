@@ -147,6 +147,7 @@
 		14F52BC72A8DF32300A09F92 /* ClubNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BC62A8DF32300A09F92 /* ClubNetwork.swift */; };
 		14F52BC92A8DF8A500A09F92 /* ClubListTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BC82A8DF8A500A09F92 /* ClubListTableViewModel.swift */; };
 		14F52BCB2A8DFA9E00A09F92 /* ClubListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BCA2A8DFA9E00A09F92 /* ClubListModel.swift */; };
+		14F52BCD2A8E093E00A09F92 /* ClubPwdRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BCC2A8E093E00A09F92 /* ClubPwdRequestEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -288,6 +289,7 @@
 		14F52BC62A8DF32300A09F92 /* ClubNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubNetwork.swift; sourceTree = "<group>"; };
 		14F52BC82A8DF8A500A09F92 /* ClubListTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListTableViewModel.swift; sourceTree = "<group>"; };
 		14F52BCA2A8DFA9E00A09F92 /* ClubListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListModel.swift; sourceTree = "<group>"; };
+		14F52BCC2A8E093E00A09F92 /* ClubPwdRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubPwdRequestEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -908,6 +910,7 @@
 			isa = PBXGroup;
 			children = (
 				14F52BC12A8DEED800A09F92 /* ClubResponseEntity.swift */,
+				14F52BCC2A8E093E00A09F92 /* ClubPwdRequestEntity.swift */,
 			);
 			path = Club;
 			sourceTree = "<group>";
@@ -1020,6 +1023,7 @@
 				14E4C9EB29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift in Sources */,
 				147922ED29DADBCF0052CBA8 /* SignUpIDViewController.swift in Sources */,
 				146A01752A78E76B004E140E /* PageableEntity.swift in Sources */,
+				14F52BCD2A8E093E00A09F92 /* ClubPwdRequestEntity.swift in Sources */,
 				142DBED029DC1DCB00017603 /* EmailTextField.swift in Sources */,
 				147823C82A7DF9F7003DC9CE /* CSKeyboardToolBar.swift in Sources */,
 				14982C6E29EE580500D388BF /* FriendsMatchDetailInfoView.swift in Sources */,
