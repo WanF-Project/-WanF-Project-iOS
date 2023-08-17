@@ -12,7 +12,14 @@ import RxCocoa
 
 struct ClubListViewModel {
     
+    // Properties
+    let disposeBag = DisposeBag()
+    
+    // Subcomponent ViewModel
+    let clubListTableViewModel = ClubListTableViewModel()
+    
     // View -> ViewModel
+    let loadAllClubs = PublishRelay<Void>()
     let addButtonTapped = PublishRelay<Void>()
     let createActionTapped = PublishRelay<Void>()
     let joinActionTapped = PublishRelay<Void>()
@@ -26,7 +33,24 @@ struct ClubListViewModel {
     let createClub: Single<Void>
     let joinClub: Single<Void>
     
-    init() {
+    init(_ model: ClubListModel = ClubListModel()) {
+        
+        // Load All Clubs
+        let loadResult = loadAllClubs
+            .flatMap(model.getAllClubs)
+            .share()
+        
+        let loadValue = loadResult
+            .compactMap(model.getAllClubsValue)
+        
+        let loadError = loadResult
+            .compactMap(model.getAllClubsError)
+        
+        // Bind ClubListTableView
+        loadValue
+            .bind(to: clubListTableViewModel.shoulLoadClubs)
+            .disposed(by: disposeBag)
+        
         presentAddActionSheet = addButtonTapped
             .asDriver(onErrorDriveWith: .empty())
         

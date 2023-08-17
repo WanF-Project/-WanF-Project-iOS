@@ -30,7 +30,12 @@ class ClubListViewController: UIViewController {
     //MARK: - Function
     func bind(_ viewModel: ClubListViewModel) {
         
+        // Bind Subcomponent ViewModel
+        clubListView.bind(viewModel.clubListTableViewModel)
+        
         // View -> ViewModel
+        viewModel.loadAllClubs.accept(Void())
+        
         addBarButton.rx.tap
             .bind(to: viewModel.addButtonTapped)
             .disposed(by: disposeBag)
