@@ -8,6 +8,6 @@
 import Foundation
 
 struct ClubPwdRequestEntity: Codable {
-    let id: Int
+    let clubId: Int
     let password: String
 }
