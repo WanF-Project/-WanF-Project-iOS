@@ -33,4 +33,25 @@ struct ClubListModel {
         }
         return Void()
     }
+    
+    /// 모임 비밀번호 조회
+    func getClubPassword(_ clubID: Int) -> Single<Result<ClubPwdRequestEntity, WanfError>> {
+        return network.getClubPassword(clubID)
+    }
+    
+    /// 모임 비밀번호 조회 - 성공
+    func getClubPasswordValue(_ result: Result<ClubPwdRequestEntity, WanfError>) -> ClubPwdRequestEntity? {
+        guard case .success(let value) = result else {
+            return nil
+        }
+        return value
+    }
+    
+    /// 모임 비밀번호 조회 - 실패
+    func getClubPasswordError(_ result: Result<ClubPwdRequestEntity, WanfError>) -> Void? {
+        guard case .failure(let error) = result else {
+            return nil
+        }
+        return Void()
+    }
 }

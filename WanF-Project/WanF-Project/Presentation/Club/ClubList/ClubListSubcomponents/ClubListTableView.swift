@@ -36,6 +36,10 @@ class ClubListTableView: UITableView {
             .drive(self.rx.items(cellIdentifier: "ClubListTableViewCell", cellType: ClubListTableViewCell.self)){ row, element, cell  in
                 cell.configureCell(title: element.name)
                 cell.selectionStyle = .none
+                cell.shareButton.rx.tap
+                    .withLatestFrom(Observable.just(element))
+                    .bind(to: viewModel.shareButtonTapped)
+                    .disposed(by: self.disposeBag)
             }
             .disposed(by: disposeBag)
     }

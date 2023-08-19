@@ -50,4 +50,38 @@ class ClubNetwork: WanfNetwork {
             }
             .asSingle()
     }
+    
+    /// 모임 비밀번호 조회
+    func getClubPassword(_ clubID: Int) -> Single<Result<ClubPwdRequestEntity, WanfError>> {
+        guard let url = api.getClubPassword(clubID).url else {
+            return .just(.failure(.invalidURL))
+        }
+        
+        let request = UserDefaultsManager.accessTokenCheckedObservable
+            .compactMap { $0 }
+            .map { accessToken in
+                var request = URLRequest(url: url)
+                request.httpMethod = WanfHttpMethod.get.rawValue
+                request.setValue(accessToken, forHTTPHeaderField: "Authorization")
+                return request
+            }
+        
+        return request
+            .flatMap { request in
+                super.session.rx.data(request: request)
+            }
+            .map { data in
+                do {
+                    let decoded = try JSONDecoder().decode(ClubPwdRequestEntity.self, from: data)
+                    return .success(decoded)
+                }
+                catch {
+                    return .failure(.invalidJSON)
+                }
+            }
+            .catch { error in
+                return .just(.failure(.networkError))
+            }
+            .asSingle()
+    }
 }
