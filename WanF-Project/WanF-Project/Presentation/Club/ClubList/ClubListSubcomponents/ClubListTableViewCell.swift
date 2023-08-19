@@ -32,7 +32,7 @@ class ClubListTableViewCell: UITableViewCell {
         return label
     }()
     
-    private lazy var shareButton: UIButton = {
+    lazy var shareButton: UIButton = {
         let button = UIButton()
         
         button.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)

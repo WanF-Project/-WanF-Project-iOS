@@ -32,6 +32,7 @@ struct ClubListViewModel {
     let presentJoinAlert: Driver<Void>
     let createClub: Single<Void>
     let joinClub: Single<Void>
+    let presentShareActivity: Driver<ClubShareInfoEntity>
     
     init(_ model: ClubListModel = ClubListModel()) {
         
@@ -66,5 +67,34 @@ struct ClubListViewModel {
         
         joinClub = joinClubTapped
             .asSingle()
+        
+        // Get Club Password
+        let clubInfo = clubListTableViewModel.shareButtonTapped
+            .share()
+        
+        let pwdResult = clubInfo
+            .map { $0.id }
+            .flatMap(model.getClubPassword)
+            .share()
+        
+        let pwdValue = pwdResult
+            .compactMap(model.getClubPasswordValue)
+        
+        let pwdError = pwdResult
+            .compactMap(model.getClubPasswordError)
+        
+         // Create ClubShareInfo
+        let clubShareInfo = Observable
+            .combineLatest(clubInfo, pwdValue){
+                (name: $0.name, ID: $1.clubId, password: $1.password)
+            }
+            .map {
+                ClubShareInfoEntity(clubName: $0.name, clubID: $0.ID.description, clubPassword: $0.password)
+            }
+
+        
+        // Present ShareActivity
+        presentShareActivity = clubShareInfo
+            .asDriver(onErrorDriveWith: .empty())
     }
 }

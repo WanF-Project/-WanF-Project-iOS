@@ -59,6 +59,11 @@ class ClubListViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        viewModel.presentShareActivity
+            .drive(onNext: { info in
+            })
+            .disposed(by: disposeBag)
+        
     }
     
     func presentAddActionSheet(_ viewModel: ClubListViewModel) {
