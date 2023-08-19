@@ -148,6 +148,7 @@
 		14F52BC92A8DF8A500A09F92 /* ClubListTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BC82A8DF8A500A09F92 /* ClubListTableViewModel.swift */; };
 		14F52BCB2A8DFA9E00A09F92 /* ClubListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BCA2A8DFA9E00A09F92 /* ClubListModel.swift */; };
 		14F52BCD2A8E093E00A09F92 /* ClubPwdRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BCC2A8E093E00A09F92 /* ClubPwdRequestEntity.swift */; };
+		14F52BCF2A8E1E7E00A09F92 /* ClubShareInfoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BCE2A8E1E7E00A09F92 /* ClubShareInfoEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -290,6 +291,7 @@
 		14F52BC82A8DF8A500A09F92 /* ClubListTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListTableViewModel.swift; sourceTree = "<group>"; };
 		14F52BCA2A8DFA9E00A09F92 /* ClubListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListModel.swift; sourceTree = "<group>"; };
 		14F52BCC2A8E093E00A09F92 /* ClubPwdRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubPwdRequestEntity.swift; sourceTree = "<group>"; };
+		14F52BCE2A8E1E7E00A09F92 /* ClubShareInfoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubShareInfoEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -911,6 +913,7 @@
 			children = (
 				14F52BC12A8DEED800A09F92 /* ClubResponseEntity.swift */,
 				14F52BCC2A8E093E00A09F92 /* ClubPwdRequestEntity.swift */,
+				14F52BCE2A8E1E7E00A09F92 /* ClubShareInfoEntity.swift */,
 			);
 			path = Club;
 			sourceTree = "<group>";
@@ -1072,6 +1075,7 @@
 				14D4C2E329FD49B2001ACBC6 /* ProfileResponseEntity.swift in Sources */,
 				1484C75D2A1E1BD500014FD4 /* ExDateFormatter.swift in Sources */,
 				147E9B5A2A17942D0032E530 /* CourseInfoListModel.swift in Sources */,
+				14F52BCF2A8E1E7E00A09F92 /* ClubShareInfoEntity.swift in Sources */,
 				147E9B582A1792F30032E530 /* CourseEntity.swift in Sources */,
 				142DBEDC29DC3D1100017603 /* SignInModel.swift in Sources */,
 				14DD371129DB0EE700D6A715 /* SignUpIDViewModel.swift in Sources */,
