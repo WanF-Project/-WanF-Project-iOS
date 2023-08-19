@@ -61,6 +61,10 @@ class ClubListViewController: UIViewController {
         
         viewModel.presentShareActivity
             .drive(onNext: { info in
+                let title = "\(info.clubName) \n아이디: \(info.clubID) \n비밀번호: \(info.clubPassword)"
+                let activityItems = [WanfShareActivityItemSource(title)]
+                let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+                self.present(activityVC, animated: true)
             })
             .disposed(by: disposeBag)
         
