@@ -17,6 +17,7 @@
 		140917172A7CF66200B27131 /* ProfileKeywordSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140917162A7CF66200B27131 /* ProfileKeywordSettingViewModel.swift */; };
 		1409171D2A7D0B4000B27131 /* ProfileSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409171C2A7D0B4000B27131 /* ProfileSettingViewModel.swift */; };
 		1409171F2A7D0B5800B27131 /* ProfileCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409171E2A7D0B5800B27131 /* ProfileCreateViewModel.swift */; };
+		141044CC2A907C2500C51BD7 /* WanfShareAcitivityItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141044CB2A907C2500C51BD7 /* WanfShareAcitivityItemSource.swift */; };
 		141A781829D7ED46006731F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A781729D7ED46006731F7 /* AppDelegate.swift */; };
 		141A781A29D7ED46006731F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A781929D7ED46006731F7 /* SceneDelegate.swift */; };
 		141A782129D7ED46006731F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 141A782029D7ED46006731F7 /* Assets.xcassets */; };
@@ -162,6 +163,7 @@
 		140917162A7CF66200B27131 /* ProfileKeywordSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileKeywordSettingViewModel.swift; sourceTree = "<group>"; };
 		1409171C2A7D0B4000B27131 /* ProfileSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewModel.swift; sourceTree = "<group>"; };
 		1409171E2A7D0B5800B27131 /* ProfileCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreateViewModel.swift; sourceTree = "<group>"; };
+		141044CB2A907C2500C51BD7 /* WanfShareAcitivityItemSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WanfShareAcitivityItemSource.swift; sourceTree = "<group>"; };
 		141A781429D7ED46006731F7 /* WanF-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WanF-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		141A781729D7ED46006731F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		141A781929D7ED46006731F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -796,6 +798,7 @@
 				14D1FC502A7B733B00159E79 /* WanfTopButton.swift */,
 				146EA3412A8B522C005E010B /* ProfileBarButtonItem.swift */,
 				146EA3432A8B52FE005E010B /* AddBarButtonItem.swift */,
+				141044CB2A907C2500C51BD7 /* WanfShareAcitivityItemSource.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -1016,6 +1019,7 @@
 			files = (
 				14793FBC29D837480048D5DD /* ExUIFont.swift in Sources */,
 				14567E9A29DFDD43000B75EE /* EmailStackViewCellViewModel.swift in Sources */,
+				141044CC2A907C2500C51BD7 /* WanfShareAcitivityItemSource.swift in Sources */,
 				14BD19EE29FBB63B00B0E598 /* ProfileContentViewModel.swift in Sources */,
 				140917152A7CF18C00B27131 /* ProfileKeywordSettingView.swift in Sources */,
 				14D4C2DD29FD0407001ACBC6 /* DynamicHeightCollectionView.swift in Sources */,
