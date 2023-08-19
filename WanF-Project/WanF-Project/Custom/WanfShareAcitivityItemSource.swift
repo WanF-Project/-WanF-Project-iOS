@@ -12,9 +12,29 @@ import LinkPresentation
 class WanfShareActivityItemSource: NSObject, UIActivityItemSource {
     
     private let title: String
+    private var metadata = LPLinkMetadata()
     
     init(_ title: String) {
         self.title = title
+        super.init()
+        
+        configureLinkMetadata()
+    }
+    
+    func configureLinkMetadata() {
+        guard let url = Bundle.main.url(forResource: "WanF", withExtension: "plist"),
+              let dictionary = NSDictionary(contentsOf: url),
+              let value = dictionary["ShareURL"] as? String,
+              let url = URL(string: value)
+        else { return }
+        
+        metadata.originalURL = url
+        metadata.url = metadata.originalURL
+        metadata.title = self.title
+        
+        let representationImage = NSItemProvider(object: UIImage(named: "AppIcon") ?? UIImage())
+        metadata.imageProvider = representationImage
+        metadata.iconProvider = representationImage
     }
     
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
@@ -22,19 +42,10 @@ class WanfShareActivityItemSource: NSObject, UIActivityItemSource {
     }
     
     func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
-        return title
+        return metadata.url
     }
     
     func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
-        let metadata = LPLinkMetadata()
-        metadata.originalURL = URL(string: "https://github.com/WanF-Project/WanF-Project-iOS")
-        metadata.url = metadata.originalURL
-        metadata.title = self.title
-        
-        let representationImage = NSItemProvider(object: UIImage(named: "AppIcon") ?? UIImage())
-        metadata.imageProvider = representationImage
-        metadata.iconProvider = representationImage
-        
         return metadata
     }
 }

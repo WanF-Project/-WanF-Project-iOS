@@ -61,8 +61,11 @@ class ClubListViewController: UIViewController {
         
         viewModel.presentShareActivity
             .drive(onNext: { info in
-                let title = "\(info.clubName) \n아이디: \(info.clubID) \n비밀번호: \(info.clubPassword)"
-                let activityItems = [WanfShareActivityItemSource(title)]
+                let title = "\(info.clubName)"
+                let content = "모임 ID: \(info.clubID) \n비밀번호: \(info.clubPassword)"
+                let image = UIImage(named: "AppIcon") ?? UIImage()
+                
+                let activityItems = [WanfShareActivityItemSource(title), content, image]
                 let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
                 self.present(activityVC, animated: true)
             })
