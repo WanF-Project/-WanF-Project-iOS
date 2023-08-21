@@ -76,9 +76,12 @@ class SignUpPasswordViewController: UIViewController {
             })
             .disposed(by: disposebag)
         
-        viewModel.popToRootViewController
+        viewModel.presentProfileCreate
             .drive(onNext: { _ in
-                self.navigationController?.popToRootViewController(animated: true)
+                let profileCreateVC = ProfileCreateViewController()
+                profileCreateVC.bind(ProfileCreateViewModel())
+                profileCreateVC.modalPresentationStyle = .fullScreen
+                self.present(profileCreateVC, animated: true)
             })
             .disposed(by: disposebag)
         
