@@ -61,9 +61,15 @@ struct ProfileResponseEntity: Decodable {
     }
 }
 
-struct MajorEntity: Codable {
+
+struct MajorEntity: Nameable, Codable {
     let id: Int
-    let name: String?
+    let name: String
+}
+
+struct MbtiEntity: Nameable, Codable {
+    let id: Int
+    let name: String
 }
 
 typealias KeywordEntity = Dictionary<String, String>

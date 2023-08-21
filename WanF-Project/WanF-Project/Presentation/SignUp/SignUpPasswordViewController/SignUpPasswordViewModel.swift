@@ -25,7 +25,7 @@ struct SignUpPasswordViewModel {
     let enableDoneButton: Driver<Bool>
     
     let popToSignUpID: Driver<Void>
-    let popToRootViewController: Driver<Void>
+    let presentProfileCreate: Driver<Void>
     let presentAlertForSignUpError: Signal<AlertInfo>
     
     init(email: String, _ model: SignUpPasswordModel = SignUpPasswordModel()) {
@@ -84,7 +84,7 @@ struct SignUpPasswordViewModel {
             .compactMap(model.getSignUpError)
         
         // 회원 가입 성공
-        popToRootViewController = signUpValue
+        presentProfileCreate = signUpValue
             .asDriver(onErrorDriveWith: .empty())
         
         // 회원 가입 실패

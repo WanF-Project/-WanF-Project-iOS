@@ -11,7 +11,7 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-class ProfileSingleSelectionListViewController: UIViewController {
+class ProfileSingleSelectionListViewController<T: Nameable>: UIViewController {
     
     //MARK: - Properties
     let disposeBag = DisposeBag()
@@ -36,7 +36,7 @@ class ProfileSingleSelectionListViewController: UIViewController {
     }
     
     //MARK: - Function
-    func bind(_ viewModel: ProfileSingleSelectionListViewModel) {
+    func bind(_ viewModel: ProfileSingleSelectionListViewModel<T>) {
         
         // 아이템 목록 구성
         bindTableView(viewModel)
@@ -54,7 +54,7 @@ class ProfileSingleSelectionListViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    func bindTableView(_ viewModel: ProfileSingleSelectionListViewModel) {
+    func bindTableView(_ viewModel: ProfileSingleSelectionListViewModel<T>) {
         viewModel.cellData
             .drive(singleSelectionTableView.rx.items) { tv, row, element in
 
@@ -68,7 +68,7 @@ class ProfileSingleSelectionListViewController: UIViewController {
                     attributedKey.font : UIFont.wanfFont(ofSize: 15, weight: .regular),
                     attributedKey.foregroundColor : UIColor.wanfLabel
                 ]
-                let attributedTitle = NSAttributedString(string: element.name ?? "", attributes: attributes)
+                let attributedTitle = NSAttributedString(string: element.name, attributes: attributes)
 
                 configuration.attributedText = attributedTitle
 

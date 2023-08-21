@@ -45,6 +45,7 @@
 		142DBEDC29DC3D1100017603 /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DBEDB29DC3D1100017603 /* SignInModel.swift */; };
 		142DBEDF29DC4DCE00017603 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DBEDE29DC4DCE00017603 /* MainTabBarController.swift */; };
 		142DBEE129DC4FC300017603 /* MainTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DBEE029DC4FC300017603 /* MainTabBarViewModel.swift */; };
+		1434E6262A7FA7AE0089BA3D /* SettingControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1434E6252A7FA7AE0089BA3D /* SettingControlViewModel.swift */; };
 		143661FE2A0F7D7300308028 /* FriendsMatchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143661FD2A0F7D7300308028 /* FriendsMatchAPI.swift */; };
 		143662002A0F7F0500308028 /* FriendsMatchNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143661FF2A0F7F0500308028 /* FriendsMatchNetwork.swift */; };
 		143AE33E2A738F8A00056647 /* CSSearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143AE33D2A738F8A00056647 /* CSSearchBarView.swift */; };
@@ -94,6 +95,8 @@
 		14793FC129D84ABA0048D5DD /* NanumSquareNeo-bRg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14793FAF29D836610048D5DD /* NanumSquareNeo-bRg.ttf */; };
 		14793FC229D84ABD0048D5DD /* NanumSquareNeo-cBd.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14793FAD29D836610048D5DD /* NanumSquareNeo-cBd.ttf */; };
 		14793FC329D84AC00048D5DD /* NanumSquareNeo-dEb.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14793FB029D836610048D5DD /* NanumSquareNeo-dEb.ttf */; };
+		14797C312A84BDD50006C706 /* ExReactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14797C302A84BDD50006C706 /* ExReactive.swift */; };
+		14797C332A84EAF50006C706 /* ProfileSettingPhotoButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14797C322A84EAF50006C706 /* ProfileSettingPhotoButtonViewModel.swift */; };
 		147E1C2C2A2C841E00B42E4D /* ProfilePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E1C2B2A2C841E00B42E4D /* ProfilePreviewViewController.swift */; };
 		147E1C2E2A2C860B00B42E4D /* ProfilePreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E1C2D2A2C860B00B42E4D /* ProfilePreviewViewModel.swift */; };
 		147E9B512A1784AA0032E530 /* UserDefaultsAuthorizationChecked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E9B502A1784AA0032E530 /* UserDefaultsAuthorizationChecked.swift */; };
@@ -143,6 +146,7 @@
 		14E4C9E429EA530F00E2CB62 /* CourseInfoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4C9E329EA530F00E2CB62 /* CourseInfoListViewController.swift */; };
 		14E4C9E929EA564400E2CB62 /* CourseInfoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4C9E829EA564400E2CB62 /* CourseInfoListViewModel.swift */; };
 		14E4C9EB29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4C9EA29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift */; };
+		14F5E8D82A821AB100A2228B /* Nameable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F5E8D72A821AB100A2228B /* Nameable.swift */; };
 		14F52BC22A8DEED800A09F92 /* ClubResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BC12A8DEED800A09F92 /* ClubResponseEntity.swift */; };
 		14F52BC52A8DEFA900A09F92 /* ClubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BC42A8DEFA900A09F92 /* ClubAPI.swift */; };
 		14F52BC72A8DF32300A09F92 /* ClubNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BC62A8DF32300A09F92 /* ClubNetwork.swift */; };
@@ -189,6 +193,7 @@
 		142DBEDB29DC3D1100017603 /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
 		142DBEDE29DC4DCE00017603 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		142DBEE029DC4FC300017603 /* MainTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewModel.swift; sourceTree = "<group>"; };
+		1434E6252A7FA7AE0089BA3D /* SettingControlViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingControlViewModel.swift; sourceTree = "<group>"; };
 		143661FD2A0F7D7300308028 /* FriendsMatchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchAPI.swift; sourceTree = "<group>"; };
 		143661FF2A0F7F0500308028 /* FriendsMatchNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchNetwork.swift; sourceTree = "<group>"; };
 		143AE33D2A738F8A00056647 /* CSSearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSearchBarView.swift; sourceTree = "<group>"; };
@@ -238,6 +243,8 @@
 		14793FB929D837090048D5DD /* NanumSquareNeo-eHv.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NanumSquareNeo-eHv.ttf"; sourceTree = "<group>"; };
 		14793FBB29D837480048D5DD /* ExUIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIFont.swift; sourceTree = "<group>"; };
 		14793FBD29D83DA60048D5DD /* ExUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIView.swift; sourceTree = "<group>"; };
+		14797C302A84BDD50006C706 /* ExReactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExReactive.swift; sourceTree = "<group>"; };
+		14797C322A84EAF50006C706 /* ProfileSettingPhotoButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingPhotoButtonViewModel.swift; sourceTree = "<group>"; };
 		147E1C2B2A2C841E00B42E4D /* ProfilePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePreviewViewController.swift; sourceTree = "<group>"; };
 		147E1C2D2A2C860B00B42E4D /* ProfilePreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePreviewViewModel.swift; sourceTree = "<group>"; };
 		147E9B502A1784AA0032E530 /* UserDefaultsAuthorizationChecked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsAuthorizationChecked.swift; sourceTree = "<group>"; };
@@ -287,6 +294,7 @@
 		14E4C9E329EA530F00E2CB62 /* CourseInfoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoListViewController.swift; sourceTree = "<group>"; };
 		14E4C9E829EA564400E2CB62 /* CourseInfoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoListViewModel.swift; sourceTree = "<group>"; };
 		14E4C9EA29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingTopBarViewModel.swift; sourceTree = "<group>"; };
+		14F5E8D72A821AB100A2228B /* Nameable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nameable.swift; sourceTree = "<group>"; };
 		14F52BC12A8DEED800A09F92 /* ClubResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubResponseEntity.swift; sourceTree = "<group>"; };
 		14F52BC42A8DEFA900A09F92 /* ClubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAPI.swift; sourceTree = "<group>"; };
 		14F52BC62A8DF32300A09F92 /* ClubNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubNetwork.swift; sourceTree = "<group>"; };
@@ -339,6 +347,7 @@
 		141A781629D7ED46006731F7 /* WanF-Project */ = {
 			isa = PBXGroup;
 			children = (
+				14F5E8D62A821A9700A2228B /* Protocol */,
 				144D30CB2A06257D00640CCD /* Network */,
 				1429B0A129E5118D00891FF8 /* Entity */,
 				14DD371429DB2B9300D6A715 /* Presentation */,
@@ -494,6 +503,42 @@
 			path = SCSearchBar;
 			sourceTree = "<group>";
 		};
+		14473D5A2A7E3F6C00A0E23B /* ProfileSettingPhotoButton */ = {
+			isa = PBXGroup;
+			children = (
+				14D1FC562A7B7E2900159E79 /* ProfileSettingPhotoButton.swift */,
+				14797C322A84EAF50006C706 /* ProfileSettingPhotoButtonViewModel.swift */,
+			);
+			path = ProfileSettingPhotoButton;
+			sourceTree = "<group>";
+		};
+		14473D5B2A7E3F7D00A0E23B /* SettingControlView */ = {
+			isa = PBXGroup;
+			children = (
+				1409170E2A7CECDD00B27131 /* SettingControlView.swift */,
+				1434E6252A7FA7AE0089BA3D /* SettingControlViewModel.swift */,
+			);
+			path = SettingControlView;
+			sourceTree = "<group>";
+		};
+		14473D5C2A7E3F8A00A0E23B /* ProfileSettingView */ = {
+			isa = PBXGroup;
+			children = (
+				140917102A7CED9C00B27131 /* ProfileSettingView.swift */,
+				1409171C2A7D0B4000B27131 /* ProfileSettingViewModel.swift */,
+			);
+			path = ProfileSettingView;
+			sourceTree = "<group>";
+		};
+		14473D5D2A7E3F9700A0E23B /* ProfileKeywordSettingView */ = {
+			isa = PBXGroup;
+			children = (
+				140917142A7CF18C00B27131 /* ProfileKeywordSettingView.swift */,
+				140917162A7CF66200B27131 /* ProfileKeywordSettingViewModel.swift */,
+			);
+			path = ProfileKeywordSettingView;
+			sourceTree = "<group>";
+		};
 		1449E1F22A135262008C70DB /* FriendsMatchComment */ = {
 			isa = PBXGroup;
 			children = (
@@ -609,12 +654,10 @@
 		147823C92A7E00E0003DC9CE /* ProfileCeateSubcomponent */ = {
 			isa = PBXGroup;
 			children = (
-				14D1FC562A7B7E2900159E79 /* ProfileSettingPhotoButton.swift */,
-				1409170E2A7CECDD00B27131 /* SettingControlView.swift */,
-				140917102A7CED9C00B27131 /* ProfileSettingView.swift */,
-				140917142A7CF18C00B27131 /* ProfileKeywordSettingView.swift */,
-				140917162A7CF66200B27131 /* ProfileKeywordSettingViewModel.swift */,
-				1409171C2A7D0B4000B27131 /* ProfileSettingViewModel.swift */,
+				14473D5C2A7E3F8A00A0E23B /* ProfileSettingView */,
+				14473D5D2A7E3F9700A0E23B /* ProfileKeywordSettingView */,
+				14473D5B2A7E3F7D00A0E23B /* SettingControlView */,
+				14473D5A2A7E3F6C00A0E23B /* ProfileSettingPhotoButton */,
 			);
 			path = ProfileCeateSubcomponent;
 			sourceTree = "<group>";
@@ -626,6 +669,7 @@
 				14793FBB29D837480048D5DD /* ExUIFont.swift */,
 				14793FBD29D83DA60048D5DD /* ExUIView.swift */,
 				1484C75C2A1E1BD500014FD4 /* ExDateFormatter.swift */,
+				14797C302A84BDD50006C706 /* ExReactive.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -911,6 +955,14 @@
 			path = FriendsMatchWritingTopBar;
 			sourceTree = "<group>";
 		};
+		14F5E8D62A821A9700A2228B /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				14F5E8D72A821AB100A2228B /* Nameable.swift */,
+			);
+			path = Protocol;
+                        sourceTree = "<group>";
+                };
 		14F52BC02A8DEEC800A09F92 /* Club */ = {
 			isa = PBXGroup;
 			children = (
@@ -1028,6 +1080,7 @@
 				143AE34C2A73B80700056647 /* CSSearchBarViewModel.swift in Sources */,
 				147E9B532A178E520032E530 /* CourseAPI.swift in Sources */,
 				14E4C9EB29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift in Sources */,
+				14797C332A84EAF50006C706 /* ProfileSettingPhotoButtonViewModel.swift in Sources */,
 				147922ED29DADBCF0052CBA8 /* SignUpIDViewController.swift in Sources */,
 				146A01752A78E76B004E140E /* PageableEntity.swift in Sources */,
 				14F52BCD2A8E093E00A09F92 /* ClubPwdRequestEntity.swift in Sources */,
@@ -1039,6 +1092,7 @@
 				147E1C2C2A2C841E00B42E4D /* ProfilePreviewViewController.swift in Sources */,
 				143662002A0F7F0500308028 /* FriendsMatchNetwork.swift in Sources */,
 				144D30D92A068CE000640CCD /* SignUpNetwork.swift in Sources */,
+				14797C312A84BDD50006C706 /* ExReactive.swift in Sources */,
 				14F52BC22A8DEED800A09F92 /* ClubResponseEntity.swift in Sources */,
 				14567E9E29E00740000B75EE /* VerifiedStackViewCellViewModel.swift in Sources */,
 				14066BB329E166B100AFB2D2 /* SignUpPasswordModel.swift in Sources */,
@@ -1125,6 +1179,7 @@
 				1466FA1E2A0A412500910C30 /* AuthAPI.swift in Sources */,
 				14AC9B3929E27569009C37A5 /* ClubListViewController.swift in Sources */,
 				140917112A7CED9C00B27131 /* ProfileSettingView.swift in Sources */,
+				14F5E8D82A821AB100A2228B /* Nameable.swift in Sources */,
 				14E4C9E429EA530F00E2CB62 /* CourseInfoListViewController.swift in Sources */,
 				146EA34D2A8B8E28005E010B /* ClubListTableView.swift in Sources */,
 				14D7A90A29E936A3007850BE /* FriendsMatchWritingLectureInfoView.swift in Sources */,
@@ -1146,6 +1201,7 @@
 				14DD371E29DB2CBB00D6A715 /* SignUpPasswordViewController.swift in Sources */,
 				140917172A7CF66200B27131 /* ProfileKeywordSettingViewModel.swift in Sources */,
 				14D1FC512A7B733B00159E79 /* WanfTopButton.swift in Sources */,
+				1434E6262A7FA7AE0089BA3D /* SettingControlViewModel.swift in Sources */,
 				14962D982A399CFF0049625C /* CommentRequestEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

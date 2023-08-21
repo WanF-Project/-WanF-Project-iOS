@@ -7,7 +7,14 @@
 
 import UIKit
 
+import SnapKit
+import RxSwift
+import RxCocoa
+
 class ProfileSettingView: UIView {
+    
+    //MARK: - Properties
+    let disposeBag = DisposeBag()
     
     //MARK: - View
     let scrollView = UIScrollView()
@@ -15,11 +22,6 @@ class ProfileSettingView: UIView {
     let profilePersonalityView = ProfileKeywordSettingView(title: "성격")
     let profileGoalView = ProfileKeywordSettingView(title: "목표")
     
-    let preImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.backgroundColor = .wanfMint
-        return imageView
-    }()
     let settingPhotoButton = ProfileSettingPhotoButton()
     
     let nameContorol = SettingControlView(title: "별명", placeholder: "원프", type: .text)
@@ -46,8 +48,24 @@ class ProfileSettingView: UIView {
     }
     
     func bind(_ viewModel: ProfileSettingViewModel) {
-        profilePersonalityView.bind(viewModel.profileKeywordSettingViewModel)
-        profileGoalView.bind(viewModel.profileKeywordSettingViewModel)
+        
+        // Bind Subcomponents
+        settingPhotoButton.bind(viewModel.settingPhotoButtonViewModel)
+        
+        nameContorol.bind(viewModel.nameControlViewModel)
+        majorControl.bind(viewModel.majorControlViewModel)
+        studentIdControl.bind(viewModel.studentIDControlViewModel)
+        ageControl.bind(viewModel.ageControlViewModel)
+        genderControl.bind(viewModel.genderControlViewModel)
+        mbtiControl.bind(viewModel.mbtiControlViewModel)
+        
+        profilePersonalityView.bind(viewModel.personalitySettingViewModel)
+        profileGoalView.bind(viewModel.goalSettingViewModel)
+        
+        // View -> ViewModel
+        settingPhotoButton.rx.tap
+            .bind(to: viewModel.photoButtonTapped)
+            .disposed(by: disposeBag)
     }
 }
 
@@ -70,10 +88,8 @@ private extension ProfileSettingView {
         ]
             .forEach { profileInfoStack.addArrangedSubview($0) }
         
-        preImageView.addSubview(settingPhotoButton)
-        
         [
-            preImageView,
+            settingPhotoButton,
             profileInfoStack,
             profilePersonalityView,
             profileGoalView
@@ -90,19 +106,15 @@ private extension ProfileSettingView {
             make.top.horizontalEdges.bottom.equalToSuperview()
         }
         
-        preImageView.snp.makeConstraints { make in
+        settingPhotoButton.snp.makeConstraints { make in
             make.width.equalTo(150)
             make.height.equalTo(300)
             make.top.equalToSuperview().inset(15)
             make.leading.equalToSuperview().inset(30)
         }
         
-        settingPhotoButton.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        
         profileInfoStack.snp.makeConstraints { make in
-            make.top.equalTo(preImageView.snp.bottom).offset(30)
+            make.top.equalTo(settingPhotoButton.snp.bottom).offset(30)
             make.horizontalEdges.equalToSuperview().inset(30)
             make.width.equalToSuperview().inset(30)
         }

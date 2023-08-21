@@ -10,6 +10,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+typealias KeywordDictionary = (keys: [String], values: [String])
+
 struct ProfileKeywordListViewModel {
     
     // View -> ViewModel
@@ -20,7 +22,10 @@ struct ProfileKeywordListViewModel {
     let cellData: Driver<KeywordEntity>
     let dismissAfterDoneButtonTapped: Driver<Void>
     
-    init(_ model: ProfileKeywordListModel = ProfileKeywordListModel(), profile: ProfileResponseEntity?, type: ProfileKeywordType) {
+    // ViewModel -> Parent ViewModel
+    let selectedData: Observable<KeywordDictionary>
+    
+    init(_ model: ProfileKeywordListModel = ProfileKeywordListModel(), type: ProfileKeywordType) {
 
         // 키워드 목록 서버 연결
         let keywordResult = model.getProfileKeywordList(type)
@@ -39,32 +44,25 @@ struct ProfileKeywordListViewModel {
         
         // 선택 된 아이템 정리
         let keywordsSelected = keywordIndexList
-            .withLatestFrom(cellData) { indexList, keywords in
-                guard let keys = (keywords as NSDictionary).allKeys as? [String] else { return [String()] }
-                var keywordsSelected: [String] = []
-                
-                for index in indexList {
-                    keywordsSelected.append(keys[index.row])
+            .withLatestFrom(cellData) { (indexList: $0, keywordDict: $1) }
+            .map {
+                let keys = ($0.keywordDict as NSDictionary).allKeys as? [String] ?? []
+                let values = ($0.keywordDict as NSDictionary).allValues as? [String] ?? []
+                var selectedKeys: [String] = []
+                var selectedValues: [String] = []
+
+                for index in $0.indexList {
+                    selectedKeys.append(keys[index.row])
+                    selectedValues.append(values[index.row])
                 }
-                return keywordsSelected
+                return (keys: selectedKeys, values: selectedValues)
             }
         
-        // 완료 버튼 Tap 시 서버 전달
-        let saveResult = doneButtonTapped
+        selectedData = doneButtonTapped
             .withLatestFrom(keywordsSelected)
-            .flatMap { keywords in
-                model.saveProfileKeywordList(keywords, profile: profile!, type: type)
-            }
-            .share()
         
-        let saveValue = saveResult
-            .compactMap(model.getPatchProfileValue)
-        
-        let saveError = saveResult
-            .compactMap(model.getPatchProfileError)
-        
-        // 서버 전달 성공 시 Dismiss
-        dismissAfterDoneButtonTapped = saveValue
+        // Dismiss
+        dismissAfterDoneButtonTapped = selectedData
             .map{ _ in }
             .asDriver(onErrorDriveWith: .empty())
     }
