@@ -34,13 +34,16 @@ class MainTabBarController: UITabBarController {
         return viewController
     }()
     
-    private lazy var classGroupVC: UINavigationController = {
-        let viewController = UINavigationController(rootViewController: ClassGroupViewController())
-        let item = UITabBarItem(title: "수업 모임", image: UIImage(systemName: "rectangle.3.group.bubble.left.fill"), tag: 2)
+    private lazy var clubListVC: UINavigationController = {
+        let viewController = ClubListViewController()
+        let viewModel = ClubListViewModel()
+        viewController.bind(viewModel)
+        
+        let item = UITabBarItem(title: "강의 모임", image: UIImage(systemName: "rectangle.3.group.bubble.left.fill"), tag: 2)
         
         viewController.tabBarItem = item
         
-        return viewController
+        return UINavigationController(rootViewController: viewController)
     }()
     
     //MARK: - LifeCycle
@@ -63,7 +66,8 @@ private extension MainTabBarController {
         
         tabBar.tintColor = .wanfGray
         self.viewControllers = [
-            friendsMatchVC
+            friendsMatchVC,
+            clubListVC
         ]
     }
 }
