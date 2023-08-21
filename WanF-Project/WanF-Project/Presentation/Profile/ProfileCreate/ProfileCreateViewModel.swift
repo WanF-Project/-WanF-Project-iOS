@@ -18,6 +18,7 @@ class ProfileCreateViewModel {
     // ViewModel -> View
     let makeDoneButtonActive: Signal<ProfileRequestEntity>
     let presentPhotoPicker: Driver<Void>
+    let popToSignIn: Driver<Void>
     
     // View -> ViewModel
     let doneButtonTapped = PublishRelay<Void>()
@@ -31,10 +32,10 @@ class ProfileCreateViewModel {
         let createResult = doneButtonTapped
             .withLatestFrom(makeDoneButtonActive)
         
-        createResult
-            .subscribe(onNext: {_ in
-                print("Did Tap DoneButton")
-            })
+        // TODO: - 서버 연결 시 수정
+        popToSignIn = createResult
+            .map {_ in Void() }
+            .asDriver(onErrorDriveWith: .empty())
         
         // Present Photo Picker
         presentPhotoPicker = profileSettingViewModel.shouldPresentPhotoPicker

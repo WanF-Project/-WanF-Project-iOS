@@ -67,6 +67,15 @@ class ProfileCreateViewController: UIViewController {
                 self.present(picker, animated: true)
             })
             .disposed(by: disposeBag)
+        
+        // Pop to Signin
+        viewModel.popToSignIn
+            .drive(onNext: {
+                self.dismiss(animated: true) {
+                    self.presentingViewController?.navigationController?.popToRootViewController(animated: false)
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
