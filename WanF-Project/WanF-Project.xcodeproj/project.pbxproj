@@ -125,6 +125,7 @@
 		14A11A582A94BA07008453FC /* ExNSMutableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A572A94BA07008453FC /* ExNSMutableData.swift */; };
 		14A11A5A2A94BB4A008453FC /* ExUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A592A94BB4A008453FC /* ExUIImage.swift */; };
 		14A11A5C2A94BC50008453FC /* MultipartNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A5B2A94BC50008453FC /* MultipartNetwork.swift */; };
+		14A11A5E2A94BD9C008453FC /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A5D2A94BD9C008453FC /* ImageAPI.swift */; };
 		14AC9B3529E2751C009C37A5 /* FriendsMatchTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */; };
 		14AC9B3729E27547009C37A5 /* ClassInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */; };
 		14AC9B3929E27569009C37A5 /* ClubListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3829E27569009C37A5 /* ClubListViewController.swift */; };
@@ -278,6 +279,7 @@
 		14A11A572A94BA07008453FC /* ExNSMutableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExNSMutableData.swift; sourceTree = "<group>"; };
 		14A11A592A94BB4A008453FC /* ExUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIImage.swift; sourceTree = "<group>"; };
 		14A11A5B2A94BC50008453FC /* MultipartNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartNetwork.swift; sourceTree = "<group>"; };
+		14A11A5D2A94BD9C008453FC /* ImageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPI.swift; sourceTree = "<group>"; };
 		14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabViewController.swift; sourceTree = "<group>"; };
 		14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInfoViewController.swift; sourceTree = "<group>"; };
 		14AC9B3829E27569009C37A5 /* ClubListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListViewController.swift; sourceTree = "<group>"; };
@@ -592,6 +594,7 @@
 		144E6BD62A9363B0005838EB /* ImageNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				14A11A5D2A94BD9C008453FC /* ImageAPI.swift */,
 			);
 			path = ImageNetwork;
 			sourceTree = "<group>";
@@ -1118,6 +1121,7 @@
 				14F52BCD2A8E093E00A09F92 /* ClubPwdRequestEntity.swift in Sources */,
 				142DBED029DC1DCB00017603 /* EmailTextField.swift in Sources */,
 				147823C82A7DF9F7003DC9CE /* CSKeyboardToolBar.swift in Sources */,
+				14A11A5E2A94BD9C008453FC /* ImageAPI.swift in Sources */,
 				14982C6E29EE580500D388BF /* FriendsMatchDetailInfoView.swift in Sources */,
 				1429B0AE29E53F9D00891FF8 /* FriendsMatchListCell.swift in Sources */,
 				14A11A5C2A94BC50008453FC /* MultipartNetwork.swift in Sources */,
