@@ -127,6 +127,7 @@
 		14A11A5C2A94BC50008453FC /* MultipartNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A5B2A94BC50008453FC /* MultipartNetwork.swift */; };
 		14A11A5E2A94BD9C008453FC /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A5D2A94BD9C008453FC /* ImageAPI.swift */; };
 		14A11A602A94BE48008453FC /* ImageNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A5F2A94BE48008453FC /* ImageNetwork.swift */; };
+		14A11A622A94BFC9008453FC /* ProfileCreateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A612A94BFC9008453FC /* ProfileCreateModel.swift */; };
 		14AC9B3529E2751C009C37A5 /* FriendsMatchTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */; };
 		14AC9B3729E27547009C37A5 /* ClassInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */; };
 		14AC9B3929E27569009C37A5 /* ClubListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3829E27569009C37A5 /* ClubListViewController.swift */; };
@@ -282,6 +283,7 @@
 		14A11A5B2A94BC50008453FC /* MultipartNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartNetwork.swift; sourceTree = "<group>"; };
 		14A11A5D2A94BD9C008453FC /* ImageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPI.swift; sourceTree = "<group>"; };
 		14A11A5F2A94BE48008453FC /* ImageNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNetwork.swift; sourceTree = "<group>"; };
+		14A11A612A94BFC9008453FC /* ProfileCreateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreateModel.swift; sourceTree = "<group>"; };
 		14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabViewController.swift; sourceTree = "<group>"; };
 		14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInfoViewController.swift; sourceTree = "<group>"; };
 		14AC9B3829E27569009C37A5 /* ClubListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListViewController.swift; sourceTree = "<group>"; };
@@ -852,6 +854,7 @@
 				147823C92A7E00E0003DC9CE /* ProfileCeateSubcomponent */,
 				140917122A7CEECB00B27131 /* ProfileCreateViewController.swift */,
 				1409171E2A7D0B5800B27131 /* ProfileCreateViewModel.swift */,
+				14A11A612A94BFC9008453FC /* ProfileCreateModel.swift */,
 			);
 			path = ProfileCreate;
 			sourceTree = "<group>";
@@ -1119,6 +1122,7 @@
 				147E9B532A178E520032E530 /* CourseAPI.swift in Sources */,
 				14E4C9EB29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift in Sources */,
 				14797C332A84EAF50006C706 /* ProfileSettingPhotoButtonViewModel.swift in Sources */,
+				14A11A622A94BFC9008453FC /* ProfileCreateModel.swift in Sources */,
 				147922ED29DADBCF0052CBA8 /* SignUpIDViewController.swift in Sources */,
 				146A01752A78E76B004E140E /* PageableEntity.swift in Sources */,
 				14F52BCD2A8E093E00A09F92 /* ClubPwdRequestEntity.swift in Sources */,
