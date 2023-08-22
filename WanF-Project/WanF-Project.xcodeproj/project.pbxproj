@@ -61,6 +61,7 @@
 		144D30D52A06295100640CCD /* WanfNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D30D42A06295100640CCD /* WanfNetwork.swift */; };
 		144D30D72A06870F00640CCD /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D30D62A06870F00640CCD /* SignUpAPI.swift */; };
 		144D30D92A068CE000640CCD /* SignUpNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D30D82A068CE000640CCD /* SignUpNetwork.swift */; };
+		144E6BDD2A936B8B005838EB /* ImageResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144E6BDC2A936B8B005838EB /* ImageResponseEntity.swift */; };
 		145457CC2A00DA760014D52F /* ProfileKeywordListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145457CB2A00DA760014D52F /* ProfileKeywordListModel.swift */; };
 		1455D25E2A25A6C10090257B /* ProfileRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1455D25D2A25A6C10090257B /* ProfileRequestEntity.swift */; };
 		1455D2602A25B8940090257B /* MajorNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1455D25F2A25B8940090257B /* MajorNetwork.swift */; };
@@ -120,6 +121,7 @@
 		14982C9729EEAD5800D388BF /* FriendsMatchDetailLectureInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14982C9629EEAD5800D388BF /* FriendsMatchDetailLectureInfoViewModel.swift */; };
 		14982C9929EEADC200D388BF /* FriendsMatchDetailTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14982C9829EEADC200D388BF /* FriendsMatchDetailTextViewModel.swift */; };
 		149F01622A13859600370FE1 /* DynamicSizeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149F01612A13859600370FE1 /* DynamicSizeTableView.swift */; };
+		14A11A562A94AD76008453FC /* ProfileImageRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A552A94AD76008453FC /* ProfileImageRequestEntity.swift */; };
 		14AC9B3529E2751C009C37A5 /* FriendsMatchTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */; };
 		14AC9B3729E27547009C37A5 /* ClassInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */; };
 		14AC9B3929E27569009C37A5 /* ClubListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3829E27569009C37A5 /* ClubListViewController.swift */; };
@@ -209,6 +211,7 @@
 		144D30D42A06295100640CCD /* WanfNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WanfNetwork.swift; sourceTree = "<group>"; };
 		144D30D62A06870F00640CCD /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
 		144D30D82A068CE000640CCD /* SignUpNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNetwork.swift; sourceTree = "<group>"; };
+		144E6BDC2A936B8B005838EB /* ImageResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResponseEntity.swift; sourceTree = "<group>"; };
 		145457CB2A00DA760014D52F /* ProfileKeywordListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileKeywordListModel.swift; sourceTree = "<group>"; };
 		1455D25D2A25A6C10090257B /* ProfileRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRequestEntity.swift; sourceTree = "<group>"; };
 		1455D25F2A25B8940090257B /* MajorNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorNetwork.swift; sourceTree = "<group>"; };
@@ -268,6 +271,7 @@
 		14982C9629EEAD5800D388BF /* FriendsMatchDetailLectureInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchDetailLectureInfoViewModel.swift; sourceTree = "<group>"; };
 		14982C9829EEADC200D388BF /* FriendsMatchDetailTextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchDetailTextViewModel.swift; sourceTree = "<group>"; };
 		149F01612A13859600370FE1 /* DynamicSizeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSizeTableView.swift; sourceTree = "<group>"; };
+		14A11A552A94AD76008453FC /* ProfileImageRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageRequestEntity.swift; sourceTree = "<group>"; };
 		14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabViewController.swift; sourceTree = "<group>"; };
 		14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInfoViewController.swift; sourceTree = "<group>"; };
 		14AC9B3829E27569009C37A5 /* ClubListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListViewController.swift; sourceTree = "<group>"; };
@@ -365,6 +369,7 @@
 		1429B0A129E5118D00891FF8 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				144E6BDB2A936B78005838EB /* Image */,
 				14F52BC02A8DEEC800A09F92 /* Club */,
 				143AE3452A739FEF00056647 /* Post */,
 				143AE3462A739FFB00056647 /* Comment */,
@@ -461,6 +466,7 @@
 			children = (
 				14D4C2E229FD49B2001ACBC6 /* ProfileResponseEntity.swift */,
 				1455D25D2A25A6C10090257B /* ProfileRequestEntity.swift */,
+				14A11A552A94AD76008453FC /* ProfileImageRequestEntity.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -561,6 +567,7 @@
 		144D30CB2A06257D00640CCD /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				144E6BD62A9363B0005838EB /* ImageNetwork */,
 				14F52BC32A8DEF6F00A09F92 /* ClubNetwork */,
 				1455D2632A25B8A70090257B /* MajorNetwork */,
 				146F1E662A2311930095502F /* ProfileNetwork */,
@@ -573,6 +580,21 @@
 				1466FA1F2A0A428D00910C30 /* AuthNetwork.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		144E6BD62A9363B0005838EB /* ImageNetwork */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ImageNetwork;
+			sourceTree = "<group>";
+		};
+		144E6BDB2A936B78005838EB /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				144E6BDC2A936B8B005838EB /* ImageResponseEntity.swift */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 		145457CD2A00EA7E0014D52F /* ProfileKeywordList */ = {
@@ -1071,6 +1093,7 @@
 			files = (
 				14793FBC29D837480048D5DD /* ExUIFont.swift in Sources */,
 				14567E9A29DFDD43000B75EE /* EmailStackViewCellViewModel.swift in Sources */,
+				144E6BDD2A936B8B005838EB /* ImageResponseEntity.swift in Sources */,
 				141044CC2A907C2500C51BD7 /* WanfShareAcitivityItemSource.swift in Sources */,
 				14BD19EE29FBB63B00B0E598 /* ProfileContentViewModel.swift in Sources */,
 				140917152A7CF18C00B27131 /* ProfileKeywordSettingView.swift in Sources */,
@@ -1173,6 +1196,7 @@
 				14D7A90329E92F9B007850BE /* FriendsMatchWritingTopBarView.swift in Sources */,
 				146EA3492A8B55F0005E010B /* ClubListTableViewCell.swift in Sources */,
 				1409171F2A7D0B5800B27131 /* ProfileCreateViewModel.swift in Sources */,
+				14A11A562A94AD76008453FC /* ProfileImageRequestEntity.swift in Sources */,
 				144D30CD2A06259700640CCD /* WanfAPI.swift in Sources */,
 				146A01772A78EF6E004E140E /* SlicePostPaginationResponseEntity.swift in Sources */,
 				14982C9129EEACD200D388BF /* FriendsMatchDetailModel.swift in Sources */,
