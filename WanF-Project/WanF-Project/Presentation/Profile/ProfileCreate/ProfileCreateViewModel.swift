@@ -16,24 +16,32 @@ class ProfileCreateViewModel {
     let profileSettingViewModel = ProfileSettingViewModel()
     
     // ViewModel -> View
-    let makeDoneButtonActive: Signal<ProfileRequestEntity>
+    let makeDoneButtonActive: Signal<DoneButtonActiveData>
     let presentPhotoPicker: Driver<Void>
     let popToSignIn: Driver<Void>
     
     // View -> ViewModel
     let doneButtonTapped = PublishRelay<Void>()
     
-    init() {
+    init(_ model: ProfileCreateModel = ProfileCreateModel()) {
         
         // 모든 정보가 입력되었다는 ShouldMakeDoneButtonActive가 오면 doneButton UI 변경하기(Driver나 Signal)
         makeDoneButtonActive = profileSettingViewModel.shouldMakeDoneButtonActive
         
         // Tap DoneButton
-        let createResult = doneButtonTapped
+        let uploadResult = doneButtonTapped
             .withLatestFrom(makeDoneButtonActive)
+            .compactMap {
+                $0.imageInfo
+            }
+            .flatMap(model.uploadImage)
+            .share()
         
-        // TODO: - 서버 연결 시 수정
-        popToSignIn = createResult
+        let uploadValue = uploadResult
+            .compactMap(model.uploadImageValue)
+        
+        // TODO: - 프로필 생성 서버 연결 시 수정
+        popToSignIn = uploadValue
             .map {_ in Void() }
             .asDriver(onErrorDriveWith: .empty())
         

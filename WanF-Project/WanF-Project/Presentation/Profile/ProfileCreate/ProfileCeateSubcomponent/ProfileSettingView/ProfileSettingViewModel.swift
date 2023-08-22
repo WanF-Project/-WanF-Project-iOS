@@ -10,6 +10,8 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+typealias DoneButtonActiveData = (imageInfo: ImageInfo?, profile: ProfileRequestEntity)
+
 class ProfileSettingViewModel {
     
     // Propertise
@@ -29,7 +31,7 @@ class ProfileSettingViewModel {
     let goalSettingViewModel = ProfileKeywordSettingViewModel()
     
     // ViewModel -> Parent ViewModel
-    let shouldMakeDoneButtonActive: Signal<ProfileRequestEntity>
+    let shouldMakeDoneButtonActive: Signal<DoneButtonActiveData>
     let shouldPresentPhotoPicker: Driver<Void>
     
     // View -> ViewModel
@@ -40,6 +42,9 @@ class ProfileSettingViewModel {
     let goals = PublishRelay<[String]>()
     
     init() {
+        
+        let imageInfo = settingPhotoButtonViewModel.imageData
+            .compactMap { $0 }
         
         let name = nameControlViewModel.stringValue
             .filter { !$0.isEmpty }
@@ -72,8 +77,11 @@ class ProfileSettingViewModel {
         // 완료 버튼 활성화
         shouldMakeDoneButtonActive = Observable
             .combineLatest(name, majorID, studentID, ageNumber, gender, mbti, personalities, goals) {
-                return ProfileRequestEntity(profileImage: "BEAR", nickname: $0, majorId: $1, entranceYear: $2, birth: $3, gender: $4, mbti: $5, personality: $6, purpose: $7, contact: "")
+                ProfileRequestEntity(profileImage: "BEAR", nickname: $0, majorId: $1, entranceYear: $2, birth: $3, gender: $4, mbti: $5, personality: $6, purpose: $7, contact: "")
             }
+            .withLatestFrom(imageInfo, resultSelector: {
+                DoneButtonActiveData(imageInfo: $1, profile: $0)
+            })
             .asSignal(onErrorSignalWith: .empty())
         
         // Present Photo Picker

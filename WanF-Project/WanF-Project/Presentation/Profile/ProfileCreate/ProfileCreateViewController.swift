@@ -71,9 +71,10 @@ class ProfileCreateViewController: UIViewController {
         // Pop to Signin
         viewModel.popToSignIn
             .drive(onNext: {
-                self.dismiss(animated: true) {
-                    self.presentingViewController?.navigationController?.popToRootViewController(animated: false)
-                }
+                // TODO: - 프로필 생성 서버 연결 시 수정
+//                self.dismiss(animated: true) {
+//                    self.presentingViewController?.navigationController?.popToRootViewController(animated: false)
+//                }
             })
             .disposed(by: disposeBag)
     }
