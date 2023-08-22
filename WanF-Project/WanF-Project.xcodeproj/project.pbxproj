@@ -146,7 +146,6 @@
 		14E4C9E429EA530F00E2CB62 /* CourseInfoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4C9E329EA530F00E2CB62 /* CourseInfoListViewController.swift */; };
 		14E4C9E929EA564400E2CB62 /* CourseInfoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4C9E829EA564400E2CB62 /* CourseInfoListViewModel.swift */; };
 		14E4C9EB29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4C9EA29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift */; };
-		14F5E8D82A821AB100A2228B /* Nameable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F5E8D72A821AB100A2228B /* Nameable.swift */; };
 		14F52BC22A8DEED800A09F92 /* ClubResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BC12A8DEED800A09F92 /* ClubResponseEntity.swift */; };
 		14F52BC52A8DEFA900A09F92 /* ClubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BC42A8DEFA900A09F92 /* ClubAPI.swift */; };
 		14F52BC72A8DF32300A09F92 /* ClubNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BC62A8DF32300A09F92 /* ClubNetwork.swift */; };
@@ -154,6 +153,7 @@
 		14F52BCB2A8DFA9E00A09F92 /* ClubListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BCA2A8DFA9E00A09F92 /* ClubListModel.swift */; };
 		14F52BCD2A8E093E00A09F92 /* ClubPwdRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BCC2A8E093E00A09F92 /* ClubPwdRequestEntity.swift */; };
 		14F52BCF2A8E1E7E00A09F92 /* ClubShareInfoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BCE2A8E1E7E00A09F92 /* ClubShareInfoEntity.swift */; };
+		14F5E8D82A821AB100A2228B /* Nameable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F5E8D72A821AB100A2228B /* Nameable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -294,7 +294,6 @@
 		14E4C9E329EA530F00E2CB62 /* CourseInfoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoListViewController.swift; sourceTree = "<group>"; };
 		14E4C9E829EA564400E2CB62 /* CourseInfoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoListViewModel.swift; sourceTree = "<group>"; };
 		14E4C9EA29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingTopBarViewModel.swift; sourceTree = "<group>"; };
-		14F5E8D72A821AB100A2228B /* Nameable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nameable.swift; sourceTree = "<group>"; };
 		14F52BC12A8DEED800A09F92 /* ClubResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubResponseEntity.swift; sourceTree = "<group>"; };
 		14F52BC42A8DEFA900A09F92 /* ClubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAPI.swift; sourceTree = "<group>"; };
 		14F52BC62A8DF32300A09F92 /* ClubNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubNetwork.swift; sourceTree = "<group>"; };
@@ -302,6 +301,7 @@
 		14F52BCA2A8DFA9E00A09F92 /* ClubListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListModel.swift; sourceTree = "<group>"; };
 		14F52BCC2A8E093E00A09F92 /* ClubPwdRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubPwdRequestEntity.swift; sourceTree = "<group>"; };
 		14F52BCE2A8E1E7E00A09F92 /* ClubShareInfoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubShareInfoEntity.swift; sourceTree = "<group>"; };
+		14F5E8D72A821AB100A2228B /* Nameable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nameable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -955,14 +955,6 @@
 			path = FriendsMatchWritingTopBar;
 			sourceTree = "<group>";
 		};
-		14F5E8D62A821A9700A2228B /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				14F5E8D72A821AB100A2228B /* Nameable.swift */,
-			);
-			path = Protocol;
-                        sourceTree = "<group>";
-                };
 		14F52BC02A8DEEC800A09F92 /* Club */ = {
 			isa = PBXGroup;
 			children = (
@@ -980,6 +972,14 @@
 				14F52BC62A8DF32300A09F92 /* ClubNetwork.swift */,
 			);
 			path = ClubNetwork;
+			sourceTree = "<group>";
+		};
+		14F5E8D62A821A9700A2228B /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				14F5E8D72A821AB100A2228B /* Nameable.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
