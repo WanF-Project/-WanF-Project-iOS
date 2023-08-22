@@ -124,6 +124,7 @@
 		14A11A562A94AD76008453FC /* ProfileImageRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A552A94AD76008453FC /* ProfileImageRequestEntity.swift */; };
 		14A11A582A94BA07008453FC /* ExNSMutableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A572A94BA07008453FC /* ExNSMutableData.swift */; };
 		14A11A5A2A94BB4A008453FC /* ExUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A592A94BB4A008453FC /* ExUIImage.swift */; };
+		14A11A5C2A94BC50008453FC /* MultipartNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A5B2A94BC50008453FC /* MultipartNetwork.swift */; };
 		14AC9B3529E2751C009C37A5 /* FriendsMatchTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */; };
 		14AC9B3729E27547009C37A5 /* ClassInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */; };
 		14AC9B3929E27569009C37A5 /* ClubListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3829E27569009C37A5 /* ClubListViewController.swift */; };
@@ -276,6 +277,7 @@
 		14A11A552A94AD76008453FC /* ProfileImageRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageRequestEntity.swift; sourceTree = "<group>"; };
 		14A11A572A94BA07008453FC /* ExNSMutableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExNSMutableData.swift; sourceTree = "<group>"; };
 		14A11A592A94BB4A008453FC /* ExUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIImage.swift; sourceTree = "<group>"; };
+		14A11A5B2A94BC50008453FC /* MultipartNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartNetwork.swift; sourceTree = "<group>"; };
 		14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabViewController.swift; sourceTree = "<group>"; };
 		14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInfoViewController.swift; sourceTree = "<group>"; };
 		14AC9B3829E27569009C37A5 /* ClubListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListViewController.swift; sourceTree = "<group>"; };
@@ -582,6 +584,7 @@
 				144D30D42A06295100640CCD /* WanfNetwork.swift */,
 				1466FA1D2A0A412500910C30 /* AuthAPI.swift */,
 				1466FA1F2A0A428D00910C30 /* AuthNetwork.swift */,
+				14A11A5B2A94BC50008453FC /* MultipartNetwork.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1117,6 +1120,7 @@
 				147823C82A7DF9F7003DC9CE /* CSKeyboardToolBar.swift in Sources */,
 				14982C6E29EE580500D388BF /* FriendsMatchDetailInfoView.swift in Sources */,
 				1429B0AE29E53F9D00891FF8 /* FriendsMatchListCell.swift in Sources */,
+				14A11A5C2A94BC50008453FC /* MultipartNetwork.swift in Sources */,
 				146A01792A78FC88004E140E /* FriendsMatchSearchModel.swift in Sources */,
 				147E1C2C2A2C841E00B42E4D /* ProfilePreviewViewController.swift in Sources */,
 				143662002A0F7F0500308028 /* FriendsMatchNetwork.swift in Sources */,
