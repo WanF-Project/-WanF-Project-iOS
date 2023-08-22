@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-typealias ImageInfo = (image: Data, type: ImageContentType, name: String)
+typealias ImageInfo = (data: Data, type: ImageContentType, name: String)
 
 struct ProfileSettingPhotoButtonViewModel {
     

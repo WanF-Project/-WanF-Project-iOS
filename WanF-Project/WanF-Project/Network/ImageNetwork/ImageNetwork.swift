@@ -25,7 +25,7 @@ class ImageNetwork: WanfNetwork {
         
         let request = UserDefaultsManager.accessTokenCheckedObservable
             .flatMap { accessToken in
-                MultipartNetwork(file: image.image, type: image.type, fileName: image.name)
+                MultipartNetwork(file: image.data, type: image.type, fileName: image.name)
                     .requestMultipartFormData(url)
             }
         
