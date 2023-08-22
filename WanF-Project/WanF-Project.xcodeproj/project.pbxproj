@@ -126,6 +126,7 @@
 		14A11A5A2A94BB4A008453FC /* ExUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A592A94BB4A008453FC /* ExUIImage.swift */; };
 		14A11A5C2A94BC50008453FC /* MultipartNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A5B2A94BC50008453FC /* MultipartNetwork.swift */; };
 		14A11A5E2A94BD9C008453FC /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A5D2A94BD9C008453FC /* ImageAPI.swift */; };
+		14A11A602A94BE48008453FC /* ImageNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A5F2A94BE48008453FC /* ImageNetwork.swift */; };
 		14AC9B3529E2751C009C37A5 /* FriendsMatchTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */; };
 		14AC9B3729E27547009C37A5 /* ClassInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */; };
 		14AC9B3929E27569009C37A5 /* ClubListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3829E27569009C37A5 /* ClubListViewController.swift */; };
@@ -280,6 +281,7 @@
 		14A11A592A94BB4A008453FC /* ExUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIImage.swift; sourceTree = "<group>"; };
 		14A11A5B2A94BC50008453FC /* MultipartNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartNetwork.swift; sourceTree = "<group>"; };
 		14A11A5D2A94BD9C008453FC /* ImageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPI.swift; sourceTree = "<group>"; };
+		14A11A5F2A94BE48008453FC /* ImageNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNetwork.swift; sourceTree = "<group>"; };
 		14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabViewController.swift; sourceTree = "<group>"; };
 		14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInfoViewController.swift; sourceTree = "<group>"; };
 		14AC9B3829E27569009C37A5 /* ClubListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListViewController.swift; sourceTree = "<group>"; };
@@ -595,6 +597,7 @@
 			isa = PBXGroup;
 			children = (
 				14A11A5D2A94BD9C008453FC /* ImageAPI.swift */,
+				14A11A5F2A94BE48008453FC /* ImageNetwork.swift */,
 			);
 			path = ImageNetwork;
 			sourceTree = "<group>";
@@ -1159,6 +1162,7 @@
 				14066BAF29E1431300AFB2D2 /* PasswordTextFieldCellViewModel.swift in Sources */,
 				149F01622A13859600370FE1 /* DynamicSizeTableView.swift in Sources */,
 				1455D2602A25B8940090257B /* MajorNetwork.swift in Sources */,
+				14A11A602A94BE48008453FC /* ImageNetwork.swift in Sources */,
 				14AC9B3529E2751C009C37A5 /* FriendsMatchTabViewController.swift in Sources */,
 				142DBED729DC2D2C00017603 /* PasswordTextFieldViewModel.swift in Sources */,
 				14F52BC72A8DF32300A09F92 /* ClubNetwork.swift in Sources */,
