@@ -8,6 +8,6 @@
 import Foundation
 
 struct ProfileImageRequestEntity: Encodable {
-    let imageId: Int
+    let imageId: Int?
     let profileRequest: ProfileRequestEntity
 }
