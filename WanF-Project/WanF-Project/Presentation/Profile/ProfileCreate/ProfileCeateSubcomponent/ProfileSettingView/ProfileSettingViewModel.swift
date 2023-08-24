@@ -78,14 +78,16 @@ class ProfileSettingViewModel {
             .bind(to: goals)
             .disposed(by: disposeBag)
         
-        // 완료 버튼 활성화
-        shouldMakeDoneButtonActive = Observable
+        let profile = Observable
             .combineLatest(name, majorID, studentID, ageNumber, gender, mbti, personalities, goals) {
                 ProfileRequestEntity(nickname: $0, majorId: $1, studentId: $2, age: $3, gender: $4, mbti: $5, personalities: $6, goals: $7)
             }
-            .withLatestFrom(imageInfo, resultSelector: {
-                DoneButtonActiveData(imageInfo: $1, profile: $0)
-            })
+        
+        // 완료 버튼 활성화
+        shouldMakeDoneButtonActive = Observable
+            .combineLatest(imageInfo, profile) {
+                DoneButtonActiveData(imageInfo: $0, profile: $1)
+            }
             .asSignal(onErrorSignalWith: .empty())
         
         // Present Photo Picker

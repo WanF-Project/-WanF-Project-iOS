@@ -22,26 +22,43 @@ class ProfileCreateViewModel {
     
     // View -> ViewModel
     let doneButtonTapped = PublishRelay<Void>()
+    let shouldMakeDoneButtonActiveWithoutImage = PublishRelay<ImageInfo>()
     
     init(_ model: ProfileCreateModel = ProfileCreateModel()) {
         
-        // 모든 정보가 입력되었다는 ShouldMakeDoneButtonActive가 오면 doneButton UI 변경하기(Driver나 Signal)
         makeDoneButtonActive = profileSettingViewModel.shouldMakeDoneButtonActive
+        
+        let imageInfo = profileSettingViewModel.shouldMakeDoneButtonActive
+            .compactMap { $0.imageInfo }
+            .asObservable()
+        
+        let profile = profileSettingViewModel.shouldMakeDoneButtonActive
+            .map { $0.profile }
         
         // Tap DoneButton
         let uploadResult = doneButtonTapped
-            .withLatestFrom(makeDoneButtonActive)
-            .compactMap {
-                $0.imageInfo
-            }
+            .withLatestFrom(imageInfo)
             .flatMap(model.uploadImage)
-            .share()
         
         let uploadValue = uploadResult
             .compactMap(model.uploadImageValue)
         
-        // TODO: - 프로필 생성 서버 연결 시 수정
-        popToSignIn = uploadValue
+        let uploadError = uploadResult
+            .compactMap(model.uploadImageError)
+        
+        let createResult = uploadValue
+            .withLatestFrom(profile) {
+                ProfileImageRequestEntity(imageId: $0.imageId, profileRequest: $1)
+            }
+            .flatMap(model.createProfile)
+            
+        let createValue = createResult
+            .compactMap(model.createProfileValue)
+        
+        let createError = createResult
+            .compactMap(model.createProfileError)
+        
+        popToSignIn = createValue
             .map {_ in Void() }
             .asDriver(onErrorDriveWith: .empty())
         
