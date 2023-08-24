@@ -71,10 +71,10 @@ class ProfileCreateViewController: UIViewController {
         // Pop to Signin
         viewModel.popToSignIn
             .drive(onNext: {
-                // TODO: - 프로필 생성 서버 연결 시 수정
-//                self.dismiss(animated: true) {
-//                    self.presentingViewController?.navigationController?.popToRootViewController(animated: false)
-//                }
+                guard let presentingVC = self.presentingViewController as? UINavigationController else { return }
+                self.dismiss(animated: true) {
+                    presentingVC.popToRootViewController(animated: true)
+                }
             })
             .disposed(by: disposeBag)
     }
