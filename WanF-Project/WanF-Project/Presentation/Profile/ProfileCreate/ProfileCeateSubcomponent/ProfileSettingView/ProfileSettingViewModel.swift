@@ -77,7 +77,7 @@ class ProfileSettingViewModel {
         // 완료 버튼 활성화
         shouldMakeDoneButtonActive = Observable
             .combineLatest(name, majorID, studentID, ageNumber, gender, mbti, personalities, goals) {
-                ProfileRequestEntity(profileImage: "BEAR", nickname: $0, majorId: $1, entranceYear: $2, birth: $3, gender: $4, mbti: $5, personality: $6, purpose: $7, contact: "")
+                ProfileRequestEntity(nickname: $0, majorId: $1, studentId: $2, age: $3, gender: $4, mbti: $5, personalities: $6, goals: $7)
             }
             .withLatestFrom(imageInfo, resultSelector: {
                 DoneButtonActiveData(imageInfo: $1, profile: $0)
