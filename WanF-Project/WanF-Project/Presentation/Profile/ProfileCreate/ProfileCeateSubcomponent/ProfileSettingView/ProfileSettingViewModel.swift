@@ -63,6 +63,10 @@ class ProfileSettingViewModel {
             .compactMap { Int($0) }
 
         let gender = genderControlViewModel.stringValue
+            .map {
+                if $0 == "여자" { return "FEMALE" }
+                else { return "MALE" }
+            }
         
         let mbti = mbtiControlViewModel.stringValue
         
