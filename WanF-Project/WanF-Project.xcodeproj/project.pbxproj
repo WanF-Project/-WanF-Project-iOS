@@ -848,6 +848,16 @@
 			path = ClassInfo;
 			sourceTree = "<group>";
 		};
+		14CE0EFB2A98A02100B92BFB /* ProfileContentView */ = {
+			isa = PBXGroup;
+			children = (
+				14BD19E929FB986700B0E598 /* ProfileContentView.swift */,
+				14BD19ED29FBB63B00B0E598 /* ProfileContentViewModel.swift */,
+				14D4C2E429FD4BF9001ACBC6 /* ProfileContentModel.swift */,
+			);
+			name = ProfileContentView;
+			sourceTree = "<group>";
+		};
 		14D1FC522A7B75F600159E79 /* ProfileCreate */ = {
 			isa = PBXGroup;
 			children = (
@@ -862,9 +872,7 @@
 		14D4C2DE29FD0A9C001ACBC6 /* SubComponent */ = {
 			isa = PBXGroup;
 			children = (
-				14BD19E929FB986700B0E598 /* ProfileContentView.swift */,
-				14BD19ED29FBB63B00B0E598 /* ProfileContentViewModel.swift */,
-				14D4C2E429FD4BF9001ACBC6 /* ProfileContentModel.swift */,
+				14CE0EFB2A98A02100B92BFB /* ProfileContentView */,
 				14BD19F129FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift */,
 			);
 			path = SubComponent;
