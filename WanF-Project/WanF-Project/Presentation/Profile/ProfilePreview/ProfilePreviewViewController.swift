@@ -36,11 +36,6 @@ class ProfilePreviewViewController: UIViewController {
         // Load Profile Preview
         viewModel.shouldLoadProfilePreview.accept(id)
         
-        // Present ActivityView for Contact
-        profileContentView.profileContactButton.rx.tap
-            .bind(to: viewModel.shouldPresentActivity)
-            .disposed(by: disposeBag)
-        
         viewModel.presentActivity
             .drive(onNext: { contact in
                 let activityVC = UIActivityViewController(activityItems: [contact], applicationActivities: [])
