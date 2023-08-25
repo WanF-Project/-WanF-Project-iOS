@@ -71,8 +71,9 @@ class ProfileCreateViewController: UIViewController {
         // Pop to Signin
         viewModel.popToSignIn
             .drive(onNext: {
+                guard let presentingVC = self.presentingViewController as? UINavigationController else { return }
                 self.dismiss(animated: true) {
-                    self.presentingViewController?.navigationController?.popToRootViewController(animated: false)
+                    presentingVC.popToRootViewController(animated: true)
                 }
             })
             .disposed(by: disposeBag)

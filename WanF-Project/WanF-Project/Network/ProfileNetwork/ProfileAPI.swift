@@ -64,4 +64,14 @@ class ProfilAPI: WanfAPI {
         
         return components
     }
+    
+    /// 프로필 생성
+    func postCreateProfile() -> URLComponents {
+        var components = URLComponents()
+        components.scheme = super.scheme
+        components.host = super.host
+        components.path = self.path
+        
+        return components
+    }
 }

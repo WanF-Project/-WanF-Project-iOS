@@ -81,8 +81,11 @@ class SignUpNetwork: WanfNetwork {
         request.setValue("application/json;charset=UTF-8", forHTTPHeaderField: "Content-Type")
         request.httpBody = try? JSONEncoder().encode(body)
         
-        return super.session.rx.data(request: request)
-            .map { _ in
+        return super.session.rx.response(request: request)
+            .map { response, _ in
+                UserDefaultsManager.accessToken = response.value(forHTTPHeaderField: "authorization")
+                UserDefaultsManager.refreshToken = response.value(forHTTPHeaderField: "x-refresh-token")
+                
                 return .success(Void())
             }
             .catch { _ in

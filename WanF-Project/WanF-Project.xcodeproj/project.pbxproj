@@ -61,6 +61,7 @@
 		144D30D52A06295100640CCD /* WanfNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D30D42A06295100640CCD /* WanfNetwork.swift */; };
 		144D30D72A06870F00640CCD /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D30D62A06870F00640CCD /* SignUpAPI.swift */; };
 		144D30D92A068CE000640CCD /* SignUpNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D30D82A068CE000640CCD /* SignUpNetwork.swift */; };
+		144E6BDD2A936B8B005838EB /* ImageResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144E6BDC2A936B8B005838EB /* ImageResponseEntity.swift */; };
 		145457CC2A00DA760014D52F /* ProfileKeywordListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145457CB2A00DA760014D52F /* ProfileKeywordListModel.swift */; };
 		1455D25E2A25A6C10090257B /* ProfileRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1455D25D2A25A6C10090257B /* ProfileRequestEntity.swift */; };
 		1455D2602A25B8940090257B /* MajorNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1455D25F2A25B8940090257B /* MajorNetwork.swift */; };
@@ -120,6 +121,13 @@
 		14982C9729EEAD5800D388BF /* FriendsMatchDetailLectureInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14982C9629EEAD5800D388BF /* FriendsMatchDetailLectureInfoViewModel.swift */; };
 		14982C9929EEADC200D388BF /* FriendsMatchDetailTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14982C9829EEADC200D388BF /* FriendsMatchDetailTextViewModel.swift */; };
 		149F01622A13859600370FE1 /* DynamicSizeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149F01612A13859600370FE1 /* DynamicSizeTableView.swift */; };
+		14A11A562A94AD76008453FC /* ProfileImageRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A552A94AD76008453FC /* ProfileImageRequestEntity.swift */; };
+		14A11A582A94BA07008453FC /* ExNSMutableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A572A94BA07008453FC /* ExNSMutableData.swift */; };
+		14A11A5A2A94BB4A008453FC /* ExUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A592A94BB4A008453FC /* ExUIImage.swift */; };
+		14A11A5C2A94BC50008453FC /* MultipartNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A5B2A94BC50008453FC /* MultipartNetwork.swift */; };
+		14A11A5E2A94BD9C008453FC /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A5D2A94BD9C008453FC /* ImageAPI.swift */; };
+		14A11A602A94BE48008453FC /* ImageNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A5F2A94BE48008453FC /* ImageNetwork.swift */; };
+		14A11A622A94BFC9008453FC /* ProfileCreateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A612A94BFC9008453FC /* ProfileCreateModel.swift */; };
 		14AC9B3529E2751C009C37A5 /* FriendsMatchTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */; };
 		14AC9B3729E27547009C37A5 /* ClassInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */; };
 		14AC9B3929E27569009C37A5 /* ClubListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3829E27569009C37A5 /* ClubListViewController.swift */; };
@@ -146,7 +154,6 @@
 		14E4C9E429EA530F00E2CB62 /* CourseInfoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4C9E329EA530F00E2CB62 /* CourseInfoListViewController.swift */; };
 		14E4C9E929EA564400E2CB62 /* CourseInfoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4C9E829EA564400E2CB62 /* CourseInfoListViewModel.swift */; };
 		14E4C9EB29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4C9EA29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift */; };
-		14F5E8D82A821AB100A2228B /* Nameable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F5E8D72A821AB100A2228B /* Nameable.swift */; };
 		14F52BC22A8DEED800A09F92 /* ClubResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BC12A8DEED800A09F92 /* ClubResponseEntity.swift */; };
 		14F52BC52A8DEFA900A09F92 /* ClubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BC42A8DEFA900A09F92 /* ClubAPI.swift */; };
 		14F52BC72A8DF32300A09F92 /* ClubNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BC62A8DF32300A09F92 /* ClubNetwork.swift */; };
@@ -154,6 +161,7 @@
 		14F52BCB2A8DFA9E00A09F92 /* ClubListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BCA2A8DFA9E00A09F92 /* ClubListModel.swift */; };
 		14F52BCD2A8E093E00A09F92 /* ClubPwdRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BCC2A8E093E00A09F92 /* ClubPwdRequestEntity.swift */; };
 		14F52BCF2A8E1E7E00A09F92 /* ClubShareInfoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F52BCE2A8E1E7E00A09F92 /* ClubShareInfoEntity.swift */; };
+		14F5E8D82A821AB100A2228B /* Nameable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F5E8D72A821AB100A2228B /* Nameable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -209,6 +217,7 @@
 		144D30D42A06295100640CCD /* WanfNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WanfNetwork.swift; sourceTree = "<group>"; };
 		144D30D62A06870F00640CCD /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
 		144D30D82A068CE000640CCD /* SignUpNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNetwork.swift; sourceTree = "<group>"; };
+		144E6BDC2A936B8B005838EB /* ImageResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResponseEntity.swift; sourceTree = "<group>"; };
 		145457CB2A00DA760014D52F /* ProfileKeywordListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileKeywordListModel.swift; sourceTree = "<group>"; };
 		1455D25D2A25A6C10090257B /* ProfileRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRequestEntity.swift; sourceTree = "<group>"; };
 		1455D25F2A25B8940090257B /* MajorNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorNetwork.swift; sourceTree = "<group>"; };
@@ -268,6 +277,13 @@
 		14982C9629EEAD5800D388BF /* FriendsMatchDetailLectureInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchDetailLectureInfoViewModel.swift; sourceTree = "<group>"; };
 		14982C9829EEADC200D388BF /* FriendsMatchDetailTextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchDetailTextViewModel.swift; sourceTree = "<group>"; };
 		149F01612A13859600370FE1 /* DynamicSizeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSizeTableView.swift; sourceTree = "<group>"; };
+		14A11A552A94AD76008453FC /* ProfileImageRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageRequestEntity.swift; sourceTree = "<group>"; };
+		14A11A572A94BA07008453FC /* ExNSMutableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExNSMutableData.swift; sourceTree = "<group>"; };
+		14A11A592A94BB4A008453FC /* ExUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIImage.swift; sourceTree = "<group>"; };
+		14A11A5B2A94BC50008453FC /* MultipartNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartNetwork.swift; sourceTree = "<group>"; };
+		14A11A5D2A94BD9C008453FC /* ImageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPI.swift; sourceTree = "<group>"; };
+		14A11A5F2A94BE48008453FC /* ImageNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNetwork.swift; sourceTree = "<group>"; };
+		14A11A612A94BFC9008453FC /* ProfileCreateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreateModel.swift; sourceTree = "<group>"; };
 		14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabViewController.swift; sourceTree = "<group>"; };
 		14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInfoViewController.swift; sourceTree = "<group>"; };
 		14AC9B3829E27569009C37A5 /* ClubListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListViewController.swift; sourceTree = "<group>"; };
@@ -294,7 +310,6 @@
 		14E4C9E329EA530F00E2CB62 /* CourseInfoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoListViewController.swift; sourceTree = "<group>"; };
 		14E4C9E829EA564400E2CB62 /* CourseInfoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoListViewModel.swift; sourceTree = "<group>"; };
 		14E4C9EA29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingTopBarViewModel.swift; sourceTree = "<group>"; };
-		14F5E8D72A821AB100A2228B /* Nameable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nameable.swift; sourceTree = "<group>"; };
 		14F52BC12A8DEED800A09F92 /* ClubResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubResponseEntity.swift; sourceTree = "<group>"; };
 		14F52BC42A8DEFA900A09F92 /* ClubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAPI.swift; sourceTree = "<group>"; };
 		14F52BC62A8DF32300A09F92 /* ClubNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubNetwork.swift; sourceTree = "<group>"; };
@@ -302,6 +317,7 @@
 		14F52BCA2A8DFA9E00A09F92 /* ClubListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListModel.swift; sourceTree = "<group>"; };
 		14F52BCC2A8E093E00A09F92 /* ClubPwdRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubPwdRequestEntity.swift; sourceTree = "<group>"; };
 		14F52BCE2A8E1E7E00A09F92 /* ClubShareInfoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubShareInfoEntity.swift; sourceTree = "<group>"; };
+		14F5E8D72A821AB100A2228B /* Nameable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nameable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -365,6 +381,7 @@
 		1429B0A129E5118D00891FF8 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				144E6BDB2A936B78005838EB /* Image */,
 				14F52BC02A8DEEC800A09F92 /* Club */,
 				143AE3452A739FEF00056647 /* Post */,
 				143AE3462A739FFB00056647 /* Comment */,
@@ -461,6 +478,7 @@
 			children = (
 				14D4C2E229FD49B2001ACBC6 /* ProfileResponseEntity.swift */,
 				1455D25D2A25A6C10090257B /* ProfileRequestEntity.swift */,
+				14A11A552A94AD76008453FC /* ProfileImageRequestEntity.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -561,6 +579,7 @@
 		144D30CB2A06257D00640CCD /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				144E6BD62A9363B0005838EB /* ImageNetwork */,
 				14F52BC32A8DEF6F00A09F92 /* ClubNetwork */,
 				1455D2632A25B8A70090257B /* MajorNetwork */,
 				146F1E662A2311930095502F /* ProfileNetwork */,
@@ -571,8 +590,26 @@
 				144D30D42A06295100640CCD /* WanfNetwork.swift */,
 				1466FA1D2A0A412500910C30 /* AuthAPI.swift */,
 				1466FA1F2A0A428D00910C30 /* AuthNetwork.swift */,
+				14A11A5B2A94BC50008453FC /* MultipartNetwork.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		144E6BD62A9363B0005838EB /* ImageNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				14A11A5D2A94BD9C008453FC /* ImageAPI.swift */,
+				14A11A5F2A94BE48008453FC /* ImageNetwork.swift */,
+			);
+			path = ImageNetwork;
+			sourceTree = "<group>";
+		};
+		144E6BDB2A936B78005838EB /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				144E6BDC2A936B8B005838EB /* ImageResponseEntity.swift */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 		145457CD2A00EA7E0014D52F /* ProfileKeywordList */ = {
@@ -670,6 +707,8 @@
 				14793FBD29D83DA60048D5DD /* ExUIView.swift */,
 				1484C75C2A1E1BD500014FD4 /* ExDateFormatter.swift */,
 				14797C302A84BDD50006C706 /* ExReactive.swift */,
+				14A11A572A94BA07008453FC /* ExNSMutableData.swift */,
+				14A11A592A94BB4A008453FC /* ExUIImage.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -815,6 +854,7 @@
 				147823C92A7E00E0003DC9CE /* ProfileCeateSubcomponent */,
 				140917122A7CEECB00B27131 /* ProfileCreateViewController.swift */,
 				1409171E2A7D0B5800B27131 /* ProfileCreateViewModel.swift */,
+				14A11A612A94BFC9008453FC /* ProfileCreateModel.swift */,
 			);
 			path = ProfileCreate;
 			sourceTree = "<group>";
@@ -955,14 +995,6 @@
 			path = FriendsMatchWritingTopBar;
 			sourceTree = "<group>";
 		};
-		14F5E8D62A821A9700A2228B /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				14F5E8D72A821AB100A2228B /* Nameable.swift */,
-			);
-			path = Protocol;
-                        sourceTree = "<group>";
-                };
 		14F52BC02A8DEEC800A09F92 /* Club */ = {
 			isa = PBXGroup;
 			children = (
@@ -980,6 +1012,14 @@
 				14F52BC62A8DF32300A09F92 /* ClubNetwork.swift */,
 			);
 			path = ClubNetwork;
+			sourceTree = "<group>";
+		};
+		14F5E8D62A821A9700A2228B /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				14F5E8D72A821AB100A2228B /* Nameable.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1071,6 +1111,7 @@
 			files = (
 				14793FBC29D837480048D5DD /* ExUIFont.swift in Sources */,
 				14567E9A29DFDD43000B75EE /* EmailStackViewCellViewModel.swift in Sources */,
+				144E6BDD2A936B8B005838EB /* ImageResponseEntity.swift in Sources */,
 				141044CC2A907C2500C51BD7 /* WanfShareAcitivityItemSource.swift in Sources */,
 				14BD19EE29FBB63B00B0E598 /* ProfileContentViewModel.swift in Sources */,
 				140917152A7CF18C00B27131 /* ProfileKeywordSettingView.swift in Sources */,
@@ -1081,13 +1122,16 @@
 				147E9B532A178E520032E530 /* CourseAPI.swift in Sources */,
 				14E4C9EB29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift in Sources */,
 				14797C332A84EAF50006C706 /* ProfileSettingPhotoButtonViewModel.swift in Sources */,
+				14A11A622A94BFC9008453FC /* ProfileCreateModel.swift in Sources */,
 				147922ED29DADBCF0052CBA8 /* SignUpIDViewController.swift in Sources */,
 				146A01752A78E76B004E140E /* PageableEntity.swift in Sources */,
 				14F52BCD2A8E093E00A09F92 /* ClubPwdRequestEntity.swift in Sources */,
 				142DBED029DC1DCB00017603 /* EmailTextField.swift in Sources */,
 				147823C82A7DF9F7003DC9CE /* CSKeyboardToolBar.swift in Sources */,
+				14A11A5E2A94BD9C008453FC /* ImageAPI.swift in Sources */,
 				14982C6E29EE580500D388BF /* FriendsMatchDetailInfoView.swift in Sources */,
 				1429B0AE29E53F9D00891FF8 /* FriendsMatchListCell.swift in Sources */,
+				14A11A5C2A94BC50008453FC /* MultipartNetwork.swift in Sources */,
 				146A01792A78FC88004E140E /* FriendsMatchSearchModel.swift in Sources */,
 				147E1C2C2A2C841E00B42E4D /* ProfilePreviewViewController.swift in Sources */,
 				143662002A0F7F0500308028 /* FriendsMatchNetwork.swift in Sources */,
@@ -1112,6 +1156,7 @@
 				1466FA202A0A428D00910C30 /* AuthNetwork.swift in Sources */,
 				14BD19F229FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift in Sources */,
 				142DBED229DC223A00017603 /* EmailTextFieldViewModel.swift in Sources */,
+				14A11A582A94BA07008453FC /* ExNSMutableData.swift in Sources */,
 				1449E1F62A135375008C70DB /* FriendsMatchCommentListView.swift in Sources */,
 				147E1C2E2A2C860B00B42E4D /* ProfilePreviewViewModel.swift in Sources */,
 				146A01732A78D152004E140E /* FriendsMatchTableView.swift in Sources */,
@@ -1121,6 +1166,7 @@
 				14066BAF29E1431300AFB2D2 /* PasswordTextFieldCellViewModel.swift in Sources */,
 				149F01622A13859600370FE1 /* DynamicSizeTableView.swift in Sources */,
 				1455D2602A25B8940090257B /* MajorNetwork.swift in Sources */,
+				14A11A602A94BE48008453FC /* ImageNetwork.swift in Sources */,
 				14AC9B3529E2751C009C37A5 /* FriendsMatchTabViewController.swift in Sources */,
 				142DBED729DC2D2C00017603 /* PasswordTextFieldViewModel.swift in Sources */,
 				14F52BC72A8DF32300A09F92 /* ClubNetwork.swift in Sources */,
@@ -1163,6 +1209,7 @@
 				141A781829D7ED46006731F7 /* AppDelegate.swift in Sources */,
 				146F1E632A22FC810095502F /* ProfileAPI.swift in Sources */,
 				144D30C72A06096000640CCD /* ProfileSingleSelectionListModel.swift in Sources */,
+				14A11A5A2A94BB4A008453FC /* ExUIImage.swift in Sources */,
 				14D4C2E529FD4BF9001ACBC6 /* ProfileContentModel.swift in Sources */,
 				14D4C2D929FCF427001ACBC6 /* LeadingAlignmentCollectionViewFlowLayout.swift in Sources */,
 				1466FA222A0A482B00910C30 /* UserDefaultsManager.swift in Sources */,
@@ -1173,6 +1220,7 @@
 				14D7A90329E92F9B007850BE /* FriendsMatchWritingTopBarView.swift in Sources */,
 				146EA3492A8B55F0005E010B /* ClubListTableViewCell.swift in Sources */,
 				1409171F2A7D0B5800B27131 /* ProfileCreateViewModel.swift in Sources */,
+				14A11A562A94AD76008453FC /* ProfileImageRequestEntity.swift in Sources */,
 				144D30CD2A06259700640CCD /* WanfAPI.swift in Sources */,
 				146A01772A78EF6E004E140E /* SlicePostPaginationResponseEntity.swift in Sources */,
 				14982C9129EEACD200D388BF /* FriendsMatchDetailModel.swift in Sources */,

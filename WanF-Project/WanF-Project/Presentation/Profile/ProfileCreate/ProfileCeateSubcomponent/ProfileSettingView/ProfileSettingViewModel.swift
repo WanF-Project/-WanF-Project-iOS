@@ -10,6 +10,8 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+typealias DoneButtonActiveData = (imageInfo: ImageInfo?, profile: ProfileRequestEntity)
+
 class ProfileSettingViewModel {
     
     // Propertise
@@ -29,7 +31,7 @@ class ProfileSettingViewModel {
     let goalSettingViewModel = ProfileKeywordSettingViewModel()
     
     // ViewModel -> Parent ViewModel
-    let shouldMakeDoneButtonActive: Signal<ProfileRequestEntity>
+    let shouldMakeDoneButtonActive: Signal<DoneButtonActiveData>
     let shouldPresentPhotoPicker: Driver<Void>
     
     // View -> ViewModel
@@ -40,6 +42,9 @@ class ProfileSettingViewModel {
     let goals = PublishRelay<[String]>()
     
     init() {
+        
+        let imageInfo = settingPhotoButtonViewModel.imageData
+            .compactMap { $0 }
         
         let name = nameControlViewModel.stringValue
             .filter { !$0.isEmpty }
@@ -58,6 +63,10 @@ class ProfileSettingViewModel {
             .compactMap { Int($0) }
 
         let gender = genderControlViewModel.stringValue
+            .map {
+                if $0 == "여자" { return "FEMALE" }
+                else { return "MALE" }
+            }
         
         let mbti = mbtiControlViewModel.stringValue
         
@@ -69,10 +78,15 @@ class ProfileSettingViewModel {
             .bind(to: goals)
             .disposed(by: disposeBag)
         
+        let profile = Observable
+            .combineLatest(name, majorID, studentID, ageNumber, gender, mbti, personalities, goals) {
+                ProfileRequestEntity(nickname: $0, majorId: $1, studentId: $2, age: $3, gender: $4, mbti: $5, personalities: $6, goals: $7)
+            }
+        
         // 완료 버튼 활성화
         shouldMakeDoneButtonActive = Observable
-            .combineLatest(name, majorID, studentID, ageNumber, gender, mbti, personalities, goals) {
-                return ProfileRequestEntity(profileImage: "BEAR", nickname: $0, majorId: $1, entranceYear: $2, birth: $3, gender: $4, mbti: $5, personality: $6, purpose: $7, contact: "")
+            .combineLatest(imageInfo, profile) {
+                DoneButtonActiveData(imageInfo: $0, profile: $1)
             }
             .asSignal(onErrorSignalWith: .empty())
         

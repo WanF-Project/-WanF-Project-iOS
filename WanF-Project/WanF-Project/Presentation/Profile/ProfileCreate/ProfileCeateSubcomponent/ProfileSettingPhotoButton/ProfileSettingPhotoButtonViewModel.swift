@@ -10,6 +10,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+typealias ImageInfo = (data: Data, type: ImageContentType, name: String)
+
 struct ProfileSettingPhotoButtonViewModel {
     
     // Parent View -> ViewModel
@@ -18,9 +20,28 @@ struct ProfileSettingPhotoButtonViewModel {
     // ViewModel -> View
     let preImage: Driver<UIImage>
     
+    // ViewModel -> Parent View
+    let imageData: Observable<ImageInfo?>
+    
     init() {
         preImage = shouldChangePreImage
             .asDriver(onErrorDriveWith: .empty())
+        
+        imageData = shouldChangePreImage
+            .map {
+                guard let imageType = $0.contentType,
+                      let imageName = $0.imageAsset?.value(forKey: "assetName") as? String
+                else { return nil }
+                
+                let data: Data?
+                switch imageType {
+                case .jpeg:
+                    data = $0.jpegData(compressionQuality: 0.0)
+                case .png:
+                    data = $0.pngData()
+                }
+                return (data ?? Data(), imageType, imageName)
+            }
     }
     
 }
