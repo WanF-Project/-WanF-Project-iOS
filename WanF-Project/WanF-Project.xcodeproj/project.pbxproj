@@ -135,6 +135,7 @@
 		14BD19EE29FBB63B00B0E598 /* ProfileContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BD19ED29FBB63B00B0E598 /* ProfileContentViewModel.swift */; };
 		14BD19F229FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BD19F129FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift */; };
 		14CE0F012A98A4BF00B92BFB /* ProfileTapBackgroundControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CE0F002A98A4BF00B92BFB /* ProfileTapBackgroundControl.swift */; };
+		14CE0F032A98B40800B92BFB /* ProfileDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CE0F022A98B40800B92BFB /* ProfileDetailView.swift */; };
 		14D1FC512A7B733B00159E79 /* WanfTopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D1FC502A7B733B00159E79 /* WanfTopButton.swift */; };
 		14D1FC572A7B7E2900159E79 /* ProfileSettingPhotoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D1FC562A7B7E2900159E79 /* ProfileSettingPhotoButton.swift */; };
 		14D4C2D929FCF427001ACBC6 /* LeadingAlignmentCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4C2D829FCF427001ACBC6 /* LeadingAlignmentCollectionViewFlowLayout.swift */; };
@@ -292,6 +293,7 @@
 		14BD19ED29FBB63B00B0E598 /* ProfileContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentViewModel.swift; sourceTree = "<group>"; };
 		14BD19F129FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentKeywordListCell.swift; sourceTree = "<group>"; };
 		14CE0F002A98A4BF00B92BFB /* ProfileTapBackgroundControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTapBackgroundControl.swift; sourceTree = "<group>"; };
+		14CE0F022A98B40800B92BFB /* ProfileDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailView.swift; sourceTree = "<group>"; };
 		14D1FC502A7B733B00159E79 /* WanfTopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WanfTopButton.swift; sourceTree = "<group>"; };
 		14D1FC562A7B7E2900159E79 /* ProfileSettingPhotoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingPhotoButton.swift; sourceTree = "<group>"; };
 		14D4C2D829FCF427001ACBC6 /* LeadingAlignmentCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingAlignmentCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
@@ -857,6 +859,7 @@
 				14BD19ED29FBB63B00B0E598 /* ProfileContentViewModel.swift */,
 				14D4C2E429FD4BF9001ACBC6 /* ProfileContentModel.swift */,
 				14CE0F002A98A4BF00B92BFB /* ProfileTapBackgroundControl.swift */,
+				14CE0F022A98B40800B92BFB /* ProfileDetailView.swift */,
 			);
 			name = ProfileContentView;
 			sourceTree = "<group>";
@@ -1233,6 +1236,7 @@
 				146EA3492A8B55F0005E010B /* ClubListTableViewCell.swift in Sources */,
 				1409171F2A7D0B5800B27131 /* ProfileCreateViewModel.swift in Sources */,
 				14A11A562A94AD76008453FC /* ProfileImageRequestEntity.swift in Sources */,
+				14CE0F032A98B40800B92BFB /* ProfileDetailView.swift in Sources */,
 				144D30CD2A06259700640CCD /* WanfAPI.swift in Sources */,
 				146A01772A78EF6E004E140E /* SlicePostPaginationResponseEntity.swift in Sources */,
 				14982C9129EEACD200D388BF /* FriendsMatchDetailModel.swift in Sources */,
