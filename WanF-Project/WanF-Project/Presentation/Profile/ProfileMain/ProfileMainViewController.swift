@@ -20,17 +20,6 @@ class ProfileMainViewController: UIViewController {
     //MARK: - View
     let scrollView = UIScrollView()
     let containerView = UIView()
-    
-    lazy var descriptionLabel: UILabel = {
-        let label = UILabel()
-        
-        label.text = "• 클릭 시 수정이 가능합니다."
-        label.font = .wanfFont(ofSize: 13, weight: .regular)
-        label.textColor = .wanfDarkGray
-        
-        return label
-    }()
-    
     let refreshControl = UIRefreshControl()
     
     //MARK: -  LifeCycle
@@ -76,32 +65,19 @@ private extension ProfileMainViewController {
         
         view.addSubview(scrollView)
         
-        [
-            profileContentView,
-            descriptionLabel
-        ]
-            .forEach { scrollView.addSubview($0) }
+        scrollView.addSubview(profileContentView)
     }
     
     func layout() {
-        let verticalInset = 30.0
-        let horizontalInset = 50.0
-        let offset = 10.0
         
         scrollView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
         
         profileContentView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(verticalInset)
-            make.horizontalEdges.equalToSuperview().inset(horizontalInset)
-            make.width.equalTo(scrollView.snp.width).inset(horizontalInset)
-        }
-        
-        descriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(profileContentView.snp.bottom).offset(offset)
-            make.leading.equalTo(profileContentView)
-            make.bottom.equalToSuperview().inset(verticalInset)
+            make.top.equalToSuperview()
+            make.horizontalEdges.equalToSuperview()
+            make.width.equalTo(scrollView.snp.width)
         }
     }
 }
