@@ -9,17 +9,15 @@ import UIKit
 
 import SnapKit
 
-class ProfileDetailView: UIView {
+class ProfileDetailView: ProfileTapBackgroundControl {
     
     //MARK: - View
-    lazy var backgrounControl = ProfileTapBackgroundControl()
-    
     lazy var profileNicknameLabel: UILabel = {
         let label = UILabel()
         
         label.text = "별명"
         label.font = .wanfFont(ofSize: 15, weight: .bold)
-        label.textColor = .wanfLabel
+        label.textColor = .wanfBackground
         label.textAlignment = .center
         label.numberOfLines = 1
         
@@ -31,19 +29,23 @@ class ProfileDetailView: UIView {
         
         label.text = "IT융합자율학부 소프트웨어공학전공"
         label.font = .wanfFont(ofSize: 13, weight: .regular)
-        label.textColor = .wanfLabel
+        label.textColor = .wanfBackground
         label.textAlignment = .center
         label.numberOfLines = 1
         
         return label
     }()
     
+    lazy var infoStackFir = UIStackView(arrangedSubviews: [profileEntranceYearLabel, profileBirthLabel])
+    
+    lazy var infoStackSec = UIStackView(arrangedSubviews: [profileGenderLabel, profileMBTILabel])
+    
     lazy var profileEntranceYearLabel: UILabel = {
         let label = UILabel()
         
         label.text = "23학번"
         label.font = .wanfFont(ofSize: 15, weight: .bold)
-        label.textColor = .wanfLabel
+        label.textColor = .wanfBackground
         label.textAlignment = .center
         label.numberOfLines = 1
         
@@ -55,7 +57,7 @@ class ProfileDetailView: UIView {
         
         label.text = "20살"
         label.font = .wanfFont(ofSize: 15, weight: .bold)
-        label.textColor = .wanfLabel
+        label.textColor = .wanfBackground
         label.textAlignment = .center
         label.numberOfLines = 1
         
@@ -67,7 +69,7 @@ class ProfileDetailView: UIView {
         
         label.text = "남여"
         label.font = .wanfFont(ofSize: 15, weight: .bold)
-        label.textColor = .wanfLabel
+        label.textColor = .wanfBackground
         label.textAlignment = .center
         label.numberOfLines = 1
         
@@ -79,7 +81,7 @@ class ProfileDetailView: UIView {
         
         label.text = "MBTI"
         label.font = .wanfFont(ofSize: 15, weight: .bold)
-        label.textColor = .wanfLabel
+        label.textColor = .wanfBackground
         label.textAlignment = .center
         label.numberOfLines = 1
         
@@ -99,7 +101,7 @@ class ProfileDetailView: UIView {
         
         label.text = "성격"
         label.font = .wanfFont(ofSize: 15, weight: .bold)
-        label.textColor = .wanfLabel
+        label.textColor = .wanfBackground
         label.numberOfLines = 1
         
         return label
@@ -126,7 +128,7 @@ class ProfileDetailView: UIView {
         
         label.text = "수업 목표"
         label.font = .wanfFont(ofSize: 15, weight: .bold)
-        label.textColor = .wanfLabel
+        label.textColor = .wanfBackground
         label.numberOfLines = 1
         
         return label
@@ -150,7 +152,7 @@ class ProfileDetailView: UIView {
     
     lazy var profileMessageButton: UIButton = {
         var configuration = UIButton.Configuration.plain()
-        configuration.image = UIImage(systemName: "ellipsis.message")
+        configuration.image = UIImage(systemName: "ellipsis.message.fill")
         configuration.baseForegroundColor = .wanfMint
         configuration.buttonSize = .large
         
@@ -158,16 +160,13 @@ class ProfileDetailView: UIView {
     }()
     
     //MARK: - Initialize
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init() {
-        super.init(frame: .zero)
+    override init() {
+        super.init()
+        
         configure()
         layout()
     }
@@ -177,15 +176,21 @@ class ProfileDetailView: UIView {
 private extension ProfileDetailView {
     func configure() {
         
-        addSubview(backgrounControl)
+        infoStackFir.alignment = .center
+        infoStackFir.axis = .horizontal
+        infoStackFir.distribution = .fillEqually
+        infoStackFir.spacing = 10
+        
+        infoStackSec.alignment = .center
+        infoStackSec.axis = .horizontal
+        infoStackSec.distribution = .fillEqually
+        infoStackSec.spacing = 10
         
         [
             profileNicknameLabel,
             profileMajorLabel,
-            profileEntranceYearLabel,
-            profileBirthLabel,
-            profileGenderLabel,
-            profileMBTILabel,
+            infoStackFir,
+            infoStackSec,
             profileMidBarView,
             profilePersonalityListTitleLabel,
             profilePersonalityListView,
@@ -193,7 +198,7 @@ private extension ProfileDetailView {
             profilePurposeListView,
             profileMessageButton
         ]
-            .forEach { backgrounControl.addSubview($0) }
+            .forEach { addSubview($0) }
     }
     
     func layout() {
@@ -201,13 +206,9 @@ private extension ProfileDetailView {
         let horizontalInset = 10
         let groupOffset = 30
         
-        backgrounControl.snp.makeConstraints { make in
-            make.edges.equalTo(safeAreaLayoutGuide)
-        }
-        
         // 프로필 사용자 정보
         profileNicknameLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(groupOffset)
+            make.top.equalToSuperview().inset(verticalInset)
             make.centerX.equalToSuperview()
             make.horizontalEdges.equalToSuperview().inset(horizontalInset)
         }
@@ -217,39 +218,28 @@ private extension ProfileDetailView {
             make.centerX.equalToSuperview()
         }
         
-        // 프로필 특징
-        profileEntranceYearLabel.snp.makeConstraints { make in
+        infoStackFir.snp.makeConstraints { make in
             make.top.equalTo(profileMajorLabel.snp.bottom).offset(groupOffset)
-            make.leading.equalTo(profileMidBarView)
+            make.centerX.equalToSuperview()
         }
         
-        profileBirthLabel.snp.makeConstraints { make in
-            make.top.equalTo(profileEntranceYearLabel)
-            make.trailing.equalTo(profileMidBarView)
-        }
-        
-        profileGenderLabel.snp.makeConstraints { make in
-            make.top.equalTo(profileEntranceYearLabel.snp.bottom).offset(15)
-            make.centerX.equalTo(profileEntranceYearLabel)
-        }
-        
-        profileMBTILabel.snp.makeConstraints { make in
-            make.top.equalTo(profileGenderLabel)
-            make.centerX.equalTo(profileBirthLabel)
+        infoStackSec.snp.makeConstraints { make in
+            make.top.equalTo(infoStackFir.snp.bottom).offset(15)
+            make.horizontalEdges.equalTo(infoStackFir)
         }
         
         // 프로필 구분선
         profileMidBarView.snp.makeConstraints { make in
             make.height.equalTo(1)
-            make.top.equalTo(profileGenderLabel.snp.bottom).offset(groupOffset + 10)
-            make.width.equalTo(self.frame.width / 2)
+            make.top.equalTo(infoStackSec.snp.bottom).offset(groupOffset + 10)
+            make.horizontalEdges.equalToSuperview().inset(50)
             make.centerX.equalToSuperview()
         }
         
         // 프로필 키워드
         profilePersonalityListTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(profileMidBarView.snp.bottom).offset(groupOffset + 10)
-            make.leading.equalTo(profileMidBarView)
+            make.leading.equalTo(profileMidBarView).offset(10)
         }
         
         profilePersonalityListView.snp.makeConstraints { make in
@@ -260,7 +250,7 @@ private extension ProfileDetailView {
         
         profilePurposeListTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(profilePersonalityListView.snp.bottom).offset(groupOffset)
-            make.leading.equalTo(profileMidBarView)
+            make.leading.equalTo(profileMidBarView).offset(10)
         }
         
         profilePurposeListView.snp.makeConstraints { make in
@@ -272,7 +262,6 @@ private extension ProfileDetailView {
         // 프로필 쪽지
         profileMessageButton.snp.makeConstraints { make in
             make.top.equalTo(profilePurposeListView.snp.bottom).offset(groupOffset)
-            make.bottom.equalToSuperview().inset(verticalInset)
             make.centerX.equalToSuperview()
         }
     }
