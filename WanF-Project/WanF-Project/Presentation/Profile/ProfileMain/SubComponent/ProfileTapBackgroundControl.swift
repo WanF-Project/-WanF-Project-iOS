@@ -29,6 +29,10 @@ class ProfileTapBackgroundControl: UIControl {
         addTarget(self, action: #selector(didTouchUpInSide), for: .touchUpInside)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        sendActions(for: .touchUpInside)
+    }
+    
     //MARK: - Function
     @objc func didTouchUpInSide(_ sender: UIControl) {
         sender.isHidden.toggle()
