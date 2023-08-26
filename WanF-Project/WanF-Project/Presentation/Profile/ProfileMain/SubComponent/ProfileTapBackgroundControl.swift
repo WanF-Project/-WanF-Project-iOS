@@ -25,7 +25,7 @@ class ProfileTapBackgroundControl: UIControl {
     init() {
         super.init(frame: .zero)
         
-        backgroundColor = .wanfLabel.withAlphaComponent(0.5)
+        backgroundColor = .wanfLabel.withAlphaComponent(0.7)
         addTarget(self, action: #selector(didTouchUpInSide), for: .touchUpInside)
     }
     
