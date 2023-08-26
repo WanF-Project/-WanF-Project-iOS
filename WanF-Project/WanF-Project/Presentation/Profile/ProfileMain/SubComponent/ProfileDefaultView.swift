@@ -19,6 +19,7 @@ class ProfileDefaultView: UIView {
     //MARK: - View
     lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.image = UIImage(named: "IMG_4103 1")
         imageView.tintColor = .wanfMint
         
         return imageView
@@ -47,7 +48,7 @@ class ProfileDefaultView: UIView {
             .bind(to: detailView.rx.isHidden)
             .disposed(by: disposeBag)
         
-        detailView.backgrounControl.rx.tapForHidden
+        detailView.rx.tapForHidden
             .bind(to: bottomBackgroundControl.rx.isHidden)
             .disposed(by: disposeBag)
     }
@@ -56,6 +57,10 @@ class ProfileDefaultView: UIView {
 //MARK: - Configure
 private extension ProfileDefaultView {
     func configure() {
+        
+        self.isUserInteractionEnabled = true
+        profileImageView.isUserInteractionEnabled = true
+        detailView.isHidden = true
         
         addSubview(profileImageView)
         
@@ -68,7 +73,7 @@ private extension ProfileDefaultView {
     
     func layout() {
         profileImageView.snp.makeConstraints { make in
-            make.edges.equalTo(safeAreaLayoutGuide)
+            make.edges.equalToSuperview()
         }
         
         detailView.snp.makeConstraints { make in
