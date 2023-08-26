@@ -41,7 +41,7 @@ class ProfileDefaultView: UIView {
         super.init(frame: .zero)
         
         configure()
-        layoutSubviews()
+        layout()
         
         bottomBackgroundControl.rx.tapForHidden
             .bind(to: detailView.rx.isHidden)
