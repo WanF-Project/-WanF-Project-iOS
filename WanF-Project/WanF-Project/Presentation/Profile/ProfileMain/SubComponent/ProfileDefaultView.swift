@@ -19,7 +19,7 @@ class ProfileDefaultView: UIView {
     //MARK: - View
     lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "IMG_4103 1")
+        imageView.image = UIImage(named: "WanfProfileDefaultImage")
         imageView.tintColor = .wanfMint
         
         return imageView
