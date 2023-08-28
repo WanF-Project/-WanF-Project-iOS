@@ -15,8 +15,8 @@ struct ProfileResponseEntity: Decodable {
     let age: Int
     let gender: KeywordEntity
     let mbti: String
-    let personality: KeywordEntity
-    let purpose: KeywordEntity
+    let personalities: KeywordEntity
+    let goals: KeywordEntity
     let image: ImageResponseEntity
 }
 
