@@ -27,6 +27,30 @@ class ProfileDefaultView: UIView {
     
     lazy var bottomBackgroundControl = ProfileTapBackgroundControl()
     
+    lazy var profileNicknameLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "별명"
+        label.font = .wanfFont(ofSize: 15, weight: .bold)
+        label.textColor = .wanfBackground
+        label.textAlignment = .center
+        label.numberOfLines = 1
+        
+        return label
+    }()
+    
+    lazy var profileMajorLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "IT융합자율학부 소프트웨어공학전공"
+        label.font = .wanfFont(ofSize: 13, weight: .regular)
+        label.textColor = .wanfBackground
+        label.textAlignment = .center
+        label.numberOfLines = 1
+        
+        return label
+    }()
+    
     lazy var detailView = ProfileDetailView()
     
     //MARK: - Initialize
@@ -69,6 +93,12 @@ private extension ProfileDefaultView {
             detailView
         ]
             .forEach { profileImageView.addSubview($0) }
+        
+        [
+            profileNicknameLabel,
+            profileMajorLabel
+        ]
+            .forEach { bottomBackgroundControl.addSubview($0) }
     }
     
     func layout() {
@@ -83,6 +113,16 @@ private extension ProfileDefaultView {
         bottomBackgroundControl.snp.makeConstraints { make in
             make.bottom.horizontalEdges.equalToSuperview()
             make.height.equalTo(100)
+        }
+        
+        profileNicknameLabel.snp.makeConstraints { make in
+            make.top.leading.equalToSuperview().inset(20)
+        }
+        
+        profileMajorLabel.snp.makeConstraints { make in
+            make.top.equalTo(profileNicknameLabel.snp.bottom).offset(15)
+            make.leading.equalTo(profileNicknameLabel)
+            make.bottom.equalToSuperview().inset(20)
         }
     }
 }
