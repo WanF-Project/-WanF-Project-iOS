@@ -14,13 +14,10 @@ struct ProfileContentViewModel {
     
     let disposeBag = DisposeBag()
     
+    // Parent ViewModel -> ViwModel
+    let loadProfile = PublishRelay<Void>()
+    
     // View -> ViewModel
-    let patchProfile = PublishRelay<ProfileRequestEntity>()
-    
-    let subject = PublishSubject<Observable<Void>>()
-    let loadProfileSubject = PublishSubject<Void>()
-    let refreshProfileSubject = PublishSubject<Void>()
-    
     let loadProfilePreview = PublishRelay<Int>()
     
     // ViewModel -> View
@@ -31,12 +28,9 @@ struct ProfileContentViewModel {
     init(_ model: ProfileContentModel = ProfileContentModel()) {
         
         // 프로필 불러오기
-        let loadProfileResult = subject
-            .switchLatest()
+        let loadProfileResult = loadProfile
             .flatMap(model.loadProfile)
             .share()
-        
-        loadProfileResult.subscribe().disposed(by: disposeBag)
         
         let profileValue = loadProfileResult
             .compactMap(model.getProfileValue)
@@ -78,18 +72,5 @@ struct ProfileContentViewModel {
                 return purpose
             })
             .asDriver(onErrorDriveWith: .empty())
-        
-        // 프로필 수정
-        let patchProfileResult = patchProfile
-            .flatMap(model.patchProfile)
-            .share()
-        
-        let patchProfileValue = patchProfileResult
-            .compactMap(model.getPatchProfileValue)
-        
-        patchProfileValue.subscribe().disposed(by: disposeBag)
-        
-        let patchProfileError = patchProfileResult
-            .compactMap(model.getPatchProfileError)
     }
 }
