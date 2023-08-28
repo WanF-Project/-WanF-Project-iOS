@@ -35,14 +35,6 @@ class ProfilePreviewViewController: UIViewController {
         
         // Load Profile Preview
         viewModel.shouldLoadProfilePreview.accept(id)
-        
-        viewModel.presentActivity
-            .drive(onNext: { contact in
-                let activityVC = UIActivityViewController(activityItems: [contact], applicationActivities: [])
-                self.present(activityVC, animated: true)
-            })
-            .disposed(by: disposeBag)
-        
     }
 }
 
