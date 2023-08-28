@@ -14,29 +14,26 @@ struct ProfileContentViewModel {
     
     let disposeBag = DisposeBag()
     
+    // Subcomponent ViewModel
+    let profileDefaultViewModel = ProfileDefaultViewModel()
+    
+    // Parent ViewModel -> ViwModel
+    let loadProfile = PublishRelay<Void>()
+    
+    // ViewModel -> Chile ViewModel
+    let profileData: Observable<ProfileResponseEntity>
+    
     // View -> ViewModel
-    let patchProfile = PublishRelay<ProfileRequestEntity>()
-    
-    let subject = PublishSubject<Observable<Void>>()
-    let loadProfileSubject = PublishSubject<Void>()
-    let refreshProfileSubject = PublishSubject<Void>()
-    
     let loadProfilePreview = PublishRelay<Int>()
     
     // ViewModel -> View
-    let profileData: Driver<ProfileResponseEntity>
-    let personalityCellData: Driver<[String]>
-    let purposeCellData: Driver<[String]>
     
     init(_ model: ProfileContentModel = ProfileContentModel()) {
         
         // 프로필 불러오기
-        let loadProfileResult = subject
-            .switchLatest()
+        let loadProfileResult = loadProfile
             .flatMap(model.loadProfile)
             .share()
-        
-        loadProfileResult.subscribe().disposed(by: disposeBag)
         
         let profileValue = loadProfileResult
             .compactMap(model.getProfileValue)
@@ -52,6 +49,7 @@ struct ProfileContentViewModel {
         
         let profilePreviewValue = loadProfilePreviewResult
             .compactMap(model.getProfilePreviewValue)
+            .share()
         
         let profilePreviewError = loadProfilePreviewResult
             .compactMap(model.getProfilePreviewError)
@@ -59,37 +57,9 @@ struct ProfileContentViewModel {
         // 데이터 연결
         profileData = profileValue
             .amb(profilePreviewValue)
-            .asDriver(onErrorDriveWith: .empty())
         
-        personalityCellData = profileValue
-            .amb(profilePreviewValue)
-            .map({ content in
-                guard let personality = (content.personality as NSDictionary).allValues as? Array<String> else
-                { return [] }
-                return personality
-            })
-            .asDriver(onErrorDriveWith: .empty())
-        
-        purposeCellData = profileValue
-            .amb(profilePreviewValue)
-            .map({ content in
-                guard let purpose = (content.purpose as NSDictionary).allValues as? Array<String> else
-                { return [] }
-                return purpose
-            })
-            .asDriver(onErrorDriveWith: .empty())
-        
-        // 프로필 수정
-        let patchProfileResult = patchProfile
-            .flatMap(model.patchProfile)
-            .share()
-        
-        let patchProfileValue = patchProfileResult
-            .compactMap(model.getPatchProfileValue)
-        
-        patchProfileValue.subscribe().disposed(by: disposeBag)
-        
-        let patchProfileError = patchProfileResult
-            .compactMap(model.getPatchProfileError)
+        profileData
+            .bind(to: profileDefaultViewModel.shouldBindProfile)
+            .disposed(by: disposeBag)
     }
 }

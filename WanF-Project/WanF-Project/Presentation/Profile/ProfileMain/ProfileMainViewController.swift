@@ -40,7 +40,7 @@ class ProfileMainViewController: UIViewController {
         profileContentView.bind(viewModel.profileContentViewModel)
         
         // Load
-        viewModel.shouldLoadProfile.accept(Void())
+        viewModel.profileContentViewModel.loadProfile.accept(Void())
     }
 }
 

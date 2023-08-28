@@ -19,7 +19,7 @@ class ProfileDefaultView: UIView {
     //MARK: - View
     lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "IMG_4103 1")
+        imageView.image = UIImage(named: "WanfProfileDefaultImage")
         imageView.tintColor = .wanfMint
         
         return imageView
@@ -74,6 +74,40 @@ class ProfileDefaultView: UIView {
         
         detailView.rx.tapForHidden
             .bind(to: bottomBackgroundControl.rx.isHidden)
+            .disposed(by: disposeBag)
+    }
+    
+    //MARK: - Function
+    func bind(_ viewModel: ProfileDefaultViewModel) {
+        
+        // Bind Subcomponents
+        detailView.bind(viewModel.profileDetailViewModel)
+        
+        // ViewModel -> View
+        viewModel.image
+            .subscribe(onNext: {
+                guard let url = URL(string: $0.imageUrl) else { return }
+                let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                    if let error = error {
+                        debugPrint("ERROR: Fail to load image \(error)")
+                        return
+                    }
+                    guard let httpResponse = response as? HTTPURLResponse,
+                          (200 ... 299).contains(httpResponse.statusCode),
+                          let data = data else { return }
+                    DispatchQueue.main.async {
+                        self.profileImageView.image = UIImage(data: data)
+                    }
+                }
+                task.resume()
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.profile
+            .drive(onNext: {
+                self.profileNicknameLabel.text = $0.nickname
+                self.profileMajorLabel.text = $0.major.name
+            })
             .disposed(by: disposeBag)
     }
 }

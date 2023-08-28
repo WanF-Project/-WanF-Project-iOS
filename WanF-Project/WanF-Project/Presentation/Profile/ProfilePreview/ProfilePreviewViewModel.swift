@@ -22,9 +22,6 @@ struct ProfilePreviewViewModel {
     let shouldLoadProfilePreview = PublishRelay<Int>()
     let shouldPresentActivity = PublishRelay<Void>()
     
-    // ViewModel -> View
-    let presentActivity: Driver<String>
-    
     init() {
         
         // Load ProfilePreview
@@ -34,12 +31,5 @@ struct ProfilePreviewViewModel {
                 viewModel.loadProfilePreview.accept(id)
             })
             .disposed(by: disposeBag)
-        
-        // Present ActivityView for Contact
-        presentActivity = shouldPresentActivity
-            .withLatestFrom(profileContentViewModel.profileData, resultSelector: { _, profile in
-                return profile.contact ?? ""
-            })
-            .asDriver(onErrorDriveWith: .empty())
     }
 }
