@@ -117,6 +117,7 @@ class ProfileDetailView: ProfileTapBackgroundControl {
         
         let collectionView = DynamicHeightCollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.isScrollEnabled = false
+        collectionView.backgroundColor = .none
         
         collectionView.register(ProfileContentKeywordListCell.self, forCellWithReuseIdentifier: "ProfileContentKeywordListCell")
         
@@ -144,6 +145,7 @@ class ProfileDetailView: ProfileTapBackgroundControl {
         
         let collectionView = DynamicHeightCollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.isScrollEnabled = false
+        collectionView.backgroundColor = .none
         
         collectionView.register(ProfileContentKeywordListCell.self, forCellWithReuseIdentifier: "ProfileContentKeywordListCell")
         
@@ -244,7 +246,7 @@ private extension ProfileDetailView {
         
         profilePersonalityListView.snp.makeConstraints { make in
             make.top.equalTo(profilePersonalityListTitleLabel.snp.bottom).offset(13)
-            make.centerX.equalToSuperview()
+            make.horizontalEdges.equalTo(profileMidBarView).offset(10)
             make.width.equalTo(profileMidBarView)
         }
         
@@ -255,7 +257,7 @@ private extension ProfileDetailView {
         
         profilePurposeListView.snp.makeConstraints { make in
             make.top.equalTo(profilePurposeListTitleLabel.snp.bottom).offset(13)
-            make.centerX.equalToSuperview()
+            make.horizontalEdges.equalTo(profileMidBarView).offset(10)
             make.width.equalTo(profileMidBarView)
         }
         
