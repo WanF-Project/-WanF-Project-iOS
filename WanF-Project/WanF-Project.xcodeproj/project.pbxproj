@@ -48,6 +48,8 @@
 		1434E6262A7FA7AE0089BA3D /* SettingControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1434E6252A7FA7AE0089BA3D /* SettingControlViewModel.swift */; };
 		143661FE2A0F7D7300308028 /* FriendsMatchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143661FD2A0F7D7300308028 /* FriendsMatchAPI.swift */; };
 		143662002A0F7F0500308028 /* FriendsMatchNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143661FF2A0F7F0500308028 /* FriendsMatchNetwork.swift */; };
+		14394D3C2A9C553400ACE540 /* ProfileDefaultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14394D3B2A9C553400ACE540 /* ProfileDefaultViewModel.swift */; };
+		14394D402A9C5C4000ACE540 /* ProfileDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14394D3F2A9C5C4000ACE540 /* ProfileDetailViewModel.swift */; };
 		143AE33E2A738F8A00056647 /* CSSearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143AE33D2A738F8A00056647 /* CSSearchBarView.swift */; };
 		143AE34C2A73B80700056647 /* CSSearchBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143AE34B2A73B80700056647 /* CSSearchBarViewModel.swift */; };
 		1449E1F62A135375008C70DB /* FriendsMatchCommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1449E1F52A135375008C70DB /* FriendsMatchCommentListView.swift */; };
@@ -207,6 +209,8 @@
 		1434E6252A7FA7AE0089BA3D /* SettingControlViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingControlViewModel.swift; sourceTree = "<group>"; };
 		143661FD2A0F7D7300308028 /* FriendsMatchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchAPI.swift; sourceTree = "<group>"; };
 		143661FF2A0F7F0500308028 /* FriendsMatchNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchNetwork.swift; sourceTree = "<group>"; };
+		14394D3B2A9C553400ACE540 /* ProfileDefaultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDefaultViewModel.swift; sourceTree = "<group>"; };
+		14394D3F2A9C5C4000ACE540 /* ProfileDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewModel.swift; sourceTree = "<group>"; };
 		143AE33D2A738F8A00056647 /* CSSearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSearchBarView.swift; sourceTree = "<group>"; };
 		143AE34B2A73B80700056647 /* CSSearchBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSearchBarViewModel.swift; sourceTree = "<group>"; };
 		1449E1F52A135375008C70DB /* FriendsMatchCommentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchCommentListView.swift; sourceTree = "<group>"; };
@@ -467,6 +471,24 @@
 				142DBED629DC2D2C00017603 /* PasswordTextFieldViewModel.swift */,
 			);
 			path = PasswordTextField;
+			sourceTree = "<group>";
+		};
+		14394D3D2A9C55AA00ACE540 /* ProfileDefaultView */ = {
+			isa = PBXGroup;
+			children = (
+				14CE0F042A98B46A00B92BFB /* ProfileDefaultView.swift */,
+				14394D3B2A9C553400ACE540 /* ProfileDefaultViewModel.swift */,
+			);
+			name = ProfileDefaultView;
+			sourceTree = "<group>";
+		};
+		14394D3E2A9C5C2700ACE540 /* ProfileDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				14CE0F022A98B40800B92BFB /* ProfileDetailView.swift */,
+				14394D3F2A9C5C4000ACE540 /* ProfileDetailViewModel.swift */,
+			);
+			name = ProfileDetailView;
 			sourceTree = "<group>";
 		};
 		143AE33F2A73978800056647 /* CourseInfoList */ = {
@@ -857,12 +879,12 @@
 		14CE0EFB2A98A02100B92BFB /* ProfileContentView */ = {
 			isa = PBXGroup;
 			children = (
+				14394D3E2A9C5C2700ACE540 /* ProfileDetailView */,
+				14394D3D2A9C55AA00ACE540 /* ProfileDefaultView */,
 				14BD19E929FB986700B0E598 /* ProfileContentView.swift */,
 				14BD19ED29FBB63B00B0E598 /* ProfileContentViewModel.swift */,
 				14D4C2E429FD4BF9001ACBC6 /* ProfileContentModel.swift */,
 				14CE0F002A98A4BF00B92BFB /* ProfileTapBackgroundControl.swift */,
-				14CE0F022A98B40800B92BFB /* ProfileDetailView.swift */,
-				14CE0F042A98B46A00B92BFB /* ProfileDefaultView.swift */,
 			);
 			name = ProfileContentView;
 			sourceTree = "<group>";
@@ -1135,6 +1157,7 @@
 				14D4C2DD29FD0407001ACBC6 /* DynamicHeightCollectionView.swift in Sources */,
 				14567E9C29DFE824000B75EE /* EmailStackViewCellModel.swift in Sources */,
 				1463ADE12A8C9182002845B8 /* ClubListViewModel.swift in Sources */,
+				14394D3C2A9C553400ACE540 /* ProfileDefaultViewModel.swift in Sources */,
 				143AE34C2A73B80700056647 /* CSSearchBarViewModel.swift in Sources */,
 				147E9B532A178E520032E530 /* CourseAPI.swift in Sources */,
 				14E4C9EB29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift in Sources */,
@@ -1143,6 +1166,7 @@
 				147922ED29DADBCF0052CBA8 /* SignUpIDViewController.swift in Sources */,
 				146A01752A78E76B004E140E /* PageableEntity.swift in Sources */,
 				14F52BCD2A8E093E00A09F92 /* ClubPwdRequestEntity.swift in Sources */,
+				14394D402A9C5C4000ACE540 /* ProfileDetailViewModel.swift in Sources */,
 				142DBED029DC1DCB00017603 /* EmailTextField.swift in Sources */,
 				147823C82A7DF9F7003DC9CE /* CSKeyboardToolBar.swift in Sources */,
 				14A11A5E2A94BD9C008453FC /* ImageAPI.swift in Sources */,

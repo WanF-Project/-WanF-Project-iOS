@@ -14,16 +14,19 @@ struct ProfileContentViewModel {
     
     let disposeBag = DisposeBag()
     
+    // Subcomponent ViewModel
+    let profileDefaultViewModel = ProfileDefaultViewModel()
+    
     // Parent ViewModel -> ViwModel
     let loadProfile = PublishRelay<Void>()
+    
+    // ViewModel -> Chile ViewModel
+    let profileData: Observable<ProfileResponseEntity>
     
     // View -> ViewModel
     let loadProfilePreview = PublishRelay<Int>()
     
     // ViewModel -> View
-    let profileData: Driver<ProfileResponseEntity>
-    let personalityCellData: Driver<[String]>
-    let purposeCellData: Driver<[String]>
     
     init(_ model: ProfileContentModel = ProfileContentModel()) {
         
@@ -46,6 +49,7 @@ struct ProfileContentViewModel {
         
         let profilePreviewValue = loadProfilePreviewResult
             .compactMap(model.getProfilePreviewValue)
+            .share()
         
         let profilePreviewError = loadProfilePreviewResult
             .compactMap(model.getProfilePreviewError)
@@ -53,24 +57,9 @@ struct ProfileContentViewModel {
         // 데이터 연결
         profileData = profileValue
             .amb(profilePreviewValue)
-            .asDriver(onErrorDriveWith: .empty())
         
-        personalityCellData = profileValue
-            .amb(profilePreviewValue)
-            .map({ content in
-                guard let personality = (content.personality as NSDictionary).allValues as? Array<String> else
-                { return [] }
-                return personality
-            })
-            .asDriver(onErrorDriveWith: .empty())
-        
-        purposeCellData = profileValue
-            .amb(profilePreviewValue)
-            .map({ content in
-                guard let purpose = (content.purpose as NSDictionary).allValues as? Array<String> else
-                { return [] }
-                return purpose
-            })
-            .asDriver(onErrorDriveWith: .empty())
+        profileData
+            .bind(to: profileDefaultViewModel.shouldBindProfile)
+            .disposed(by: disposeBag)
     }
 }

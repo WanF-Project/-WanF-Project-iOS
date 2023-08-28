@@ -76,6 +76,40 @@ class ProfileDefaultView: UIView {
             .bind(to: bottomBackgroundControl.rx.isHidden)
             .disposed(by: disposeBag)
     }
+    
+    //MARK: - Function
+    func bind(_ viewModel: ProfileDefaultViewModel) {
+        
+        // Bind Subcomponents
+        detailView.bind(viewModel.profileDetailViewModel)
+        
+        // ViewModel -> View
+        viewModel.image
+            .subscribe(onNext: {
+                guard let url = URL(string: $0.imageUrl) else { return }
+                let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                    if let error = error {
+                        debugPrint("ERROR: Fail to load image \(error)")
+                        return
+                    }
+                    guard let httpResponse = response as? HTTPURLResponse,
+                          (200 ... 299).contains(httpResponse.statusCode),
+                          let data = data else { return }
+                    DispatchQueue.main.async {
+                        self.profileImageView.image = UIImage(data: data)
+                    }
+                }
+                task.resume()
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.profile
+            .drive(onNext: {
+                self.profileNicknameLabel.text = $0.nickname
+                self.profileMajorLabel.text = $0.major.name
+            })
+            .disposed(by: disposeBag)
+    }
 }
 
 //MARK: - Configure

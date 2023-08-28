@@ -38,6 +38,8 @@ class ProfileContentView: UIView {
     //MARK: - Function
     func bind(_ viewModel: ProfileContentViewModel) {
         
+        // Bind Subcomponents
+        defaultView.bind(viewModel.profileDefaultViewModel)
     }
 }
 

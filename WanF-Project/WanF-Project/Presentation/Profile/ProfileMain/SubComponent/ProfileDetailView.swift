@@ -8,8 +8,13 @@
 import UIKit
 
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class ProfileDetailView: ProfileTapBackgroundControl {
+    
+    //MARK: - Properties
+    let disposeBag = DisposeBag()
     
     //MARK: - View
     lazy var profileNicknameLabel: UILabel = {
@@ -171,6 +176,42 @@ class ProfileDetailView: ProfileTapBackgroundControl {
         
         configure()
         layout()
+    }
+    
+    //MARK: - Function
+    func bind(_ viewModel: ProfileDetailViewModel) {
+        
+        viewModel.profile
+            .drive(onNext: {
+                self.profileNicknameLabel.text = $0.nickname
+                self.profileMajorLabel.text = $0.major.name
+                self.profileEntranceYearLabel.text = $0.studentId.description
+                self.profileBirthLabel.text = $0.age.description
+                self.profileGenderLabel.text = $0.gender.values.first
+                self.profileMBTILabel.text = $0.mbti
+            })
+            .disposed(by: disposeBag)
+        
+        bindList(viewModel)
+    }
+    
+    func bindList(_ viewModel: ProfileDetailViewModel) {
+
+        viewModel.personalityCellData
+            .drive(profilePersonalityListView.rx.items(cellIdentifier: "ProfileContentKeywordListCell", cellType: ProfileContentKeywordListCell.self)) { index, data, cell in
+                cell.configureCell(data)
+                cell.frame.size = cell.getContentSize()
+                cell.layoutIfNeeded()
+            }
+            .disposed(by: disposeBag)
+
+        viewModel.purposeCellData
+            .drive(profilePurposeListView.rx.items(cellIdentifier: "ProfileContentKeywordListCell", cellType: ProfileContentKeywordListCell.self)) {index, data, cell in
+                cell.configureCell(data)
+                cell.frame.size = cell.getContentSize()
+                cell.layoutIfNeeded()
+            }
+            .disposed(by: disposeBag)
     }
 }
 
