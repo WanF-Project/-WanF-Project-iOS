@@ -18,6 +18,11 @@ class ProfileMainViewController: UIViewController {
     
     //MARK: - View
     let profileContentView = ProfileContentView()
+    let EditBarItem: UIBarButtonItem = {
+        let item = UIBarButtonItem()
+        item.image = UIImage(systemName: "pencil.line")
+        return item
+    }()
     
     //MARK: -  LifeCycle
     override func viewDidLoad() {
@@ -48,6 +53,7 @@ private extension ProfileMainViewController {
             NSAttributedString.Key.foregroundColor : UIColor.wanfLabel,
             NSAttributedString.Key.font : UIFont.wanfFont(ofSize: 15, weight: .bold)
         ]
+        navigationItem.rightBarButtonItem = EditBarItem
         
         view.addSubview(profileContentView)
     }
