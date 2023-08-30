@@ -17,7 +17,6 @@ class ProfilePreviewViewController: UIViewController {
     let disposeBag = DisposeBag()
     
     //MARK: - View
-    let scrollView = UIScrollView()
     let profileContentView = ProfileContentView()
     
     //MARK: - LifeCycle
@@ -44,22 +43,12 @@ private extension ProfilePreviewViewController {
         
         view.backgroundColor = .wanfBackground
         
-        view.addSubview(scrollView)
-        scrollView.addSubview(profileContentView)
+        view.addSubview(profileContentView)
     }
     
     func layout() {
-        
-        let inset = 50.0
-        
-        scrollView.snp.makeConstraints { make in
-            make.edges.equalTo(view.safeAreaLayoutGuide)
-        }
-        
         profileContentView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(inset)
-            make.horizontalEdges.equalToSuperview().inset(inset)
-            make.width.equalTo(scrollView.snp.width).inset(inset)
+            make.edges.equalToSuperview()
         }
     }
 }
