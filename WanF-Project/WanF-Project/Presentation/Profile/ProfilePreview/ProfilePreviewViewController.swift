@@ -33,7 +33,7 @@ class ProfilePreviewViewController: UIViewController {
         profileContentView.bind(viewModel.profileContentViewModel)
         
         // Load Profile Preview
-        viewModel.shouldLoadProfilePreview.accept(id)
+        viewModel.profileContentViewModel.loadProfilePreview.accept(id)
     }
 }
 

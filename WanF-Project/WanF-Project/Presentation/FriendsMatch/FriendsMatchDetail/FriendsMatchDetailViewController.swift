@@ -125,9 +125,9 @@ class FriendsMatchDetailViewController: UIViewController {
         
         // Present ProfilePreview
         viewModel.presentProfilePreview
-            .drive(onNext: { id in
+            .drive(onNext: { id, viewModel in
                 let profileProviewVC = ProfilePreviewViewController()
-                profileProviewVC.bind(ProfilePreviewViewModel(), id: id)
+                profileProviewVC.bind(viewModel, id: id)
                 
                 self.present(profileProviewVC, animated: true)
             })
