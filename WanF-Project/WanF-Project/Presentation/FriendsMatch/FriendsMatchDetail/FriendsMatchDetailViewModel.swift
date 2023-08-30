@@ -41,7 +41,7 @@ struct FriendsMatchDetailViewModel {
     let detailData: Observable<PostResponseEntity>
     let presentMenueActionSheet: Signal<Void>
     let popToRootViewController: Driver<Void>
-    let presentProfilePreview: Driver<Int>
+    let presentProfilePreview: Driver<(Int, ProfilePreviewViewModel)>
     let presentCommentAlert: Driver<Void>
     
     // ViewModel -> ChildViewModel
@@ -70,6 +70,7 @@ struct FriendsMatchDetailViewModel {
         
         presentProfilePreview = commentSubject
             .switchLatest()
+            .map { ($0, ProfilePreviewViewModel()) }
             .asDriver(onErrorDriveWith: .empty())
         
         detailInfo = detailData

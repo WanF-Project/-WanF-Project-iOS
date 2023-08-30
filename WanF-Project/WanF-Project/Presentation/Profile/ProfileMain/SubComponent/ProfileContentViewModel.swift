@@ -37,7 +37,6 @@ struct ProfileContentViewModel {
         
         let profileValue = loadProfileResult
             .compactMap(model.getProfileValue)
-            .share()
         
         let profileError = loadProfileResult
             .compactMap(model.getProfileError)
@@ -49,7 +48,6 @@ struct ProfileContentViewModel {
         
         let profilePreviewValue = loadProfilePreviewResult
             .compactMap(model.getProfilePreviewValue)
-            .share()
         
         let profilePreviewError = loadProfilePreviewResult
             .compactMap(model.getProfilePreviewError)
