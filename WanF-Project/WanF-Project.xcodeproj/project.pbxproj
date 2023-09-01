@@ -18,6 +18,8 @@
 		1409171D2A7D0B4000B27131 /* ProfileSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409171C2A7D0B4000B27131 /* ProfileSettingViewModel.swift */; };
 		1409171F2A7D0B5800B27131 /* ProfileCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409171E2A7D0B5800B27131 /* ProfileCreateViewModel.swift */; };
 		141044CC2A907C2500C51BD7 /* WanfShareAcitivityItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141044CB2A907C2500C51BD7 /* WanfShareAcitivityItemSource.swift */; };
+		1415DD922AA1D0BE00EF03A4 /* MessageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1415DD912AA1D0BE00EF03A4 /* MessageListViewController.swift */; };
+		1415DD942AA1D13A00EF03A4 /* MessageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1415DD932AA1D13A00EF03A4 /* MessageListViewModel.swift */; };
 		141A781829D7ED46006731F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A781729D7ED46006731F7 /* AppDelegate.swift */; };
 		141A781A29D7ED46006731F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A781929D7ED46006731F7 /* SceneDelegate.swift */; };
 		141A782129D7ED46006731F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 141A782029D7ED46006731F7 /* Assets.xcassets */; };
@@ -181,6 +183,8 @@
 		1409171C2A7D0B4000B27131 /* ProfileSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewModel.swift; sourceTree = "<group>"; };
 		1409171E2A7D0B5800B27131 /* ProfileCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreateViewModel.swift; sourceTree = "<group>"; };
 		141044CB2A907C2500C51BD7 /* WanfShareAcitivityItemSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WanfShareAcitivityItemSource.swift; sourceTree = "<group>"; };
+		1415DD912AA1D0BE00EF03A4 /* MessageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListViewController.swift; sourceTree = "<group>"; };
+		1415DD932AA1D13A00EF03A4 /* MessageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListViewModel.swift; sourceTree = "<group>"; };
 		141A781429D7ED46006731F7 /* WanF-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WanF-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		141A781729D7ED46006731F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		141A781929D7ED46006731F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -352,6 +356,15 @@
 				143661FD2A0F7D7300308028 /* FriendsMatchAPI.swift */,
 			);
 			path = FriendsMatchNetwork;
+			sourceTree = "<group>";
+		};
+		1415DD902AA1D0A500EF03A4 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				1415DD912AA1D0BE00EF03A4 /* MessageListViewController.swift */,
+				1415DD932AA1D13A00EF03A4 /* MessageListViewModel.swift */,
+			);
+			path = Message;
 			sourceTree = "<group>";
 		};
 		141A780B29D7ED46006731F7 = {
@@ -938,6 +951,7 @@
 		14DD371429DB2B9300D6A715 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				1415DD902AA1D0A500EF03A4 /* Message */,
 				146EA3402A8B4FC0005E010B /* Club */,
 				143AE33F2A73978800056647 /* CourseInfoList */,
 				14AC9B3129E274C0009C37A5 /* FriendsMatch */,
@@ -1186,6 +1200,7 @@
 				144D30C52A06076C00640CCD /* ProfileSingleSelectionListViewModel.swift in Sources */,
 				14982C7029EE603F00D388BF /* FriendsMatchDetailLectureInfoView.swift in Sources */,
 				146EA3442A8B52FE005E010B /* AddBarButtonItem.swift in Sources */,
+				1415DD922AA1D0BE00EF03A4 /* MessageListViewController.swift in Sources */,
 				14982C9529EEAD3600D388BF /* FriendsMatchDetailInfoViewModel.swift in Sources */,
 				1429B0A729E5163300891FF8 /* FriendsMatchTabViewModel.swift in Sources */,
 				1429B0A929E51CF400891FF8 /* FriendsMatchTabModel.swift in Sources */,
@@ -1197,6 +1212,7 @@
 				1466FA202A0A428D00910C30 /* AuthNetwork.swift in Sources */,
 				14BD19F229FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift in Sources */,
 				142DBED229DC223A00017603 /* EmailTextFieldViewModel.swift in Sources */,
+				1415DD942AA1D13A00EF03A4 /* MessageListViewModel.swift in Sources */,
 				14A11A582A94BA07008453FC /* ExNSMutableData.swift in Sources */,
 				1449E1F62A135375008C70DB /* FriendsMatchCommentListView.swift in Sources */,
 				147E1C2E2A2C860B00B42E4D /* ProfilePreviewViewModel.swift in Sources */,
