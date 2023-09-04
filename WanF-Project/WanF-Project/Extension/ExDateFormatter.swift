@@ -21,4 +21,10 @@ extension DateFormatter {
         return formatter.string(from: date)
     }
     
+    func wanfDateFormatted(from date: Date) -> String? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd h:mm a"
+        
+        return formatter.string(from: date)
+    }
 }
