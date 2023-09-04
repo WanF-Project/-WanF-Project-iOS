@@ -18,6 +18,7 @@
 		1409171D2A7D0B4000B27131 /* ProfileSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409171C2A7D0B4000B27131 /* ProfileSettingViewModel.swift */; };
 		1409171F2A7D0B5800B27131 /* ProfileCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409171E2A7D0B5800B27131 /* ProfileCreateViewModel.swift */; };
 		141044CC2A907C2500C51BD7 /* WanfShareAcitivityItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141044CB2A907C2500C51BD7 /* WanfShareAcitivityItemSource.swift */; };
+		14121FDA2AA5A1DB0059867B /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 14121FD92AA5A1DB0059867B /* MessageKit */; };
 		1415DD922AA1D0BE00EF03A4 /* MessageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1415DD912AA1D0BE00EF03A4 /* MessageListViewController.swift */; };
 		1415DD942AA1D13A00EF03A4 /* MessageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1415DD932AA1D13A00EF03A4 /* MessageListViewModel.swift */; };
 		1415DD972AA1D81000EF03A4 /* ChannelResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1415DD962AA1D81000EF03A4 /* ChannelResponseEntity.swift */; };
@@ -345,6 +346,7 @@
 				141A783029D7F168006731F7 /* RxCocoa in Frameworks */,
 				141A783429D7F168006731F7 /* RxSwift in Frameworks */,
 				141A782D29D7F120006731F7 /* SnapKit in Frameworks */,
+				14121FDA2AA5A1DB0059867B /* MessageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1107,6 +1109,7 @@
 				141A782F29D7F168006731F7 /* RxCocoa */,
 				141A783129D7F168006731F7 /* RxRelay */,
 				141A783329D7F168006731F7 /* RxSwift */,
+				14121FD92AA5A1DB0059867B /* MessageKit */,
 			);
 			productName = "WanF-Project";
 			productReference = 141A781429D7ED46006731F7 /* WanF-Project.app */;
@@ -1139,6 +1142,7 @@
 			packageReferences = (
 				141A782B29D7F120006731F7 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				141A782E29D7F168006731F7 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				14121FD82AA5A1DB0059867B /* XCRemoteSwiftPackageReference "MessageKit" */,
 			);
 			productRefGroup = 141A781529D7ED46006731F7 /* Products */;
 			projectDirPath = "";
@@ -1544,6 +1548,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		14121FD82AA5A1DB0059867B /* XCRemoteSwiftPackageReference "MessageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MessageKit/MessageKit";
+			requirement = {
+				kind = exactVersion;
+				version = 4.2.0;
+			};
+		};
 		141A782B29D7F120006731F7 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -1563,6 +1575,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		14121FD92AA5A1DB0059867B /* MessageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14121FD82AA5A1DB0059867B /* XCRemoteSwiftPackageReference "MessageKit" */;
+			productName = MessageKit;
+		};
 		141A782C29D7F120006731F7 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 141A782B29D7F120006731F7 /* XCRemoteSwiftPackageReference "SnapKit" */;
