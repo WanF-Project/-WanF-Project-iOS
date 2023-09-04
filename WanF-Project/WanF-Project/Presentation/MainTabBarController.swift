@@ -46,6 +46,17 @@ class MainTabBarController: UITabBarController {
         return UINavigationController(rootViewController: viewController)
     }()
     
+    private lazy var messageListVC: UINavigationController = {
+        let viewController = MessageListViewController()
+        let viewModel = MessageListViewModel()
+        viewController.bind(viewModel)
+        
+        let item = UITabBarItem(title: "쪽지", image: UIImage(systemName: "ellipsis.message.fill"), tag: 3)
+        viewController.tabBarItem = item
+        
+        return UINavigationController(rootViewController: viewController)
+    }()
+    
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +78,8 @@ private extension MainTabBarController {
         tabBar.tintColor = .wanfGray
         self.viewControllers = [
             friendsMatchVC,
-            clubListVC
+            clubListVC,
+            messageListVC
         ]
     }
 }
