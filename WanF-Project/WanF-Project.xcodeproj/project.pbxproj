@@ -371,10 +371,8 @@
 		1415DD902AA1D0A500EF03A4 /* Message */ = {
 			isa = PBXGroup;
 			children = (
-				1415DD912AA1D0BE00EF03A4 /* MessageListViewController.swift */,
-				1415DD932AA1D13A00EF03A4 /* MessageListViewModel.swift */,
-				14121FDF2AA618B30059867B /* MessageDetailViewController.swift */,
-				145C7A622AA6EE6B002C5E53 /* MessageDetailViewModel.swift */,
+				145C7A642AA6FB39002C5E53 /* MessageList */,
+				145C7A652AA6FB45002C5E53 /* MessageDetail */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -692,6 +690,24 @@
 				1455D2612A25B8A00090257B /* MajorAPI.swift */,
 			);
 			path = MajorNetwork;
+			sourceTree = "<group>";
+		};
+		145C7A642AA6FB39002C5E53 /* MessageList */ = {
+			isa = PBXGroup;
+			children = (
+				1415DD912AA1D0BE00EF03A4 /* MessageListViewController.swift */,
+				1415DD932AA1D13A00EF03A4 /* MessageListViewModel.swift */,
+			);
+			path = MessageList;
+			sourceTree = "<group>";
+		};
+		145C7A652AA6FB45002C5E53 /* MessageDetail */ = {
+			isa = PBXGroup;
+			children = (
+				14121FDF2AA618B30059867B /* MessageDetailViewController.swift */,
+				145C7A622AA6EE6B002C5E53 /* MessageDetailViewModel.swift */,
+			);
+			path = MessageDetail;
 			sourceTree = "<group>";
 		};
 		1463ADE42A8CAB53002845B8 /* ClubList */ = {
