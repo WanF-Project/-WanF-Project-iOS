@@ -9,13 +9,15 @@ import UIKit
 
 import MessageKit
 import InputBarAccessoryView
+import RxSwift
+import RxCocoa
 
 class MessageDetailViewController: MessagesViewController {
     
     //MARK: - Properties
-    var sender = SenderEntity(senderId: "1", displayName: "name")
-    var messages: [MessageEntity] = [ MessageEntity(sender: SenderEntity(senderId: "2", displayName: "원프2"), messageId: "1234", sentDate: Date(), content: "수업 친구 매칭 서비스. 같이 수업을 듣고 정보를 공유할 친구를 찾을 수 있도록 장을 제공하는 성공회대학교 전용 플랫폼입니다."),
-                                      MessageEntity(sender: SenderEntity(senderId: "1", displayName: "원프1"), messageId: "1234", sentDate: Date(), content: "수업 친구 매칭 서비스. 같이 수업을 듣고 정보를 공유할 친구를 찾을 수 있도록 장을 제공하는 성공회대학교 전용 플랫폼입니다.")]
+    let disposeBag = DisposeBag()
+    var sender = SenderEntity(senderId: "", displayName: "")
+    var messages: [MessageEntity] = []
     
     //MARK: -  LifeCycle
     override func viewDidLoad() {
@@ -27,6 +29,24 @@ class MessageDetailViewController: MessagesViewController {
         
         messagesCollectionView.reloadData()
     }
+    
+    //MARK: - Function
+    func bind(_ viewModel: MessageDeatilViewModel) {
+        
+        // Bind Data
+        viewModel.messages
+            .drive(onNext: {
+                self.messages = $0
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.sender
+            .drive(onNext: {
+                self.sender = $0
+            })
+            .disposed(by: disposeBag)
+    }
+    
 }
 
 //MARK: - Configure
