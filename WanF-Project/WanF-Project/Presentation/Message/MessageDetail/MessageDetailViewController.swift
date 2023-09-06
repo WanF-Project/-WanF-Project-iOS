@@ -16,7 +16,7 @@ class MessageDetailViewController: MessagesViewController {
     
     //MARK: - Properties
     let disposeBag = DisposeBag()
-    var sender = SenderEntity(senderId: "", displayName: "")
+    var currentUser = SenderEntity(senderId: String(UUID().uuidString))
     var messages: [MessageEntity] = []
     
     //MARK: -  LifeCycle
@@ -26,24 +26,30 @@ class MessageDetailViewController: MessagesViewController {
         configure()
         configureMessageCollectionView()
         configureMessageInputBar()
-        
-        messagesCollectionView.reloadData()
     }
     
     //MARK: - Function
     func bind(_ viewModel: MessageDetailViewModel, id: Int) {
         
+        // View -> ViewModel
+        viewModel.loadMessageDetail.accept(id)
+        
         // Bind Data
-        viewModel.messages
+        viewModel.currentUser
             .drive(onNext: {
-                self.messages = $0
+                self.currentUser = $0
             })
             .disposed(by: disposeBag)
         
-        viewModel.sender
+        viewModel.messages
             .drive(onNext: {
-                self.sender = $0
+                self.messages = $0
+                self.messagesCollectionView.reloadData()
             })
+            .disposed(by: disposeBag)
+        
+        viewModel.senderNickname
+            .bind(to: navigationItem.rx.title)
             .disposed(by: disposeBag)
     }
     
@@ -83,7 +89,7 @@ private extension MessageDetailViewController {
 //MARK: - MessageKit Protocol
 extension MessageDetailViewController: MessagesDataSource {
     var currentSender: MessageKit.SenderType {
-        return sender
+        return currentUser
     }
     
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessageKit.MessagesCollectionView) -> MessageKit.MessageType {
@@ -127,10 +133,6 @@ extension MessageDetailViewController: MessagesDisplayDelegate, MessagesLayoutDe
     }
     
     func messageBottomLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
-        return CGFloat(30.0)
-    }
-    
-    func messageTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
         return CGFloat(30.0)
     }
     
