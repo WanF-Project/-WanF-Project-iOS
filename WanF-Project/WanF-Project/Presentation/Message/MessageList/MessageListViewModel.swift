@@ -11,12 +11,16 @@ import RxSwift
 import RxCocoa
 
 struct MessageListViewModel {
+    
     let disposeBag = DisposeBag()
+    
     // View -> ViewModel
     let loadMessageList = PublishRelay<Void>()
+    let didSelectItem = PublishRelay<IndexPath>()
     
     // ViewModel -> View
     let cellData: Driver<MessageListResponseEntity>
+    let pushToMessageDetail: Driver<(Int, MessageDetailViewModel)>
     
     init(_ model: MessageListModel = MessageListModel()) {
         // Load MessageList
@@ -36,6 +40,13 @@ struct MessageListViewModel {
         .disposed(by: disposeBag)
         
         cellData = loadValue
+            .asDriver(onErrorDriveWith: .empty())
+        
+        // Push MessageDetail
+        pushToMessageDetail = didSelectItem
+            .withLatestFrom(cellData, resultSelector: { indexPath, list in
+                (list[indexPath.row].id, MessageDetailViewModel())
+            })
             .asDriver(onErrorDriveWith: .empty())
     }
 }
