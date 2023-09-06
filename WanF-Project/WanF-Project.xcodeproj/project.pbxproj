@@ -18,6 +18,7 @@
 		1409171D2A7D0B4000B27131 /* ProfileSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409171C2A7D0B4000B27131 /* ProfileSettingViewModel.swift */; };
 		1409171F2A7D0B5800B27131 /* ProfileCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409171E2A7D0B5800B27131 /* ProfileCreateViewModel.swift */; };
 		1409EAB12AA831FF00B9B2A8 /* MessageNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409EAB02AA831FF00B9B2A8 /* MessageNetwork.swift */; };
+		1409EAB32AA838E500B9B2A8 /* MessageListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409EAB22AA838E500B9B2A8 /* MessageListModel.swift */; };
 		141044CC2A907C2500C51BD7 /* WanfShareAcitivityItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141044CB2A907C2500C51BD7 /* WanfShareAcitivityItemSource.swift */; };
 		14121FDA2AA5A1DB0059867B /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 14121FD92AA5A1DB0059867B /* MessageKit */; };
 		14121FDC2AA5CDB50059867B /* MessageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14121FDB2AA5CDB50059867B /* MessageEntity.swift */; };
@@ -190,6 +191,7 @@
 		1409171C2A7D0B4000B27131 /* ProfileSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewModel.swift; sourceTree = "<group>"; };
 		1409171E2A7D0B5800B27131 /* ProfileCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreateViewModel.swift; sourceTree = "<group>"; };
 		1409EAB02AA831FF00B9B2A8 /* MessageNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageNetwork.swift; sourceTree = "<group>"; };
+		1409EAB22AA838E500B9B2A8 /* MessageListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListModel.swift; sourceTree = "<group>"; };
 		141044CB2A907C2500C51BD7 /* WanfShareAcitivityItemSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WanfShareAcitivityItemSource.swift; sourceTree = "<group>"; };
 		14121FDB2AA5CDB50059867B /* MessageEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageEntity.swift; sourceTree = "<group>"; };
 		14121FDF2AA618B30059867B /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
@@ -702,6 +704,7 @@
 			children = (
 				1415DD912AA1D0BE00EF03A4 /* MessageListViewController.swift */,
 				1415DD932AA1D13A00EF03A4 /* MessageListViewModel.swift */,
+				1409EAB22AA838E500B9B2A8 /* MessageListModel.swift */,
 			);
 			path = MessageList;
 			sourceTree = "<group>";
@@ -1275,6 +1278,7 @@
 				14E4C9E929EA564400E2CB62 /* CourseInfoListViewModel.swift in Sources */,
 				14F52BC92A8DF8A500A09F92 /* ClubListTableViewModel.swift in Sources */,
 				14982C9729EEAD5800D388BF /* FriendsMatchDetailLectureInfoViewModel.swift in Sources */,
+				1409EAB32AA838E500B9B2A8 /* MessageListModel.swift in Sources */,
 				14066BAF29E1431300AFB2D2 /* PasswordTextFieldCellViewModel.swift in Sources */,
 				149F01622A13859600370FE1 /* DynamicSizeTableView.swift in Sources */,
 				1455D2602A25B8940090257B /* MajorNetwork.swift in Sources */,

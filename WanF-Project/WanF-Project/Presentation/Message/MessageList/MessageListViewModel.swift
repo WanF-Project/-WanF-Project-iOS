@@ -11,17 +11,31 @@ import RxSwift
 import RxCocoa
 
 struct MessageListViewModel {
+    let disposeBag = DisposeBag()
+    // View -> ViewModel
+    let loadMessageList = PublishRelay<Void>()
     
     // ViewModel -> View
     let cellData: Driver<MessageListResponseEntity>
     
-    init() {
-        let tempData = MessageListResponseEntity([
-            ProfileResponseEntity(id: 1, nickname: "원프", major: MajorEntity(id: 11, name: "전공 정보"), studentId: 12039, age: 12, gender: ["" : ""], mbti: "MBTI", personalities: ["" : ""], goals: ["" : ""], image: ImageResponseEntity(imageId: 1, imageUrl: ""))
-        ])
+    init(_ model: MessageListModel = MessageListModel()) {
+        // Load MessageList
+        let loadResult = loadMessageList
+            .flatMap(model.loadMessageList)
+            .share()
         
+        let loadValue = loadResult
+            .compactMap(model.loadMessageListValue)
         
-        cellData = Observable.of(tempData)
+        let loadError = loadResult
+            .compactMap(model.loadMessageListError)
+        
+        loadError.subscribe(onNext: {
+            print("ERROR: \($0)")
+        })
+        .disposed(by: disposeBag)
+        
+        cellData = loadValue
             .asDriver(onErrorDriveWith: .empty())
     }
 }

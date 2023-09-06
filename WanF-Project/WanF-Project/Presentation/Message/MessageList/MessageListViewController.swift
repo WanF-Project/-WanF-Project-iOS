@@ -29,7 +29,10 @@ class MessageListViewController: UIViewController {
     
     //MARK: - Function
     func bind(_ viewModel: MessageListViewModel) {
+        // View -> ViewModel
+        viewModel.loadMessageList.accept(Void())
         
+        // ViewModel -> View
         viewModel.cellData
             .drive(tableView.rx.items(cellIdentifier: "MessageListViewCell")) { row, element, cell in
                 let attributedKey = NSAttributedString.Key.self
