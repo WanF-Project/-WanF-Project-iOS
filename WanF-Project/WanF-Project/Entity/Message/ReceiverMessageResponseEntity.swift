@@ -9,7 +9,7 @@ import Foundation
 
 struct ReceiverMessageResponseEntity: Decodable {
     let myProfileId: Int
-    let messages: MessageResponseEntity
+    let messages: [MessageResponseEntity]
 }
 
 struct MessageResponseEntity: Decodable {
