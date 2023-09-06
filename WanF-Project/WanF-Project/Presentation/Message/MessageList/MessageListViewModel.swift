@@ -20,7 +20,7 @@ struct MessageListViewModel {
     
     // ViewModel -> View
     let cellData: Driver<MessageListResponseEntity>
-    let pushToMessageDetail: Driver<(Int, MessageDetailViewModel)>
+    let pushToMessageDetail: Driver<(ProfileResponseEntity, MessageDetailViewModel)>
     
     init(_ model: MessageListModel = MessageListModel()) {
         // Load MessageList
@@ -45,7 +45,7 @@ struct MessageListViewModel {
         // Push MessageDetail
         pushToMessageDetail = didSelectItem
             .withLatestFrom(cellData, resultSelector: { indexPath, list in
-                (list[indexPath.row].id, MessageDetailViewModel())
+                (list[indexPath.row], MessageDetailViewModel())
             })
             .asDriver(onErrorDriveWith: .empty())
     }

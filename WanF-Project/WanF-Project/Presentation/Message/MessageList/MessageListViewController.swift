@@ -58,11 +58,13 @@ class MessageListViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.pushToMessageDetail
-            .drive(onNext: { id, viewModel in
+            .drive(onNext: { sender, viewModel in
                 let messageDetailVC = MessageDetailViewController()
-                messageDetailVC.bind(viewModel, id: id)
+                messageDetailVC.bind(viewModel, id: sender.id)
+                viewModel.senderNickname.accept(sender.nickname)
                 self.navigationController?.pushViewController(messageDetailVC, animated: true)
             })
+            .disposed(by: disposeBag)
     }
 }
 

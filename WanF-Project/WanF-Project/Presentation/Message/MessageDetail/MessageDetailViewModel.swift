@@ -13,6 +13,7 @@ import RxCocoa
 struct MessageDetailViewModel {
     
     // ViewModel -> View
+    var senderNickname = PublishRelay<String>()
     var messages: Driver<[MessageEntity]>
     var sender: Driver<SenderEntity>
     
