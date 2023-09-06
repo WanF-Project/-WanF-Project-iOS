@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-struct MessageDeatilViewModel {
+struct MessageDetailViewModel {
     
     // ViewModel -> View
     var messages: Driver<[MessageEntity]>

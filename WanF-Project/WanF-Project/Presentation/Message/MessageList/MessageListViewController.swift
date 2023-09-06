@@ -29,7 +29,14 @@ class MessageListViewController: UIViewController {
     
     //MARK: - Function
     func bind(_ viewModel: MessageListViewModel) {
+        // View -> ViewModel
+        viewModel.loadMessageList.accept(Void())
         
+        tableView.rx.itemSelected
+            .bind(to: viewModel.didSelectItem)
+            .disposed(by: disposeBag)
+        
+        // ViewModel -> View
         viewModel.cellData
             .drive(tableView.rx.items(cellIdentifier: "MessageListViewCell")) { row, element, cell in
                 let attributedKey = NSAttributedString.Key.self
@@ -49,8 +56,14 @@ class MessageListViewController: UIViewController {
                 cell.accessoryView = accessoryView
             }
             .disposed(by: disposeBag)
+        
+        viewModel.pushToMessageDetail
+            .drive(onNext: { id, viewModel in
+                let messageDetailVC = MessageDetailViewController()
+                messageDetailVC.bind(viewModel, id: id)
+                self.navigationController?.pushViewController(messageDetailVC, animated: true)
+            })
     }
-    
 }
 
 //MARK: - Configure

@@ -31,7 +31,7 @@ class MessageDetailViewController: MessagesViewController {
     }
     
     //MARK: - Function
-    func bind(_ viewModel: MessageDeatilViewModel) {
+    func bind(_ viewModel: MessageDetailViewModel, id: Int) {
         
         // Bind Data
         viewModel.messages
