@@ -26,7 +26,7 @@ class MessageAPI: WanfAPI {
     }
     
     /// 쪽지 상세 목록 조회
-    func getLoadMessageDetailList(_ id: Int) -> URLComponents {
+    func getLoadMessageDetail(_ id: Int) -> URLComponents {
         var components = URLComponents()
         components.scheme = super.scheme
         components.host = super.host

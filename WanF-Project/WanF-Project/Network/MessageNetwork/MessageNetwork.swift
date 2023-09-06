@@ -53,8 +53,8 @@ class MessageNetwork: WanfNetwork {
     }
     
     /// 쪽지 상세 목록 조회
-    func getLoadMessageDetailList(_ id: Int) -> Single<Result<ReceiverMessageResponseEntity, WanfError>> {
-        guard let url = api.getLoadMessageDetailList(id).url else {
+    func getLoadMessageDetail(_ id: Int) -> Single<Result<ReceiverMessageResponseEntity, WanfError>> {
+        guard let url = api.getLoadMessageDetail(id).url else {
             return .just(.failure(.invalidURL))
         }
         
