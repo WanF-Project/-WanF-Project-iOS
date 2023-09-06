@@ -13,10 +13,10 @@ import RxCocoa
 struct MessageListViewModel {
     
     // ViewModel -> View
-    let cellData: Driver<ChannelResponseEntity>
+    let cellData: Driver<MessageListResponseEntity>
     
     init() {
-        let tempData = ChannelResponseEntity([
+        let tempData = MessageListResponseEntity([
             ProfileResponseEntity(id: 1, nickname: "원프", major: MajorEntity(id: 11, name: "전공 정보"), studentId: 12039, age: 12, gender: ["" : ""], mbti: "MBTI", personalities: ["" : ""], goals: ["" : ""], image: ImageResponseEntity(imageId: 1, imageUrl: ""))
         ])
         

@@ -23,7 +23,7 @@
 		14121FE02AA618B30059867B /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14121FDF2AA618B30059867B /* MessageDetailViewController.swift */; };
 		1415DD922AA1D0BE00EF03A4 /* MessageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1415DD912AA1D0BE00EF03A4 /* MessageListViewController.swift */; };
 		1415DD942AA1D13A00EF03A4 /* MessageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1415DD932AA1D13A00EF03A4 /* MessageListViewModel.swift */; };
-		1415DD972AA1D81000EF03A4 /* ChannelResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1415DD962AA1D81000EF03A4 /* ChannelResponseEntity.swift */; };
+		1415DD972AA1D81000EF03A4 /* MessageListResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1415DD962AA1D81000EF03A4 /* MessageListResponseEntity.swift */; };
 		141A781829D7ED46006731F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A781729D7ED46006731F7 /* AppDelegate.swift */; };
 		141A781A29D7ED46006731F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A781929D7ED46006731F7 /* SceneDelegate.swift */; };
 		141A782129D7ED46006731F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 141A782029D7ED46006731F7 /* Assets.xcassets */; };
@@ -192,7 +192,7 @@
 		14121FDF2AA618B30059867B /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 		1415DD912AA1D0BE00EF03A4 /* MessageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListViewController.swift; sourceTree = "<group>"; };
 		1415DD932AA1D13A00EF03A4 /* MessageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListViewModel.swift; sourceTree = "<group>"; };
-		1415DD962AA1D81000EF03A4 /* ChannelResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelResponseEntity.swift; sourceTree = "<group>"; };
+		1415DD962AA1D81000EF03A4 /* MessageListResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListResponseEntity.swift; sourceTree = "<group>"; };
 		141A781429D7ED46006731F7 /* WanF-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WanF-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		141A781729D7ED46006731F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		141A781929D7ED46006731F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -380,7 +380,7 @@
 		1415DD952AA1D73200EF03A4 /* Message */ = {
 			isa = PBXGroup;
 			children = (
-				1415DD962AA1D81000EF03A4 /* ChannelResponseEntity.swift */,
+				1415DD962AA1D81000EF03A4 /* MessageListResponseEntity.swift */,
 				14121FDB2AA5CDB50059867B /* MessageEntity.swift */,
 			);
 			path = Message;
@@ -1338,7 +1338,7 @@
 				142DBEDF29DC4DCE00017603 /* MainTabBarController.swift in Sources */,
 				1496374129ED5ABD0021B4D4 /* PostRequestEntity.swift in Sources */,
 				143661FE2A0F7D7300308028 /* FriendsMatchAPI.swift in Sources */,
-				1415DD972AA1D81000EF03A4 /* ChannelResponseEntity.swift in Sources */,
+				1415DD972AA1D81000EF03A4 /* MessageListResponseEntity.swift in Sources */,
 				14DD372229DB30EC00D6A715 /* PasswordToCheckTextFieldCell.swift in Sources */,
 				1409170F2A7CECDD00B27131 /* SettingControlView.swift in Sources */,
 				144D30D72A06870F00640CCD /* SignUpAPI.swift in Sources */,
