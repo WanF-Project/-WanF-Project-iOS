@@ -25,6 +25,10 @@
 		14121FDA2AA5A1DB0059867B /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 14121FD92AA5A1DB0059867B /* MessageKit */; };
 		14121FDC2AA5CDB50059867B /* MessageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14121FDB2AA5CDB50059867B /* MessageEntity.swift */; };
 		14121FE02AA618B30059867B /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14121FDF2AA618B30059867B /* MessageDetailViewController.swift */; };
+		141290CF2AA961CC003035E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 141290CE2AA961CC003035E0 /* GoogleService-Info.plist */; };
+		141290D22AA962DA003035E0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 141290D12AA962DA003035E0 /* FirebaseAnalytics */; };
+		141290D42AA962DA003035E0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 141290D32AA962DA003035E0 /* FirebaseAuth */; };
+		141290D62AA962DA003035E0 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 141290D52AA962DA003035E0 /* FirebaseMessaging */; };
 		1415DD922AA1D0BE00EF03A4 /* MessageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1415DD912AA1D0BE00EF03A4 /* MessageListViewController.swift */; };
 		1415DD942AA1D13A00EF03A4 /* MessageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1415DD932AA1D13A00EF03A4 /* MessageListViewModel.swift */; };
 		1415DD972AA1D81000EF03A4 /* MessageListResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1415DD962AA1D81000EF03A4 /* MessageListResponseEntity.swift */; };
@@ -199,6 +203,8 @@
 		141044CB2A907C2500C51BD7 /* WanfShareAcitivityItemSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WanfShareAcitivityItemSource.swift; sourceTree = "<group>"; };
 		14121FDB2AA5CDB50059867B /* MessageEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageEntity.swift; sourceTree = "<group>"; };
 		14121FDF2AA618B30059867B /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
+		141290CD2AA95FFE003035E0 /* WanF-Project.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WanF-Project.entitlements"; sourceTree = "<group>"; };
+		141290CE2AA961CC003035E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1415DD912AA1D0BE00EF03A4 /* MessageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListViewController.swift; sourceTree = "<group>"; };
 		1415DD932AA1D13A00EF03A4 /* MessageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListViewModel.swift; sourceTree = "<group>"; };
 		1415DD962AA1D81000EF03A4 /* MessageListResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListResponseEntity.swift; sourceTree = "<group>"; };
@@ -358,10 +364,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				141290D62AA962DA003035E0 /* FirebaseMessaging in Frameworks */,
 				141A783229D7F168006731F7 /* RxRelay in Frameworks */,
 				141A783029D7F168006731F7 /* RxCocoa in Frameworks */,
+				141290D22AA962DA003035E0 /* FirebaseAnalytics in Frameworks */,
 				141A783429D7F168006731F7 /* RxSwift in Frameworks */,
 				141A782D29D7F120006731F7 /* SnapKit in Frameworks */,
+				141290D42AA962DA003035E0 /* FirebaseAuth in Frameworks */,
 				14121FDA2AA5A1DB0059867B /* MessageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +425,8 @@
 		141A781629D7ED46006731F7 /* WanF-Project */ = {
 			isa = PBXGroup;
 			children = (
+				141290CE2AA961CC003035E0 /* GoogleService-Info.plist */,
+				141290CD2AA95FFE003035E0 /* WanF-Project.entitlements */,
 				14F5E8D62A821A9700A2228B /* Protocol */,
 				144D30CB2A06257D00640CCD /* Network */,
 				1429B0A129E5118D00891FF8 /* Entity */,
@@ -1158,6 +1169,9 @@
 				141A783129D7F168006731F7 /* RxRelay */,
 				141A783329D7F168006731F7 /* RxSwift */,
 				14121FD92AA5A1DB0059867B /* MessageKit */,
+				141290D12AA962DA003035E0 /* FirebaseAnalytics */,
+				141290D32AA962DA003035E0 /* FirebaseAuth */,
+				141290D52AA962DA003035E0 /* FirebaseMessaging */,
 			);
 			productName = "WanF-Project";
 			productReference = 141A781429D7ED46006731F7 /* WanF-Project.app */;
@@ -1191,6 +1205,7 @@
 				141A782B29D7F120006731F7 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				141A782E29D7F168006731F7 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				14121FD82AA5A1DB0059867B /* XCRemoteSwiftPackageReference "MessageKit" */,
+				141290D02AA962DA003035E0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 141A781529D7ED46006731F7 /* Products */;
 			projectDirPath = "";
@@ -1206,6 +1221,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				141290CF2AA961CC003035E0 /* GoogleService-Info.plist in Resources */,
 				144D30C92A060E4400640CCD /* WanF.plist in Resources */,
 				141A782429D7ED46006731F7 /* LaunchScreen.storyboard in Resources */,
 				14793FC029D84AB60048D5DD /* NanumSquareNeo-aLt.ttf in Resources */,
@@ -1519,6 +1535,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "WanF-Project/WanF-Project.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZQV4ZDQNW5;
@@ -1552,6 +1569,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "WanF-Project/WanF-Project.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZQV4ZDQNW5;
@@ -1612,6 +1630,14 @@
 				version = 4.2.0;
 			};
 		};
+		141290D02AA962DA003035E0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		141A782B29D7F120006731F7 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -1635,6 +1661,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 14121FD82AA5A1DB0059867B /* XCRemoteSwiftPackageReference "MessageKit" */;
 			productName = MessageKit;
+		};
+		141290D12AA962DA003035E0 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 141290D02AA962DA003035E0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		141290D32AA962DA003035E0 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 141290D02AA962DA003035E0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		141290D52AA962DA003035E0 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 141290D02AA962DA003035E0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 		141A782C29D7F120006731F7 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
