@@ -16,7 +16,7 @@ struct MessageListViewModel {
     
     // View -> ViewModel
     let loadMessageList = PublishRelay<Void>()
-    let didSelectItem = PublishRelay<IndexPath>()
+    let didSelectItem = PublishRelay<Int>()
     
     // ViewModel -> View
     let cellData: Driver<MessageListResponseEntity>
@@ -44,8 +44,8 @@ struct MessageListViewModel {
         
         // Push MessageDetail
         pushToMessageDetail = didSelectItem
-            .withLatestFrom(cellData, resultSelector: { indexPath, list in
-                (list[indexPath.row], MessageDetailViewModel())
+            .withLatestFrom(cellData, resultSelector: { index, list in
+                (list[index], MessageDetailViewModel())
             })
             .asDriver(onErrorDriveWith: .empty())
     }

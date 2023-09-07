@@ -7,6 +7,12 @@
 
 import UIKit
 
+/// 알람 타입
+enum NotificationType {
+    case friends
+    case messages
+}
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     public static let shared = SceneDelegate()
@@ -33,5 +39,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
     }
+    
+    /// 알람 타입에 따른 화면 전환 작업
+    func pushToViewController(_ type: NotificationType, id: Int) {
+        switch type {
+        case .friends:
+            rootViewModel.mainTabViewModel.friendsMaychViewModel.friendsMatchListItemSelected.accept(id)
+        case .messages:
+            rootViewModel.mainTabViewModel.messageListViewModel.didSelectItem.accept(id)
+        }
+    }
 }
-

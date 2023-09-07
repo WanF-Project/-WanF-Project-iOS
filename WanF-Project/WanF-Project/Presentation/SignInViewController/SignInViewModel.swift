@@ -16,6 +16,8 @@ struct SignInViewModel {
     let emailTextFieldViewModel = EmailTextFieldViewModel()
     let passwordTextFieldViewModel = PasswordTextFieldViewModel()
     
+    let mainTabViewModel = MainTabBarViewModel()
+    
     // ViewModel -> View
     let presentAlert: Signal<Void>
     let pushToMainTabBar: Driver<MainTabBarViewModel>
@@ -46,9 +48,7 @@ struct SignInViewModel {
         
         //로그인 성공 - 메인 화면 전환
         pushToMainTabBar = signInValue
-            .map { _ in
-                return MainTabBarViewModel()
-            }
+            .withLatestFrom(Observable.just(mainTabViewModel))
             .asDriver(onErrorDriveWith: .empty())
         
         // 로그인 실패 - Alert 표시

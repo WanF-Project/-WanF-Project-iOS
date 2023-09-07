@@ -62,11 +62,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
     
+    // 앱이 실행되고 있는 동안 알림이 올 경우 호출되는 메서드
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
+        return [ .banner, .sound ]
+    }
+    
+    // 앱이 backgorund에 있는 동안 알림이 올 경우 호출되는 메서드
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
+        let userInfo = response.notification.request.content.userInfo
+        let scene = UIApplication.shared.connectedScenes.first
+        guard let sceneDelegate = scene?.delegate as? SceneDelegate else { return }
+        print(userInfo)
+        
+        if let senderProfileId = userInfo["senderProfileId"] as? String {
+            sceneDelegate.pushToViewController(.messages, id: Int(senderProfileId)!)
+        }
+        else if let postId = userInfo["postId"] as? String {
+            sceneDelegate.pushToViewController(.friends, id: Int(postId)!)
+        }
+    }
+    
+    // 사용자가 알림을 tap할때 호출되는 자동 푸시 알림 처리
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) async -> UIBackgroundFetchResult {
+        print("didReceiveRemoteNotification \(userInfo)")
+        
+        return UIBackgroundFetchResult.newData
+    }
 }
 
 extension AppDelegate: MessagingDelegate {
     // 앱 시작 시 새로운 또는 기존의 FCM 토큰을 반환한다
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         print("FcmToken \(fcmToken)")
+        
     }
 }

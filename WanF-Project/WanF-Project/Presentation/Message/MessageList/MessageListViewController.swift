@@ -33,6 +33,7 @@ class MessageListViewController: UIViewController {
         viewModel.loadMessageList.accept(Void())
         
         tableView.rx.itemSelected
+            .map { $0.row }
             .bind(to: viewModel.didSelectItem)
             .disposed(by: disposeBag)
         

@@ -18,7 +18,7 @@ struct FriendsMatchTabViewModel {
     let profileButtonTapped = PublishRelay<Void>()
     let searchButtonTapped = PublishRelay<Void>()
     let addButtonTapped = PublishRelay<Void>()
-    let friendsMatchListItemSelected = PublishRelay<IndexPath>()
+    let friendsMatchListItemSelected = PublishRelay<Int>()
     let loadFriendsMatchList = PublishSubject<Void>()
     let refreshFriendsMatchList = PublishSubject<Void>()
     
@@ -67,8 +67,8 @@ struct FriendsMatchTabViewModel {
         
         // 목록 아이템 선택
         pushToFriendsMatchDetail = friendsMatchListItemSelected
-            .withLatestFrom(cellData, resultSelector: { indexPath, posts in
-                posts[indexPath.row]
+            .withLatestFrom(cellData, resultSelector: { index, posts in
+                posts[index]
             })
             .map({ post in
                 return FriendsMatchDetailViewModel(id: post.id)

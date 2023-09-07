@@ -12,4 +12,7 @@ import RxCocoa
 
 struct MainTabBarViewModel {
     
+    let friendsMaychViewModel = FriendsMatchTabViewModel()
+    let messageListViewModel = MessageListViewModel()
+    
 }

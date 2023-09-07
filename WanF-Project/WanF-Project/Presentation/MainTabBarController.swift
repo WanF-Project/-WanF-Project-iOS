@@ -14,15 +14,13 @@ import RxCocoa
 class MainTabBarController: UITabBarController {
     
     //MARK: - View
-    private lazy var friendsMatchVC: UINavigationController = {
+    private lazy var friendsMatchVC: FriendsMatchTabViewController = {
         let viewController = FriendsMatchTabViewController()
-        let viewModel = FriendsMatchTabViewModel()
-        viewController.bind(viewModel)
         
         let item = UITabBarItem(title: "친구 찾기", image: UIImage(systemName: "person.2.fill"), tag: 0)
         viewController.tabBarItem = item
         
-        return UINavigationController(rootViewController: viewController)
+        return viewController
     }()
     
     private lazy var classInfoVC: UINavigationController = {
@@ -34,7 +32,7 @@ class MainTabBarController: UITabBarController {
         return viewController
     }()
     
-    private lazy var clubListVC: UINavigationController = {
+    private lazy var clubListVC: ClubListViewController = {
         let viewController = ClubListViewController()
         let viewModel = ClubListViewModel()
         viewController.bind(viewModel)
@@ -43,18 +41,16 @@ class MainTabBarController: UITabBarController {
         
         viewController.tabBarItem = item
         
-        return UINavigationController(rootViewController: viewController)
+        return viewController
     }()
     
-    private lazy var messageListVC: UINavigationController = {
+    private lazy var messageListVC: MessageListViewController = {
         let viewController = MessageListViewController()
-        let viewModel = MessageListViewModel()
-        viewController.bind(viewModel)
         
         let item = UITabBarItem(title: "쪽지", image: UIImage(systemName: "ellipsis.message.fill"), tag: 3)
         viewController.tabBarItem = item
         
-        return UINavigationController(rootViewController: viewController)
+        return viewController
     }()
     
     //MARK: - LifeCycle
@@ -66,7 +62,8 @@ class MainTabBarController: UITabBarController {
     
     //MARK: - Function
     func bind(_ viewModel: MainTabBarViewModel) {
-        
+        friendsMatchVC.bind(viewModel.friendsMaychViewModel)
+        messageListVC.bind(viewModel.messageListViewModel)
     }
 }
 
@@ -77,9 +74,9 @@ private extension MainTabBarController {
         
         tabBar.tintColor = .wanfGray
         self.viewControllers = [
-            friendsMatchVC,
-            clubListVC,
-            messageListVC
+            UINavigationController(rootViewController: friendsMatchVC),
+            UINavigationController(rootViewController: clubListVC),
+            UINavigationController(rootViewController: messageListVC)
         ]
     }
 }
