@@ -95,5 +95,6 @@ extension AppDelegate: MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         print("FcmToken \(fcmToken)")
         
+        UserDefaultsManager.fcmToken = fcmToken
     }
 }

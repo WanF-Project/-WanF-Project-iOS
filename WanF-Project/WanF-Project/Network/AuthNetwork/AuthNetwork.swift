@@ -24,6 +24,10 @@ class AuthNetwork: WanfNetwork {
             return .just(.failure(.invalidURL))
         }
         
+        guard let fcmToken = UserDefaultsManager.fcmToken else {
+            return .just(.failure(.invalidAuth))
+        }
+        
         let body: Dictionary<String, String> = [
             "email" : email,
             "userPassword" : password
@@ -32,6 +36,7 @@ class AuthNetwork: WanfNetwork {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json;charset=UTF-8", forHTTPHeaderField: "Content-Type")
+        request.setValue(fcmToken, forHTTPHeaderField: "FCM-TOKEN")
         request.httpBody = try? JSONEncoder().encode(body)
         
         return super.session.rx.response(request: request)
