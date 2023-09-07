@@ -387,6 +387,15 @@
 			path = FriendsMatchNetwork;
 			sourceTree = "<group>";
 		};
+		141290D72AA9CA34003035E0 /* AuthNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				1466FA1D2A0A412500910C30 /* AuthAPI.swift */,
+				1466FA1F2A0A428D00910C30 /* AuthNetwork.swift */,
+			);
+			path = AuthNetwork;
+			sourceTree = "<group>";
+		};
 		1415DD902AA1D0A500EF03A4 /* Message */ = {
 			isa = PBXGroup;
 			children = (
@@ -662,6 +671,7 @@
 		144D30CB2A06257D00640CCD /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				141290D72AA9CA34003035E0 /* AuthNetwork */,
 				145C7A662AA70B04002C5E53 /* MessageNetwork */,
 				144E6BD62A9363B0005838EB /* ImageNetwork */,
 				14F52BC32A8DEF6F00A09F92 /* ClubNetwork */,
@@ -672,8 +682,6 @@
 				1466FA1C2A0A100400910C30 /* SignUpNetwork */,
 				144D30CC2A06259700640CCD /* WanfAPI.swift */,
 				144D30D42A06295100640CCD /* WanfNetwork.swift */,
-				1466FA1D2A0A412500910C30 /* AuthAPI.swift */,
-				1466FA1F2A0A428D00910C30 /* AuthNetwork.swift */,
 				14A11A5B2A94BC50008453FC /* MultipartNetwork.swift */,
 			);
 			path = Network;
