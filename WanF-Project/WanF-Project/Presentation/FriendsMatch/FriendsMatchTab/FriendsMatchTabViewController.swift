@@ -68,8 +68,11 @@ class FriendsMatchTabViewController: UIViewController {
             .disposed(by: disposeBag)
         
         friednsMatchTableView.rx.itemSelected
-            .map { $0.row }
-            .bind(to: viewModel.friendsMatchListItemSelected)
+            .map {
+                viewModel.loadDetailSubject.onNext(viewModel.loadDetailForSelectedItem)
+                return $0.row
+            }
+            .bind(to: viewModel.didSelectItem)
             .disposed(by: disposeBag)
         
         // ViewModel -> View
