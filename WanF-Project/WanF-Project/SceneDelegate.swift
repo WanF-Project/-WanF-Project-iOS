@@ -40,13 +40,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.makeKeyAndVisible()
     }
     
-    /// 알람 타입에 따른 화면 전환 작업
+    /// 알림 타입에 따른 화면 전환 작업
     func pushToViewController(_ type: NotificationType, id: Int) {
         switch type {
         case .friends:
-            rootViewModel.mainTabViewModel.friendsMaychViewModel.friendsMatchListItemSelected.accept(id)
+            rootViewModel.mainTabViewModel.didSelectTab.accept(.friends)
+            rootViewModel.mainTabViewModel.friendsMaychViewModel.loadDetailSubject
+                .onNext(rootViewModel.mainTabViewModel.friendsMaychViewModel.loadDetailForNotification)
+            rootViewModel.mainTabViewModel.friendsMaychViewModel.didTapNotification.accept(id)
         case .messages:
-            rootViewModel.mainTabViewModel.messageListViewModel.didSelectItem.accept(id)
+            rootViewModel.mainTabViewModel.didSelectTab.accept(.messages)
+            rootViewModel.mainTabViewModel.messageListViewModel.loadDetailSubject
+                .onNext(rootViewModel.mainTabViewModel.messageListViewModel.loadDetailForNotification)
+            rootViewModel.mainTabViewModel.messageListViewModel.didTapNotification.accept(id)
         }
     }
 }
