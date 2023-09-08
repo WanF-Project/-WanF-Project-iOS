@@ -13,6 +13,9 @@ import RxCocoa
 
 class MainTabBarController: UITabBarController {
     
+    //MARK: - Properties
+    let disposeBag = DisposeBag()
+    
     //MARK: - View
     private lazy var friendsMatchVC: FriendsMatchTabViewController = {
         let viewController = FriendsMatchTabViewController()
@@ -62,8 +65,32 @@ class MainTabBarController: UITabBarController {
     
     //MARK: - Function
     func bind(_ viewModel: MainTabBarViewModel) {
+        
+        // Bind Subcomponents
         friendsMatchVC.bind(viewModel.friendsMaychViewModel)
         messageListVC.bind(viewModel.messageListViewModel)
+        
+        // ViewModel -> View
+        viewModel.selectedTab
+            .drive(onNext: { type in
+                var tag: Int = 0
+                
+                switch type {
+                case .friends:
+                    tag = self.friendsMatchVC.tabBarItem.tag
+                case .randomFriends:
+                    tag = self.classInfoVC.tabBarItem.tag
+                case .clubs:
+                    tag = self.clubListVC.tabBarItem.tag
+                case .messages:
+                    tag = self.messageListVC.tabBarItem.tag
+                }
+                
+                self.selectedIndex = tag
+            })
+            .disposed(by: disposeBag)
+        
+        
     }
 }
 
@@ -75,6 +102,7 @@ private extension MainTabBarController {
         tabBar.tintColor = .wanfGray
         self.viewControllers = [
             UINavigationController(rootViewController: friendsMatchVC),
+            classInfoVC,
             UINavigationController(rootViewController: clubListVC),
             UINavigationController(rootViewController: messageListVC)
         ]
