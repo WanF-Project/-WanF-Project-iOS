@@ -15,7 +15,12 @@ struct MessageListViewModel {
     let disposeBag = DisposeBag()
     
     // View -> ViewModel
-    let loadMessageList = PublishRelay<Void>()
+    
+    // Load List
+    let loadListSubject = PublishSubject<Observable<Void>>()
+    let loadMessageList = PublishSubject<Void>()
+    let refreshMessageList = PublishSubject<Void>()
+    
     let didSelectItem = PublishRelay<Int>()
     
     // ViewModel -> View
@@ -24,7 +29,8 @@ struct MessageListViewModel {
     
     init(_ model: MessageListModel = MessageListModel()) {
         // Load MessageList
-        let loadResult = loadMessageList
+        let loadResult = loadListSubject
+            .switchLatest()
             .flatMap(model.loadMessageList)
             .share()
         
@@ -41,6 +47,8 @@ struct MessageListViewModel {
         
         cellData = loadValue
             .asDriver(onErrorDriveWith: .empty())
+        
+        loadListSubject.onNext(loadMessageList)
         
         // Push MessageDetail
         pushToMessageDetail = didSelectItem

@@ -18,6 +18,7 @@ class MessageListViewController: UIViewController {
     
     //MARK: - View
     lazy var tableView = UITableView(frame: .zero)
+    lazy var refreshControl = UIRefreshControl()
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -30,7 +31,15 @@ class MessageListViewController: UIViewController {
     //MARK: - Function
     func bind(_ viewModel: MessageListViewModel) {
         // View -> ViewModel
-        viewModel.loadMessageList.accept(Void())
+        viewModel.loadMessageList.onNext(Void())
+        
+        refreshControl.rx.controlEvent(.valueChanged)
+            .bind(onNext: {
+                viewModel.loadListSubject.onNext(viewModel.refreshMessageList)
+                viewModel.refreshMessageList.onNext($0)
+                self.refreshControl.endRefreshing()
+            })
+            .disposed(by: disposeBag)
         
         tableView.rx.itemSelected
             .map { $0.row }
@@ -53,6 +62,7 @@ class MessageListViewController: UIViewController {
                 var accessoryView = UIImageView(image: UIImage(systemName: "chevron.right"))
                 accessoryView.tintColor = .wanfMint
                 
+                cell.selectionStyle = .none
                 cell.contentConfiguration = configuration
                 cell.accessoryView = accessoryView
             }
@@ -84,6 +94,7 @@ extension MessageListViewController {
     func configure() {
         configureNavigationBar()
         view.backgroundColor = .wanfBackground
+        tableView.refreshControl = refreshControl
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "MessageListViewCell")
         tableView.rowHeight = 60
