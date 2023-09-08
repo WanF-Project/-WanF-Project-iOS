@@ -21,11 +21,16 @@ struct MessageListViewModel {
     let loadMessageList = PublishSubject<Void>()
     let refreshMessageList = PublishSubject<Void>()
     
+    // Load Detail
+    let loadDetailSubject = PublishSubject<Observable<(Int, MessageDetailViewModel)>>()
+    let loadDetailForNotification = PublishSubject<(Int, MessageDetailViewModel)>()
+    var loadDetailForSelectedItem = PublishSubject<(Int, MessageDetailViewModel)>()
+    let didTapNotification = PublishRelay<Int>()
     let didSelectItem = PublishRelay<Int>()
     
     // ViewModel -> View
     let cellData: Driver<MessageListResponseEntity>
-    let pushToMessageDetail: Driver<(ProfileResponseEntity, MessageDetailViewModel)>
+    let pushToMessageDetail: Driver<(Int, MessageDetailViewModel)>
     
     init(_ model: MessageListModel = MessageListModel()) {
         // Load MessageList
@@ -51,10 +56,26 @@ struct MessageListViewModel {
         loadListSubject.onNext(loadMessageList)
         
         // Push MessageDetail
-        pushToMessageDetail = didSelectItem
+        
+        didSelectItem
             .withLatestFrom(cellData, resultSelector: { index, list in
-                (list[index], MessageDetailViewModel())
+                let viewModel = MessageDetailViewModel()
+                viewModel.senderNickname.accept(list[index].nickname)
+                return (list[index].id, viewModel)
             })
+            .bind(to: loadDetailForSelectedItem)
+            .disposed(by: disposeBag)
+        
+        didTapNotification
+            .map { id in
+                (id, MessageDetailViewModel())
+            }
+            .bind(to: loadDetailForNotification)
+            .disposed(by: disposeBag)
+        
+        
+        pushToMessageDetail = loadDetailSubject
+            .switchLatest()
             .asDriver(onErrorDriveWith: .empty())
     }
 }

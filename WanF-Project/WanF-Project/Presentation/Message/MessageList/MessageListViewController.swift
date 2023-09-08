@@ -42,7 +42,10 @@ class MessageListViewController: UIViewController {
             .disposed(by: disposeBag)
         
         tableView.rx.itemSelected
-            .map { $0.row }
+            .map {
+                viewModel.loadDetailSubject.onNext(viewModel.loadDetailForSelectedItem)
+                return $0.row
+            }
             .bind(to: viewModel.didSelectItem)
             .disposed(by: disposeBag)
         
@@ -69,10 +72,9 @@ class MessageListViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.pushToMessageDetail
-            .drive(onNext: { sender, viewModel in
+            .drive(onNext: { id, viewModel in
                 let messageDetailVC = MessageDetailViewController()
-                messageDetailVC.bind(viewModel, id: sender.id)
-                viewModel.senderNickname.accept(sender.nickname)
+                messageDetailVC.bind(viewModel, id: id)
                 self.navigationController?.pushViewController(messageDetailVC, animated: true)
             })
             .disposed(by: disposeBag)
