@@ -10,12 +10,13 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-struct MessageDetailViewModel {
+class MessageDetailViewModel {
     
     let disposeBag = DisposeBag()
     
     // View -> ViewModel
     let loadMessageDetail = PublishRelay<Void>()
+    let didTapSendButton = PublishRelay<String>()
     
     let id = PublishRelay<Int>()
     
@@ -23,6 +24,7 @@ struct MessageDetailViewModel {
     var senderNickname = PublishRelay<String>()
     var messages: Driver<[MessageEntity]>
     var currentUser: Driver<SenderEntity>
+    var newMessage: Driver<MessageEntity>
     
     init(_ model: MessageDetailModel = MessageDetailModel()) {
         
@@ -57,5 +59,38 @@ struct MessageDetailViewModel {
                 }
             }
             .asDriver(onErrorDriveWith: .empty())
+        
+        // Send Message
+        newMessage = didTapSendButton
+            .withLatestFrom(currentUser) { text, user in
+                MessageEntity(sender: user, sentDate: Date().formatted(), content: text)
+            }
+            .asDriver(onErrorDriveWith: .empty())
+        
+        let sendResult = didTapSendButton
+            .withLatestFrom(id) { text, id in
+                MessageRequestEntity(receiverProfileId: id, content: text)
+            }
+            .flatMap(model.sendMessage)
+            .share()
+        
+        let sendValue = sendResult
+            .compactMap(model.sendMessageValue)
+        
+        let sendError = sendResult
+            .compactMap(model.sendMessageError)
+        
+        sendError
+            .subscribe(onNext: {
+                print("ERROR: \($0)")
+            })
+            .disposed(by: disposeBag)
+        
+        sendValue
+            .subscribe(onNext: {
+                print("SUCCESS")
+            })
+            .disposed(by: disposeBag)
+        
     }
 }

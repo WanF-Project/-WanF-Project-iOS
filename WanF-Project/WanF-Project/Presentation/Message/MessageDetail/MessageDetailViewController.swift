@@ -15,6 +15,7 @@ import RxCocoa
 class MessageDetailViewController: MessagesViewController {
     
     //MARK: - Properties
+    var viewModel: MessageDetailViewModel?
     let disposeBag = DisposeBag()
     var currentUser = SenderEntity(senderId: String(UUID().uuidString))
     var messages: [MessageEntity] = []
@@ -31,8 +32,10 @@ class MessageDetailViewController: MessagesViewController {
     //MARK: - Function
     func bind(_ viewModel: MessageDetailViewModel) {
         
+        self.viewModel = viewModel
+        
         // View -> ViewModel
-        viewModel.loadMessageDetail.accept(id)
+        viewModel.loadMessageDetail.accept(Void())
         
         // Bind Data
         viewModel.currentUser
@@ -148,7 +151,8 @@ extension MessageDetailViewController: MessagesDisplayDelegate, MessagesLayoutDe
 //MARK: - InputBar Protocol
 extension MessageDetailViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        print("Press")
+        guard let viewModel = self.viewModel else { return }
+        viewModel.didTapSendButton.accept(text)
     }
 }
 
