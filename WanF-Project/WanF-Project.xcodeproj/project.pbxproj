@@ -123,6 +123,7 @@
 		147E9B552A178E690032E530 /* CourseNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E9B542A178E690032E530 /* CourseNetwork.swift */; };
 		147E9B582A1792F30032E530 /* CourseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E9B572A1792F30032E530 /* CourseEntity.swift */; };
 		147E9B5A2A17942D0032E530 /* CourseInfoListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E9B592A17942D0032E530 /* CourseInfoListModel.swift */; };
+		148152802AAC7E50002F5830 /* MessageRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1481527F2AAC7E50002F5830 /* MessageRequestEntity.swift */; };
 		14840E4929FE5C8C007BFB1A /* ProfileKeywordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14840E4829FE5C8C007BFB1A /* ProfileKeywordListViewController.swift */; };
 		14840E4B29FE5CCC007BFB1A /* ProfileKeywordListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14840E4A29FE5CCC007BFB1A /* ProfileKeywordListViewModel.swift */; };
 		1484C75D2A1E1BD500014FD4 /* ExDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1484C75C2A1E1BD500014FD4 /* ExDateFormatter.swift */; };
@@ -297,6 +298,7 @@
 		147E9B542A178E690032E530 /* CourseNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseNetwork.swift; sourceTree = "<group>"; };
 		147E9B572A1792F30032E530 /* CourseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseEntity.swift; sourceTree = "<group>"; };
 		147E9B592A17942D0032E530 /* CourseInfoListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoListModel.swift; sourceTree = "<group>"; };
+		1481527F2AAC7E50002F5830 /* MessageRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRequestEntity.swift; sourceTree = "<group>"; };
 		14840E4829FE5C8C007BFB1A /* ProfileKeywordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileKeywordListViewController.swift; sourceTree = "<group>"; };
 		14840E4A29FE5CCC007BFB1A /* ProfileKeywordListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileKeywordListViewModel.swift; sourceTree = "<group>"; };
 		1484C75C2A1E1BD500014FD4 /* ExDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExDateFormatter.swift; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 				1415DD962AA1D81000EF03A4 /* MessageListResponseEntity.swift */,
 				14121FDB2AA5CDB50059867B /* MessageEntity.swift */,
 				1409EAB42AA86D5600B9B2A8 /* ReceiverMessageResponseEntity.swift */,
+				1481527F2AAC7E50002F5830 /* MessageRequestEntity.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -1301,6 +1304,7 @@
 				1466FA202A0A428D00910C30 /* AuthNetwork.swift in Sources */,
 				14BD19F229FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift in Sources */,
 				142DBED229DC223A00017603 /* EmailTextFieldViewModel.swift in Sources */,
+				148152802AAC7E50002F5830 /* MessageRequestEntity.swift in Sources */,
 				1415DD942AA1D13A00EF03A4 /* MessageListViewModel.swift in Sources */,
 				14A11A582A94BA07008453FC /* ExNSMutableData.swift in Sources */,
 				1449E1F62A135375008C70DB /* FriendsMatchCommentListView.swift in Sources */,
