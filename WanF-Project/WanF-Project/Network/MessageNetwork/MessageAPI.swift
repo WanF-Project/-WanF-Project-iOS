@@ -34,4 +34,14 @@ class MessageAPI: WanfAPI {
         
         return components
     }
+    
+    /// 쪽지 전송
+    func postSendMessage() -> URLComponents {
+        var components = URLComponents()
+        components.scheme = super.scheme
+        components.host = super.host
+        components.path = self.path
+        
+        return components
+    }
 }

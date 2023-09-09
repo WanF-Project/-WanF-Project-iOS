@@ -85,4 +85,35 @@ class MessageNetwork: WanfNetwork {
             }
             .asSingle()
     }
+    
+    /// 쪽지 전송
+    func postSendMessage(_ message: MessageRequestEntity) -> Single<Result<Void, WanfError>> {
+        guard let url = api.postSendMessage().url else {
+            return .just(.failure(.invalidURL))
+        }
+        
+        let request = UserDefaultsManager.accessTokenCheckedObservable
+            .compactMap { $0 }
+            .map { accessToken in
+                let body = try? JSONEncoder().encode(message)
+                var request = URLRequest(url: url)
+                request.httpMethod = WanfHttpMethod.post.rawValue
+                request.setValue(accessToken, forHTTPHeaderField: "Authorization")
+                request.httpBody = body
+                
+                return request
+            }
+        
+        return request
+            .flatMap {
+                super.session.rx.data(request: $0)
+            }
+            .map { _ in
+                    .success(Void())
+            }
+            .catch { error in
+                    .just(.failure(.networkError))
+            }
+            .asSingle()
+    }
 }
