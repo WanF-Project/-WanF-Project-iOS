@@ -98,6 +98,7 @@ class MessageNetwork: WanfNetwork {
                 let body = try? JSONEncoder().encode(message)
                 var request = URLRequest(url: url)
                 request.httpMethod = WanfHttpMethod.post.rawValue
+                request.setValue("application/json;charset=UTF-8", forHTTPHeaderField: "Content-Type")
                 request.setValue(accessToken, forHTTPHeaderField: "Authorization")
                 request.httpBody = body
                 
