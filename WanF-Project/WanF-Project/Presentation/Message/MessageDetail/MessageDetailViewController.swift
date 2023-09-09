@@ -18,7 +18,11 @@ class MessageDetailViewController: MessagesViewController {
     var viewModel: MessageDetailViewModel?
     let disposeBag = DisposeBag()
     var currentUser = SenderEntity(senderId: String(UUID().uuidString))
-    var messages: [MessageEntity] = []
+    var messages: [MessageEntity] = [] {
+        didSet {
+            self.messagesCollectionView.reloadData()
+        }
+    }
     
     //MARK: -  LifeCycle
     override func viewDidLoad() {
@@ -47,12 +51,17 @@ class MessageDetailViewController: MessagesViewController {
         viewModel.messages
             .drive(onNext: {
                 self.messages = $0
-                self.messagesCollectionView.reloadData()
             })
             .disposed(by: disposeBag)
         
         viewModel.senderNickname
             .bind(to: navigationItem.rx.title)
+            .disposed(by: disposeBag)
+        
+        viewModel.addNewMessage
+            .drive(onNext: { newMessage in
+                self.messages.append(newMessage)
+            })
             .disposed(by: disposeBag)
     }
     
@@ -152,6 +161,7 @@ extension MessageDetailViewController: MessagesDisplayDelegate, MessagesLayoutDe
 extension MessageDetailViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         guard let viewModel = self.viewModel else { return }
+        inputBar.inputTextView.text = ""
         viewModel.didTapSendButton.accept(text)
     }
 }

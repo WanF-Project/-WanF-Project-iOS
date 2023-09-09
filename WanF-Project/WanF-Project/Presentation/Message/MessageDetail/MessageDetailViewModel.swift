@@ -24,7 +24,8 @@ class MessageDetailViewModel {
     var senderNickname = PublishRelay<String>()
     var messages: Driver<[MessageEntity]>
     var currentUser: Driver<SenderEntity>
-    var newMessage: Driver<MessageEntity>
+    var newMessage: Observable<MessageEntity>
+    var addNewMessage: Driver<MessageEntity>
     
     init(_ model: MessageDetailModel = MessageDetailModel()) {
         
@@ -65,7 +66,6 @@ class MessageDetailViewModel {
             .withLatestFrom(currentUser) { text, user in
                 MessageEntity(sender: user, sentDate: Date().formatted(), content: text)
             }
-            .asDriver(onErrorDriveWith: .empty())
         
         let sendResult = didTapSendButton
             .withLatestFrom(id) { text, id in
@@ -86,11 +86,9 @@ class MessageDetailViewModel {
             })
             .disposed(by: disposeBag)
         
-        sendValue
-            .subscribe(onNext: {
-                print("SUCCESS")
-            })
-            .disposed(by: disposeBag)
+        addNewMessage = sendValue
+            .withLatestFrom(newMessage)
+            .asDriver(onErrorDriveWith: .empty())
         
     }
 }
