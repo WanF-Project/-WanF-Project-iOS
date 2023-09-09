@@ -72,9 +72,9 @@ class MessageListViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.pushToMessageDetail
-            .drive(onNext: { id, viewModel in
+            .drive(onNext: { viewModel in
                 let messageDetailVC = MessageDetailViewController()
-                messageDetailVC.bind(viewModel, id: id)
+                messageDetailVC.bind(viewModel)
                 self.navigationController?.pushViewController(messageDetailVC, animated: true)
             })
             .disposed(by: disposeBag)

@@ -15,7 +15,9 @@ struct MessageDetailViewModel {
     let disposeBag = DisposeBag()
     
     // View -> ViewModel
-    var loadMessageDetail = PublishRelay<Int>()
+    let loadMessageDetail = PublishRelay<Void>()
+    
+    let id = PublishRelay<Int>()
     
     // ViewModel -> View
     var senderNickname = PublishRelay<String>()
@@ -26,6 +28,7 @@ struct MessageDetailViewModel {
         
         // Load MessageDetail
         let loadResult = loadMessageDetail
+            .withLatestFrom(id)
             .flatMap(model.loadMessageDetail)
             .share()
         

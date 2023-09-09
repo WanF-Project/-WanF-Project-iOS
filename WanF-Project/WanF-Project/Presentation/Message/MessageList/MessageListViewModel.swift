@@ -22,15 +22,15 @@ struct MessageListViewModel {
     let refreshMessageList = PublishSubject<Void>()
     
     // Load Detail
-    let loadDetailSubject = PublishSubject<Observable<(Int, MessageDetailViewModel)>>()
-    let loadDetailForNotification = PublishSubject<(Int, MessageDetailViewModel)>()
-    var loadDetailForSelectedItem = PublishSubject<(Int, MessageDetailViewModel)>()
+    let loadDetailSubject = PublishSubject<Observable<MessageDetailViewModel>>()
+    let loadDetailForNotification = PublishSubject<MessageDetailViewModel>()
+    var loadDetailForSelectedItem = PublishSubject<MessageDetailViewModel>()
     let didTapNotification = PublishRelay<Int>()
     let didSelectItem = PublishRelay<Int>()
     
     // ViewModel -> View
     let cellData: Driver<MessageListResponseEntity>
-    let pushToMessageDetail: Driver<(Int, MessageDetailViewModel)>
+    let pushToMessageDetail: Driver<MessageDetailViewModel>
     
     init(_ model: MessageListModel = MessageListModel()) {
         // Load MessageList
@@ -61,14 +61,17 @@ struct MessageListViewModel {
             .withLatestFrom(cellData, resultSelector: { index, list in
                 let viewModel = MessageDetailViewModel()
                 viewModel.senderNickname.accept(list[index].nickname)
-                return (list[index].id, viewModel)
+                viewModel.id.accept(list[index].id)
+                return viewModel
             })
             .bind(to: loadDetailForSelectedItem)
             .disposed(by: disposeBag)
         
         didTapNotification
             .map { id in
-                (id, MessageDetailViewModel())
+                let viewModel = MessageDetailViewModel()
+                viewModel.id.accept(id)
+                return viewModel
             }
             .bind(to: loadDetailForNotification)
             .disposed(by: disposeBag)

@@ -29,7 +29,7 @@ class MessageDetailViewController: MessagesViewController {
     }
     
     //MARK: - Function
-    func bind(_ viewModel: MessageDetailViewModel, id: Int) {
+    func bind(_ viewModel: MessageDetailViewModel) {
         
         // View -> ViewModel
         viewModel.loadMessageDetail.accept(id)
