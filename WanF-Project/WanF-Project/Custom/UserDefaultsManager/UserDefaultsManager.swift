@@ -18,4 +18,7 @@ struct UserDefaultsManager {
     
     @UserDefaultsAuthorizationChecked("AccessToken")
     static var accessTokenCheckedObservable: Observable<String?>
+    
+    @UserDefaultsAuthorizationWrapper("FCM-TOKEN")
+    static var fcmToken: String?
 }

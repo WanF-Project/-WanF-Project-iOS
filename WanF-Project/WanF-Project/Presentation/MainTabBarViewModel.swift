@@ -10,6 +10,28 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+enum WanfTabType {
+    case friends
+    case randomFriends
+    case clubs
+    case messages
+}
+
 struct MainTabBarViewModel {
     
+    // Subcomponent ViewModel
+    let friendsMaychViewModel = FriendsMatchTabViewModel()
+    let messageListViewModel = MessageListViewModel()
+    
+    // View -> ViewModel
+    let didSelectTab = PublishRelay<WanfTabType>()
+    
+    // ViewModel -> View
+    let selectedTab: Driver<WanfTabType>
+    
+    init() {
+        
+        selectedTab = didSelectTab
+            .asDriver(onErrorJustReturn: .friends)
+    }
 }

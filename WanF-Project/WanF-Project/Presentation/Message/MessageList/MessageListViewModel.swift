@@ -15,16 +15,27 @@ struct MessageListViewModel {
     let disposeBag = DisposeBag()
     
     // View -> ViewModel
-    let loadMessageList = PublishRelay<Void>()
-    let didSelectItem = PublishRelay<IndexPath>()
+    
+    // Load List
+    let loadListSubject = PublishSubject<Observable<Void>>()
+    let loadMessageList = PublishSubject<Void>()
+    let refreshMessageList = PublishSubject<Void>()
+    
+    // Load Detail
+    let loadDetailSubject = PublishSubject<Observable<MessageDetailViewModel>>()
+    let loadDetailForNotification = PublishSubject<MessageDetailViewModel>()
+    var loadDetailForSelectedItem = PublishSubject<MessageDetailViewModel>()
+    let didTapNotification = PublishRelay<Int>()
+    let didSelectItem = PublishRelay<Int>()
     
     // ViewModel -> View
     let cellData: Driver<MessageListResponseEntity>
-    let pushToMessageDetail: Driver<(Int, MessageDetailViewModel)>
+    let pushToMessageDetail: Driver<MessageDetailViewModel>
     
     init(_ model: MessageListModel = MessageListModel()) {
         // Load MessageList
-        let loadResult = loadMessageList
+        let loadResult = loadListSubject
+            .switchLatest()
             .flatMap(model.loadMessageList)
             .share()
         
@@ -42,11 +53,32 @@ struct MessageListViewModel {
         cellData = loadValue
             .asDriver(onErrorDriveWith: .empty())
         
+        loadListSubject.onNext(loadMessageList)
+        
         // Push MessageDetail
-        pushToMessageDetail = didSelectItem
-            .withLatestFrom(cellData, resultSelector: { indexPath, list in
-                (list[indexPath.row].id, MessageDetailViewModel())
+        
+        didSelectItem
+            .withLatestFrom(cellData, resultSelector: { index, list in
+                let viewModel = MessageDetailViewModel()
+                viewModel.senderNickname.accept(list[index].nickname)
+                viewModel.id.accept(list[index].id)
+                return viewModel
             })
+            .bind(to: loadDetailForSelectedItem)
+            .disposed(by: disposeBag)
+        
+        didTapNotification
+            .map { id in
+                let viewModel = MessageDetailViewModel()
+                viewModel.id.accept(id)
+                return viewModel
+            }
+            .bind(to: loadDetailForNotification)
+            .disposed(by: disposeBag)
+        
+        
+        pushToMessageDetail = loadDetailSubject
+            .switchLatest()
             .asDriver(onErrorDriveWith: .empty())
     }
 }

@@ -15,9 +15,14 @@ import RxCocoa
 class MessageDetailViewController: MessagesViewController {
     
     //MARK: - Properties
+    var viewModel: MessageDetailViewModel?
     let disposeBag = DisposeBag()
-    var sender = SenderEntity(senderId: "", displayName: "")
-    var messages: [MessageEntity] = []
+    var currentUser = SenderEntity(senderId: String(UUID().uuidString))
+    var messages: [MessageEntity] = [] {
+        didSet {
+            self.messagesCollectionView.reloadData()
+        }
+    }
     
     //MARK: -  LifeCycle
     override func viewDidLoad() {
@@ -26,23 +31,36 @@ class MessageDetailViewController: MessagesViewController {
         configure()
         configureMessageCollectionView()
         configureMessageInputBar()
-        
-        messagesCollectionView.reloadData()
     }
     
     //MARK: - Function
-    func bind(_ viewModel: MessageDetailViewModel, id: Int) {
+    func bind(_ viewModel: MessageDetailViewModel) {
+        
+        self.viewModel = viewModel
+        
+        // View -> ViewModel
+        viewModel.loadMessageDetail.accept(Void())
         
         // Bind Data
+        viewModel.currentUser
+            .drive(onNext: {
+                self.currentUser = $0
+            })
+            .disposed(by: disposeBag)
+        
         viewModel.messages
             .drive(onNext: {
                 self.messages = $0
             })
             .disposed(by: disposeBag)
         
-        viewModel.sender
-            .drive(onNext: {
-                self.sender = $0
+        viewModel.senderNickname
+            .bind(to: navigationItem.rx.title)
+            .disposed(by: disposeBag)
+        
+        viewModel.addNewMessage
+            .drive(onNext: { newMessage in
+                self.messages.append(newMessage)
             })
             .disposed(by: disposeBag)
     }
@@ -83,7 +101,7 @@ private extension MessageDetailViewController {
 //MARK: - MessageKit Protocol
 extension MessageDetailViewController: MessagesDataSource {
     var currentSender: MessageKit.SenderType {
-        return sender
+        return currentUser
     }
     
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessageKit.MessagesCollectionView) -> MessageKit.MessageType {
@@ -130,10 +148,6 @@ extension MessageDetailViewController: MessagesDisplayDelegate, MessagesLayoutDe
         return CGFloat(30.0)
     }
     
-    func messageTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
-        return CGFloat(30.0)
-    }
-    
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return isFromCurrentSender(message: message) ? .wanfLightMint : .wanfLightGray
     }
@@ -146,7 +160,9 @@ extension MessageDetailViewController: MessagesDisplayDelegate, MessagesLayoutDe
 //MARK: - InputBar Protocol
 extension MessageDetailViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        print("Press")
+        guard let viewModel = self.viewModel else { return }
+        inputBar.inputTextView.text = ""
+        viewModel.didTapSendButton.accept(text)
     }
 }
 

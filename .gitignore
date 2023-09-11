@@ -3,4 +3,7 @@
 
 # for Xcode
 *.xcuserstate
+WanF-Project/WanF-Project/GoogleService-Info.plist
+WanF-Project/WanF-Project/WanF-Project.entitlements
+
 

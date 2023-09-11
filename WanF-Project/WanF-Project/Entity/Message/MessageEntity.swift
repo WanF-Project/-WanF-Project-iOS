@@ -11,15 +11,25 @@ import MessageKit
 
 struct MessageEntity: MessageType {
     var sender: SenderType
-    var messageId: String
+    let messageId: String = UUID().uuidString
     var sentDate: Date
-    let content: String
+    var content: String
     var kind: MessageKind {
         .text(content)
+    }
+    
+    init(sender: SenderType, sentDate: String, content: String) {
+        self.sender = sender
+        self.sentDate = DateFormatter().date(from: sentDate) ?? Date()
+        self.content = content
     }
 }
 
 struct SenderEntity: SenderType {
     var senderId: String
-    var displayName: String
+    var displayName: String = ""
+    
+    init(senderId: String) {
+        self.senderId = senderId
+    }
 }
