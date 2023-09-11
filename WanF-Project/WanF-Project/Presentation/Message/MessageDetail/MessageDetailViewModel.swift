@@ -57,7 +57,7 @@ class MessageDetailViewModel {
                 response.messages.map {
                     let sender = SenderEntity(senderId: String($0.senderProfileId))
                     return MessageEntity(sender: sender, sentDate: $0.createDate, content: $0.content)
-                }
+                }.reversed()
             }
             .asDriver(onErrorDriveWith: .empty())
         
