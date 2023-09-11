@@ -20,7 +20,7 @@ struct MessageEntity: MessageType {
     
     init(sender: SenderType, sentDate: String, content: String) {
         self.sender = sender
-        self.sentDate = DateFormatter().date(from: sentDate) ?? Date()
+        self.sentDate = DateFormatter().wanfDateFormatted(from: sentDate) ?? Date()
         self.content = content
     }
 }
