@@ -4,6 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>BlackHanSans-Regular.ttf</string>
 		<string>NanumSquareNeo-aLt.ttf</string>
 		<string>NanumSquareNeo-bRg.ttf</string>
 		<string>NanumSquareNeo-cBd.ttf</string>
