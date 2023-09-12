@@ -150,6 +150,7 @@
 		14AC9B3529E2751C009C37A5 /* FriendsMatchTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */; };
 		14AC9B3729E27547009C37A5 /* ClassInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */; };
 		14AC9B3929E27569009C37A5 /* ClubListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3829E27569009C37A5 /* ClubListViewController.swift */; };
+		14B0A86E2AB01E8600044482 /* BlackHanSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14B0A86D2AB01E7D00044482 /* BlackHanSans-Regular.ttf */; };
 		14BD19EA29FB986700B0E598 /* ProfileContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BD19E929FB986700B0E598 /* ProfileContentView.swift */; };
 		14BD19EE29FBB63B00B0E598 /* ProfileContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BD19ED29FBB63B00B0E598 /* ProfileContentViewModel.swift */; };
 		14BD19F229FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BD19F129FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift */; };
@@ -325,6 +326,7 @@
 		14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabViewController.swift; sourceTree = "<group>"; };
 		14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInfoViewController.swift; sourceTree = "<group>"; };
 		14AC9B3829E27569009C37A5 /* ClubListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListViewController.swift; sourceTree = "<group>"; };
+		14B0A86D2AB01E7D00044482 /* BlackHanSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BlackHanSans-Regular.ttf"; sourceTree = "<group>"; };
 		14BD19E929FB986700B0E598 /* ProfileContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentView.swift; sourceTree = "<group>"; };
 		14BD19ED29FBB63B00B0E598 /* ProfileContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentViewModel.swift; sourceTree = "<group>"; };
 		14BD19F129FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentKeywordListCell.swift; sourceTree = "<group>"; };
@@ -850,6 +852,7 @@
 		14793FB829D8368E0048D5DD /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				14B0A86D2AB01E7D00044482 /* BlackHanSans-Regular.ttf */,
 				14793FB929D837090048D5DD /* NanumSquareNeo-eHv.ttf */,
 				14793FAE29D836610048D5DD /* NanumSquareNeo-aLt.ttf */,
 				14793FAF29D836610048D5DD /* NanumSquareNeo-bRg.ttf */,
@@ -1236,6 +1239,7 @@
 				144D30C92A060E4400640CCD /* WanF.plist in Resources */,
 				141A782429D7ED46006731F7 /* LaunchScreen.storyboard in Resources */,
 				14793FC029D84AB60048D5DD /* NanumSquareNeo-aLt.ttf in Resources */,
+				14B0A86E2AB01E8600044482 /* BlackHanSans-Regular.ttf in Resources */,
 				14793FC229D84ABD0048D5DD /* NanumSquareNeo-cBd.ttf in Resources */,
 				14793FBF29D84AAC0048D5DD /* NanumSquareNeo-eHv.ttf in Resources */,
 				14793FC329D84AC00048D5DD /* NanumSquareNeo-dEb.ttf in Resources */,
