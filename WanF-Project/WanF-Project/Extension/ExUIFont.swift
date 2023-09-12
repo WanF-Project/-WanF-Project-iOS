@@ -25,4 +25,8 @@ extension UIFont {
         return font ?? systemFont(ofSize: size, weight: .regular)
     }
     
+    static func wanfLogoFont(ofSize size: CGFloat) -> UIFont {
+        return self.init(name: "BlackHanSans-Regular", size: size) ?? systemFont(ofSize: size, weight: .heavy)
+    }
+    
 }
