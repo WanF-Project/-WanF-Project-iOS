@@ -32,6 +32,11 @@ class ProfileMainViewController: UIViewController {
         layout()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureNavigationBar()
+    }
+    
     //MARK: - Fuction
     func bind(_ viewModel: ProfileMainViewModel) {
         self.viewModel = viewModel
@@ -45,15 +50,25 @@ class ProfileMainViewController: UIViewController {
 }
 
 private extension ProfileMainViewController {
-    func configureView() {
-        view.backgroundColor = .wanfBackground
-        
+    
+    func configureNavigationBar() {
         navigationItem.title = "프로필"
-        navigationController?.navigationBar.titleTextAttributes = [
+        let textAttributes = [
             NSAttributedString.Key.foregroundColor : UIColor.wanfLabel,
             NSAttributedString.Key.font : UIFont.wanfFont(ofSize: 15, weight: .bold)
         ]
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.titleTextAttributes = textAttributes
+        appearance.backgroundColor = .wanfBackground
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.tintColor = .wanfMint
         navigationItem.rightBarButtonItem = EditBarItem
+    }
+    
+    func configureView() {
+        view.backgroundColor = .wanfBackground
         
         view.addSubview(profileContentView)
     }

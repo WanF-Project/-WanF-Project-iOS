@@ -39,6 +39,11 @@ class FriendsMatchTabViewController: UIViewController {
         layout()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureNavigationBar()
+    }
+    
     //MARK: - Function {
     func bind(_ viewModel: FriendsMatchTabViewModel) {
         
@@ -131,18 +136,25 @@ class FriendsMatchTabViewController: UIViewController {
     }
 }
 private extension FriendsMatchTabViewController {
+    func configureNavigationBar() {
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .wanfMint
+        
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.tintColor = .wanfBackground
+        
+        let logo = UIBarButtonItem(title: "Wan.F")
+        let attributes = [ NSAttributedString.Key.font : UIFont.wanfLogoFont(ofSize: 30.0) ]
+        logo.setTitleTextAttributes(attributes, for: .normal)
+        
+        navigationItem.leftBarButtonItem = logo
+        navigationItem.rightBarButtonItems = [profileBarItem, searchBarItem, addBarItem]
+    }
+    
     func configureView() {
         view.backgroundColor = .wanfBackground
-        
-        navigationItem.title = "강의 친구 찾기"
-        navigationController?.navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor : UIColor.wanfLabel,
-            NSAttributedString.Key.font : UIFont.wanfFont(ofSize: 15, weight: .bold)
-        ]
-        
-        navigationController?.navigationBar.tintColor = .wanfMint
-        navigationItem.leftBarButtonItem = profileBarItem
-        navigationItem.rightBarButtonItems = [addBarItem, searchBarItem]
     }
     
     func layout() {

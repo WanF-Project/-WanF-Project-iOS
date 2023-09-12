@@ -27,6 +27,11 @@ class FriendsMatchSearchViewController: UIViewController {
         layout()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureNavigationBar()
+    }
+    
     //MARK: - Function
     func bind(_ viewModel: FriendsMatchSearchViewModel) {
         
@@ -47,6 +52,22 @@ class FriendsMatchSearchViewController: UIViewController {
 
 //MARK: - Configure
 private extension FriendsMatchSearchViewController {
+    
+    func configureNavigationBar() {
+        navigationItem.title = "게시글 검색"
+        let textAttributes = [
+            NSAttributedString.Key.foregroundColor : UIColor.wanfLabel,
+            NSAttributedString.Key.font : UIFont.wanfFont(ofSize: 15, weight: .bold)
+        ]
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.titleTextAttributes = textAttributes
+        appearance.backgroundColor = .wanfBackground
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.tintColor = .wanfMint
+    }
+    
     func configureView() {
         self.view.backgroundColor = .wanfBackground
         searchBar.placeholder = "강의명을 입력하세요"

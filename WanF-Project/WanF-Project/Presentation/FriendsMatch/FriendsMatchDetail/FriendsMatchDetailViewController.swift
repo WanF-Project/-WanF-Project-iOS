@@ -90,6 +90,11 @@ class FriendsMatchDetailViewController: UIViewController {
         adjustContentViewSize()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureNavigationBar()
+    }
+    
     //MARK: - Function
     func bind(_ viewModel: FriendsMatchDetailViewModel){
         
@@ -166,10 +171,20 @@ class FriendsMatchDetailViewController: UIViewController {
 //MARK: - Configure
 private extension FriendsMatchDetailViewController {
     
-    func configureView() {
-        view.backgroundColor = .wanfBackground
+    func configureNavigationBar() {
+        navigationItem.title = ""
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .wanfBackground
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.tintColor = .wanfMint
         
         navigationItem.rightBarButtonItem = menuBarItem
+    }
+    
+    func configureView() {
+        view.backgroundColor = .wanfBackground
         
         scrollView.refreshControl = refreshControl
     }
