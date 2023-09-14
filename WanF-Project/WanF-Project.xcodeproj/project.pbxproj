@@ -149,7 +149,6 @@
 		14A11A602A94BE48008453FC /* ImageNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A5F2A94BE48008453FC /* ImageNetwork.swift */; };
 		14A11A622A94BFC9008453FC /* ProfileCreateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A612A94BFC9008453FC /* ProfileCreateModel.swift */; };
 		14AC9B3529E2751C009C37A5 /* FriendsMatchTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */; };
-		14AC9B3729E27547009C37A5 /* ClassInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */; };
 		14AC9B3929E27569009C37A5 /* ClubListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3829E27569009C37A5 /* ClubListViewController.swift */; };
 		14B0A86E2AB01E8600044482 /* BlackHanSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14B0A86D2AB01E7D00044482 /* BlackHanSans-Regular.ttf */; };
 		14BD19EA29FB986700B0E598 /* ProfileContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BD19E929FB986700B0E598 /* ProfileContentView.swift */; };
@@ -326,7 +325,6 @@
 		14A11A5F2A94BE48008453FC /* ImageNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNetwork.swift; sourceTree = "<group>"; };
 		14A11A612A94BFC9008453FC /* ProfileCreateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreateModel.swift; sourceTree = "<group>"; };
 		14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabViewController.swift; sourceTree = "<group>"; };
-		14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInfoViewController.swift; sourceTree = "<group>"; };
 		14AC9B3829E27569009C37A5 /* ClubListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListViewController.swift; sourceTree = "<group>"; };
 		14B0A86D2AB01E7D00044482 /* BlackHanSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BlackHanSans-Regular.ttf"; sourceTree = "<group>"; };
 		14BD19E929FB986700B0E598 /* ProfileContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentView.swift; sourceTree = "<group>"; };
@@ -977,14 +975,6 @@
 			path = FriendsMatch;
 			sourceTree = "<group>";
 		};
-		14AC9B3229E274E3009C37A5 /* ClassInfo */ = {
-			isa = PBXGroup;
-			children = (
-				14AC9B3629E27547009C37A5 /* ClassInfoViewController.swift */,
-			);
-			path = ClassInfo;
-			sourceTree = "<group>";
-		};
 		14CE0EFB2A98A02100B92BFB /* ProfileContentView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1052,7 +1042,6 @@
 				143AE33F2A73978800056647 /* CourseInfoList */,
 				14AC9B3129E274C0009C37A5 /* FriendsMatch */,
 				1426B0442AB2C6C700E43EA1 /* RandomFriends */,
-				14AC9B3229E274E3009C37A5 /* ClassInfo */,
 				1429B0B129E56ED900891FF8 /* Profile */,
 				14DD371629DB2BD300D6A715 /* SignUp */,
 				14DD371529DB2BA800D6A715 /* SignInViewController */,
@@ -1311,7 +1300,6 @@
 				1429B0A729E5163300891FF8 /* FriendsMatchTabViewModel.swift in Sources */,
 				145C7A632AA6EE6B002C5E53 /* MessageDetailViewModel.swift in Sources */,
 				1429B0A929E51CF400891FF8 /* FriendsMatchTabModel.swift in Sources */,
-				14AC9B3729E27547009C37A5 /* ClassInfoViewController.swift in Sources */,
 				14793FA929D831230048D5DD /* ExUIColor.swift in Sources */,
 				147E9B552A178E690032E530 /* CourseNetwork.swift in Sources */,
 				141A783629D7F1E5006731F7 /* SignInViewController.swift in Sources */,
