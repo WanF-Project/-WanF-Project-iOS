@@ -26,9 +26,9 @@ class MainTabBarController: UITabBarController {
         return viewController
     }()
     
-    private lazy var classInfoVC: UINavigationController = {
-        let viewController = UINavigationController(rootViewController: ClassInfoViewController())
-        let item = UITabBarItem(title: "수업 정보", image: UIImage(systemName: "info.square.fill"), tag: 1)
+    private lazy var randomFriendsVC: RandomFriendsViewController = {
+        let viewController = RandomFriendsViewController()
+        let item = UITabBarItem(title: "랜덤 친구", image: UIImage(systemName: "dice.fill"), tag: 1)
         
         viewController.tabBarItem = item
         
@@ -79,7 +79,7 @@ class MainTabBarController: UITabBarController {
                 case .friends:
                     tag = self.friendsMatchVC.tabBarItem.tag
                 case .randomFriends:
-                    tag = self.classInfoVC.tabBarItem.tag
+                    tag = self.randomFriendsVC.tabBarItem.tag
                 case .clubs:
                     tag = self.clubListVC.tabBarItem.tag
                 case .messages:
@@ -102,7 +102,7 @@ private extension MainTabBarController {
         tabBar.tintColor = .wanfGray
         self.viewControllers = [
             UINavigationController(rootViewController: friendsMatchVC),
-            classInfoVC,
+            UINavigationController(rootViewController: randomFriendsVC),
             UINavigationController(rootViewController: clubListVC),
             UINavigationController(rootViewController: messageListVC)
         ]

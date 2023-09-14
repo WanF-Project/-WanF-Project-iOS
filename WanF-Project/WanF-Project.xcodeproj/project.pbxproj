@@ -41,6 +41,7 @@
 		141A783229D7F168006731F7 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 141A783129D7F168006731F7 /* RxRelay */; };
 		141A783429D7F168006731F7 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 141A783329D7F168006731F7 /* RxSwift */; };
 		141A783629D7F1E5006731F7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A783529D7F1E5006731F7 /* SignInViewController.swift */; };
+		1426B0462AB2C6ED00E43EA1 /* RandomFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1426B0452AB2C6ED00E43EA1 /* RandomFriendsViewController.swift */; };
 		1429B0A329E5122400891FF8 /* PostListResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0A229E5122400891FF8 /* PostListResponseEntity.swift */; };
 		1429B0A729E5163300891FF8 /* FriendsMatchTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0A629E5163300891FF8 /* FriendsMatchTabViewModel.swift */; };
 		1429B0A929E51CF400891FF8 /* FriendsMatchTabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0A829E51CF400891FF8 /* FriendsMatchTabModel.swift */; };
@@ -217,6 +218,7 @@
 		141A782329D7ED46006731F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		141A782529D7ED46006731F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		141A783529D7F1E5006731F7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		1426B0452AB2C6ED00E43EA1 /* RandomFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomFriendsViewController.swift; sourceTree = "<group>"; };
 		1429B0A229E5122400891FF8 /* PostListResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListResponseEntity.swift; sourceTree = "<group>"; };
 		1429B0A629E5163300891FF8 /* FriendsMatchTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabViewModel.swift; sourceTree = "<group>"; };
 		1429B0A829E51CF400891FF8 /* FriendsMatchTabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabModel.swift; sourceTree = "<group>"; };
@@ -454,6 +456,14 @@
 				141A782529D7ED46006731F7 /* Info.plist */,
 			);
 			path = "WanF-Project";
+			sourceTree = "<group>";
+		};
+		1426B0442AB2C6C700E43EA1 /* RandomFriends */ = {
+			isa = PBXGroup;
+			children = (
+				1426B0452AB2C6ED00E43EA1 /* RandomFriendsViewController.swift */,
+			);
+			path = RandomFriends;
 			sourceTree = "<group>";
 		};
 		1429B0A129E5118D00891FF8 /* Entity */ = {
@@ -1041,6 +1051,7 @@
 				146EA3402A8B4FC0005E010B /* Club */,
 				143AE33F2A73978800056647 /* CourseInfoList */,
 				14AC9B3129E274C0009C37A5 /* FriendsMatch */,
+				1426B0442AB2C6C700E43EA1 /* RandomFriends */,
 				14AC9B3229E274E3009C37A5 /* ClassInfo */,
 				1429B0B129E56ED900891FF8 /* Profile */,
 				14DD371629DB2BD300D6A715 /* SignUp */,
@@ -1405,6 +1416,7 @@
 				1496374329ED5E610021B4D4 /* FriendsMatchWritingModel.swift in Sources */,
 				1429B0B529E5710C00891FF8 /* ProfileMainViewModel.swift in Sources */,
 				141A781A29D7ED46006731F7 /* SceneDelegate.swift in Sources */,
+				1426B0462AB2C6ED00E43EA1 /* RandomFriendsViewController.swift in Sources */,
 				1449E1FA2A13592A008C70DB /* CommentResponseEntity.swift in Sources */,
 				144D30C32A0606F000640CCD /* ProfileSingleSelectionListViewController.swift in Sources */,
 				1455D2622A25B8A00090257B /* MajorAPI.swift in Sources */,
