@@ -26,9 +26,9 @@ class MainTabBarController: UITabBarController {
         return viewController
     }()
     
-    private lazy var classInfoVC: UINavigationController = {
-        let viewController = UINavigationController(rootViewController: ClassInfoViewController())
-        let item = UITabBarItem(title: "수업 정보", image: UIImage(systemName: "info.square.fill"), tag: 1)
+    private lazy var randomFriendsVC: RandomFriendsViewController = {
+        let viewController = RandomFriendsViewController()
+        let item = UITabBarItem(title: "랜덤 친구", image: UIImage(systemName: "dice.fill"), tag: 1)
         
         viewController.tabBarItem = item
         
@@ -37,8 +37,6 @@ class MainTabBarController: UITabBarController {
     
     private lazy var clubListVC: ClubListViewController = {
         let viewController = ClubListViewController()
-        let viewModel = ClubListViewModel()
-        viewController.bind(viewModel)
         
         let item = UITabBarItem(title: "강의 모임", image: UIImage(systemName: "rectangle.3.group.bubble.left.fill"), tag: 2)
         
@@ -68,6 +66,8 @@ class MainTabBarController: UITabBarController {
         
         // Bind Subcomponents
         friendsMatchVC.bind(viewModel.friendsMaychViewModel)
+        randomFriendsVC.bind(viewModel.randomFriendsViewModel)
+        clubListVC.bind(viewModel.clubViewModel)
         messageListVC.bind(viewModel.messageListViewModel)
         
         // ViewModel -> View
@@ -79,7 +79,7 @@ class MainTabBarController: UITabBarController {
                 case .friends:
                     tag = self.friendsMatchVC.tabBarItem.tag
                 case .randomFriends:
-                    tag = self.classInfoVC.tabBarItem.tag
+                    tag = self.randomFriendsVC.tabBarItem.tag
                 case .clubs:
                     tag = self.clubListVC.tabBarItem.tag
                 case .messages:
@@ -102,7 +102,7 @@ private extension MainTabBarController {
         tabBar.tintColor = .wanfGray
         self.viewControllers = [
             UINavigationController(rootViewController: friendsMatchVC),
-            classInfoVC,
+            UINavigationController(rootViewController: randomFriendsVC),
             UINavigationController(rootViewController: clubListVC),
             UINavigationController(rootViewController: messageListVC)
         ]
