@@ -7,9 +7,23 @@
 
 import Foundation
 
+import RxSwift
+import RxCocoa
+
 struct RandomFriendsViewModel {
     
+    // Subcompontnt ViewModel
+    let profileContentViewModel = ProfileContentViewModel()
+    
+    // View -> ViewModel
+    let loadRandomFriends = PublishRelay<Void>()
+    
+    // ViewModel -> View
+    
     init() {
-        
+        loadRandomFriends
+            .subscribe(onNext: {
+                print("LoadRandomFriends")
+            })
     }
 }
