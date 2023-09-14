@@ -42,6 +42,7 @@
 		141A783429D7F168006731F7 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 141A783329D7F168006731F7 /* RxSwift */; };
 		141A783629D7F1E5006731F7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A783529D7F1E5006731F7 /* SignInViewController.swift */; };
 		1426B0462AB2C6ED00E43EA1 /* RandomFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1426B0452AB2C6ED00E43EA1 /* RandomFriendsViewController.swift */; };
+		1426B0482AB2CADB00E43EA1 /* RandomFriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1426B0472AB2CADB00E43EA1 /* RandomFriendsViewModel.swift */; };
 		1429B0A329E5122400891FF8 /* PostListResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0A229E5122400891FF8 /* PostListResponseEntity.swift */; };
 		1429B0A729E5163300891FF8 /* FriendsMatchTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0A629E5163300891FF8 /* FriendsMatchTabViewModel.swift */; };
 		1429B0A929E51CF400891FF8 /* FriendsMatchTabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0A829E51CF400891FF8 /* FriendsMatchTabModel.swift */; };
@@ -218,6 +219,7 @@
 		141A782529D7ED46006731F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		141A783529D7F1E5006731F7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		1426B0452AB2C6ED00E43EA1 /* RandomFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomFriendsViewController.swift; sourceTree = "<group>"; };
+		1426B0472AB2CADB00E43EA1 /* RandomFriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomFriendsViewModel.swift; sourceTree = "<group>"; };
 		1429B0A229E5122400891FF8 /* PostListResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListResponseEntity.swift; sourceTree = "<group>"; };
 		1429B0A629E5163300891FF8 /* FriendsMatchTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabViewModel.swift; sourceTree = "<group>"; };
 		1429B0A829E51CF400891FF8 /* FriendsMatchTabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabModel.swift; sourceTree = "<group>"; };
@@ -460,6 +462,7 @@
 			isa = PBXGroup;
 			children = (
 				1426B0452AB2C6ED00E43EA1 /* RandomFriendsViewController.swift */,
+				1426B0472AB2CADB00E43EA1 /* RandomFriendsViewModel.swift */,
 			);
 			path = RandomFriends;
 			sourceTree = "<group>";
@@ -1261,6 +1264,7 @@
 				144E6BDD2A936B8B005838EB /* ImageResponseEntity.swift in Sources */,
 				141044CC2A907C2500C51BD7 /* WanfShareAcitivityItemSource.swift in Sources */,
 				14BD19EE29FBB63B00B0E598 /* ProfileContentViewModel.swift in Sources */,
+				1426B0482AB2CADB00E43EA1 /* RandomFriendsViewModel.swift in Sources */,
 				140917152A7CF18C00B27131 /* ProfileKeywordSettingView.swift in Sources */,
 				14D4C2DD29FD0407001ACBC6 /* DynamicHeightCollectionView.swift in Sources */,
 				14567E9C29DFE824000B75EE /* EmailStackViewCellModel.swift in Sources */,

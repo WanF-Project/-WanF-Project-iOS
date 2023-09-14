@@ -15,6 +15,10 @@ class RandomFriendsViewController: UIViewController {
         
         configure()
     }
+    
+    func bind(_ viewModel: RandomFriendsViewModel) {
+        
+    }
 }
 
 private extension RandomFriendsViewController {

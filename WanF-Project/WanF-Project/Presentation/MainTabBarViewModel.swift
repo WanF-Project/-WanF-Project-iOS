@@ -21,6 +21,8 @@ struct MainTabBarViewModel {
     
     // Subcomponent ViewModel
     let friendsMaychViewModel = FriendsMatchTabViewModel()
+    let randomFriendsViewModel = RandomFriendsViewModel()
+    let clubViewModel = ClubListViewModel()
     let messageListViewModel = MessageListViewModel()
     
     // View -> ViewModel

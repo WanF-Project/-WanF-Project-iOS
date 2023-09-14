@@ -37,8 +37,6 @@ class MainTabBarController: UITabBarController {
     
     private lazy var clubListVC: ClubListViewController = {
         let viewController = ClubListViewController()
-        let viewModel = ClubListViewModel()
-        viewController.bind(viewModel)
         
         let item = UITabBarItem(title: "강의 모임", image: UIImage(systemName: "rectangle.3.group.bubble.left.fill"), tag: 2)
         
@@ -68,6 +66,8 @@ class MainTabBarController: UITabBarController {
         
         // Bind Subcomponents
         friendsMatchVC.bind(viewModel.friendsMaychViewModel)
+        randomFriendsVC.bind(viewModel.randomFriendsViewModel)
+        clubListVC.bind(viewModel.clubViewModel)
         messageListVC.bind(viewModel.messageListViewModel)
         
         // ViewModel -> View
