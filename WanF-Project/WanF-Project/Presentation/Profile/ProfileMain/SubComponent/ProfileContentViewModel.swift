@@ -19,6 +19,7 @@ struct ProfileContentViewModel {
     
     // Parent ViewModel -> ViwModel
     let loadProfile = PublishRelay<Void>()
+    let loadRandomProfile = PublishRelay<ProfileResponseEntity>()
     
     // ViewModel -> Chile ViewModel
     let profileData: Observable<ProfileResponseEntity>
@@ -55,6 +56,7 @@ struct ProfileContentViewModel {
         // 데이터 연결
         profileData = profileValue
             .amb(profilePreviewValue)
+            .amb(loadRandomProfile)
         
         profileData
             .bind(to: profileDefaultViewModel.shouldBindProfile)
