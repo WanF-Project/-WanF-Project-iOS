@@ -19,8 +19,12 @@ struct FriendsMatchSearchViewModel {
     // Subcomponent ViewModel
     let searchBarViewModel = CSSearchBarViewModel()
     
+    // View -> ViewModel
+    let didSelectItem = PublishRelay<IndexPath>()
+    
     // ViewModel -> View
     let cellData: Driver<[PostListResponseEntity]>
+    let pushToDetail: Driver<FriendsMatchDetailViewModel>
     
     init(_ model: FriendsMatchSearchModel = FriendsMatchSearchModel()) {
         
@@ -49,6 +53,16 @@ struct FriendsMatchSearchViewModel {
             .map({ pageable in
                 pageable.content
             })
+            .asDriver(onErrorDriveWith: .empty())
+        
+        // Push to Detail
+        pushToDetail = didSelectItem
+            .withLatestFrom(cellData, resultSelector: { indexPath, list in
+                list[indexPath.row].id
+            })
+            .map { id in
+              FriendsMatchDetailViewModel(id: id)
+            }
             .asDriver(onErrorDriveWith: .empty())
         
     }
