@@ -45,6 +45,20 @@ class FriendsMatchSearchViewController: UIViewController {
                 cell.setCellData(element)
             }
             .disposed(by: disposeBag)
+        
+        // Select Item
+        postTableView.rx.itemSelected
+            .bind(to: viewModel.didSelectItem)
+            .disposed(by: disposeBag)
+        
+        // Push To Detail
+        viewModel.pushToDetail
+            .drive(onNext: { viewModel in
+                let friendsMatchDetailVC = FriendsMatchDetailViewController()
+                friendsMatchDetailVC.bind(viewModel)
+                self.navigationController?.pushViewController(friendsMatchDetailVC, animated: true)
+            })
+            .disposed(by: disposeBag)
             
         
     }
