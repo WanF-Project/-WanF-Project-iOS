@@ -25,17 +25,10 @@ class RandomFriendsViewController: UIViewController {
         
         configure()
         layout()
-        
-        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeNextFriend))
-        swipeGesture.direction = .left
-        profileContentView.addGestureRecognizer(swipeGesture)
-        
-        
     }
     
     //MARK: - Function
     func bind(_ viewModel: RandomFriendsViewModel) {
-        
         // Bind Subcomponent
         profileContentView.bind(viewModel.profileContentViewModel)
         
@@ -57,8 +50,11 @@ class RandomFriendsViewController: UIViewController {
 private extension RandomFriendsViewController {
     func configure() {
         view.backgroundColor = .wanfBackground
-        
         view.addSubview(profileContentView)
+        
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeNextFriend))
+        swipeGesture.direction = .left
+        profileContentView.addGestureRecognizer(swipeGesture)
     }
     
     func layout() {
