@@ -45,6 +45,7 @@
 		1426B0482AB2CADB00E43EA1 /* RandomFriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1426B0472AB2CADB00E43EA1 /* RandomFriendsViewModel.swift */; };
 		1426B0522AB308CC00E43EA1 /* RandomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1426B0512AB308CC00E43EA1 /* RandomAPI.swift */; };
 		1426B0542AB308D500E43EA1 /* RandomNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1426B0532AB308D500E43EA1 /* RandomNetwork.swift */; };
+		1426B0562AB3112500E43EA1 /* RandomFriendsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1426B0552AB3112500E43EA1 /* RandomFriendsModel.swift */; };
 		1429B0A329E5122400891FF8 /* PostListResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0A229E5122400891FF8 /* PostListResponseEntity.swift */; };
 		1429B0A729E5163300891FF8 /* FriendsMatchTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0A629E5163300891FF8 /* FriendsMatchTabViewModel.swift */; };
 		1429B0A929E51CF400891FF8 /* FriendsMatchTabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0A829E51CF400891FF8 /* FriendsMatchTabModel.swift */; };
@@ -224,6 +225,7 @@
 		1426B0472AB2CADB00E43EA1 /* RandomFriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomFriendsViewModel.swift; sourceTree = "<group>"; };
 		1426B0512AB308CC00E43EA1 /* RandomAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomAPI.swift; sourceTree = "<group>"; };
 		1426B0532AB308D500E43EA1 /* RandomNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNetwork.swift; sourceTree = "<group>"; };
+		1426B0552AB3112500E43EA1 /* RandomFriendsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomFriendsModel.swift; sourceTree = "<group>"; };
 		1429B0A229E5122400891FF8 /* PostListResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListResponseEntity.swift; sourceTree = "<group>"; };
 		1429B0A629E5163300891FF8 /* FriendsMatchTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabViewModel.swift; sourceTree = "<group>"; };
 		1429B0A829E51CF400891FF8 /* FriendsMatchTabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabModel.swift; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 			children = (
 				1426B0452AB2C6ED00E43EA1 /* RandomFriendsViewController.swift */,
 				1426B0472AB2CADB00E43EA1 /* RandomFriendsViewModel.swift */,
+				1426B0552AB3112500E43EA1 /* RandomFriendsModel.swift */,
 			);
 			path = RandomFriends;
 			sourceTree = "<group>";
@@ -1341,6 +1344,7 @@
 				1426B0542AB308D500E43EA1 /* RandomNetwork.swift in Sources */,
 				147E1C2E2A2C860B00B42E4D /* ProfilePreviewViewModel.swift in Sources */,
 				146A01732A78D152004E140E /* FriendsMatchTableView.swift in Sources */,
+				1426B0562AB3112500E43EA1 /* RandomFriendsModel.swift in Sources */,
 				14E4C9E929EA564400E2CB62 /* CourseInfoListViewModel.swift in Sources */,
 				14F52BC92A8DF8A500A09F92 /* ClubListTableViewModel.swift in Sources */,
 				14982C9729EEAD5800D388BF /* FriendsMatchDetailLectureInfoViewModel.swift in Sources */,
