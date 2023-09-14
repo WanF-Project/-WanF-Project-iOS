@@ -97,7 +97,7 @@
 		1466FA242A0A486C00910C30 /* UserDefaultsAuthorizationWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466FA232A0A486C00910C30 /* UserDefaultsAuthorizationWrapper.swift */; };
 		146A01732A78D152004E140E /* FriendsMatchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146A01722A78D152004E140E /* FriendsMatchTableView.swift */; };
 		146A01752A78E76B004E140E /* PageableEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146A01742A78E76B004E140E /* PageableEntity.swift */; };
-		146A01772A78EF6E004E140E /* SlicePostPaginationResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146A01762A78EF6E004E140E /* SlicePostPaginationResponseEntity.swift */; };
+		146A01772A78EF6E004E140E /* SlicePageableResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146A01762A78EF6E004E140E /* SlicePageableResponseEntity.swift */; };
 		146A01792A78FC88004E140E /* FriendsMatchSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146A01782A78FC88004E140E /* FriendsMatchSearchModel.swift */; };
 		146EA3422A8B522C005E010B /* ProfileBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146EA3412A8B522C005E010B /* ProfileBarButtonItem.swift */; };
 		146EA3442A8B52FE005E010B /* AddBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146EA3432A8B52FE005E010B /* AddBarButtonItem.swift */; };
@@ -274,7 +274,7 @@
 		1466FA232A0A486C00910C30 /* UserDefaultsAuthorizationWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsAuthorizationWrapper.swift; sourceTree = "<group>"; };
 		146A01722A78D152004E140E /* FriendsMatchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTableView.swift; sourceTree = "<group>"; };
 		146A01742A78E76B004E140E /* PageableEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageableEntity.swift; sourceTree = "<group>"; };
-		146A01762A78EF6E004E140E /* SlicePostPaginationResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlicePostPaginationResponseEntity.swift; sourceTree = "<group>"; };
+		146A01762A78EF6E004E140E /* SlicePageableResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlicePageableResponseEntity.swift; sourceTree = "<group>"; };
 		146A01782A78FC88004E140E /* FriendsMatchSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchSearchModel.swift; sourceTree = "<group>"; };
 		146EA3412A8B522C005E010B /* ProfileBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBarButtonItem.swift; sourceTree = "<group>"; };
 		146EA3432A8B52FE005E010B /* AddBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBarButtonItem.swift; sourceTree = "<group>"; };
@@ -467,9 +467,19 @@
 			path = RandomFriends;
 			sourceTree = "<group>";
 		};
+		1426B04F2AB3067500E43EA1 /* Pageable */ = {
+			isa = PBXGroup;
+			children = (
+				146A01742A78E76B004E140E /* PageableEntity.swift */,
+				146A01762A78EF6E004E140E /* SlicePageableResponseEntity.swift */,
+			);
+			path = Pageable;
+			sourceTree = "<group>";
+		};
 		1429B0A129E5118D00891FF8 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				1426B04F2AB3067500E43EA1 /* Pageable */,
 				1415DD952AA1D73200EF03A4 /* Message */,
 				144E6BDB2A936B78005838EB /* Image */,
 				14F52BC02A8DEEC800A09F92 /* Club */,
@@ -597,8 +607,6 @@
 				1429B0A229E5122400891FF8 /* PostListResponseEntity.swift */,
 				1496374029ED5ABD0021B4D4 /* PostRequestEntity.swift */,
 				14982C8029EE8BAC00D388BF /* PostResponseEntity.swift */,
-				146A01742A78E76B004E140E /* PageableEntity.swift */,
-				146A01762A78EF6E004E140E /* SlicePostPaginationResponseEntity.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -1388,7 +1396,7 @@
 				14CE0F032A98B40800B92BFB /* ProfileDetailView.swift in Sources */,
 				145C7A682AA70B1A002C5E53 /* MessageAPI.swift in Sources */,
 				144D30CD2A06259700640CCD /* WanfAPI.swift in Sources */,
-				146A01772A78EF6E004E140E /* SlicePostPaginationResponseEntity.swift in Sources */,
+				146A01772A78EF6E004E140E /* SlicePageableResponseEntity.swift in Sources */,
 				14982C9129EEACD200D388BF /* FriendsMatchDetailModel.swift in Sources */,
 				1466FA1E2A0A412500910C30 /* AuthAPI.swift in Sources */,
 				14AC9B3929E27569009C37A5 /* ClubListViewController.swift in Sources */,

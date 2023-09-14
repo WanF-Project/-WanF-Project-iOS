@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct SlicePostPaginationResponseEntity: Decodable {
-    let content: [PostListResponseEntity]
+struct SlicePageableResponseEntity<T: Decodable>: Decodable {
+    let content: [T]
     
     let size: Int
     let number: Int

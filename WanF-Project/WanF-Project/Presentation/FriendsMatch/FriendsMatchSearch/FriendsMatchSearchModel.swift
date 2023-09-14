@@ -15,18 +15,18 @@ struct FriendsMatchSearchModel {
     let network = FriendsMatchNetwork()
     
     // 게시글 검색
-    func searchPosts(_ searchWord: String, pageable: PageableEntity) -> Single<Result<SlicePostPaginationResponseEntity, WanfError>> {
+    func searchPosts(_ searchWord: String, pageable: PageableEntity) -> Single<Result<SlicePageableResponseEntity<PostListResponseEntity>, WanfError>> {
         return network.searchPosts(searchWord, pageable: pageable)
     }
     
-    func searchValue(_ result: Result<SlicePostPaginationResponseEntity, WanfError>) -> SlicePostPaginationResponseEntity? {
+    func searchValue(_ result: Result<SlicePageableResponseEntity<PostListResponseEntity>, WanfError>) -> SlicePageableResponseEntity<PostListResponseEntity>? {
         guard case .success(let value) = result else {
             return nil
         }
         return value
     }
     
-    func searchError(_ result: Result<SlicePostPaginationResponseEntity, WanfError>) -> Void? {
+    func searchError(_ result: Result<SlicePageableResponseEntity<PostListResponseEntity>, WanfError>) -> Void? {
         guard case .failure(let error) = result else {
             return nil
         }
