@@ -20,12 +20,17 @@ class RandomFriendsViewController: UIViewController {
     private lazy var profileContentView = ProfileContentView()
     
     //MARK: - LifeCycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configure()
         layout()
+        
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeNextFriend))
+        swipeGesture.direction = .left
+        profileContentView.addGestureRecognizer(swipeGesture)
+        
+        
     }
     
     //MARK: - Function
@@ -39,6 +44,13 @@ class RandomFriendsViewController: UIViewController {
         // View -> ViewModel
         viewModel.loadRandomFriends.accept(Void())
         
+    }
+    
+    @objc func swipeNextFriend(_ gerstureRecognizer: UISwipeGestureRecognizer) {
+        
+        if gerstureRecognizer.direction == .left {
+            print("Left")
+        }
     }
 }
 
