@@ -18,7 +18,7 @@ class SignInViewController: UIViewController {
     
     //MARK: - View
     private lazy var appIconImageView: UIImageView = {
-        var imageView = UIImageView(image: UIImage(named: "AppIcon"))
+        var imageView = UIImageView(image: UIImage(named: "WanfIcon_240"))
         
         return imageView
     }()
@@ -148,7 +148,7 @@ private extension SignInViewController {
         appIconImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(view.safeAreaLayoutGuide).inset(-40)
-            make.height.equalTo(200)
+            make.height.equalTo(240)
             make.width.equalTo(appIconImageView.snp.height)
         }
         
