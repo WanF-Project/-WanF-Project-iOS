@@ -47,9 +47,21 @@ class RandomFriendsViewController: UIViewController {
         profileContentView.bind(viewModel.profileContentViewModel)
         
         // ViewModel -> View
+        viewModel.isHiddenForRefresh
+            .bind(to: refreshButton.rx.isHidden)
+            .disposed(by: disposeBag)
         
         // View -> ViewModel
         viewModel.didLoadRandom.accept(Void())
+        
+        refreshButton.rx.tap
+            .subscribe(onNext: { _ in
+                viewModel.randomPage.clearRandomPage()
+                viewModel.randomSubject.onNext(viewModel.loadSubject)
+                viewModel.didLoadRandom.accept(Void())
+                self.refreshButton.isHidden = true
+            })
+            .disposed(by: disposeBag)
         
     }
     
@@ -67,6 +79,7 @@ class RandomFriendsViewController: UIViewController {
 private extension RandomFriendsViewController {
     func configure() {
         view.backgroundColor = .wanfBackground
+        refreshButton.isHidden = true
         
         [
             profileContentView,

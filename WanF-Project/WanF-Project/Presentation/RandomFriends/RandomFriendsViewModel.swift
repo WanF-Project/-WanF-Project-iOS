@@ -19,6 +19,12 @@ class RandomPage {
             nextPage.page = page
         }
     }
+    
+    func clearRandomPage() {
+        self.page = 0
+        self.header = 3
+        self.isLast = false
+    }
 }
 
 class RandomFriendsViewModel {
@@ -39,6 +45,7 @@ class RandomFriendsViewModel {
     
     // ViewModel -> View
     let profiles: Observable<[ProfileResponseEntity]>
+    let isHiddenForRefresh = PublishRelay<Bool>()
     
     init(_ model: RandomFriendsModel = RandomFriendsModel()) {
         
@@ -110,6 +117,9 @@ class RandomFriendsViewModel {
                     let header = randomPage.header
                     randomPage.header += 1
                     return list[header]
+                }
+                else if randomPage.isLast {
+                    self.isHiddenForRefresh.accept(false)
                 }
                 return nil
             })
