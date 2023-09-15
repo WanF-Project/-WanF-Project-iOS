@@ -43,6 +43,9 @@
 		141A783629D7F1E5006731F7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A783529D7F1E5006731F7 /* SignInViewController.swift */; };
 		1426B0462AB2C6ED00E43EA1 /* RandomFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1426B0452AB2C6ED00E43EA1 /* RandomFriendsViewController.swift */; };
 		1426B0482AB2CADB00E43EA1 /* RandomFriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1426B0472AB2CADB00E43EA1 /* RandomFriendsViewModel.swift */; };
+		1426B0522AB308CC00E43EA1 /* RandomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1426B0512AB308CC00E43EA1 /* RandomAPI.swift */; };
+		1426B0542AB308D500E43EA1 /* RandomNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1426B0532AB308D500E43EA1 /* RandomNetwork.swift */; };
+		1426B0562AB3112500E43EA1 /* RandomFriendsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1426B0552AB3112500E43EA1 /* RandomFriendsModel.swift */; };
 		1429B0A329E5122400891FF8 /* PostListResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0A229E5122400891FF8 /* PostListResponseEntity.swift */; };
 		1429B0A729E5163300891FF8 /* FriendsMatchTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0A629E5163300891FF8 /* FriendsMatchTabViewModel.swift */; };
 		1429B0A929E51CF400891FF8 /* FriendsMatchTabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429B0A829E51CF400891FF8 /* FriendsMatchTabModel.swift */; };
@@ -97,7 +100,7 @@
 		1466FA242A0A486C00910C30 /* UserDefaultsAuthorizationWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466FA232A0A486C00910C30 /* UserDefaultsAuthorizationWrapper.swift */; };
 		146A01732A78D152004E140E /* FriendsMatchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146A01722A78D152004E140E /* FriendsMatchTableView.swift */; };
 		146A01752A78E76B004E140E /* PageableEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146A01742A78E76B004E140E /* PageableEntity.swift */; };
-		146A01772A78EF6E004E140E /* SlicePostPaginationResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146A01762A78EF6E004E140E /* SlicePostPaginationResponseEntity.swift */; };
+		146A01772A78EF6E004E140E /* SlicePageableResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146A01762A78EF6E004E140E /* SlicePageableResponseEntity.swift */; };
 		146A01792A78FC88004E140E /* FriendsMatchSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146A01782A78FC88004E140E /* FriendsMatchSearchModel.swift */; };
 		146EA3422A8B522C005E010B /* ProfileBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146EA3412A8B522C005E010B /* ProfileBarButtonItem.swift */; };
 		146EA3442A8B52FE005E010B /* AddBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146EA3432A8B52FE005E010B /* AddBarButtonItem.swift */; };
@@ -220,6 +223,9 @@
 		141A783529D7F1E5006731F7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		1426B0452AB2C6ED00E43EA1 /* RandomFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomFriendsViewController.swift; sourceTree = "<group>"; };
 		1426B0472AB2CADB00E43EA1 /* RandomFriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomFriendsViewModel.swift; sourceTree = "<group>"; };
+		1426B0512AB308CC00E43EA1 /* RandomAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomAPI.swift; sourceTree = "<group>"; };
+		1426B0532AB308D500E43EA1 /* RandomNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNetwork.swift; sourceTree = "<group>"; };
+		1426B0552AB3112500E43EA1 /* RandomFriendsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomFriendsModel.swift; sourceTree = "<group>"; };
 		1429B0A229E5122400891FF8 /* PostListResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListResponseEntity.swift; sourceTree = "<group>"; };
 		1429B0A629E5163300891FF8 /* FriendsMatchTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabViewModel.swift; sourceTree = "<group>"; };
 		1429B0A829E51CF400891FF8 /* FriendsMatchTabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabModel.swift; sourceTree = "<group>"; };
@@ -274,7 +280,7 @@
 		1466FA232A0A486C00910C30 /* UserDefaultsAuthorizationWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsAuthorizationWrapper.swift; sourceTree = "<group>"; };
 		146A01722A78D152004E140E /* FriendsMatchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTableView.swift; sourceTree = "<group>"; };
 		146A01742A78E76B004E140E /* PageableEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageableEntity.swift; sourceTree = "<group>"; };
-		146A01762A78EF6E004E140E /* SlicePostPaginationResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlicePostPaginationResponseEntity.swift; sourceTree = "<group>"; };
+		146A01762A78EF6E004E140E /* SlicePageableResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlicePageableResponseEntity.swift; sourceTree = "<group>"; };
 		146A01782A78FC88004E140E /* FriendsMatchSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchSearchModel.swift; sourceTree = "<group>"; };
 		146EA3412A8B522C005E010B /* ProfileBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBarButtonItem.swift; sourceTree = "<group>"; };
 		146EA3432A8B52FE005E010B /* AddBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBarButtonItem.swift; sourceTree = "<group>"; };
@@ -463,13 +469,33 @@
 			children = (
 				1426B0452AB2C6ED00E43EA1 /* RandomFriendsViewController.swift */,
 				1426B0472AB2CADB00E43EA1 /* RandomFriendsViewModel.swift */,
+				1426B0552AB3112500E43EA1 /* RandomFriendsModel.swift */,
 			);
 			path = RandomFriends;
+			sourceTree = "<group>";
+		};
+		1426B04F2AB3067500E43EA1 /* Pageable */ = {
+			isa = PBXGroup;
+			children = (
+				146A01742A78E76B004E140E /* PageableEntity.swift */,
+				146A01762A78EF6E004E140E /* SlicePageableResponseEntity.swift */,
+			);
+			path = Pageable;
+			sourceTree = "<group>";
+		};
+		1426B0502AB308A200E43EA1 /* RandomNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				1426B0512AB308CC00E43EA1 /* RandomAPI.swift */,
+				1426B0532AB308D500E43EA1 /* RandomNetwork.swift */,
+			);
+			path = RandomNetwork;
 			sourceTree = "<group>";
 		};
 		1429B0A129E5118D00891FF8 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				1426B04F2AB3067500E43EA1 /* Pageable */,
 				1415DD952AA1D73200EF03A4 /* Message */,
 				144E6BDB2A936B78005838EB /* Image */,
 				14F52BC02A8DEEC800A09F92 /* Club */,
@@ -597,8 +623,6 @@
 				1429B0A229E5122400891FF8 /* PostListResponseEntity.swift */,
 				1496374029ED5ABD0021B4D4 /* PostRequestEntity.swift */,
 				14982C8029EE8BAC00D388BF /* PostResponseEntity.swift */,
-				146A01742A78E76B004E140E /* PageableEntity.swift */,
-				146A01762A78EF6E004E140E /* SlicePostPaginationResponseEntity.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -687,6 +711,7 @@
 		144D30CB2A06257D00640CCD /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				1426B0502AB308A200E43EA1 /* RandomNetwork */,
 				141290D72AA9CA34003035E0 /* AuthNetwork */,
 				145C7A662AA70B04002C5E53 /* MessageNetwork */,
 				144E6BD62A9363B0005838EB /* ImageNetwork */,
@@ -1284,6 +1309,7 @@
 				147823C82A7DF9F7003DC9CE /* CSKeyboardToolBar.swift in Sources */,
 				14A11A5E2A94BD9C008453FC /* ImageAPI.swift in Sources */,
 				14982C6E29EE580500D388BF /* FriendsMatchDetailInfoView.swift in Sources */,
+				1426B0522AB308CC00E43EA1 /* RandomAPI.swift in Sources */,
 				1429B0AE29E53F9D00891FF8 /* FriendsMatchListCell.swift in Sources */,
 				14A11A5C2A94BC50008453FC /* MultipartNetwork.swift in Sources */,
 				146A01792A78FC88004E140E /* FriendsMatchSearchModel.swift in Sources */,
@@ -1315,8 +1341,10 @@
 				1415DD942AA1D13A00EF03A4 /* MessageListViewModel.swift in Sources */,
 				14A11A582A94BA07008453FC /* ExNSMutableData.swift in Sources */,
 				1449E1F62A135375008C70DB /* FriendsMatchCommentListView.swift in Sources */,
+				1426B0542AB308D500E43EA1 /* RandomNetwork.swift in Sources */,
 				147E1C2E2A2C860B00B42E4D /* ProfilePreviewViewModel.swift in Sources */,
 				146A01732A78D152004E140E /* FriendsMatchTableView.swift in Sources */,
+				1426B0562AB3112500E43EA1 /* RandomFriendsModel.swift in Sources */,
 				14E4C9E929EA564400E2CB62 /* CourseInfoListViewModel.swift in Sources */,
 				14F52BC92A8DF8A500A09F92 /* ClubListTableViewModel.swift in Sources */,
 				14982C9729EEAD5800D388BF /* FriendsMatchDetailLectureInfoViewModel.swift in Sources */,
@@ -1388,7 +1416,7 @@
 				14CE0F032A98B40800B92BFB /* ProfileDetailView.swift in Sources */,
 				145C7A682AA70B1A002C5E53 /* MessageAPI.swift in Sources */,
 				144D30CD2A06259700640CCD /* WanfAPI.swift in Sources */,
-				146A01772A78EF6E004E140E /* SlicePostPaginationResponseEntity.swift in Sources */,
+				146A01772A78EF6E004E140E /* SlicePageableResponseEntity.swift in Sources */,
 				14982C9129EEACD200D388BF /* FriendsMatchDetailModel.swift in Sources */,
 				1466FA1E2A0A412500910C30 /* AuthAPI.swift in Sources */,
 				14AC9B3929E27569009C37A5 /* ClubListViewController.swift in Sources */,

@@ -8,7 +8,7 @@
 import Foundation
 
 struct PageableEntity: Encodable {
-    let page: Int
+    var page: Int
     let size: Int
     let sort: [Sort]
     

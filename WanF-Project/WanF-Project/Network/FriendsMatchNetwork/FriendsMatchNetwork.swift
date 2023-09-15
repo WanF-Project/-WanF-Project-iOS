@@ -181,7 +181,7 @@ class FriendsMatchNetwork: WanfNetwork {
     }
     
     // 게시글 검색
-    func searchPosts(_ searchWord: String, pageable: PageableEntity) -> Single<Result<SlicePostPaginationResponseEntity, WanfError>> {
+    func searchPosts(_ searchWord: String, pageable: PageableEntity) -> Single<Result<SlicePageableResponseEntity<PostListResponseEntity>, WanfError>> {
         
         guard let url = api.searchPosts(searchWord, pageable: pageable).url else {
             return .just(.failure(.invalidURL))
@@ -202,7 +202,7 @@ class FriendsMatchNetwork: WanfNetwork {
             }
             .map { data in
                 do {
-                    let decoded = try JSONDecoder().decode(SlicePostPaginationResponseEntity.self, from: data)
+                    let decoded = try JSONDecoder().decode(SlicePageableResponseEntity<PostListResponseEntity>.self, from: data)
                     return .success(decoded)
                 } catch {
                     return .failure(.invalidJSON)
