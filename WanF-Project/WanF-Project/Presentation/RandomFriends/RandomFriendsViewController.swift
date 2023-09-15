@@ -19,6 +19,16 @@ class RandomFriendsViewController: UIViewController {
     
     //MARK: - View
     private lazy var profileContentView = ProfileContentView()
+    private lazy var refreshButton: UIButton = {
+        var configuration = UIButton.Configuration.plain()
+        configuration.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: 30.0, weight: .bold)
+        configuration.image = UIImage(systemName: "arrow.counterclockwise")
+        configuration.baseForegroundColor = .wanfMint
+        
+        var button = UIButton()
+        button.configuration = configuration
+        return button
+    }()
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -57,7 +67,12 @@ class RandomFriendsViewController: UIViewController {
 private extension RandomFriendsViewController {
     func configure() {
         view.backgroundColor = .wanfBackground
-        view.addSubview(profileContentView)
+        
+        [
+            profileContentView,
+            refreshButton
+        ]
+            .forEach { view.addSubview($0) }
         
         let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeNextFriend))
         swipeGesture.direction = .left
@@ -65,6 +80,12 @@ private extension RandomFriendsViewController {
     }
     
     func layout() {
+        
+        refreshButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.centerX.equalToSuperview()
+        }
+        
         profileContentView.snp.makeConstraints { make in
             make.top.horizontalEdges.equalToSuperview()
             make.bottom.equalTo(view.safeAreaLayoutGuide)
