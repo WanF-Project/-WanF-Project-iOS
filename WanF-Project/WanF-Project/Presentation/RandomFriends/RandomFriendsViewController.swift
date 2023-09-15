@@ -15,6 +15,7 @@ class RandomFriendsViewController: UIViewController {
     
     //MARK: - Properties
     let disposeBag = DisposeBag()
+    var viewModel: RandomFriendsViewModel?
     
     //MARK: - View
     private lazy var profileContentView = ProfileContentView()
@@ -29,20 +30,26 @@ class RandomFriendsViewController: UIViewController {
     
     //MARK: - Function
     func bind(_ viewModel: RandomFriendsViewModel) {
+        
+        self.viewModel = viewModel
+        
         // Bind Subcomponent
         profileContentView.bind(viewModel.profileContentViewModel)
         
         // ViewModel -> View
         
         // View -> ViewModel
-        viewModel.loadRandomFriends.accept(Void())
+        viewModel.didLoadRandom.accept(Void())
         
     }
     
     @objc func swipeNextFriend(_ gerstureRecognizer: UISwipeGestureRecognizer) {
         
         if gerstureRecognizer.direction == .left {
-            print("Left")
+            if viewModel != nil {
+                viewModel!.randomSubject.onNext(viewModel!.swipeSubject)
+                viewModel!.didSwipeProfile.accept(Void())
+            }
         }
     }
 }

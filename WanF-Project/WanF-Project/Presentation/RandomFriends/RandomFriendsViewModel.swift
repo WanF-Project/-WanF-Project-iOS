@@ -10,27 +10,48 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-struct RandomFriendsViewModel {
+class RandomPage {
+    var header: Int = 3
+    var isLast: Bool = false
+    var nextPage: PageableEntity = PageableEntity(page: 0, size: 3, sort: [.latest])
+    var page: Int = 0 {
+        didSet {
+            nextPage.page = page
+        }
+    }
+}
+
+class RandomFriendsViewModel {
     
     let disposeBag = DisposeBag()
-    var nextPage = Observable.just(PageableEntity(page: 0, size: 3, sort: [.latest]))
-    var index = Observable.just(0)
-    var isLast = Observable.just(false)
+    let randomPage = RandomPage()
     
     // Subcompontnt ViewModel
     let profileContentViewModel = ProfileContentViewModel()
     
     // View -> ViewModel
-    let loadRandomFriends = PublishRelay<Void>()
+    let didLoadRandom = PublishRelay<Void>()
+    let didSwipeProfile = PublishRelay<Void>()
+    
+    let randomSubject = PublishSubject<Observable<Void>>()
+    let loadSubject = PublishSubject<Void>()
+    let swipeSubject = PublishSubject<Void>()
     
     // ViewModel -> View
     let profiles: Observable<[ProfileResponseEntity]>
     
     init(_ model: RandomFriendsModel = RandomFriendsModel()) {
         
-        // Load Random Friends
-        let loadResult = loadRandomFriends
-            .withLatestFrom(nextPage)
+        // Load Random
+        let loadResult = randomSubject
+            .switchLatest()
+            .withUnretained(randomPage, resultSelector: { randomPage, _ in
+                if (randomPage.header >= 3) && !randomPage.isLast{
+                    return randomPage.nextPage
+                }
+                return nil
+            })
+            .compactMap { $0 }
             .flatMap(model.loadRandomFriends)
             .share()
         
@@ -47,21 +68,56 @@ struct RandomFriendsViewModel {
             })
             .disposed(by: disposeBag)
         
-        nextPage = loadValue
-            .map {
-                PageableEntity(page: $0.number + 1, size: $0.size, sort: [.latest])
-            }
+        didLoadRandom
+            .bind(to: loadSubject)
+            .disposed(by: disposeBag)
         
+        didSwipeProfile
+            .bind(to: swipeSubject)
+            .disposed(by: disposeBag)
+        
+        // Set RandomPage
+        loadValue
+            .withUnretained(randomPage) { randomPage, response in
+                randomPage.header = 0
+                randomPage.isLast = response.last
+                randomPage.page += 1
+            }
+            .subscribe()
+            .disposed(by: disposeBag)
+        
+        // Bind Data to View
         profiles = loadValue
-            .map { response in
-                response.content
-            }
+            .map { $0.content }
         
-        profiles
-            .withLatestFrom(index, resultSelector: { list, index in
-                list[index]
+            profiles
+            .withUnretained(randomPage, resultSelector: { randomPage, list in
+                if randomPage.header < 3 {
+                    let header = randomPage.header
+                    randomPage.header += 1
+                    return list[header]
+                }
+                return nil
             })
+            .compactMap { $0 }
             .bind(to: profileContentViewModel.loadRandomProfile)
             .disposed(by: disposeBag)
+        
+        didSwipeProfile
+            .withLatestFrom(profiles)
+            .withUnretained(randomPage, resultSelector: { randomPage, list in
+                if randomPage.header < 3 && randomPage.header < list.count {
+                    let header = randomPage.header
+                    randomPage.header += 1
+                    return list[header]
+                }
+                return nil
+            })
+            .compactMap { $0 }
+            .bind(to: profileContentViewModel.loadRandomProfile)
+            .disposed(by: disposeBag)
+        
+        // Initial Work
+        randomSubject.onNext(loadSubject)
     }
 }
