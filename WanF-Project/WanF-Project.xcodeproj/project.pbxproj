@@ -83,6 +83,7 @@
 		144D30D72A06870F00640CCD /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D30D62A06870F00640CCD /* SignUpAPI.swift */; };
 		144D30D92A068CE000640CCD /* SignUpNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D30D82A068CE000640CCD /* SignUpNetwork.swift */; };
 		144E6BDD2A936B8B005838EB /* ImageResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144E6BDC2A936B8B005838EB /* ImageResponseEntity.swift */; };
+		145164432AB8660800061090 /* SignInResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145164422AB8660800061090 /* SignInResponseEntity.swift */; };
 		145457CC2A00DA760014D52F /* ProfileKeywordListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145457CB2A00DA760014D52F /* ProfileKeywordListModel.swift */; };
 		1455D25E2A25A6C10090257B /* ProfileRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1455D25D2A25A6C10090257B /* ProfileRequestEntity.swift */; };
 		1455D2602A25B8940090257B /* MajorNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1455D25F2A25B8940090257B /* MajorNetwork.swift */; };
@@ -263,6 +264,7 @@
 		144D30D62A06870F00640CCD /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
 		144D30D82A068CE000640CCD /* SignUpNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNetwork.swift; sourceTree = "<group>"; };
 		144E6BDC2A936B8B005838EB /* ImageResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResponseEntity.swift; sourceTree = "<group>"; };
+		145164422AB8660800061090 /* SignInResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponseEntity.swift; sourceTree = "<group>"; };
 		145457CB2A00DA760014D52F /* ProfileKeywordListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileKeywordListModel.swift; sourceTree = "<group>"; };
 		1455D25D2A25A6C10090257B /* ProfileRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRequestEntity.swift; sourceTree = "<group>"; };
 		1455D25F2A25B8940090257B /* MajorNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorNetwork.swift; sourceTree = "<group>"; };
@@ -495,6 +497,7 @@
 		1429B0A129E5118D00891FF8 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				145164412AB865F800061090 /* Auth */,
 				1426B04F2AB3067500E43EA1 /* Pageable */,
 				1415DD952AA1D73200EF03A4 /* Message */,
 				144E6BDB2A936B78005838EB /* Image */,
@@ -743,6 +746,14 @@
 				144E6BDC2A936B8B005838EB /* ImageResponseEntity.swift */,
 			);
 			path = Image;
+			sourceTree = "<group>";
+		};
+		145164412AB865F800061090 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				145164422AB8660800061090 /* SignInResponseEntity.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		145457CD2A00EA7E0014D52F /* ProfileKeywordList */ = {
@@ -1406,6 +1417,7 @@
 				14D4C2D929FCF427001ACBC6 /* LeadingAlignmentCollectionViewFlowLayout.swift in Sources */,
 				1466FA222A0A482B00910C30 /* UserDefaultsManager.swift in Sources */,
 				14DEF35F2A7648440082BA27 /* FriendsMatchSearchViewController.swift in Sources */,
+				145164432AB8660800061090 /* SignInResponseEntity.swift in Sources */,
 				14DEF3612A7648830082BA27 /* FriendsMatchSearchViewModel.swift in Sources */,
 				14840E4929FE5C8C007BFB1A /* ProfileKeywordListViewController.swift in Sources */,
 				14F52BC52A8DEFA900A09F92 /* ClubAPI.swift in Sources */,
