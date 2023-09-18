@@ -50,6 +50,14 @@ class AuthNetwork: WanfNetwork {
                 UserDefaultsManager.accessToken = accessToken
                 UserDefaultsManager.refreshToken = refreshToken
                 
+                do {
+                    let decoded = try JSONDecoder().decode(SignInResponseEntity.self, from: data)
+                    UserDefaultsManager.profileID = String(decoded.profileId)
+                }
+                catch {
+                    return .failure(.invalidJSON)
+                }
+                
                 return .success(Void())
             }
             .catch { error in
