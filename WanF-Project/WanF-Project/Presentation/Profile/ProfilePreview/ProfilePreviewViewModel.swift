@@ -17,7 +17,16 @@ struct ProfilePreviewViewModel {
     
     // View -> ViewModel
     
+    // ViewModel -> View
+    let pushToMessageDetail: Driver<MessageDetailViewModel>
+    
     init() {
-        
+        pushToMessageDetail = profileContentViewModel.profileDefaultViewModel.profileDetailViewModel.shouldPushToMessageDetail
+            .map { id in
+                let messageDetailViewModel = MessageDetailViewModel()
+                messageDetailViewModel.id.accept(id)
+                return messageDetailViewModel
+            }
+            .asDriver(onErrorDriveWith: .empty())
     }
 }
