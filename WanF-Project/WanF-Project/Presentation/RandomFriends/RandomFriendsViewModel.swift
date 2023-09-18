@@ -46,6 +46,7 @@ class RandomFriendsViewModel {
     // ViewModel -> View
     let profiles: Observable<[ProfileResponseEntity]>
     let isHiddenForRefresh = PublishRelay<Bool>()
+    let pushToMessageDetail: Driver<MessageDetailViewModel>
     
     init(_ model: RandomFriendsModel = RandomFriendsModel()) {
         
@@ -109,6 +110,15 @@ class RandomFriendsViewModel {
             .compactMap { $0 }
             .bind(to: profileContentViewModel.loadRandomProfile)
             .disposed(by: disposeBag)
+        
+        // Push To MessageDetail
+        pushToMessageDetail = profileContentViewModel.profileDefaultViewModel.profileDetailViewModel.shouldPushToMessageDetail
+            .map { id in
+                let messageDetailViewModel = MessageDetailViewModel()
+                messageDetailViewModel.id.accept(id)
+                return messageDetailViewModel
+            }
+            .asDriver(onErrorDriveWith: .empty())
         
         didSwipeProfile
             .withLatestFrom(profiles)

@@ -51,6 +51,17 @@ class RandomFriendsViewController: UIViewController {
             .bind(to: refreshButton.rx.isHidden)
             .disposed(by: disposeBag)
         
+        viewModel.pushToMessageDetail
+            .drive(onNext: { viewModel in
+                let messageDetailVC = MessageDetailViewController()
+                
+                self.dismiss(animated: true) {
+                    messageDetailVC.bind(viewModel)
+                    self.present(messageDetailVC, animated: true)
+                }
+            })
+            .disposed(by: disposeBag)
+        
         // View -> ViewModel
         viewModel.didLoadRandom.accept(Void())
         
