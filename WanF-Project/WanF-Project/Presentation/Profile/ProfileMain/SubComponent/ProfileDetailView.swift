@@ -192,6 +192,10 @@ class ProfileDetailView: ProfileTapBackgroundControl {
             })
             .disposed(by: disposeBag)
         
+        profileMessageButton.rx.tap
+            .bind(to: viewModel.didTapMessageButton)
+            .disposed(by: disposeBag)
+        
         bindList(viewModel)
     }
     

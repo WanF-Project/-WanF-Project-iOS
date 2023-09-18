@@ -15,10 +15,16 @@ struct ProfileDetailViewModel {
     // Parent ViewModel ->ViewModel
     let shouldBindProfile = PublishRelay<ProfileResponseEntity>()
     
+    // ViewModel -> Parent ViewModel
+    let shouldPushToMessageDetail: Signal<Int>
+    
     // ViewModel -> View
     let profile: Driver<ProfileResponseEntity>
     let personalityCellData: Driver<[String]>
     let purposeCellData: Driver<[String]>
+    
+    // View -> ViewModel
+    let didTapMessageButton = PublishRelay<Void>()
     
     init() {
         let value = shouldBindProfile
@@ -42,5 +48,11 @@ struct ProfileDetailViewModel {
                 return purpose
             })
             .asDriver(onErrorDriveWith: .empty())
+        
+        shouldPushToMessageDetail = didTapMessageButton
+            .withLatestFrom(profile, resultSelector: { _, profile in
+                profile.id
+            })
+            .asSignal(onErrorSignalWith: .empty())
     }
 }
