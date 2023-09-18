@@ -21,4 +21,7 @@ struct UserDefaultsManager {
     
     @UserDefaultsAuthorizationWrapper("FCM-TOKEN")
     static var fcmToken: String?
+    
+    @UserDefaultsAuthorizationWrapper("ProfileID")
+    static var profileID: String?
 }
