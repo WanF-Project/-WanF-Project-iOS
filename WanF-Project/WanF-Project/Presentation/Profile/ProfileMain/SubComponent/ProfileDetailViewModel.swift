@@ -22,6 +22,7 @@ struct ProfileDetailViewModel {
     let profile: Driver<ProfileResponseEntity>
     let personalityCellData: Driver<[String]>
     let purposeCellData: Driver<[String]>
+    let isEnableForMessageButton: Driver<Bool>
     
     // View -> ViewModel
     let didTapMessageButton = PublishRelay<Void>()
@@ -54,5 +55,17 @@ struct ProfileDetailViewModel {
                 profile.id
             })
             .asSignal(onErrorSignalWith: .empty())
+        
+        let myID = Observable.just(UserDefaultsManager.profileID)
+            .compactMap { $0 }
+        
+        isEnableForMessageButton = value
+            .withLatestFrom(myID) { profile, id in
+                if Int(id)! == profile.id {
+                    return false
+                }
+                return true
+            }
+            .asDriver(onErrorDriveWith: .empty())
     }
 }
