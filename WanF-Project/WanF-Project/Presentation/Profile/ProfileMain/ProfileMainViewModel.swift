@@ -17,7 +17,17 @@ struct ProfileMainViewModel {
     // Subcomponent ViewModel
     let profileContentViewModel = ProfileContentViewModel()
     
+    // View <- ViewModel
+    let didTapEditBarItem = PublishRelay<Void>()
+    
+    // ViewModel -> View
+    let pushToProfileEdit: Driver<ProfileEditViewModel>
+    
     init() {
-        
+        pushToProfileEdit = didTapEditBarItem
+            .map {
+                ProfileEditViewModel()
+            }
+            .asDriver(onErrorDriveWith: .empty())
     }
 }

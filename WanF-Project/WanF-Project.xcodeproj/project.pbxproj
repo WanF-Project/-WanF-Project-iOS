@@ -153,6 +153,8 @@
 		14A11A5E2A94BD9C008453FC /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A5D2A94BD9C008453FC /* ImageAPI.swift */; };
 		14A11A602A94BE48008453FC /* ImageNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A5F2A94BE48008453FC /* ImageNetwork.swift */; };
 		14A11A622A94BFC9008453FC /* ProfileCreateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A612A94BFC9008453FC /* ProfileCreateModel.swift */; };
+		14A58B012AB95C2A004B4550 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A58B002AB95C2A004B4550 /* ProfileEditViewController.swift */; };
+		14A58B032AB95E09004B4550 /* ProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A58B022AB95E09004B4550 /* ProfileEditViewModel.swift */; };
 		14AC9B3529E2751C009C37A5 /* FriendsMatchTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */; };
 		14AC9B3929E27569009C37A5 /* ClubListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9B3829E27569009C37A5 /* ClubListViewController.swift */; };
 		14B0A86E2AB01E8600044482 /* BlackHanSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14B0A86D2AB01E7D00044482 /* BlackHanSans-Regular.ttf */; };
@@ -334,6 +336,8 @@
 		14A11A5D2A94BD9C008453FC /* ImageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPI.swift; sourceTree = "<group>"; };
 		14A11A5F2A94BE48008453FC /* ImageNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNetwork.swift; sourceTree = "<group>"; };
 		14A11A612A94BFC9008453FC /* ProfileCreateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreateModel.swift; sourceTree = "<group>"; };
+		14A58B002AB95C2A004B4550 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
+		14A58B022AB95E09004B4550 /* ProfileEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewModel.swift; sourceTree = "<group>"; };
 		14AC9B3429E2751C009C37A5 /* FriendsMatchTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchTabViewController.swift; sourceTree = "<group>"; };
 		14AC9B3829E27569009C37A5 /* ClubListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListViewController.swift; sourceTree = "<group>"; };
 		14B0A86D2AB01E7D00044482 /* BlackHanSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BlackHanSans-Regular.ttf"; sourceTree = "<group>"; };
@@ -534,6 +538,7 @@
 		1429B0B129E56ED900891FF8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				14A58AFF2AB95BF0004B4550 /* ProfileEdit */,
 				14D1FC522A7B75F600159E79 /* ProfileCreate */,
 				147E1C292A2C83D400B42E4D /* ProfileMain */,
 				147E1C2A2A2C83FE00B42E4D /* ProfilePreview */,
@@ -1003,6 +1008,15 @@
 			path = PasswordToCheckTextFieldCell;
 			sourceTree = "<group>";
 		};
+		14A58AFF2AB95BF0004B4550 /* ProfileEdit */ = {
+			isa = PBXGroup;
+			children = (
+				14A58B002AB95C2A004B4550 /* ProfileEditViewController.swift */,
+				14A58B022AB95E09004B4550 /* ProfileEditViewModel.swift */,
+			);
+			path = ProfileEdit;
+			sourceTree = "<group>";
+		};
 		14AC9B3129E274C0009C37A5 /* FriendsMatch */ = {
 			isa = PBXGroup;
 			children = (
@@ -1371,6 +1385,7 @@
 				142DBED529DC2B0200017603 /* PasswordTextField.swift in Sources */,
 				142DBEE129DC4FC300017603 /* MainTabBarViewModel.swift in Sources */,
 				1429B0BD29E5760400891FF8 /* FriendsMatchDetailViewController.swift in Sources */,
+				14A58B012AB95C2A004B4550 /* ProfileEditViewController.swift in Sources */,
 				147E9B512A1784AA0032E530 /* UserDefaultsAuthorizationChecked.swift in Sources */,
 				1409171D2A7D0B4000B27131 /* ProfileSettingViewModel.swift in Sources */,
 				1429B0A329E5122400891FF8 /* PostListResponseEntity.swift in Sources */,
@@ -1394,6 +1409,7 @@
 				1449E1F82A135687008C70DB /* FriendsMatchCommentListViewModel.swift in Sources */,
 				14F52BCB2A8DFA9E00A09F92 /* ClubListModel.swift in Sources */,
 				14982C7329EE657200D388BF /* FriendsMatchDetailTextView.swift in Sources */,
+				14A58B032AB95E09004B4550 /* ProfileEditViewModel.swift in Sources */,
 				1409EAB12AA831FF00B9B2A8 /* MessageNetwork.swift in Sources */,
 				14066BB129E1455F00AFB2D2 /* PasswordToCheckTextFieldCellViewModel.swift in Sources */,
 				140917132A7CEECB00B27131 /* ProfileCreateViewController.swift in Sources */,
