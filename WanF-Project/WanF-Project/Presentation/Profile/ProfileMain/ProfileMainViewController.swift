@@ -46,6 +46,20 @@ class ProfileMainViewController: UIViewController {
         
         // Load
         viewModel.profileContentViewModel.loadProfile.accept(Void())
+        
+        // Push to ProfileDetail
+        EditBarItem.rx.tap
+            .bind(to: viewModel.didTapEditBarItem)
+            .disposed(by: disposeBag)
+        
+        viewModel.pushToProfileEdit
+            .drive(onNext: { viewModel in
+                let profileEditVC = ProfileEditViewController()
+                profileEditVC.bind(viewModel)
+                
+                self.navigationController?.pushViewController(profileEditVC, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
