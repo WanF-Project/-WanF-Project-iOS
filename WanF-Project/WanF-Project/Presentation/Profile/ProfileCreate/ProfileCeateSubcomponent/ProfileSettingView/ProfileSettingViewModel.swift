@@ -105,6 +105,11 @@ class ProfileSettingViewModel {
             .withLatestFrom(data)
             .withUnretained(self)
             .subscribe(onNext: { (self, data) in
+                if let url = URL(string: data.image.imageUrl) {
+                    url.image { image in
+                        self.settingPhotoButtonViewModel.shouldChangePreImage.accept(image)
+                    }
+                }
                 self.nameControlViewModel.stringValue.accept(data.nickname)
                 self.majorControlViewModel.nameableValue.accept(data.major)
                 self.studentIDControlViewModel.stringValue.accept(String(data.studentId))
