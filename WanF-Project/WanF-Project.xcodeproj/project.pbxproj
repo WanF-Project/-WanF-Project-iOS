@@ -67,6 +67,7 @@
 		1434E6262A7FA7AE0089BA3D /* SettingControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1434E6252A7FA7AE0089BA3D /* SettingControlViewModel.swift */; };
 		143661FE2A0F7D7300308028 /* FriendsMatchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143661FD2A0F7D7300308028 /* FriendsMatchAPI.swift */; };
 		143662002A0F7F0500308028 /* FriendsMatchNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143661FF2A0F7F0500308028 /* FriendsMatchNetwork.swift */; };
+		143857DF2ABABB5900A8F425 /* ExURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143857DE2ABABB5900A8F425 /* ExURL.swift */; };
 		14394D3C2A9C553400ACE540 /* ProfileDefaultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14394D3B2A9C553400ACE540 /* ProfileDefaultViewModel.swift */; };
 		14394D402A9C5C4000ACE540 /* ProfileDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14394D3F2A9C5C4000ACE540 /* ProfileDetailViewModel.swift */; };
 		143AE33E2A738F8A00056647 /* CSSearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143AE33D2A738F8A00056647 /* CSSearchBarView.swift */; };
@@ -250,6 +251,7 @@
 		1434E6252A7FA7AE0089BA3D /* SettingControlViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingControlViewModel.swift; sourceTree = "<group>"; };
 		143661FD2A0F7D7300308028 /* FriendsMatchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchAPI.swift; sourceTree = "<group>"; };
 		143661FF2A0F7F0500308028 /* FriendsMatchNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchNetwork.swift; sourceTree = "<group>"; };
+		143857DE2ABABB5900A8F425 /* ExURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExURL.swift; sourceTree = "<group>"; };
 		14394D3B2A9C553400ACE540 /* ProfileDefaultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDefaultViewModel.swift; sourceTree = "<group>"; };
 		14394D3F2A9C5C4000ACE540 /* ProfileDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewModel.swift; sourceTree = "<group>"; };
 		143AE33D2A738F8A00056647 /* CSSearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSearchBarView.swift; sourceTree = "<group>"; };
@@ -887,6 +889,7 @@
 				14797C302A84BDD50006C706 /* ExReactive.swift */,
 				14A11A572A94BA07008453FC /* ExNSMutableData.swift */,
 				14A11A592A94BB4A008453FC /* ExUIImage.swift */,
+				143857DE2ABABB5900A8F425 /* ExURL.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1310,6 +1313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14793FBC29D837480048D5DD /* ExUIFont.swift in Sources */,
+				143857DF2ABABB5900A8F425 /* ExURL.swift in Sources */,
 				14567E9A29DFDD43000B75EE /* EmailStackViewCellViewModel.swift in Sources */,
 				144E6BDD2A936B8B005838EB /* ImageResponseEntity.swift in Sources */,
 				141044CC2A907C2500C51BD7 /* WanfShareAcitivityItemSource.swift in Sources */,
