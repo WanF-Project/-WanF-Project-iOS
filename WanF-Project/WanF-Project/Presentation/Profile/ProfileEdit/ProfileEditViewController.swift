@@ -32,7 +32,8 @@ class ProfileEditViewController: UIViewController {
     
     //MARK: - Function
     func bind(_ viewModel: ProfileEditViewModel) {
-        
+        // Bind Subcomponents
+        profileSettingView.bind(viewModel.profileSettingViewModel)
     }
 }
 

@@ -7,9 +7,23 @@
 
 import Foundation
 
+import RxSwift
+import RxCocoa
+
 struct ProfileEditViewModel {
     
+    let disposeBag = DisposeBag()
+    
+    // Subcomponent ViewModel
+    let profileSettingViewModel = ProfileSettingViewModel()
+    
+    // ViewModel ->View
+    let profile = PublishRelay<ProfileResponseEntity>()
+    let data = PublishRelay<ProfileResponseEntity>()
+    
     init() {
-        
+        data
+            .bind(to: profileSettingViewModel.data)
+            .disposed(by: disposeBag)
     }
 }
