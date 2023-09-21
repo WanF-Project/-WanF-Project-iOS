@@ -53,9 +53,13 @@ class ProfileMainViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.pushToProfileEdit
-            .drive(onNext: { viewModel in
+            .drive(onNext: { editViewModel in
                 let profileEditVC = ProfileEditViewController()
-                profileEditVC.bind(viewModel)
+                profileEditVC.bind(editViewModel)
+                
+                editViewModel.profileEdited
+                    .bind(to: viewModel.profileContentViewModel.profileDefaultViewModel.shouldBindProfile)
+                    .disposed(by: self.disposeBag)
                 
                 self.navigationController?.pushViewController(profileEditVC, animated: true)
             })

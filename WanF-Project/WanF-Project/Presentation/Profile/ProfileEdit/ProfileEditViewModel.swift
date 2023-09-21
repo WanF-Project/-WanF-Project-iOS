@@ -27,6 +27,7 @@ class ProfileEditViewModel {
     let presentPickerView: Driver<Void>
     let dismiss: Driver<ProfileResponseEntity>
     
+    let profileEdited = PublishRelay<ProfileResponseEntity>()
     
     init(_ model: ProfileEditModel = ProfileEditModel()) {
         data

@@ -65,7 +65,8 @@ class ProfileEditViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.dismiss
-            .drive(onNext: {_ in
+            .drive(onNext: {
+                viewModel.profileEdited.accept($0)
                 self.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
