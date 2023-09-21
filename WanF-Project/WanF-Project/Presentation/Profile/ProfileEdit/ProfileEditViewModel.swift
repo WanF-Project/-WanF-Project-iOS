@@ -18,7 +18,6 @@ class ProfileEditViewModel {
     let profileSettingViewModel = ProfileSettingViewModel()
     
     // ViewModel ->View
-    let profile = PublishRelay<ProfileResponseEntity>()
     let data = PublishRelay<ProfileResponseEntity>()
     let presentPickerView: Driver<Void>
     
