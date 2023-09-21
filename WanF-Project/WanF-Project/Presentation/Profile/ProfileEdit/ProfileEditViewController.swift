@@ -46,7 +46,12 @@ class ProfileEditViewController: UIViewController {
         // Bind Subcomponents
         profileSettingView.bind(viewModel.profileSettingViewModel)
         
-        // View -> View
+        // View -> ViewModel
+        doneBarItem.rx.tap
+            .bind(to: viewModel.didTapDoneButton)
+            .disposed(by: disposeBag)
+        
+        // ViewModel -> View
         viewModel.presentPickerView
             .drive(onNext: {
                 var configuration = PHPickerConfiguration()
@@ -171,7 +176,7 @@ extension ProfileEditViewController: PHPickerViewControllerDelegate {
 
                 guard let image = image as? UIImage else { return }
                 DispatchQueue.main.async {
-                    self.viewModel?.profileSettingViewModel.settingPhotoButtonViewModel.shouldChangePreImage.accept(image)
+                    self.viewModel?.profileSettingViewModel.settingPhotoButtonViewModel.shouldChangePreImageForCreate.accept(image)
                 }
             }
         }

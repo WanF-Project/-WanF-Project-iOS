@@ -90,7 +90,7 @@ class ProfileCreateViewController: UIViewController {
             itemProvider.loadObject(ofClass: UIImage.self) { item, error in
                 guard let image = item as? UIImage else { return }
                 DispatchQueue.main.async {
-                    self.viewModel?.profileSettingViewModel.settingPhotoButtonViewModel.shouldChangePreImage.accept(image)
+                    self.viewModel?.profileSettingViewModel.settingPhotoButtonViewModel.shouldChangePreImageForCreate.accept(image)
                 }
             }
         }

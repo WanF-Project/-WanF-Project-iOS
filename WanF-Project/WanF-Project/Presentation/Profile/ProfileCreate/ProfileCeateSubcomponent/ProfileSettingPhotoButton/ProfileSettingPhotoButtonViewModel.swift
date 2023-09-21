@@ -15,7 +15,8 @@ typealias ImageInfo = (data: Data, type: ImageContentType, name: String)
 struct ProfileSettingPhotoButtonViewModel {
     
     // Parent View -> ViewModel
-    let shouldChangePreImage = PublishRelay<UIImage>()
+    let shouldChangePreImageForCreate = PublishRelay<UIImage>()
+    let shouldChangePreImageForEdit = PublishRelay<UIImage>()
     
     // ViewModel -> View
     let preImage: Driver<UIImage>
@@ -24,10 +25,11 @@ struct ProfileSettingPhotoButtonViewModel {
     let imageData: Observable<ImageInfo?>
     
     init() {
-        preImage = shouldChangePreImage
+        preImage = shouldChangePreImageForCreate
+            .amb(shouldChangePreImageForEdit)
             .asDriver(onErrorDriveWith: .empty())
         
-        imageData = shouldChangePreImage
+        let forCreate: Observable<ImageInfo?> = shouldChangePreImageForCreate
             .map {
                 guard let imageType = $0.contentType,
                       let imageName = $0.imageAsset?.value(forKey: "assetName") as? String
@@ -42,6 +44,14 @@ struct ProfileSettingPhotoButtonViewModel {
                 }
                 return (data ?? Data(), imageType, imageName)
             }
+        
+        let forEdit: Observable<ImageInfo?> = shouldChangePreImageForEdit
+            .map { _ in
+                return nil
+            }
+        
+        imageData = forCreate
+            .amb(forEdit)
     }
     
 }
