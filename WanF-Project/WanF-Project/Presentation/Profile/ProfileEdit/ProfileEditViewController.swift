@@ -63,6 +63,12 @@ class ProfileEditViewController: UIViewController {
                 self.present(photoPickerVC, animated: true)
             })
             .disposed(by: disposeBag)
+        
+        viewModel.dismiss
+            .drive(onNext: {_ in
+                self.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
     }
     
     func setHandler() {

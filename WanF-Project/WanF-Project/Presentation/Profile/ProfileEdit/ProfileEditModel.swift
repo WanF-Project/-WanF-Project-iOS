@@ -32,4 +32,23 @@ struct ProfileEditModel {
         }
         return error
     }
+    
+    /// 프로필 수정
+    func editProfile(_ profile: ProfileImageRequestEntity) -> Single<Result<ProfileResponseEntity, WanfError>> {
+        return profileNetwork.patchMyProfile(profile)
+    }
+
+    func editProfileValue(_ result: Result<ProfileResponseEntity, WanfError>) -> ProfileResponseEntity? {
+        guard case .success(let value) = result else {
+            return nil
+        }
+        return value
+    }
+    
+    func editProfileError(_ result: Result<ProfileResponseEntity, WanfError>) -> WanfError? {
+        guard case .failure(let error) = result else {
+            return nil
+        }
+        return error
+    }
 }

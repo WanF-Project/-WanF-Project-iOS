@@ -25,6 +25,8 @@ class ProfileEditViewModel {
     // ViewModel -> View
     let data = PublishRelay<ProfileResponseEntity>()
     let presentPickerView: Driver<Void>
+    let dismiss: Driver<ProfileResponseEntity>
+    
     
     init(_ model: ProfileEditModel = ProfileEditModel()) {
         data
@@ -74,6 +76,31 @@ class ProfileEditViewModel {
         let imageID = imageValue
             .amb(existingImageId)
         
+        // Edit Profile
+        let editData = profile
+            .withLatestFrom(imageID) { profile, imageID in
+                return ProfileImageRequestEntity(imageId: imageID, profileRequest: profile)
+            }
+        
+        let editResult = editData
+            .flatMap(model.editProfile)
+            .share()
+        
+        let editValue = editResult
+            .compactMap(model.editProfileValue)
+        
+        let editError = editResult
+            .compactMap(model.editProfileError)
+        
+        editError
+            .subscribe(onNext: {
+                print("Error: \($0)")
+            })
+            .disposed(by: disposeBag)
+        
+        // Dismiss ProfileEdit
+        dismiss = editValue
+            .asDriver(onErrorDriveWith: .empty())
         
     }
 }
