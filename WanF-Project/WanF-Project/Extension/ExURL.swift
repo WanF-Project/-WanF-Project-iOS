@@ -14,6 +14,7 @@ extension URL {
         URLSession.shared.dataTask(with: self) { data, _, error in
             if let error = error {
                 debugPrint("ERROR: \(error)")
+                return
             }
             
             guard let data = data,
