@@ -12,7 +12,9 @@ import RxCocoa
 
 typealias ImageInfo = (data: Data, type: ImageContentType, name: String)
 
-struct ProfileSettingPhotoButtonViewModel {
+class ProfileSettingPhotoButtonViewModel {
+    
+    let disposebag = DisposeBag()
     
     // Parent View -> ViewModel
     let shouldChangePreImageForCreate = PublishRelay<UIImage>()
@@ -24,34 +26,55 @@ struct ProfileSettingPhotoButtonViewModel {
     // ViewModel -> Parent View
     let imageData: Observable<ImageInfo?>
     
+    let changeSubject = PublishSubject<Observable<UIImage>>()
+    let changeCreateSubject = PublishSubject<UIImage>()
+    let changeEditSubject = PublishSubject<UIImage>()
+    
+    let dataSubject = PublishSubject<Observable<ImageInfo?>>()
+    let dataCreateSubject = PublishSubject<ImageInfo?>()
+    let dataEditSubject = PublishSubject<ImageInfo?>()
+    
+    
     init() {
-        preImage = shouldChangePreImageForCreate
-            .amb(shouldChangePreImageForEdit)
+        
+        preImage = changeSubject
+            .switchLatest()
             .asDriver(onErrorDriveWith: .empty())
         
-        let forCreate: Observable<ImageInfo?> = shouldChangePreImageForCreate
-            .map {
-                guard let imageType = $0.contentType,
-                      let imageName = $0.imageAsset?.value(forKey: "assetName") as? String
-                else { return nil }
+        imageData = dataSubject
+            .switchLatest()
+     
+        shouldChangePreImageForCreate
+            .withUnretained(self)
+            .subscribe(onNext: { (viewModel, image) in
+                viewModel.changeSubject.onNext(viewModel.changeCreateSubject)
+                viewModel.changeCreateSubject.onNext(image)
                 
+                guard let imageType = image.contentType,
+                      let imageName = image.imageAsset?.value(forKey: "assetName") as? String
+                else { return }
                 let data: Data?
                 switch imageType {
                 case .jpeg:
-                    data = $0.jpegData(compressionQuality: 0.0)
+                    data = image.jpegData(compressionQuality: 0.0)
                 case .png:
-                    data = $0.pngData()
+                    data = image.pngData()
                 }
-                return (data ?? Data(), imageType, imageName)
-            }
+                
+                self.dataSubject.onNext(self.dataCreateSubject)
+                self.dataCreateSubject.onNext((data ?? Data(), imageType, imageName))
+            })
+            .disposed(by: disposebag)
         
-        let forEdit: Observable<ImageInfo?> = shouldChangePreImageForEdit
-            .map { _ in
-                return nil
-            }
-        
-        imageData = forCreate
-            .amb(forEdit)
+        shouldChangePreImageForEdit
+            .withUnretained(self)
+            .subscribe(onNext: { (viewModel, image) in
+                viewModel.changeSubject.onNext(viewModel.changeEditSubject)
+                viewModel.changeEditSubject.onNext(image)
+                
+                self.dataSubject.onNext(self.dataCreateSubject)
+                self.dataCreateSubject.onNext(nil)
+            })
+            .disposed(by: disposebag)
     }
-    
 }

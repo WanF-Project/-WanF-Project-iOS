@@ -78,8 +78,8 @@ class ProfileEditViewModel {
             .amb(existingImageId)
         
         // Edit Profile
-        let editData = profile
-            .withLatestFrom(imageID) { profile, imageID in
+        let editData = imageID
+            .withLatestFrom(profile) { imageID, profile in
                 return ProfileImageRequestEntity(imageId: imageID, profileRequest: profile)
             }
         
