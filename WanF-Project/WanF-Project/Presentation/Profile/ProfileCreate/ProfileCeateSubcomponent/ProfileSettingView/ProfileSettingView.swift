@@ -63,6 +63,8 @@ class ProfileSettingView: UIView {
         profileGoalView.bind(viewModel.goalSettingViewModel)
         
         // View -> ViewModel
+        viewModel.didLoadProfileSettingView.accept(Void())
+        
         settingPhotoButton.rx.tap
             .bind(to: viewModel.photoButtonTapped)
             .disposed(by: disposeBag)

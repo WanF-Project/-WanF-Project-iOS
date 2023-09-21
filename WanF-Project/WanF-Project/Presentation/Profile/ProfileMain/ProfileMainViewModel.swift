@@ -24,9 +24,15 @@ struct ProfileMainViewModel {
     let pushToProfileEdit: Driver<ProfileEditViewModel>
     
     init() {
+        
+        let profile = profileContentViewModel.profileData
+        
         pushToProfileEdit = didTapEditBarItem
-            .map {
-                ProfileEditViewModel()
+            .withLatestFrom(profile)
+            .map { data in
+                let viewModel = ProfileEditViewModel()
+                viewModel.data.accept(data)
+                return viewModel
             }
             .asDriver(onErrorDriveWith: .empty())
     }

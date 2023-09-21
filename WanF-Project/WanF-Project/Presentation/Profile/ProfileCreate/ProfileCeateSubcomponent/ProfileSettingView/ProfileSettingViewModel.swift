@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 import RxSwift
 import RxCocoa
@@ -30,11 +31,15 @@ class ProfileSettingViewModel {
     let personalitySettingViewModel = ProfileKeywordSettingViewModel()
     let goalSettingViewModel = ProfileKeywordSettingViewModel()
     
+    // Parent ViewModel -> ViewModel
+    let data = PublishRelay<ProfileResponseEntity>()
+    
     // ViewModel -> Parent ViewModel
     let shouldMakeDoneButtonActive: Signal<DoneButtonActiveData>
     let shouldPresentPhotoPicker: Driver<Void>
     
     // View -> ViewModel
+    let didLoadProfileSettingView = PublishRelay<Void>()
     let photoButtonTapped = PublishRelay<Void>()
     
     // ViewModel
@@ -43,6 +48,7 @@ class ProfileSettingViewModel {
     
     init() {
         
+        // Combine Date
         let imageInfo = settingPhotoButtonViewModel.imageData
             .compactMap { $0 }
         
@@ -93,5 +99,34 @@ class ProfileSettingViewModel {
         // Present Photo Picker
         shouldPresentPhotoPicker = photoButtonTapped
             .asDriver(onErrorDriveWith: .empty())
+        
+        // Bind Data
+        didLoadProfileSettingView
+            .withLatestFrom(data)
+            .withUnretained(self)
+            .subscribe(onNext: { (self, data) in
+                if let url = URL(string: data.image.imageUrl) {
+                    url.image { image in
+                        self.settingPhotoButtonViewModel.shouldChangePreImage.accept(image)
+                    }
+                }
+                self.nameControlViewModel.stringValue.accept(data.nickname)
+                self.majorControlViewModel.nameableValue.accept(data.major)
+                self.studentIDControlViewModel.stringValue.accept(String(data.studentId))
+                self.ageControlViewModel.stringValue.accept(String(data.age))
+                self.genderControlViewModel.stringValue.accept(data.gender.values.first!)
+                self.mbtiControlViewModel.stringValue.accept(data.mbti)
+                
+                let personalities = data.personalities as NSDictionary
+                let personalityKeys = personalities.allKeys as? [String] ?? []
+                let personalityValues = personalities.allValues as? [String] ?? []
+                self.personalitySettingViewModel.keywords.accept(KeywordDictionary(personalityKeys, personalityValues))
+                
+                let goals = data.goals as NSDictionary
+                let goalKeys = goals.allKeys as? [String] ?? []
+                let goalValues = goals.allValues as? [String] ?? []
+                self.goalSettingViewModel.keywords.accept(KeywordDictionary(goalKeys, goalValues))
+            })
+            .disposed(by: disposeBag)
     }
 }

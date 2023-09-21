@@ -7,9 +7,26 @@
 
 import Foundation
 
-struct ProfileEditViewModel {
+import RxSwift
+import RxCocoa
+
+class ProfileEditViewModel {
+    
+    let disposeBag = DisposeBag()
+    
+    // Subcomponent ViewModel
+    let profileSettingViewModel = ProfileSettingViewModel()
+    
+    // ViewModel ->View
+    let data = PublishRelay<ProfileResponseEntity>()
+    let presentPickerView: Driver<Void>
     
     init() {
+        data
+            .bind(to: profileSettingViewModel.data)
+            .disposed(by: disposeBag)
         
+        presentPickerView = profileSettingViewModel.shouldPresentPhotoPicker
+            .asDriver(onErrorDriveWith: .empty())
     }
 }
