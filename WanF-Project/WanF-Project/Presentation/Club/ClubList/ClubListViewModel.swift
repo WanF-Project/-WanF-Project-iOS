@@ -26,6 +26,10 @@ struct ClubListViewModel {
     let createClubTapped = PublishRelay<Void>()
     let joinClubTapped = PublishRelay<Void>()
     
+    let clubsSubject = PublishSubject<Observable<Void>>()
+    let loadClubsSubject = PublishSubject<Void>()
+    let refreshClubsSubject = PublishSubject<Void>()
+    
     // ViewModel -> View
     let presentAddActionSheet: Driver<Void>
     let presentCreateAlert: Driver<Void>
@@ -37,7 +41,8 @@ struct ClubListViewModel {
     init(_ model: ClubListModel = ClubListModel()) {
         
         // Load All Clubs
-        let loadResult = loadAllClubs
+        let loadResult = clubsSubject
+            .switchLatest()
             .flatMap(model.getAllClubs)
             .share()
         
@@ -96,5 +101,8 @@ struct ClubListViewModel {
         // Present ShareActivity
         presentShareActivity = clubShareInfo
             .asDriver(onErrorDriveWith: .empty())
+        
+        // Initialize Data
+        clubsSubject.onNext(loadClubsSubject)
     }
 }

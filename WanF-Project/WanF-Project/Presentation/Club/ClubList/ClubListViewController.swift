@@ -19,6 +19,7 @@ class ClubListViewController: UIViewController {
     private let profileBarButton = ProfileBarButtonItem()
     private let addBarButton = AddBarButtonItem()
     private let clubListView = ClubListTableView()
+    private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,15 @@ class ClubListViewController: UIViewController {
         clubListView.bind(viewModel.clubListTableViewModel)
         
         // View -> ViewModel
-        viewModel.loadAllClubs.accept(Void())
+        viewModel.loadClubsSubject.onNext(Void())
+        
+        refreshControl.rx.controlEvent(.valueChanged)
+            .subscribe(onNext: { _ in
+                viewModel.clubsSubject.onNext(viewModel.refreshClubsSubject)
+                viewModel.refreshClubsSubject.onNext(Void())
+                self.refreshControl.endRefreshing()
+            })
+            .disposed(by: disposeBag)
         
         addBarButton.rx.tap
             .bind(to: viewModel.addButtonTapped)
@@ -163,6 +172,8 @@ private extension ClubListViewController {
         
         view.backgroundColor = .wanfBackground
         configureNavigationBar()
+        
+        clubListView.refreshControl = self.refreshControl
         
         view.addSubview(clubListView)
     }
