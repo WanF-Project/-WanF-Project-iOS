@@ -37,6 +37,7 @@ class ProfileSettingViewModel {
     // ViewModel -> Parent ViewModel
     let shouldMakeDoneButtonActive: Signal<DoneButtonActiveData>
     let shouldPresentPhotoPicker: Driver<Void>
+    let imageID = PublishRelay<Int>()
     
     // View -> ViewModel
     let didLoadProfileSettingView = PublishRelay<Void>()
@@ -50,7 +51,6 @@ class ProfileSettingViewModel {
         
         // Combine Date
         let imageInfo = settingPhotoButtonViewModel.imageData
-            .compactMap { $0 }
         
         let name = nameControlViewModel.stringValue
             .filter { !$0.isEmpty }
@@ -107,7 +107,8 @@ class ProfileSettingViewModel {
             .subscribe(onNext: { (self, data) in
                 if let url = URL(string: data.image.imageUrl) {
                     url.image { image in
-                        self.settingPhotoButtonViewModel.shouldChangePreImage.accept(image)
+                        self.settingPhotoButtonViewModel.shouldChangePreImageForEdit.accept(image)
+                        self.imageID.accept(data.image.imageId)
                     }
                 }
                 self.nameControlViewModel.stringValue.accept(data.nickname)

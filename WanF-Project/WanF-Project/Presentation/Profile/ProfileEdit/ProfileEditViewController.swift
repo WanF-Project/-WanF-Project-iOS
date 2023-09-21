@@ -46,7 +46,12 @@ class ProfileEditViewController: UIViewController {
         // Bind Subcomponents
         profileSettingView.bind(viewModel.profileSettingViewModel)
         
-        // View -> View
+        // View -> ViewModel
+        doneBarItem.rx.tap
+            .bind(to: viewModel.didTapDoneButton)
+            .disposed(by: disposeBag)
+        
+        // ViewModel -> View
         viewModel.presentPickerView
             .drive(onNext: {
                 var configuration = PHPickerConfiguration()
@@ -56,6 +61,13 @@ class ProfileEditViewController: UIViewController {
                 let photoPickerVC = PHPickerViewController(configuration: configuration)
                 photoPickerVC.delegate = self
                 self.present(photoPickerVC, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.dismiss
+            .drive(onNext: {
+                viewModel.profileEdited.accept($0)
+                self.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
     }
@@ -171,7 +183,7 @@ extension ProfileEditViewController: PHPickerViewControllerDelegate {
 
                 guard let image = image as? UIImage else { return }
                 DispatchQueue.main.async {
-                    self.viewModel?.profileSettingViewModel.settingPhotoButtonViewModel.shouldChangePreImage.accept(image)
+                    self.viewModel?.profileSettingViewModel.settingPhotoButtonViewModel.shouldChangePreImageForCreate.accept(image)
                 }
             }
         }

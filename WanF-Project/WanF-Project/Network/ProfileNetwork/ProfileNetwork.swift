@@ -52,7 +52,7 @@ class ProfileNetwork: WanfNetwork {
     }
     
     // 나의 프로필 수정
-    func patchMyProfile(_ profile: ProfileRequestEntity) -> Single<Result<Void, WanfError>> {
+    func patchMyProfile(_ profile: ProfileImageRequestEntity) -> Single<Result<ProfileResponseEntity, WanfError>> {
         guard let url = api.patchMyProfile().url else {
             return .just(.failure(.invalidURL))
         }
@@ -73,8 +73,14 @@ class ProfileNetwork: WanfNetwork {
             .flatMap { request in
                 super.session.rx.data(request: request)
             }
-            .map { _ in
-                return .success(Void())
+            .map { data in
+                do {
+                    let decoded = try JSONDecoder().decode(ProfileResponseEntity.self, from: data)
+                    return .success(decoded)
+                }
+                catch {
+                    return .failure(.invalidJSON)
+                }
             }
             .catch { error in
                 return .just(.failure(.networkError))

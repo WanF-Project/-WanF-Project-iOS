@@ -41,6 +41,7 @@
 		141A783229D7F168006731F7 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 141A783129D7F168006731F7 /* RxRelay */; };
 		141A783429D7F168006731F7 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 141A783329D7F168006731F7 /* RxSwift */; };
 		141A783629D7F1E5006731F7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A783529D7F1E5006731F7 /* SignInViewController.swift */; };
+		142594DA2ABBF5A300B41333 /* ProfileEditModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142594D92ABBF5A300B41333 /* ProfileEditModel.swift */; };
 		1426B0462AB2C6ED00E43EA1 /* RandomFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1426B0452AB2C6ED00E43EA1 /* RandomFriendsViewController.swift */; };
 		1426B0482AB2CADB00E43EA1 /* RandomFriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1426B0472AB2CADB00E43EA1 /* RandomFriendsViewModel.swift */; };
 		1426B0522AB308CC00E43EA1 /* RandomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1426B0512AB308CC00E43EA1 /* RandomAPI.swift */; };
@@ -225,6 +226,7 @@
 		141A782329D7ED46006731F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		141A782529D7ED46006731F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		141A783529D7F1E5006731F7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		142594D92ABBF5A300B41333 /* ProfileEditModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditModel.swift; sourceTree = "<group>"; };
 		1426B0452AB2C6ED00E43EA1 /* RandomFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomFriendsViewController.swift; sourceTree = "<group>"; };
 		1426B0472AB2CADB00E43EA1 /* RandomFriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomFriendsViewModel.swift; sourceTree = "<group>"; };
 		1426B0512AB308CC00E43EA1 /* RandomAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomAPI.swift; sourceTree = "<group>"; };
@@ -1016,6 +1018,7 @@
 			children = (
 				14A58B002AB95C2A004B4550 /* ProfileEditViewController.swift */,
 				14A58B022AB95E09004B4550 /* ProfileEditViewModel.swift */,
+				142594D92ABBF5A300B41333 /* ProfileEditModel.swift */,
 			);
 			path = ProfileEdit;
 			sourceTree = "<group>";
@@ -1473,6 +1476,7 @@
 				144D30C32A0606F000640CCD /* ProfileSingleSelectionListViewController.swift in Sources */,
 				1455D2622A25B8A00090257B /* MajorAPI.swift in Sources */,
 				14870BF129EBBD9400D9643E /* FriendsMatchWritingLectureInfoViewModel.swift in Sources */,
+				142594DA2ABBF5A300B41333 /* ProfileEditModel.swift in Sources */,
 				1466FA242A0A486C00910C30 /* UserDefaultsAuthorizationWrapper.swift in Sources */,
 				14DD371E29DB2CBB00D6A715 /* SignUpPasswordViewController.swift in Sources */,
 				140917172A7CF66200B27131 /* ProfileKeywordSettingViewModel.swift in Sources */,
