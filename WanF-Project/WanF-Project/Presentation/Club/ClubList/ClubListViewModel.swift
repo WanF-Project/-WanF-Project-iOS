@@ -23,7 +23,7 @@ struct ClubListViewModel {
     let addButtonTapped = PublishRelay<Void>()
     let createActionTapped = PublishRelay<Void>()
     let joinActionTapped = PublishRelay<Void>()
-    let createClubTapped = PublishRelay<Void>()
+    let createClubTapped = PublishRelay<ClubRequestEntity>()
     let joinClubTapped = PublishRelay<Void>()
     
     let clubsSubject = PublishSubject<Observable<Void>>()
@@ -34,8 +34,6 @@ struct ClubListViewModel {
     let presentAddActionSheet: Driver<Void>
     let presentCreateAlert: Driver<Void>
     let presentJoinAlert: Driver<Void>
-    let createClub: Single<Void>
-    let joinClub: Single<Void>
     let presentShareActivity: Driver<ClubShareInfoEntity>
     
     init(_ model: ClubListModel = ClubListModel()) {
@@ -67,10 +65,28 @@ struct ClubListViewModel {
             .asDriver(onErrorDriveWith: .empty())
         
         // TODO: - 서버 연결 시 로직 수정
-        createClub = createClubTapped
-            .asSingle()
+        let createResult = createClubTapped
+            .flatMap(model.createClub)
+            .share()
         
-        joinClub = joinClubTapped
+        let createValue = createResult
+            .compactMap(model.createClubValue)
+        
+        createValue
+            .subscribe()
+            .disposed(by: disposeBag)
+        
+        let createError = createResult
+            .compactMap(model.createClubError)
+        
+        createError
+            .subscribe(onNext: {
+                print("ERROR: \($0)")
+            })
+            .disposed(by: disposeBag)
+            
+        
+        let joinClub = joinClubTapped
             .asSingle()
         
         // Get Club Password
