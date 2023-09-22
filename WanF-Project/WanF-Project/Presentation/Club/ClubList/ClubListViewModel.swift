@@ -23,8 +23,8 @@ struct ClubListViewModel {
     let addButtonTapped = PublishRelay<Void>()
     let createActionTapped = PublishRelay<Void>()
     let joinActionTapped = PublishRelay<Void>()
-    let createClubTapped = PublishRelay<Void>()
-    let joinClubTapped = PublishRelay<Void>()
+    let createClubTapped = PublishRelay<ClubRequestEntity>()
+    let joinClubTapped = PublishRelay<ClubPwdRequestEntity>()
     
     let clubsSubject = PublishSubject<Observable<Void>>()
     let loadClubsSubject = PublishSubject<Void>()
@@ -34,8 +34,6 @@ struct ClubListViewModel {
     let presentAddActionSheet: Driver<Void>
     let presentCreateAlert: Driver<Void>
     let presentJoinAlert: Driver<Void>
-    let createClub: Single<Void>
-    let joinClub: Single<Void>
     let presentShareActivity: Driver<ClubShareInfoEntity>
     
     init(_ model: ClubListModel = ClubListModel()) {
@@ -66,12 +64,47 @@ struct ClubListViewModel {
         presentJoinAlert = joinActionTapped
             .asDriver(onErrorDriveWith: .empty())
         
-        // TODO: - 서버 연결 시 로직 수정
-        createClub = createClubTapped
-            .asSingle()
+        // Create the Club
+        let createResult = createClubTapped
+            .flatMap(model.createClub)
+            .share()
         
-        joinClub = joinClubTapped
-            .asSingle()
+        let createValue = createResult
+            .compactMap(model.createClubValue)
+        
+        createValue
+            .subscribe()
+            .disposed(by: disposeBag)
+        
+        let createError = createResult
+            .compactMap(model.createClubError)
+        
+        createError
+            .subscribe(onNext: {
+                print("ERROR: \($0)")
+            })
+            .disposed(by: disposeBag)
+            
+        // Join the Club
+        let joinResult = joinClubTapped
+            .flatMap(model.joinClub)
+            .share()
+        
+        let joinValue = joinResult
+            .compactMap(model.joinClubValue)
+        
+        let joinError = joinResult
+            .compactMap(model.joinClubError)
+        
+        joinValue
+            .subscribe()
+            .disposed(by: disposeBag)
+        
+        joinError
+            .subscribe(onNext: {
+                print("ERROR: \($0)")
+            })
+            .disposed(by: disposeBag)
         
         // Get Club Password
         let clubInfo = clubListTableViewModel.shareButtonTapped

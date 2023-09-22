@@ -116,8 +116,14 @@ class ClubListViewController: UIViewController {
             $0.keyboardType = .numberPad
         }
         
-        let doneAction = UIAlertAction(title: "완료", style: .default) {_ in
-            viewModel.createClubTapped.accept(Void())
+        let doneAction = UIAlertAction(title: "완료", style: .default) { _ in
+            guard let texts = alert.textFields,
+                  let name = texts[0].text,
+                  let maxText = texts[1].text,
+                  let max = Int(maxText),
+                  let password = texts[2].text else { return }
+            
+            viewModel.createClubTapped.accept(ClubRequestEntity(name: name, maxParticipants: max, password: password))
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
         
@@ -140,7 +146,12 @@ class ClubListViewController: UIViewController {
         }
         
         let doneAction = UIAlertAction(title: "완료", style: .default) {_ in
-            viewModel.joinClubTapped.accept(Void())
+            guard let texts = alert.textFields,
+                  let idText = texts[0].text,
+                  let id = Int(idText),
+                  let password = texts[1].text else { return }
+            
+            viewModel.joinClubTapped.accept(ClubPwdRequestEntity(clubId: id, password: password))
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
         

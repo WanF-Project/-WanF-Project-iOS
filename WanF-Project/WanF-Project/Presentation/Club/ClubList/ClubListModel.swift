@@ -54,4 +54,42 @@ struct ClubListModel {
         }
         return Void()
     }
+    
+    // 모임 생성
+    func createClub(_ club: ClubRequestEntity) -> Single<Result<Void, WanfError>> {
+        return network.postCreateClub(club)
+    }
+    
+    func createClubValue(_ result: Result<Void, WanfError>) -> Void? {
+        guard case .success(let value) = result else {
+            return nil
+        }
+        return value
+    }
+    
+    func createClubError(_ result: Result<Void, WanfError>) -> WanfError? {
+        guard case .failure(let error) = result else {
+            return nil
+        }
+        return error
+    }
+    
+    // 모임 가입
+    func joinClub(_ club: ClubPwdRequestEntity) -> Single<Result<Void, WanfError>> {
+        return network.postJoinClub(club)
+    }
+    
+    func joinClubValue(_ result: Result<Void, WanfError>) -> Void? {
+        guard case .success(let value) = result else {
+            return nil
+        }
+        return value
+    }
+    
+    func joinClubError(_ result: Result<Void, WanfError>) -> WanfError? {
+        guard case .failure(let error) = result else {
+            return nil
+        }
+        return error
+    }
 }
