@@ -1,8 +1,8 @@
 //
-//  FriendsMatchDetailInfoView.swift
+//  PostUserInfoControlView.swift
 //  WanF-Project
 //
-//  Created by 임윤휘 on 2023/04/18.
+//  Created by 임윤휘 on 2023/09/22.
 //
 
 import UIKit
@@ -11,7 +11,8 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-class FriendsMatchDetailInfoView: UIView {
+/// 별명 및 날짜가 포함되어 있는 게시글 상단 Detail Info View
+class PostUserInfoControlView: UIControl {
     
     //MARK: - Properties
     let disposeBag = DisposeBag()
@@ -46,9 +47,9 @@ class FriendsMatchDetailInfoView: UIView {
     }
     
     //MARK: - Function
-    func bind(_ viewModel: FriendsMatchDetailInfoViewModel) {
+    func bind(_ viewModel: PostUserInfoControlViewModel) {
         
-        // View 데이터 연결
+        // ViewModel -> View
         viewModel.loadDeatilInfo
             .drive(onNext: { (nickname, date) in
                 self.nicknameLabel.text = nickname
@@ -56,11 +57,15 @@ class FriendsMatchDetailInfoView: UIView {
             })
             .disposed(by: disposeBag)
         
+        self.rx.controlEvent(.touchUpInside)
+            .bind(to: viewModel.didTapUserInfo)
+            .disposed(by: disposeBag)
+        
     }
 }
 
 //MARK: - Configure
-private extension FriendsMatchDetailInfoView {
+private extension PostUserInfoControlView {
     
     func configureView() {
         
