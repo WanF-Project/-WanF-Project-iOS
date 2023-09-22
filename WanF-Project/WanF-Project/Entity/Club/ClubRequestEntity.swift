@@ -10,5 +10,5 @@ import Foundation
 struct ClubRequestEntity: Encodable {
     let name: String
     let maxParticipants: Int
-    let passwork: String
+    let password: String
 }
