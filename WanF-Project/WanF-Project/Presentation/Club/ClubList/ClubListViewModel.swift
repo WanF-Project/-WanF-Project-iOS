@@ -24,7 +24,7 @@ struct ClubListViewModel {
     let createActionTapped = PublishRelay<Void>()
     let joinActionTapped = PublishRelay<Void>()
     let createClubTapped = PublishRelay<ClubRequestEntity>()
-    let joinClubTapped = PublishRelay<Void>()
+    let joinClubTapped = PublishRelay<ClubPwdRequestEntity>()
     
     let clubsSubject = PublishSubject<Observable<Void>>()
     let loadClubsSubject = PublishSubject<Void>()
@@ -86,8 +86,25 @@ struct ClubListViewModel {
             .disposed(by: disposeBag)
             
         
-        let joinClub = joinClubTapped
-            .asSingle()
+        let joinResult = joinClubTapped
+            .flatMap(model.joinClub)
+            .share()
+        
+        let joinValue = joinResult
+            .compactMap(model.joinClubValue)
+        
+        let joinError = joinResult
+            .compactMap(model.joinClubError)
+        
+        joinValue
+            .subscribe()
+            .disposed(by: disposeBag)
+        
+        joinError
+            .subscribe(onNext: {
+                print("ERROR: \($0)")
+            })
+            .disposed(by: disposeBag)
         
         // Get Club Password
         let clubInfo = clubListTableViewModel.shareButtonTapped

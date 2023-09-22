@@ -146,7 +146,12 @@ class ClubListViewController: UIViewController {
         }
         
         let doneAction = UIAlertAction(title: "완료", style: .default) {_ in
-            viewModel.joinClubTapped.accept(Void())
+            guard let texts = alert.textFields,
+                  let idText = texts[0].text,
+                  let id = Int(idText),
+                  let password = texts[1].text else { return }
+            
+            viewModel.joinClubTapped.accept(ClubPwdRequestEntity(clubId: id, password: password))
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
         
