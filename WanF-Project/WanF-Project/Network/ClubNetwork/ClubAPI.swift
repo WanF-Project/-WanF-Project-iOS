@@ -44,4 +44,14 @@ class ClubAPI: WanfAPI {
         
         return components
     }
+    
+    /// 모임 가입
+    func postJoinClub(_ club: ClubPwdRequestEntity) -> URLComponents {
+        var components = URLComponents()
+        components.scheme = super.scheme
+        components.host = super.host
+        components.path = self.path + "/join"
+        
+        return components
+    }
 }
