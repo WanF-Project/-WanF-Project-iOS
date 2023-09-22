@@ -64,7 +64,7 @@ struct ClubListViewModel {
         presentJoinAlert = joinActionTapped
             .asDriver(onErrorDriveWith: .empty())
         
-        // TODO: - 서버 연결 시 로직 수정
+        // Create the Club
         let createResult = createClubTapped
             .flatMap(model.createClub)
             .share()
@@ -85,7 +85,7 @@ struct ClubListViewModel {
             })
             .disposed(by: disposeBag)
             
-        
+        // Join the Club
         let joinResult = joinClubTapped
             .flatMap(model.joinClub)
             .share()
