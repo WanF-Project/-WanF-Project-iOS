@@ -17,6 +17,7 @@ struct ClubDetailViewModel {
     
     // ViewModel -> View
     let cellData: Driver<ClubPostListResponseEntity>
+    let navigationTitle = PublishRelay<String>()
     
     init() {
         cellData = Observable
