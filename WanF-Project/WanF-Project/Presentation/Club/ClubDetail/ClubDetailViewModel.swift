@@ -13,6 +13,7 @@ import RxCocoa
 struct ClubDetailViewModel {
     
     // SubcomponenetViewModel
+    let cellViewModel = ClubDetailTableViewCellViewModel()
     
     // ViewModel -> View
     let cellData: Driver<ClubPostListResponseEntity>

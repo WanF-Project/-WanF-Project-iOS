@@ -22,6 +22,7 @@ class ClubDetailViewController: UIViewController {
         var tableView = UITableView()
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
+        tableView.register(ClubDetailTableViewCell.self, forCellReuseIdentifier: "ClubDetailTableViewCell")
         
         return tableView
     }()
@@ -34,6 +35,13 @@ class ClubDetailViewController: UIViewController {
     }
     
     func bind(_ viewModel: ClubDetailViewModel) {
+        viewModel.cellData
+            .drive(postTableview.rx.items(cellIdentifier: "ClubDetailTableViewCell", cellType: ClubDetailTableViewCell.self)) { row, element, cell in
+                cell.bind(viewModel.cellViewModel)
+                cell.configureCell(element)
+                cell.selectionStyle = .none
+            }
+            .disposed(by: disposeBag)
     }
 }
 
