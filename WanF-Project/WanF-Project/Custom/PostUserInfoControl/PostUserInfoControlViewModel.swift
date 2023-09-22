@@ -1,8 +1,8 @@
 //
-//  FriendsMatchDetailInfoViewModel.swift
+//  PostUserInfoControlViewModel.swift
 //  WanF-Project
 //
-//  Created by 임윤휘 on 2023/04/18.
+//  Created by 임윤휘 on 2023/09/22.
 //
 
 import Foundation
@@ -10,9 +10,10 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-struct FriendsMatchDetailInfoViewModel {
+struct PostUserInfoControlViewModel {
     
     // View -> ViewModel
+    let didTapUserInfo = PublishRelay<Void>()
     
     // ViewModel -> View
     let loadDeatilInfo: Driver<(String, String)>
@@ -28,3 +29,4 @@ struct FriendsMatchDetailInfoViewModel {
         
     }
 }
+
