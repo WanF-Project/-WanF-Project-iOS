@@ -148,6 +148,7 @@
 		149B954B2ABD2E2D00AF7993 /* ClubRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B954A2ABD2E2D00AF7993 /* ClubRequestEntity.swift */; };
 		149B95552ABD58C500AF7993 /* PostUserInfoControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B95542ABD58C500AF7993 /* PostUserInfoControlView.swift */; };
 		149B95572ABD591700AF7993 /* PostUserInfoControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B95562ABD591700AF7993 /* PostUserInfoControlViewModel.swift */; };
+		149B95612ABD62FC00AF7993 /* ClubPostResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B95602ABD62FC00AF7993 /* ClubPostResponseEntity.swift */; };
 		149F01622A13859600370FE1 /* DynamicSizeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149F01612A13859600370FE1 /* DynamicSizeTableView.swift */; };
 		14A11A562A94AD76008453FC /* ProfileImageRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A552A94AD76008453FC /* ProfileImageRequestEntity.swift */; };
 		14A11A582A94BA07008453FC /* ExNSMutableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A572A94BA07008453FC /* ExNSMutableData.swift */; };
@@ -334,6 +335,7 @@
 		149B954A2ABD2E2D00AF7993 /* ClubRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubRequestEntity.swift; sourceTree = "<group>"; };
 		149B95542ABD58C500AF7993 /* PostUserInfoControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostUserInfoControlView.swift; sourceTree = "<group>"; };
 		149B95562ABD591700AF7993 /* PostUserInfoControlViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostUserInfoControlViewModel.swift; sourceTree = "<group>"; };
+		149B95602ABD62FC00AF7993 /* ClubPostResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubPostResponseEntity.swift; sourceTree = "<group>"; };
 		149F01612A13859600370FE1 /* DynamicSizeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSizeTableView.swift; sourceTree = "<group>"; };
 		14A11A552A94AD76008453FC /* ProfileImageRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageRequestEntity.swift; sourceTree = "<group>"; };
 		14A11A572A94BA07008453FC /* ExNSMutableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExNSMutableData.swift; sourceTree = "<group>"; };
@@ -1202,6 +1204,7 @@
 				14F52BCC2A8E093E00A09F92 /* ClubPwdRequestEntity.swift */,
 				14F52BCE2A8E1E7E00A09F92 /* ClubShareInfoEntity.swift */,
 				149B954A2ABD2E2D00AF7993 /* ClubRequestEntity.swift */,
+				149B95602ABD62FC00AF7993 /* ClubPostResponseEntity.swift */,
 			);
 			path = Club;
 			sourceTree = "<group>";
@@ -1472,6 +1475,7 @@
 				14DD372229DB30EC00D6A715 /* PasswordToCheckTextFieldCell.swift in Sources */,
 				1409170F2A7CECDD00B27131 /* SettingControlView.swift in Sources */,
 				144D30D72A06870F00640CCD /* SignUpAPI.swift in Sources */,
+				149B95612ABD62FC00AF7993 /* ClubPostResponseEntity.swift in Sources */,
 				1496374329ED5E610021B4D4 /* FriendsMatchWritingModel.swift in Sources */,
 				1429B0B529E5710C00891FF8 /* ProfileMainViewModel.swift in Sources */,
 				141A781A29D7ED46006731F7 /* SceneDelegate.swift in Sources */,
