@@ -16,8 +16,8 @@ class ClubDetailViewController: UIViewController {
     //MARK: - Properties
     let disposeBag = DisposeBag()
     
-    
     //MARK: - View
+    let addBarItem = AddBarButtonItem()
     let postTableview: UITableView = {
         var tableView = UITableView()
         tableView.rowHeight = UITableView.automaticDimension
@@ -48,8 +48,9 @@ class ClubDetailViewController: UIViewController {
 private extension ClubDetailViewController {
     func configure() {
         view.backgroundColor = .wanfBackground
-        
         view.addSubview(postTableview)
+        
+        navigationItem.rightBarButtonItem = addBarItem
         
     }
     
