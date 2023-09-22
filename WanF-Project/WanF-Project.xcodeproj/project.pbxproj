@@ -139,12 +139,10 @@
 		14962D982A399CFF0049625C /* CommentRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14962D972A399CFF0049625C /* CommentRequestEntity.swift */; };
 		1496374129ED5ABD0021B4D4 /* PostRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1496374029ED5ABD0021B4D4 /* PostRequestEntity.swift */; };
 		1496374329ED5E610021B4D4 /* FriendsMatchWritingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1496374229ED5E610021B4D4 /* FriendsMatchWritingModel.swift */; };
-		14982C6E29EE580500D388BF /* FriendsMatchDetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14982C6D29EE580500D388BF /* FriendsMatchDetailInfoView.swift */; };
 		14982C7029EE603F00D388BF /* FriendsMatchDetailLectureInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14982C6F29EE603F00D388BF /* FriendsMatchDetailLectureInfoView.swift */; };
 		14982C7329EE657200D388BF /* FriendsMatchDetailTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14982C7229EE657200D388BF /* FriendsMatchDetailTextView.swift */; };
 		14982C8129EE8BAC00D388BF /* PostResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14982C8029EE8BAC00D388BF /* PostResponseEntity.swift */; };
 		14982C9129EEACD200D388BF /* FriendsMatchDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14982C9029EEACD200D388BF /* FriendsMatchDetailModel.swift */; };
-		14982C9529EEAD3600D388BF /* FriendsMatchDetailInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14982C9429EEAD3600D388BF /* FriendsMatchDetailInfoViewModel.swift */; };
 		14982C9729EEAD5800D388BF /* FriendsMatchDetailLectureInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14982C9629EEAD5800D388BF /* FriendsMatchDetailLectureInfoViewModel.swift */; };
 		14982C9929EEADC200D388BF /* FriendsMatchDetailTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14982C9829EEADC200D388BF /* FriendsMatchDetailTextViewModel.swift */; };
 		149B954B2ABD2E2D00AF7993 /* ClubRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B954A2ABD2E2D00AF7993 /* ClubRequestEntity.swift */; };
@@ -327,12 +325,10 @@
 		14962D972A399CFF0049625C /* CommentRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRequestEntity.swift; sourceTree = "<group>"; };
 		1496374029ED5ABD0021B4D4 /* PostRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequestEntity.swift; sourceTree = "<group>"; };
 		1496374229ED5E610021B4D4 /* FriendsMatchWritingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingModel.swift; sourceTree = "<group>"; };
-		14982C6D29EE580500D388BF /* FriendsMatchDetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchDetailInfoView.swift; sourceTree = "<group>"; };
 		14982C6F29EE603F00D388BF /* FriendsMatchDetailLectureInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchDetailLectureInfoView.swift; sourceTree = "<group>"; };
 		14982C7229EE657200D388BF /* FriendsMatchDetailTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchDetailTextView.swift; sourceTree = "<group>"; };
 		14982C8029EE8BAC00D388BF /* PostResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponseEntity.swift; sourceTree = "<group>"; };
 		14982C9029EEACD200D388BF /* FriendsMatchDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchDetailModel.swift; sourceTree = "<group>"; };
-		14982C9429EEAD3600D388BF /* FriendsMatchDetailInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchDetailInfoViewModel.swift; sourceTree = "<group>"; };
 		14982C9629EEAD5800D388BF /* FriendsMatchDetailLectureInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchDetailLectureInfoViewModel.swift; sourceTree = "<group>"; };
 		14982C9829EEADC200D388BF /* FriendsMatchDetailTextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchDetailTextViewModel.swift; sourceTree = "<group>"; };
 		149B954A2ABD2E2D00AF7993 /* ClubRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubRequestEntity.swift; sourceTree = "<group>"; };
@@ -967,20 +963,10 @@
 		14982C6C29EE56EE00D388BF /* FriendsMatchDetailSubcomponents */ = {
 			isa = PBXGroup;
 			children = (
-				14982C8B29EEAB8B00D388BF /* FriendsMatchDetailInfo */,
 				14982C8C29EEABA800D388BF /* FriendsMatchDetailLectureInfo */,
 				14982C8F29EEAC1D00D388BF /* FriendsMatchDetailText */,
 			);
 			path = FriendsMatchDetailSubcomponents;
-			sourceTree = "<group>";
-		};
-		14982C8B29EEAB8B00D388BF /* FriendsMatchDetailInfo */ = {
-			isa = PBXGroup;
-			children = (
-				14982C6D29EE580500D388BF /* FriendsMatchDetailInfoView.swift */,
-				14982C9429EEAD3600D388BF /* FriendsMatchDetailInfoViewModel.swift */,
-			);
-			path = FriendsMatchDetailInfo;
 			sourceTree = "<group>";
 		};
 		14982C8C29EEABA800D388BF /* FriendsMatchDetailLectureInfo */ = {
@@ -1357,7 +1343,6 @@
 				1409EAB72AA8A98B00B9B2A8 /* MessageDetailModel.swift in Sources */,
 				147823C82A7DF9F7003DC9CE /* CSKeyboardToolBar.swift in Sources */,
 				14A11A5E2A94BD9C008453FC /* ImageAPI.swift in Sources */,
-				14982C6E29EE580500D388BF /* FriendsMatchDetailInfoView.swift in Sources */,
 				1426B0522AB308CC00E43EA1 /* RandomAPI.swift in Sources */,
 				1429B0AE29E53F9D00891FF8 /* FriendsMatchListCell.swift in Sources */,
 				14A11A5C2A94BC50008453FC /* MultipartNetwork.swift in Sources */,
@@ -1375,7 +1360,6 @@
 				14982C7029EE603F00D388BF /* FriendsMatchDetailLectureInfoView.swift in Sources */,
 				146EA3442A8B52FE005E010B /* AddBarButtonItem.swift in Sources */,
 				1415DD922AA1D0BE00EF03A4 /* MessageListViewController.swift in Sources */,
-				14982C9529EEAD3600D388BF /* FriendsMatchDetailInfoViewModel.swift in Sources */,
 				1429B0A729E5163300891FF8 /* FriendsMatchTabViewModel.swift in Sources */,
 				145C7A632AA6EE6B002C5E53 /* MessageDetailViewModel.swift in Sources */,
 				1429B0A929E51CF400891FF8 /* FriendsMatchTabModel.swift in Sources */,

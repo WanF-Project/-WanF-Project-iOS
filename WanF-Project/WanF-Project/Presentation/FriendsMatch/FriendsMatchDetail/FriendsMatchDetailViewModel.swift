@@ -14,7 +14,7 @@ struct FriendsMatchDetailViewModel {
     
     let disposeBag = DisposeBag()
     
-    let detailInfoViewModel = FriendsMatchDetailInfoViewModel()
+    let detailInfoViewModel = PostUserInfoControlViewModel()
     let lectureInfoViewModel = FriendsMatchDetailLectureInfoViewModel()
     let detailTextViewModel = FriendsMatchDetailTextViewModel()
     let commentListViewModel = FriendsMatchCommentListViewModel()
@@ -24,7 +24,6 @@ struct FriendsMatchDetailViewModel {
     let menueButtonTapped = PublishRelay<Void>()
     let deleteButtonTapped = BehaviorRelay(value: Void())
     let loadFriendsMatchDetail = PublishRelay<Void>()
-    let didTabNickname = PublishRelay<Void>()
     let shouldPresentCommentAlert = PublishRelay<Void>()
     let shouldSaveComment = PublishRelay<CommentRequestEntity>()
     let shouldRefreshDetail = PublishRelay<Void>()
@@ -157,8 +156,8 @@ struct FriendsMatchDetailViewModel {
         let commentSavedError = commentSavedResult
             .compactMap(model.getDeleteDetailError)
         
-        // Send Next Event to Subjects
-        didTabNickname
+        // Present Profile
+        detailInfoViewModel.didTapUserInfo
             .withLatestFrom(detailData)
             .subscribe(onNext: { [self] data in
                 self.commentSubject.onNext(self.presentDetailProfileSubject)

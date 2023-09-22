@@ -18,7 +18,7 @@ class FriendsMatchDetailViewController: UIViewController {
     var viewModel: FriendsMatchDetailViewModel?
     
     //MARK: - View
-    private lazy var detailInfoView = FriendsMatchDetailInfoView()
+    private lazy var detailInfoView = PostUserInfoControlView()
     private lazy var lectureInfoView = FriendsMatchDetailLectureInfoView()
     private lazy var detailTextView = FriendsMatchDetailTextView()
     private lazy var commentListView = FriendsMatchCommentListView()
@@ -81,7 +81,6 @@ class FriendsMatchDetailViewController: UIViewController {
         
         configureView()
         layout()
-        configureGesture()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -253,20 +252,6 @@ private extension FriendsMatchDetailViewController {
         commentListView.snp.updateConstraints { make in
             make.height.equalTo(contentHeight)
         }
-    }
-}
-
-//MARK: - Tab Gesture
-extension FriendsMatchDetailViewController {
-    func configureGesture() {
-        
-        let nicknameGesture = UITapGestureRecognizer(target: self, action: #selector(didTabNickname))
-        detailInfoView.nicknameLabel.isUserInteractionEnabled = true
-        detailInfoView.nicknameLabel.addGestureRecognizer(nicknameGesture)
-    }
-    
-    @objc func didTabNickname(){
-        viewModel?.didTabNickname.accept(Void())
     }
 }
 
