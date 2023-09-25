@@ -81,10 +81,10 @@ class ClubListViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.pushToClubDetail
-            .drive(onNext: { viewModel in
+            .drive(onNext: {
                 let clubDetailVC = ClubDetailViewController()
-                clubDetailVC.bind(viewModel)
-                
+                clubDetailVC.bind($0.viewModel)
+                $0.viewModel.clubName.accept($0.name)
                 self.navigationController?.pushViewController(clubDetailVC, animated: true)
             })
             .disposed(by: disposeBag)
