@@ -34,7 +34,8 @@ struct ClubListTableViewModel {
         
         shouldPushToClubDetail = didSelectItem
             .withLatestFrom(cellData, resultSelector: { indexPath, list in
-                ClubInfo(indexPath.row, list[indexPath.row].name)
+                let index = indexPath.row
+                return ClubInfo(list[index].id, list[index].name)
             })
             .asSignal(onErrorSignalWith: .empty())
     }

@@ -136,6 +136,7 @@
 		14840E4B29FE5CCC007BFB1A /* ProfileKeywordListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14840E4A29FE5CCC007BFB1A /* ProfileKeywordListViewModel.swift */; };
 		1484C75D2A1E1BD500014FD4 /* ExDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1484C75C2A1E1BD500014FD4 /* ExDateFormatter.swift */; };
 		14870BF129EBBD9400D9643E /* FriendsMatchWritingLectureInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14870BF029EBBD9400D9643E /* FriendsMatchWritingLectureInfoViewModel.swift */; };
+		14886B282AC1A656005F6E07 /* ClubDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14886B272AC1A656005F6E07 /* ClubDetailModel.swift */; };
 		14962D982A399CFF0049625C /* CommentRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14962D972A399CFF0049625C /* CommentRequestEntity.swift */; };
 		1496374129ED5ABD0021B4D4 /* PostRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1496374029ED5ABD0021B4D4 /* PostRequestEntity.swift */; };
 		1496374329ED5E610021B4D4 /* FriendsMatchWritingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1496374229ED5E610021B4D4 /* FriendsMatchWritingModel.swift */; };
@@ -327,6 +328,7 @@
 		14840E4A29FE5CCC007BFB1A /* ProfileKeywordListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileKeywordListViewModel.swift; sourceTree = "<group>"; };
 		1484C75C2A1E1BD500014FD4 /* ExDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExDateFormatter.swift; sourceTree = "<group>"; };
 		14870BF029EBBD9400D9643E /* FriendsMatchWritingLectureInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingLectureInfoViewModel.swift; sourceTree = "<group>"; };
+		14886B272AC1A656005F6E07 /* ClubDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailModel.swift; sourceTree = "<group>"; };
 		14962D972A399CFF0049625C /* CommentRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRequestEntity.swift; sourceTree = "<group>"; };
 		1496374029ED5ABD0021B4D4 /* PostRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequestEntity.swift; sourceTree = "<group>"; };
 		1496374229ED5E610021B4D4 /* FriendsMatchWritingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchWritingModel.swift; sourceTree = "<group>"; };
@@ -1013,6 +1015,7 @@
 				149B955D2ABD5E2300AF7993 /* ClubDetailSubcomponents */,
 				149B95642ABDDB1F00AF7993 /* ClubDetailViewController.swift */,
 				149B95662ABDDB4400AF7993 /* ClubDetailViewModel.swift */,
+				14886B272AC1A656005F6E07 /* ClubDetailModel.swift */,
 			);
 			path = ClubDetail;
 			sourceTree = "<group>";
@@ -1398,6 +1401,7 @@
 				147E9B552A178E690032E530 /* CourseNetwork.swift in Sources */,
 				141A783629D7F1E5006731F7 /* SignInViewController.swift in Sources */,
 				146EA3422A8B522C005E010B /* ProfileBarButtonItem.swift in Sources */,
+				14886B282AC1A656005F6E07 /* ClubDetailModel.swift in Sources */,
 				1466FA202A0A428D00910C30 /* AuthNetwork.swift in Sources */,
 				149B956B2ABDDBC600AF7993 /* ClubDetailTableViewCell.swift in Sources */,
 				14BD19F229FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift in Sources */,
