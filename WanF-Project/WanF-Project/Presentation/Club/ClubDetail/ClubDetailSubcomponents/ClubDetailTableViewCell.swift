@@ -107,7 +107,7 @@ private extension ClubDetailTableViewCell {
             make.horizontalEdges.equalToSuperview().inset(horizontalInset)
             make.bottom.equalToSuperview().inset(verticalInset)
             
-            make.width.equalTo(self).inset(horizontalInset * 2)
+            make.width.equalTo(self).inset(horizontalInset * 2).priority(.high)
             make.height.equalTo(contentImageView.snp.width)
         }
         
