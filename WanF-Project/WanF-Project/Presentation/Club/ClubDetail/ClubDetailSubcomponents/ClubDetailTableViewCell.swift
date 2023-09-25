@@ -104,10 +104,11 @@ private extension ClubDetailTableViewCell {
         
         contentImageView.snp.makeConstraints { make in
             make.top.equalTo(contentLabel.snp.bottom).offset(offset)
-            make.left.equalToSuperview().inset(horizontalInset)
+            make.horizontalEdges.equalToSuperview().inset(horizontalInset)
             make.bottom.equalToSuperview().inset(verticalInset)
             
             make.width.equalTo(self).inset(horizontalInset * 2)
+            make.height.equalTo(contentImageView.snp.width)
         }
         
     }
