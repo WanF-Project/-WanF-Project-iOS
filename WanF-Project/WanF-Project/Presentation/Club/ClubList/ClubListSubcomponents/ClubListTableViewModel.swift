@@ -17,6 +17,7 @@ struct ClubListTableViewModel {
     
     // View -> ViewModel
     let shareButtonTapped = PublishRelay<ClubResponseEntity>()
+    let didSelectItem = PublishRelay<IndexPath>()
     
     // ViewModel -> View
     let cellData: Driver<[ClubResponseEntity]>

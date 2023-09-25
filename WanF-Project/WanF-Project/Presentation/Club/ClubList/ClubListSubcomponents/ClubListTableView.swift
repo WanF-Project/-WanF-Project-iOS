@@ -42,6 +42,11 @@ class ClubListTableView: UITableView {
                     .disposed(by: self.disposeBag)
             }
             .disposed(by: disposeBag)
+        
+        self.rx.itemSelected
+            .bind(to: viewModel.didSelectItem)
+            .disposed(by: disposeBag)
+        
     }
 }
 

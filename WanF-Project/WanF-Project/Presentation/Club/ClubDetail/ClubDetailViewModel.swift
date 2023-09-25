@@ -15,6 +15,8 @@ struct ClubDetailViewModel {
     // SubcomponenetViewModel
     let cellViewModel = ClubDetailTableViewCellViewModel()
     
+    let id = PublishRelay<Int>()
+    
     // ViewModel -> View
     let cellData: Driver<ClubPostListResponseEntity>
     let navigationTitle = PublishRelay<String>()
