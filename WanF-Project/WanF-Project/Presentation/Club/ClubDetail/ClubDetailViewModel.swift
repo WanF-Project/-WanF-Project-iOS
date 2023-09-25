@@ -25,20 +25,27 @@ struct ClubDetailViewModel {
     let cellData: Driver<ClubPostListResponseEntity>
     let clubName = PublishRelay<String>()
     
-    init() {
+    init(_ model: ClubDetailModel = ClubDetailModel()) {
         
         // Load ClubDetail
-        loadClubDetail
+        let loadResult = loadClubDetail
+            .withLatestFrom(id)
+            .flatMap(model.loadAllClubPosts)
+            .share()
+        
+        let loadValue = loadResult
+            .compactMap(model.loadAllClubPostValue)
+        
+        let loadError = loadResult
+            .compactMap(model.loadAllClubPostError)
+        
+        loadError
             .subscribe(onNext: {
-                print("Load")
+                print("ERROR: \($0)")
             })
             .disposed(by: disposeBag)
         
-        cellData = Observable
-            .just([
-                ClubPostResponseEntity(id: 0, createdDate: "2023-08-29T14:29:15.056216", nickname: "원프", content: "Table views in iOS display rows of vertically scrolling content in a single column. Each row in the table contains one piece of your app’s content. For example, the Contacts app displays the name of each contact in a separate row, and the main page of the Settings app displays the available groups of settings. You can configure a table to display a single long list of rows, or you can group related rows into sections to make navigating the content easier.", image: nil),
-                ClubPostResponseEntity(id: 0, createdDate: "2023-08-29T14:29:15.056216", nickname: "원프", content: "Table views in iOS display rows of vertically scrolling content in a single column. ", image: nil)
-            ])
+        cellData = loadValue
             .asDriver(onErrorDriveWith: .empty())
     }
 }
