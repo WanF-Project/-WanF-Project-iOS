@@ -36,6 +36,9 @@ class ClubDetailViewController: UIViewController {
     
     func bind(_ viewModel: ClubDetailViewModel) {
         
+        // View -> ViewModel
+        viewModel.loadClubDetail.accept(Void())
+        
         // ViewModel -> View
         viewModel.cellData
             .drive(postTableview.rx.items(cellIdentifier: "ClubDetailTableViewCell", cellType: ClubDetailTableViewCell.self)) { row, element, cell in
