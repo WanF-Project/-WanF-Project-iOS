@@ -35,6 +35,7 @@ struct ClubListViewModel {
     let presentCreateAlert: Driver<Void>
     let presentJoinAlert: Driver<Void>
     let presentShareActivity: Driver<ClubShareInfoEntity>
+    let pushToClubDetail: Driver<(name: String, viewModel: ClubDetailViewModel)>
     
     init(_ model: ClubListModel = ClubListModel()) {
         
@@ -133,6 +134,15 @@ struct ClubListViewModel {
         
         // Present ShareActivity
         presentShareActivity = clubShareInfo
+            .asDriver(onErrorDriveWith: .empty())
+        
+        // Push to ClubDetail
+        pushToClubDetail = clubListTableViewModel.shouldPushToClubDetail
+            .map {
+                let viewModel = ClubDetailViewModel()
+                viewModel.id.accept($0.id)
+                return ($0.name, viewModel)
+            }
             .asDriver(onErrorDriveWith: .empty())
         
         // Initialize Data

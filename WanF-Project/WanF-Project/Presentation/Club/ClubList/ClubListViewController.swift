@@ -80,6 +80,15 @@ class ClubListViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        viewModel.pushToClubDetail
+            .drive(onNext: {
+                let clubDetailVC = ClubDetailViewController()
+                clubDetailVC.bind($0.viewModel)
+                $0.viewModel.clubName.accept($0.name)
+                self.navigationController?.pushViewController(clubDetailVC, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
     }
     
     func presentAddActionSheet(_ viewModel: ClubListViewModel) {

@@ -36,6 +36,9 @@ class ClubDetailViewController: UIViewController {
     
     func bind(_ viewModel: ClubDetailViewModel) {
         
+        // View -> ViewModel
+        viewModel.loadClubDetail.accept(Void())
+        
         // ViewModel -> View
         viewModel.cellData
             .drive(postTableview.rx.items(cellIdentifier: "ClubDetailTableViewCell", cellType: ClubDetailTableViewCell.self)) { row, element, cell in
@@ -45,16 +48,9 @@ class ClubDetailViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        viewModel.navigationTitle
-            .map({ d in
-                print(d)
-                return d
-            })
+        viewModel.clubName
             .bind(to: navigationItem.rx.title)
             .disposed(by: disposeBag)
-        
-        // 테스트용 코드
-        viewModel.navigationTitle.accept("원프 모임명")
     }
 }
 
