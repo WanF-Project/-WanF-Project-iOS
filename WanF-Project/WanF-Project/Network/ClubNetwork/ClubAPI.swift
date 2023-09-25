@@ -54,4 +54,14 @@ class ClubAPI: WanfAPI {
         
         return components
     }
+    
+    /// 모임 상세 전체 게시글 조회
+    func getAllClubPosts(_ clubId: Int) -> URLComponents {
+        var components = URLComponents()
+        components.scheme = super.scheme
+        components.host = super.host
+        components.path = self.path + "/\(clubId)/clubposts"
+        
+        return components
+    }
 }
