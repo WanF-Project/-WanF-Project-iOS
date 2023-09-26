@@ -14,8 +14,11 @@ struct FriendsMatchWritingViewModel {
     
     let disposeBag = DisposeBag()
     
+    // Subcomponent ViewModel
     let topBarViewModel = FriendsMatchWritingTopBarViewModel()
-    var friendsMatchWritingLectureInfoViewModel = FriendsMatchWritingLectureInfoViewModel()
+    let friendsMatchWritingLectureInfoViewModel = FriendsMatchWritingLectureInfoViewModel()
+    let titleViewModel = WritingTextViewModel()
+    let contentViewModel = WritingTextViewModel()
     
     // View -> ViewModel
     let titleText = PublishRelay<String?>()
@@ -32,7 +35,7 @@ struct FriendsMatchWritingViewModel {
     let activateDoneButton: Driver<Bool>
     
     let isSelectedLectureInfo: Observable<Bool>
-    let isDoneToWrite = PublishSubject<Bool>()
+    let isDoneToWrite: Observable<Bool>
     
     // ChildViewModel -> ViewModel
     let createFriendsMatchDetailData = PublishRelay<Void>()
@@ -49,7 +52,12 @@ struct FriendsMatchWritingViewModel {
         
         //done 버튼 활성화 여부 결정
         isSelectedLectureInfo = shouldSendLectureInfo
-            .map { _ in return true }
+            .map { _ in true }
+        
+        isDoneToWrite = Observable
+            .combineLatest(titleViewModel.shouldActiveDoneButton, contentViewModel.shouldActiveDoneButton, resultSelector: { isTitleDone, isContentDone in
+                return isTitleDone && isContentDone
+            })
         
         activateDoneButton = Observable
             .combineLatest(isSelectedLectureInfo, isDoneToWrite, resultSelector: { isSelected, isDone in

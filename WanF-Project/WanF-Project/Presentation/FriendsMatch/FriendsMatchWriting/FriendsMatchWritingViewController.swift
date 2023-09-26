@@ -17,15 +17,6 @@ class FriendsMatchWritingViewController: UIViewController {
     let disposeBag = DisposeBag()
     var viewModel: FriendsMatchWritingViewModel?
     
-    var isDoneToWrite = false {
-        willSet {
-            if self.viewModel != nil {
-                viewModel!.isDoneToWrite
-                    .onNext(newValue)
-            }
-        }
-    }
-    
     //MARK: - View
     let topBarView = FriendsMatchWritingTopBarView()
     let lectureInfoView = FriendsMatchWritingLectureInfoView()
@@ -41,33 +32,9 @@ class FriendsMatchWritingViewController: UIViewController {
         return view
     }()
     
-    lazy var titleTextView: UITextView = {
-        var textView = UITextView()
-        
-        textView.isScrollEnabled = false
-        textView.isEditable = true
-        textView.text = "제목을 입력하세요"
-        textView.font = .wanfFont(ofSize: 23, weight: .bold)
-        textView.tintColor = .wanfMint
-        textView.textColor = .placeholderText
-        textView.delegate = self
-        
-        return textView
-    }()
+    lazy var titleTextView = WritingTextView(placeholder: "제목을 입력하세요", font: .wanfFont(ofSize: 23, weight: .bold))
     
-    lazy var contentTextView: UITextView = {
-        var textView = UITextView()
-        
-        textView.isScrollEnabled = false
-        textView.isEditable = true
-        textView.text = "내용을 입력하세요"
-        textView.font = .wanfFont(ofSize: 18, weight: .regular)
-        textView.tintColor = .wanfMint
-        textView.textColor = .placeholderText
-        textView.delegate = self
-        
-        return textView
-    }()
+    lazy var contentTextView = WritingTextView(placeholder: "내용을 입력하세요", font: .wanfFont(ofSize: 18, weight: .regular))
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -85,6 +52,8 @@ class FriendsMatchWritingViewController: UIViewController {
         // Bind Subcomponent
         topBarView.bind(viewModel.topBarViewModel)
         lectureInfoView.bind(viewModel.friendsMatchWritingLectureInfoViewModel)
+        titleTextView.bind(viewModel.titleViewModel)
+        contentTextView.bind(viewModel.contentViewModel)
         
         // View -> ViewModel
         titleTextView.rx.text
@@ -173,46 +142,6 @@ private extension FriendsMatchWritingViewController {
             make.horizontalEdges.equalToSuperview()
             make.bottom.equalToSuperview()
         }
-    }
-}
-
-// TODO: - RxSwift로 Refactoring
-//MARK: - TextViewDelegate
-extension FriendsMatchWritingViewController: UITextViewDelegate {
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        guard textView.textColor == UIColor.placeholderText else{ return }
-        
-        textView.text = ""
-        textView.textColor = .wanfLabel
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            textView.text = textView == self.titleTextView ? "제목을 입력하세요" : "내용을 입력하세요"
-            textView.textColor = .placeholderText
-            
-            self.isDoneToWrite = false
-            return
-        }
-        
-    }
-    
-    func textViewDidChange(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            self.isDoneToWrite = false
-            return
-        }
-        
-        switch textView {
-        case titleTextView:
-            if contentTextView.text == "내용을 입력하세요" { return }
-        case contentTextView:
-            if titleTextView.text == "제목을 입력하세요" { return }
-        default:
-            return
-        }
-        
-        self.isDoneToWrite = true
     }
 }
 
