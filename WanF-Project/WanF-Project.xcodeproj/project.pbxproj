@@ -153,7 +153,7 @@
 		149B95652ABDDB1F00AF7993 /* ClubDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B95642ABDDB1F00AF7993 /* ClubDetailViewController.swift */; };
 		149B95672ABDDB4400AF7993 /* ClubDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B95662ABDDB4400AF7993 /* ClubDetailViewModel.swift */; };
 		149B95692ABDDBB200AF7993 /* ClubDetailTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B95682ABDDBB200AF7993 /* ClubDetailTableViewCellViewModel.swift */; };
-		149B956B2ABDDBC600AF7993 /* ClubDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B956A2ABDDBC600AF7993 /* ClubDetailTableViewCell.swift */; };
+		149B956B2ABDDBC600AF7993 /* ClubDetailListImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B956A2ABDDBC600AF7993 /* ClubDetailListImageCell.swift */; };
 		149F01622A13859600370FE1 /* DynamicSizeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149F01612A13859600370FE1 /* DynamicSizeTableView.swift */; };
 		14A11A562A94AD76008453FC /* ProfileImageRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A552A94AD76008453FC /* ProfileImageRequestEntity.swift */; };
 		14A11A582A94BA07008453FC /* ExNSMutableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A572A94BA07008453FC /* ExNSMutableData.swift */; };
@@ -345,7 +345,7 @@
 		149B95642ABDDB1F00AF7993 /* ClubDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailViewController.swift; sourceTree = "<group>"; };
 		149B95662ABDDB4400AF7993 /* ClubDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailViewModel.swift; sourceTree = "<group>"; };
 		149B95682ABDDBB200AF7993 /* ClubDetailTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailTableViewCellViewModel.swift; sourceTree = "<group>"; };
-		149B956A2ABDDBC600AF7993 /* ClubDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailTableViewCell.swift; sourceTree = "<group>"; };
+		149B956A2ABDDBC600AF7993 /* ClubDetailListImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailListImageCell.swift; sourceTree = "<group>"; };
 		149F01612A13859600370FE1 /* DynamicSizeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSizeTableView.swift; sourceTree = "<group>"; };
 		14A11A552A94AD76008453FC /* ProfileImageRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageRequestEntity.swift; sourceTree = "<group>"; };
 		14A11A572A94BA07008453FC /* ExNSMutableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExNSMutableData.swift; sourceTree = "<group>"; };
@@ -1024,7 +1024,7 @@
 			isa = PBXGroup;
 			children = (
 				149B95682ABDDBB200AF7993 /* ClubDetailTableViewCellViewModel.swift */,
-				149B956A2ABDDBC600AF7993 /* ClubDetailTableViewCell.swift */,
+				149B956A2ABDDBC600AF7993 /* ClubDetailListImageCell.swift */,
 			);
 			path = ClubDetailSubcomponents;
 			sourceTree = "<group>";
@@ -1403,7 +1403,7 @@
 				146EA3422A8B522C005E010B /* ProfileBarButtonItem.swift in Sources */,
 				14886B282AC1A656005F6E07 /* ClubDetailModel.swift in Sources */,
 				1466FA202A0A428D00910C30 /* AuthNetwork.swift in Sources */,
-				149B956B2ABDDBC600AF7993 /* ClubDetailTableViewCell.swift in Sources */,
+				149B956B2ABDDBC600AF7993 /* ClubDetailListImageCell.swift in Sources */,
 				14BD19F229FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift in Sources */,
 				142DBED229DC223A00017603 /* EmailTextFieldViewModel.swift in Sources */,
 				149B95652ABDDB1F00AF7993 /* ClubDetailViewController.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  ClubDetailTableViewCell.swift
+//  ClubDetailListImageCell.swift
 //  WanF-Project
 //
 //  Created by 임윤휘 on 2023/09/22.
@@ -11,7 +11,7 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-class ClubDetailTableViewCell: UITableViewCell {
+class ClubDetailListImageCell: UITableViewCell {
     
     //MARK: - Propertied
     var viewModel: ClubDetailTableViewCellViewModel?
@@ -72,7 +72,7 @@ class ClubDetailTableViewCell: UITableViewCell {
 }
 
 //MARK: - Configure
-private extension ClubDetailTableViewCell {
+private extension ClubDetailListImageCell {
     func configure() {
         backgroundColor = .wanfBackground
         
