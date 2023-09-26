@@ -51,6 +51,7 @@ class ClubDetailViewController: UIViewController {
                     
                     cell.bind(viewModel)
                     cell.configureCell(element)
+                    cell.selectionStyle = .none
                     return cell
                 }
                 else { // Text
@@ -59,6 +60,7 @@ class ClubDetailViewController: UIViewController {
                     
                     cell.bind(viewModel)
                     cell.configureCell(element)
+                    cell.selectionStyle = .none
                     return cell
                 }
             }
