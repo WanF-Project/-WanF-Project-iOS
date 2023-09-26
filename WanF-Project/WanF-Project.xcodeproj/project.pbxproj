@@ -32,6 +32,7 @@
 		1415DD922AA1D0BE00EF03A4 /* MessageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1415DD912AA1D0BE00EF03A4 /* MessageListViewController.swift */; };
 		1415DD942AA1D13A00EF03A4 /* MessageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1415DD932AA1D13A00EF03A4 /* MessageListViewModel.swift */; };
 		1415DD972AA1D81000EF03A4 /* MessageListResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1415DD962AA1D81000EF03A4 /* MessageListResponseEntity.swift */; };
+		1417FC002AC2774400613777 /* ClubDetailListTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417FBFF2AC2774400613777 /* ClubDetailListTextCell.swift */; };
 		141A781829D7ED46006731F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A781729D7ED46006731F7 /* AppDelegate.swift */; };
 		141A781A29D7ED46006731F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A781929D7ED46006731F7 /* SceneDelegate.swift */; };
 		141A782129D7ED46006731F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 141A782029D7ED46006731F7 /* Assets.xcassets */; };
@@ -152,8 +153,8 @@
 		149B95612ABD62FC00AF7993 /* ClubPostResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B95602ABD62FC00AF7993 /* ClubPostResponseEntity.swift */; };
 		149B95652ABDDB1F00AF7993 /* ClubDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B95642ABDDB1F00AF7993 /* ClubDetailViewController.swift */; };
 		149B95672ABDDB4400AF7993 /* ClubDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B95662ABDDB4400AF7993 /* ClubDetailViewModel.swift */; };
-		149B95692ABDDBB200AF7993 /* ClubDetailTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B95682ABDDBB200AF7993 /* ClubDetailTableViewCellViewModel.swift */; };
-		149B956B2ABDDBC600AF7993 /* ClubDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B956A2ABDDBC600AF7993 /* ClubDetailTableViewCell.swift */; };
+		149B95692ABDDBB200AF7993 /* ClubDetailListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B95682ABDDBB200AF7993 /* ClubDetailListCellViewModel.swift */; };
+		149B956B2ABDDBC600AF7993 /* ClubDetailListImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B956A2ABDDBC600AF7993 /* ClubDetailListImageCell.swift */; };
 		149F01622A13859600370FE1 /* DynamicSizeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149F01612A13859600370FE1 /* DynamicSizeTableView.swift */; };
 		14A11A562A94AD76008453FC /* ProfileImageRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A552A94AD76008453FC /* ProfileImageRequestEntity.swift */; };
 		14A11A582A94BA07008453FC /* ExNSMutableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A11A572A94BA07008453FC /* ExNSMutableData.swift */; };
@@ -226,6 +227,7 @@
 		1415DD912AA1D0BE00EF03A4 /* MessageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListViewController.swift; sourceTree = "<group>"; };
 		1415DD932AA1D13A00EF03A4 /* MessageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListViewModel.swift; sourceTree = "<group>"; };
 		1415DD962AA1D81000EF03A4 /* MessageListResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListResponseEntity.swift; sourceTree = "<group>"; };
+		1417FBFF2AC2774400613777 /* ClubDetailListTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailListTextCell.swift; sourceTree = "<group>"; };
 		141A781429D7ED46006731F7 /* WanF-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WanF-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		141A781729D7ED46006731F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		141A781929D7ED46006731F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -344,8 +346,8 @@
 		149B95602ABD62FC00AF7993 /* ClubPostResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubPostResponseEntity.swift; sourceTree = "<group>"; };
 		149B95642ABDDB1F00AF7993 /* ClubDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailViewController.swift; sourceTree = "<group>"; };
 		149B95662ABDDB4400AF7993 /* ClubDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailViewModel.swift; sourceTree = "<group>"; };
-		149B95682ABDDBB200AF7993 /* ClubDetailTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailTableViewCellViewModel.swift; sourceTree = "<group>"; };
-		149B956A2ABDDBC600AF7993 /* ClubDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailTableViewCell.swift; sourceTree = "<group>"; };
+		149B95682ABDDBB200AF7993 /* ClubDetailListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailListCellViewModel.swift; sourceTree = "<group>"; };
+		149B956A2ABDDBC600AF7993 /* ClubDetailListImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailListImageCell.swift; sourceTree = "<group>"; };
 		149F01612A13859600370FE1 /* DynamicSizeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSizeTableView.swift; sourceTree = "<group>"; };
 		14A11A552A94AD76008453FC /* ProfileImageRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageRequestEntity.swift; sourceTree = "<group>"; };
 		14A11A572A94BA07008453FC /* ExNSMutableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExNSMutableData.swift; sourceTree = "<group>"; };
@@ -1023,8 +1025,9 @@
 		149B955D2ABD5E2300AF7993 /* ClubDetailSubcomponents */ = {
 			isa = PBXGroup;
 			children = (
-				149B95682ABDDBB200AF7993 /* ClubDetailTableViewCellViewModel.swift */,
-				149B956A2ABDDBC600AF7993 /* ClubDetailTableViewCell.swift */,
+				149B95682ABDDBB200AF7993 /* ClubDetailListCellViewModel.swift */,
+				149B956A2ABDDBC600AF7993 /* ClubDetailListImageCell.swift */,
+				1417FBFF2AC2774400613777 /* ClubDetailListTextCell.swift */,
 			);
 			path = ClubDetailSubcomponents;
 			sourceTree = "<group>";
@@ -1385,6 +1388,7 @@
 				143662002A0F7F0500308028 /* FriendsMatchNetwork.swift in Sources */,
 				144D30D92A068CE000640CCD /* SignUpNetwork.swift in Sources */,
 				14797C312A84BDD50006C706 /* ExReactive.swift in Sources */,
+				1417FC002AC2774400613777 /* ClubDetailListTextCell.swift in Sources */,
 				14F52BC22A8DEED800A09F92 /* ClubResponseEntity.swift in Sources */,
 				14567E9E29E00740000B75EE /* VerifiedStackViewCellViewModel.swift in Sources */,
 				14066BB329E166B100AFB2D2 /* SignUpPasswordModel.swift in Sources */,
@@ -1403,14 +1407,14 @@
 				146EA3422A8B522C005E010B /* ProfileBarButtonItem.swift in Sources */,
 				14886B282AC1A656005F6E07 /* ClubDetailModel.swift in Sources */,
 				1466FA202A0A428D00910C30 /* AuthNetwork.swift in Sources */,
-				149B956B2ABDDBC600AF7993 /* ClubDetailTableViewCell.swift in Sources */,
+				149B956B2ABDDBC600AF7993 /* ClubDetailListImageCell.swift in Sources */,
 				14BD19F229FBB9EF00B0E598 /* ProfileContentKeywordListCell.swift in Sources */,
 				142DBED229DC223A00017603 /* EmailTextFieldViewModel.swift in Sources */,
 				149B95652ABDDB1F00AF7993 /* ClubDetailViewController.swift in Sources */,
 				149B95672ABDDB4400AF7993 /* ClubDetailViewModel.swift in Sources */,
 				148152802AAC7E50002F5830 /* MessageRequestEntity.swift in Sources */,
 				1415DD942AA1D13A00EF03A4 /* MessageListViewModel.swift in Sources */,
-				149B95692ABDDBB200AF7993 /* ClubDetailTableViewCellViewModel.swift in Sources */,
+				149B95692ABDDBB200AF7993 /* ClubDetailListCellViewModel.swift in Sources */,
 				14A11A582A94BA07008453FC /* ExNSMutableData.swift in Sources */,
 				1449E1F62A135375008C70DB /* FriendsMatchCommentListView.swift in Sources */,
 				1426B0542AB308D500E43EA1 /* RandomNetwork.swift in Sources */,

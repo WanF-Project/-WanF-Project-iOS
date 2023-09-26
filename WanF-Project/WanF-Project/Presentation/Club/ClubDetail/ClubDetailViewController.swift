@@ -22,7 +22,8 @@ class ClubDetailViewController: UIViewController {
         var tableView = UITableView()
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
-        tableView.register(ClubDetailTableViewCell.self, forCellReuseIdentifier: "ClubDetailTableViewCell")
+        tableView.register(ClubDetailListImageCell.self, forCellReuseIdentifier: "ClubDetailListImageCell")
+        tableView.register(ClubDetailListTextCell.self, forCellReuseIdentifier: "ClubDetailListTextCell")
         
         return tableView
     }()
@@ -41,10 +42,27 @@ class ClubDetailViewController: UIViewController {
         
         // ViewModel -> View
         viewModel.cellData
-            .drive(postTableview.rx.items(cellIdentifier: "ClubDetailTableViewCell", cellType: ClubDetailTableViewCell.self)) { row, element, cell in
-                cell.bind(viewModel.cellViewModel)
-                cell.configureCell(element)
-                cell.selectionStyle = .none
+            .drive(postTableview.rx.items) { (tableView, row, element) -> UITableViewCell  in
+                let viewModel = ClubDetailListCellViewModel()
+                
+                if element.image != nil { // Image
+                    guard let cell = tableView.dequeueReusableCell(withIdentifier: "ClubDetailListImageCell") as? ClubDetailListImageCell
+                    else { return UITableViewCell() }
+                    
+                    cell.bind(viewModel)
+                    cell.configureCell(element)
+                    cell.selectionStyle = .none
+                    return cell
+                }
+                else { // Text
+                    guard let cell = tableView.dequeueReusableCell(withIdentifier: "ClubDetailListTextCell") as? ClubDetailListTextCell
+                    else { return UITableViewCell() }
+                    
+                    cell.bind(viewModel)
+                    cell.configureCell(element)
+                    cell.selectionStyle = .none
+                    return cell
+                }
             }
             .disposed(by: disposeBag)
         
