@@ -13,7 +13,7 @@ import RxCocoa
 struct ClubDetailViewModel {
     
     // SubcomponenetViewModel
-    let cellViewModel = ClubDetailTableViewCellViewModel()
+    let cellViewModel = ClubDetailListImageCellViewModel()
     
     let disposeBag = DisposeBag()
     let id = PublishRelay<Int>()

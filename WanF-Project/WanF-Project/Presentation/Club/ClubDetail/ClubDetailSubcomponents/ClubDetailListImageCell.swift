@@ -14,7 +14,7 @@ import RxCocoa
 class ClubDetailListImageCell: UITableViewCell {
     
     //MARK: - Propertied
-    var viewModel: ClubDetailTableViewCellViewModel?
+    var viewModel: ClubDetailListImageCellViewModel?
     
     //MARK: - View
     private lazy var detailInfoControl = PostUserInfoControlView()
@@ -48,7 +48,7 @@ class ClubDetailListImageCell: UITableViewCell {
 
     
     //MARK: - function
-    func bind(_ viewModel: ClubDetailTableViewCellViewModel) {
+    func bind(_ viewModel: ClubDetailListImageCellViewModel) {
         self.viewModel = viewModel
         
         // Bind Subcomponent ViewModel
