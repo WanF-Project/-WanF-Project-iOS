@@ -18,6 +18,8 @@ class ClubWritingViewModel {
     let contentTextViewModel = WritingTextViewModel()
     let photoSettingViewModel = ProfileSettingPhotoButtonViewModel()
     
+    let clubId = PublishRelay<Int>()
+    
     // View -> ViewModel
     let didTabDoneButton = PublishRelay<Void>()
     let didSetNoneImage = PublishRelay<ImageResponseEntity?>()
@@ -26,8 +28,9 @@ class ClubWritingViewModel {
     // ViewModel -> View
     let postData: Observable<ClubPostRequestEntity>
     let activeDoneButton = PublishRelay<Bool>()
+    let dismiss: Driver<Void>
     
-    init() {
+    init(_ model: ClubWritingModel = ClubWritingModel()) {
         
         // Activate DoneButton
         contentTextViewModel.shouldActiveDoneButton
@@ -35,8 +38,24 @@ class ClubWritingViewModel {
             .disposed(by: disposeBag)
         
         // Configure Data
-        let imageResponse = photoSettingViewModel.imageData
-            .map { _ in ImageResponseEntity(imageId: 0, imageUrl: "") }
+        let imageResult = photoSettingViewModel.imageData
+            .compactMap { $0 }
+            .flatMap(model.uploadImage)
+            .share()
+        
+        let imageValue = imageResult
+            .map(model.uploadImageValue)
+        
+        let imageError = imageResult
+            .compactMap(model.uploadImageError)
+        
+        imageError
+            .subscribe(onNext: {
+                print("ERROR: \($0)")
+            })
+            .disposed(by: disposeBag)
+        
+        let imageResponse = imageValue
             .amb(didSetNoneImage)
         
         postData = Observable
@@ -50,11 +69,23 @@ class ClubWritingViewModel {
         // Create Post
         let createResult = didTabDoneButton
             .withLatestFrom(postData)
+            .withLatestFrom(clubId) { (post: $0, id: $1) }
+            .flatMap { model.createClubPost(clubId: $0.id, post: $0.post)}
+            .share()
         
-        createResult
-            .subscribe(onNext: { data in
-                print("Create Post \(data)")
+        let createValue = createResult
+            .compactMap(model.createClubPostValue)
+        
+        let createError = createResult
+            .compactMap(model.createClubPostError)
+        
+        createError
+            .subscribe(onNext: {
+                print("ERROR \($0)")
             })
             .disposed(by: disposeBag)
+        
+        dismiss = createValue
+            .asDriver(onErrorDriveWith: .empty())
     }
 }
