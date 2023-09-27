@@ -35,6 +35,8 @@
 		1417FC002AC2774400613777 /* ClubDetailListTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417FBFF2AC2774400613777 /* ClubDetailListTextCell.swift */; };
 		1417FC042AC28C8800613777 /* WritingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417FC032AC28C8800613777 /* WritingTextView.swift */; };
 		1417FC092AC2996F00613777 /* WritingTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417FC082AC2996F00613777 /* WritingTextViewModel.swift */; };
+		1417FC0C2AC2AA6B00613777 /* ClubWritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417FC0B2AC2AA6B00613777 /* ClubWritingViewController.swift */; };
+		1417FC0E2AC2BA9E00613777 /* ClubWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417FC0D2AC2BA9E00613777 /* ClubWritingViewModel.swift */; };
 		141A781829D7ED46006731F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A781729D7ED46006731F7 /* AppDelegate.swift */; };
 		141A781A29D7ED46006731F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A781929D7ED46006731F7 /* SceneDelegate.swift */; };
 		141A782129D7ED46006731F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 141A782029D7ED46006731F7 /* Assets.xcassets */; };
@@ -232,6 +234,8 @@
 		1417FBFF2AC2774400613777 /* ClubDetailListTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailListTextCell.swift; sourceTree = "<group>"; };
 		1417FC032AC28C8800613777 /* WritingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingTextView.swift; sourceTree = "<group>"; };
 		1417FC082AC2996F00613777 /* WritingTextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingTextViewModel.swift; sourceTree = "<group>"; };
+		1417FC0B2AC2AA6B00613777 /* ClubWritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubWritingViewController.swift; sourceTree = "<group>"; };
+		1417FC0D2AC2BA9E00613777 /* ClubWritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubWritingViewModel.swift; sourceTree = "<group>"; };
 		141A781429D7ED46006731F7 /* WanF-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WanF-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		141A781729D7ED46006731F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		141A781929D7ED46006731F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -465,6 +469,15 @@
 				1417FC082AC2996F00613777 /* WritingTextViewModel.swift */,
 			);
 			path = WritingTextView;
+			sourceTree = "<group>";
+		};
+		1417FC0A2AC2AA5900613777 /* ClubWriting */ = {
+			isa = PBXGroup;
+			children = (
+				1417FC0B2AC2AA6B00613777 /* ClubWritingViewController.swift */,
+				1417FC0D2AC2BA9E00613777 /* ClubWritingViewModel.swift */,
+			);
+			path = ClubWriting;
 			sourceTree = "<group>";
 		};
 		141A780B29D7ED46006731F7 = {
@@ -875,6 +888,7 @@
 		146EA3402A8B4FC0005E010B /* Club */ = {
 			isa = PBXGroup;
 			children = (
+				1417FC0A2AC2AA5900613777 /* ClubWriting */,
 				149B95582ABD5DCD00AF7993 /* ClubDetail */,
 				1463ADE42A8CAB53002845B8 /* ClubList */,
 			);
@@ -1410,6 +1424,7 @@
 				1429B0BF29E5762A00891FF8 /* FriendsMatchDetailViewModel.swift in Sources */,
 				144D30C52A06076C00640CCD /* ProfileSingleSelectionListViewModel.swift in Sources */,
 				1417FC092AC2996F00613777 /* WritingTextViewModel.swift in Sources */,
+				1417FC0C2AC2AA6B00613777 /* ClubWritingViewController.swift in Sources */,
 				14982C7029EE603F00D388BF /* FriendsMatchDetailLectureInfoView.swift in Sources */,
 				146EA3442A8B52FE005E010B /* AddBarButtonItem.swift in Sources */,
 				1415DD922AA1D0BE00EF03A4 /* MessageListViewController.swift in Sources */,
@@ -1443,6 +1458,7 @@
 				14066BAF29E1431300AFB2D2 /* PasswordTextFieldCellViewModel.swift in Sources */,
 				149F01622A13859600370FE1 /* DynamicSizeTableView.swift in Sources */,
 				149B954B2ABD2E2D00AF7993 /* ClubRequestEntity.swift in Sources */,
+				1417FC0E2AC2BA9E00613777 /* ClubWritingViewModel.swift in Sources */,
 				1455D2602A25B8940090257B /* MajorNetwork.swift in Sources */,
 				14A11A602A94BE48008453FC /* ImageNetwork.swift in Sources */,
 				14AC9B3529E2751C009C37A5 /* FriendsMatchTabViewController.swift in Sources */,

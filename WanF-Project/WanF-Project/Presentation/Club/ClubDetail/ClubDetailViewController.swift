@@ -40,6 +40,16 @@ class ClubDetailViewController: UIViewController {
         // View -> ViewModel
         viewModel.loadClubDetail.accept(Void())
         
+        addBarItem.rx.tap
+            .subscribe(onNext: { _ in
+                let viewModel = ClubWritingViewModel()
+                let vc = ClubWritingViewController()
+                vc.bind(viewModel)
+                self.present(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        
         // ViewModel -> View
         viewModel.cellData
             .drive(postTableview.rx.items) { (tableView, row, element) -> UITableViewCell  in
