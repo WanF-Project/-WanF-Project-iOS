@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ClubPostRequestEntity {
+struct ClubPostRequestEntity: Encodable {
     let content: String
     let imageId: Int?
 }
