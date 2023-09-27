@@ -23,6 +23,7 @@ class ClubWritingViewController: UIViewController {
         
         configure()
         layout()
+        registerKeyboardNotifications()
     }
     
     func bind(_ viewModel: ClubWritingViewModel) {
@@ -80,5 +81,41 @@ private extension ClubWritingViewController {
             make.horizontalEdges.equalToSuperview().inset(horizontalInset).priority(.high)
             make.width.equalTo(scrollView).inset(horizontalInset)
         }
+    }
+}
+
+//MARK: - Adjust the view displaying the text
+private extension ClubWritingViewController {
+    func registerKeyboardNotifications(){
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
+        else { return }
+        
+        let contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardFrame.height, right: 0.0)
+        scrollView.contentInset = contentInset
+        scrollView.scrollIndicatorInsets = contentInset
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        let contentInset = UIEdgeInsets.zero
+        
+        scrollView.contentInset = contentInset
+        scrollView.scrollIndicatorInsets = contentInset
     }
 }
