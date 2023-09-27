@@ -41,14 +41,8 @@ class ClubDetailViewController: UIViewController {
         viewModel.loadClubDetail.accept(Void())
         
         addBarItem.rx.tap
-            .subscribe(onNext: { _ in
-                let viewModel = ClubWritingViewModel()
-                let vc = ClubWritingViewController()
-                vc.bind(viewModel)
-                self.present(vc, animated: true)
-            })
+            .bind(to: viewModel.didTapAddButton)
             .disposed(by: disposeBag)
-        
         
         // ViewModel -> View
         viewModel.cellData
@@ -78,6 +72,14 @@ class ClubDetailViewController: UIViewController {
         
         viewModel.clubName
             .bind(to: navigationItem.rx.title)
+            .disposed(by: disposeBag)
+        
+        viewModel.presentClubWriting
+            .drive(onNext: { viewModel in
+                let clubWritingVC = ClubWritingViewController()
+                clubWritingVC.bind(viewModel)
+                self.present(clubWritingVC, animated: true)
+            })
             .disposed(by: disposeBag)
     }
 }
