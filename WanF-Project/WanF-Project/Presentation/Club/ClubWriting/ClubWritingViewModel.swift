@@ -47,6 +47,14 @@ class ClubWritingViewModel {
                 return ClubPostRequestEntity(content: content, imageId: nil)
             })
         
-
+        // Create Post
+        let createResult = didTabDoneButton
+            .withLatestFrom(postData)
+        
+        createResult
+            .subscribe(onNext: { data in
+                print("Create Post \(data)")
+            })
+            .disposed(by: disposeBag)
     }
 }

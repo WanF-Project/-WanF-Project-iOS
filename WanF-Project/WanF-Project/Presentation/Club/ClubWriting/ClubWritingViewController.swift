@@ -41,6 +41,12 @@ class ClubWritingViewController: UIViewController {
         photoSettingButton.bind(viewModel.photoSettingViewModel)
         
         // View -> ViewModel
+        doneButton.rx.tap
+            .map {
+                viewModel.didSetNoneImage.accept(nil)
+            }
+            .bind(to: viewModel.didTabDoneButton)
+            .disposed(by: disposeBag)
         
         photoSettingButton.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: { _ in
