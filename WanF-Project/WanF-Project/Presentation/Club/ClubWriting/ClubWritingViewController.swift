@@ -68,6 +68,13 @@ class ClubWritingViewController: UIViewController {
         viewModel.activeDoneButton
             .bind(to: doneButton.rx.isEnabled)
             .disposed(by: disposeBag)
+        
+        // ViewModel -> View
+        viewModel.dismiss
+            .drive(onNext: {
+                self.dismiss(animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
