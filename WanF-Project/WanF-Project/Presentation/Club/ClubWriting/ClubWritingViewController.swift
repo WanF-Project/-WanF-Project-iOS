@@ -37,8 +37,10 @@ class ClubWritingViewController: UIViewController {
         self.viewModel = viewModel
         
         // Bind Subcomponent ViewModel
-        contentTextView.bind(viewModel.contentTextView)
+        contentTextView.bind(viewModel.contentTextViewModel)
         photoSettingButton.bind(viewModel.photoSettingViewModel)
+        
+        // View -> ViewModel
         
         photoSettingButton.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: { _ in
@@ -50,6 +52,15 @@ class ClubWritingViewController: UIViewController {
                 picker.delegate = self
                 self.present(picker, animated: true)
             })
+            .disposed(by: disposeBag)
+        
+        contentTextView.rx.text
+            .compactMap { $0 }
+            .bind(to: viewModel.content)
+            .disposed(by: disposeBag)
+        
+        viewModel.activeDoneButton
+            .bind(to: doneButton.rx.isEnabled)
             .disposed(by: disposeBag)
     }
 }
