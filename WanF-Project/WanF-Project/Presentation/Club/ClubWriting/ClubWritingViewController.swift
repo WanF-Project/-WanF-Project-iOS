@@ -6,10 +6,15 @@
 //
 
 import UIKit
+import PhotosUI
 
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class ClubWritingViewController: UIViewController {
+    
+    let disposeBag = DisposeBag()
     
     //MARK: - View
     private let scrollView = UIScrollView()
@@ -30,6 +35,19 @@ class ClubWritingViewController: UIViewController {
         
         // Bind Subcomponent ViewModel
         contentTextView.bind(viewModel.contentTextView)
+        photoSettingButton.bind(viewModel.photoSettingViewModel)
+        
+        photoSettingButton.rx.controlEvent(.touchUpInside)
+            .subscribe(onNext: { _ in
+                var configuration = PHPickerConfiguration(photoLibrary: .shared())
+                configuration.filter = .images
+                configuration.selectionLimit = 1
+                
+                let picker = PHPickerViewController(configuration: configuration)
+                picker.delegate = self
+                self.present(picker, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -118,4 +136,8 @@ private extension ClubWritingViewController {
         scrollView.contentInset = contentInset
         scrollView.scrollIndicatorInsets = contentInset
     }
+}
+
+extension ClubWritingViewController: PHPickerViewControllerDelegate {
+
 }
