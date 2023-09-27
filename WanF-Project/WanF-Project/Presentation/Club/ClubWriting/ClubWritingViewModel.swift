@@ -27,7 +27,7 @@ class ClubWritingViewModel {
     let postData: Observable<ClubPostRequestEntity>
     let activeDoneButton = PublishRelay<Bool>()
     
-    init() {
+    init(_ model: ClubWritingModel = ClubWritingModel()) {
         
         // Activate DoneButton
         contentTextViewModel.shouldActiveDoneButton
@@ -35,8 +35,24 @@ class ClubWritingViewModel {
             .disposed(by: disposeBag)
         
         // Configure Data
-        let imageResponse = photoSettingViewModel.imageData
-            .map { _ in ImageResponseEntity(imageId: 0, imageUrl: "") }
+        let imageResult = photoSettingViewModel.imageData
+            .compactMap { $0 }
+            .flatMap(model.uploadImage)
+            .share()
+        
+        let imageValue = imageResult
+            .map(model.uploadImageValue)
+        
+        let imageError = imageResult
+            .compactMap(model.uploadImageError)
+        
+        imageError
+            .subscribe(onNext: {
+                print("ERROR: \($0)")
+            })
+            .disposed(by: disposeBag)
+        
+        let imageResponse = imageValue
             .amb(didSetNoneImage)
         
         postData = Observable
