@@ -7,10 +7,11 @@
 
 import Foundation
 
-struct ClubWritingViewModel {
+class ClubWritingViewModel {
     
     // Subcomponent VieWModel
     let contentTextView = WritingTextViewModel()
+    let photoSettingViewModel = ProfileSettingPhotoButtonViewModel()
     
     init() {
         

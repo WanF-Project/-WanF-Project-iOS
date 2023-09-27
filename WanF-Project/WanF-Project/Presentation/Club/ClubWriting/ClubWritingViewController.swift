@@ -15,6 +15,7 @@ import RxCocoa
 class ClubWritingViewController: UIViewController {
     
     let disposeBag = DisposeBag()
+    var viewModel: ClubWritingViewModel?
     
     //MARK: - View
     private let scrollView = UIScrollView()
@@ -32,6 +33,8 @@ class ClubWritingViewController: UIViewController {
     }
     
     func bind(_ viewModel: ClubWritingViewModel) {
+        
+        self.viewModel = viewModel
         
         // Bind Subcomponent ViewModel
         contentTextView.bind(viewModel.contentTextView)
@@ -139,5 +142,24 @@ private extension ClubWritingViewController {
 }
 
 extension ClubWritingViewController: PHPickerViewControllerDelegate {
-
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        guard let result = results.first else { return }
+        let itemProvider = result.itemProvider
+        
+        if itemProvider.canLoadObject(ofClass: UIImage.self) {
+            itemProvider.loadObject(ofClass: UIImage.self) { reading, error in
+                if let error = error {
+                    print("ERROR: \(error)")
+                    return
+                }
+                
+                guard let image = reading as? UIImage else { return }
+                DispatchQueue.main.async {
+                    self.viewModel?.photoSettingViewModel.shouldChangePreImageForCreate.accept(image)
+                }
+            }
+        }
+        
+        self.dismiss(animated: true)
+    }
 }
