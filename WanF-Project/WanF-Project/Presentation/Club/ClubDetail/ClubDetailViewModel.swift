@@ -27,8 +27,8 @@ struct ClubDetailViewModel {
     init(_ model: ClubDetailModel = ClubDetailModel()) {
         
         // Load ClubDetail
-        let loadResult = loadClubDetail
-            .withLatestFrom(id)
+        let loadResult = id
+            .withLatestFrom(loadClubDetail) { id, _ in id }
             .flatMap(model.loadAllClubPosts)
             .share()
         
