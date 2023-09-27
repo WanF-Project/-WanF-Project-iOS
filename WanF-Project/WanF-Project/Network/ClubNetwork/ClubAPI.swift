@@ -64,4 +64,14 @@ class ClubAPI: WanfAPI {
         
         return components
     }
+    
+    /// 모임 상세 게시글 생성
+    func postClubPost(_ clubId: Int) -> URLComponents {
+        var components = URLComponents()
+        components.scheme = super.scheme
+        components.host = super.host
+        components.path = self.path + "/\(clubId)/clubposts"
+        
+        return components
+    }
 }

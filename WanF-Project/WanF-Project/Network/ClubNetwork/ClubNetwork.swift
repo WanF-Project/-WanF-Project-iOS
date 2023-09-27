@@ -185,4 +185,43 @@ class ClubNetwork: WanfNetwork {
             }
             .asSingle()
     }
+    
+    
+    /// 모임 상세 게시글 생성
+    func postClubPost(_ clubId: Int, post: ClubPostRequestEntity) -> Single<Result<Void, WanfError>> {
+        guard let url = api.postClubPost(clubId).url else {
+            return .just(.failure(.invalidURL))
+        }
+        
+        let request = UserDefaultsManager.accessTokenCheckedObservable
+            .compactMap { $0 }
+            .map { accessToken in
+                do {
+                    let body = try JSONEncoder().encode(post)
+                    
+                    var request = URLRequest(url: url)
+                    request.httpMethod = WanfHttpMethod.post.rawValue
+                    request.setValue(accessToken, forHTTPHeaderField: "Authorization")
+                    request.setValue("application/json;charset=UTF-8", forHTTPHeaderField: "Content-Type")
+                    request.httpBody = body
+                    return request
+                }
+                catch {
+                    return nil
+                }
+            }
+            .compactMap { $0 }
+        
+        return request
+            .flatMap {
+                super.session.rx.data(request: $0)
+            }
+            .map { _ in
+                return .success(Void())
+            }
+            .catch { error in
+                    .just(.failure(.networkError))
+            }
+            .asSingle()
+    }
 }
