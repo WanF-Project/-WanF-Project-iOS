@@ -63,6 +63,9 @@ class WritingTextView: UITextView {
                 if self.text.isEmpty {
                     viewModel.shouldActiveDoneButton.accept(false)
                 }
+                else {
+                    viewModel.shouldActiveDoneButton.accept(true)
+                }
             })
             .disposed(by: disposeBag)
     }
