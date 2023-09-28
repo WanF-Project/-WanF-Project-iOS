@@ -27,6 +27,7 @@ class ClubDetailViewController: UIViewController {
         
         return tableView
     }()
+    let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +39,18 @@ class ClubDetailViewController: UIViewController {
     func bind(_ viewModel: ClubDetailViewModel) {
         
         // View -> ViewModel
-        viewModel.loadClubDetail.accept(Void())
+        viewModel.loadClubDetail.onNext(Void())
         
         addBarItem.rx.tap
             .bind(to: viewModel.didTapAddButton)
+            .disposed(by: disposeBag)
+        
+        refreshControl.rx.controlEvent(.valueChanged)
+            .subscribe(onNext: { _ in
+                viewModel.clubDetailSubject.onNext(viewModel.refreshClubDetail)
+                viewModel.refreshClubDetail.onNext(Void())
+                self.refreshControl.endRefreshing()
+            })
             .disposed(by: disposeBag)
         
         // ViewModel -> View
@@ -91,6 +100,7 @@ private extension ClubDetailViewController {
         
         navigationItem.rightBarButtonItem = addBarItem
         
+        postTableview.refreshControl = refreshControl
     }
     
     func layout() {
