@@ -140,6 +140,7 @@ struct ClubListViewModel {
         pushToClubDetail = clubListTableViewModel.shouldPushToClubDetail
             .map {
                 let viewModel = ClubDetailViewModel()
+                viewModel.id.accept($0.id)
                 return ($0, viewModel)
             }
             .asDriver(onErrorDriveWith: .empty())

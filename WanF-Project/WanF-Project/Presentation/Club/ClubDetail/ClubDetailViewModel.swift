@@ -16,8 +16,11 @@ struct ClubDetailViewModel {
     let id = PublishRelay<Int>()
     
     // View -> ViewModel
-    let loadClubDetail = PublishRelay<Void>()
     let didTapAddButton = PublishRelay<Void>()
+    
+    let clubDetailSubject = PublishSubject<Observable<Void>>()
+    let loadClubDetail = PublishSubject<Void>()
+    let refreshClubDetail = PublishSubject<Void>()
     
     // ViewModel -> View
     let cellData: Driver<ClubPostListResponseEntity>
@@ -27,8 +30,9 @@ struct ClubDetailViewModel {
     init(_ model: ClubDetailModel = ClubDetailModel()) {
         
         // Load ClubDetail
-        let loadResult = id
-            .withLatestFrom(loadClubDetail) { id, _ in id }
+        let loadResult = clubDetailSubject
+            .switchLatest()
+            .withLatestFrom(id)
             .flatMap(model.loadAllClubPosts)
             .share()
         
@@ -47,6 +51,8 @@ struct ClubDetailViewModel {
         cellData = loadValue
             .asDriver(onErrorDriveWith: .empty())
         
+        clubDetailSubject.onNext(loadClubDetail)
+        
         // Present ClubWriting
         presentClubWriting = didTapAddButton
             .withLatestFrom(id)
@@ -56,6 +62,8 @@ struct ClubDetailViewModel {
                 return viewModel
             })
             .asDriver(onErrorDriveWith: .empty())
+        
+        presentClubWriting.drive().disposed(by: disposeBag)
     }
 }
 
