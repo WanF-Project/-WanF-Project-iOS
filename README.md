@@ -1,19 +1,14 @@
 <div align="center">
   <img src="https://github.com/WanF-Project/WanF-Project-iOS/assets/65601189/8daa61d5-9b72-4b1e-a054-16f22656d725" alt="WanF" width="200" height="200">
 
-
 # WanF
-```
-[v0.1.0] 2023.03 ~ 06, 3개월
-[v1.0.0] 2023.06 ~ 09, 3개월
-
-수업 친구 매칭 서비스
-같이 수업을 듣고 정보를 공유할 친구를 찾을 수 있도록 돕는 학교 전용 플랫폼입니다.
-```
+<img width="1019" alt="스크린샷 2023-10-18 오후 4 23 58" src="https://github.com/WanF-Project/WanF-Project-iOS/assets/65601189/efa82834-e0e0-48ad-b463-848694a51df2">
 
 <br>
 <br>
 <br>
+<br>
+
 </div>
 
 ## 💁🏻‍♀️  서비스 소개
