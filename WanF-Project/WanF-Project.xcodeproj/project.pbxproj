@@ -103,6 +103,7 @@
 		145C7A632AA6EE6B002C5E53 /* MessageDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C7A622AA6EE6B002C5E53 /* MessageDetailViewModel.swift */; };
 		145C7A682AA70B1A002C5E53 /* MessageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C7A672AA70B1A002C5E53 /* MessageAPI.swift */; };
 		1463165E2AEA259D0044E4BD /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 1463165D2AEA259D0044E4BD /* RxDataSources */; };
+		146316612AEA2AA40044E4BD /* BannerResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146316602AEA2AA40044E4BD /* BannerResponseEntity.swift */; };
 		1463ADE12A8C9182002845B8 /* ClubListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1463ADE02A8C9182002845B8 /* ClubListViewModel.swift */; };
 		1466FA1E2A0A412500910C30 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466FA1D2A0A412500910C30 /* AuthAPI.swift */; };
 		1466FA202A0A428D00910C30 /* AuthNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466FA1F2A0A428D00910C30 /* AuthNetwork.swift */; };
@@ -302,6 +303,7 @@
 		14567E9F29E00AF6000B75EE /* SignUpIDModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpIDModel.swift; sourceTree = "<group>"; };
 		145C7A622AA6EE6B002C5E53 /* MessageDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewModel.swift; sourceTree = "<group>"; };
 		145C7A672AA70B1A002C5E53 /* MessageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAPI.swift; sourceTree = "<group>"; };
+		146316602AEA2AA40044E4BD /* BannerResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerResponseEntity.swift; sourceTree = "<group>"; };
 		1463ADE02A8C9182002845B8 /* ClubListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListViewModel.swift; sourceTree = "<group>"; };
 		1466FA1D2A0A412500910C30 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		1466FA1F2A0A428D00910C30 /* AuthNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetwork.swift; sourceTree = "<group>"; };
@@ -554,6 +556,7 @@
 		1429B0A129E5118D00891FF8 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				1463165F2AEA2A730044E4BD /* Banner */,
 				145164412AB865F800061090 /* Auth */,
 				1426B04F2AB3067500E43EA1 /* Pageable */,
 				1415DD952AA1D73200EF03A4 /* Message */,
@@ -860,6 +863,14 @@
 				1409EAB02AA831FF00B9B2A8 /* MessageNetwork.swift */,
 			);
 			path = MessageNetwork;
+			sourceTree = "<group>";
+		};
+		1463165F2AEA2A730044E4BD /* Banner */ = {
+			isa = PBXGroup;
+			children = (
+				146316602AEA2AA40044E4BD /* BannerResponseEntity.swift */,
+			);
+			path = Banner;
 			sourceTree = "<group>";
 		};
 		1463ADE42A8CAB53002845B8 /* ClubList */ = {
@@ -1455,6 +1466,7 @@
 				149B95652ABDDB1F00AF7993 /* ClubDetailViewController.swift in Sources */,
 				149B95672ABDDB4400AF7993 /* ClubDetailViewModel.swift in Sources */,
 				148152802AAC7E50002F5830 /* MessageRequestEntity.swift in Sources */,
+				146316612AEA2AA40044E4BD /* BannerResponseEntity.swift in Sources */,
 				1415DD942AA1D13A00EF03A4 /* MessageListViewModel.swift in Sources */,
 				149B95692ABDDBB200AF7993 /* ClubDetailListCellViewModel.swift in Sources */,
 				14A11A582A94BA07008453FC /* ExNSMutableData.swift in Sources */,
