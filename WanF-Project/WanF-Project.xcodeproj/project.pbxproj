@@ -102,6 +102,7 @@
 		14567EA029E00AF6000B75EE /* SignUpIDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14567E9F29E00AF6000B75EE /* SignUpIDModel.swift */; };
 		145C7A632AA6EE6B002C5E53 /* MessageDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C7A622AA6EE6B002C5E53 /* MessageDetailViewModel.swift */; };
 		145C7A682AA70B1A002C5E53 /* MessageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C7A672AA70B1A002C5E53 /* MessageAPI.swift */; };
+		1463165E2AEA259D0044E4BD /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 1463165D2AEA259D0044E4BD /* RxDataSources */; };
 		1463ADE12A8C9182002845B8 /* ClubListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1463ADE02A8C9182002845B8 /* ClubListViewModel.swift */; };
 		1466FA1E2A0A412500910C30 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466FA1D2A0A412500910C30 /* AuthAPI.swift */; };
 		1466FA202A0A428D00910C30 /* AuthNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466FA1F2A0A428D00910C30 /* AuthNetwork.swift */; };
@@ -420,6 +421,7 @@
 				141290D22AA962DA003035E0 /* FirebaseAnalytics in Frameworks */,
 				141A783429D7F168006731F7 /* RxSwift in Frameworks */,
 				141A782D29D7F120006731F7 /* SnapKit in Frameworks */,
+				1463165E2AEA259D0044E4BD /* RxDataSources in Frameworks */,
 				141290D42AA962DA003035E0 /* FirebaseAuth in Frameworks */,
 				14121FDA2AA5A1DB0059867B /* MessageKit in Frameworks */,
 			);
@@ -1319,6 +1321,7 @@
 				141290D12AA962DA003035E0 /* FirebaseAnalytics */,
 				141290D32AA962DA003035E0 /* FirebaseAuth */,
 				141290D52AA962DA003035E0 /* FirebaseMessaging */,
+				1463165D2AEA259D0044E4BD /* RxDataSources */,
 			);
 			productName = "WanF-Project";
 			productReference = 141A781429D7ED46006731F7 /* WanF-Project.app */;
@@ -1353,6 +1356,7 @@
 				141A782E29D7F168006731F7 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				14121FD82AA5A1DB0059867B /* XCRemoteSwiftPackageReference "MessageKit" */,
 				141290D02AA962DA003035E0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				1463165C2AEA259C0044E4BD /* XCRemoteSwiftPackageReference "RxDataSources" */,
 			);
 			productRefGroup = 141A781529D7ED46006731F7 /* Products */;
 			projectDirPath = "";
@@ -1826,6 +1830,14 @@
 				kind = branch;
 			};
 		};
+		1463165C2AEA259C0044E4BD /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1868,6 +1880,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 141A782E29D7F168006731F7 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		1463165D2AEA259D0044E4BD /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1463165C2AEA259C0044E4BD /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
