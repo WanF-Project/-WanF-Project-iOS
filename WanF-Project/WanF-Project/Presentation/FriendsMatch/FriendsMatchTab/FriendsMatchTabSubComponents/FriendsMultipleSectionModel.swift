@@ -13,17 +13,22 @@ import RxDataSources
 typealias FriendsMultipleSectionDataSource = RxCollectionViewSectionedReloadDataSource<MultipleSectionModel>
 
 func dataSource() -> FriendsMultipleSectionDataSource {
-    return FriendsMultipleSectionDataSource { dataSource, collectionView, indexPath, item in
+    return FriendsMultipleSectionDataSource(configureCell: { dataSource, collectionView, indexPath, item in
         switch dataSource[indexPath] {
         case let .BannerItem(banner):
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerSection", for: indexPath)
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerListCell", for: indexPath) as? BannerListCell else { return UICollectionViewCell() }
+            cell.configureCell(banner)
             return cell
         case let .PostItme(post):
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendsMatchListCell", for: indexPath) as? FriendsMatchListCell else { return UICollectionViewCell() }
             cell.configureCell(post)
             return cell
         }
-    }
+    }, configureSupplementaryView: { (dataSource, collectionView, kind, indexPath) -> UICollectionReusableView in
+        let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "BannerListSupplementaryFooterView", for: indexPath)
+        
+        return footer
+    })
 }
 
 enum MultipleSectionModel {
@@ -56,4 +61,9 @@ extension MultipleSectionModel: SectionModelType {
             self = .PostSection(items: items)
         }
     }
+}
+
+enum MultipleSectionType {
+    case bannerSection
+    case postSection
 }
