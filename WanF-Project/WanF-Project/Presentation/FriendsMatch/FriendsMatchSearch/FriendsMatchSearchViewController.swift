@@ -17,7 +17,7 @@ class FriendsMatchSearchViewController: UIViewController {
     
     //MARK: - View
     let searchBar = CSSearchBarView()
-    let postTableView = FriendsMatchTableView()
+    let postListView = FriendsMultipleListView([.postSection])
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -40,14 +40,13 @@ class FriendsMatchSearchViewController: UIViewController {
         
         // Configure list
         viewModel.cellData
-            .drive(postTableView.rx.items(cellIdentifier: "FriendsMatchListCell", cellType: FriendsMatchListCell.self)){ row, element, cell in
-                cell.selectionStyle = .none
-                cell.setCellData(element)
+            .drive(postListView.rx.items(cellIdentifier: "FriendsMatchListCell", cellType: FriendsMatchListCell.self)){ row, element, cell in
+                cell.configureCell(element)
             }
             .disposed(by: disposeBag)
         
         // Select Item
-        postTableView.rx.itemSelected
+        postListView.rx.itemSelected
             .bind(to: viewModel.didSelectItem)
             .disposed(by: disposeBag)
         
@@ -88,7 +87,7 @@ private extension FriendsMatchSearchViewController {
         
         [
             searchBar,
-            postTableView
+            postListView
         ]
             .forEach { view.addSubview($0) }
     }
@@ -104,10 +103,10 @@ private extension FriendsMatchSearchViewController {
             make.horizontalEdges.equalToSuperview().inset(inset/3)
         }
         
-        postTableView.snp.makeConstraints { make in
-            make.top.equalTo(searchBar.snp.bottom).offset(offset)
-            make.horizontalEdges.equalToSuperview().inset(offset)
-            make.bottom.equalToSuperview().inset(inset)
+        postListView.snp.makeConstraints { make in
+            make.top.equalTo(searchBar.snp.bottom)
+            make.horizontalEdges.equalToSuperview()
+            make.bottom.equalToSuperview()
         }
     }
 }

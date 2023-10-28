@@ -27,7 +27,7 @@ class FriendsMatchTabViewController: UIViewController {
     
     private lazy var addBarItem = AddBarButtonItem()
     
-    lazy var friednsMatchTableView = FriendsMatchTableView()
+    lazy var friednsMultipleListView = FriendsMultipleListView([.bannerSection, .postSection])
     
     lazy var refreshControl = UIRefreshControl()
     
@@ -72,7 +72,7 @@ class FriendsMatchTabViewController: UIViewController {
             .bind(to: viewModel.addButtonTapped)
             .disposed(by: disposeBag)
         
-        friednsMatchTableView.rx.itemSelected
+        friednsMultipleListView.rx.itemSelected
             .map {
                 viewModel.loadDetailSubject.onNext(viewModel.loadDetailForSelectedItem)
                 return $0.row
@@ -119,19 +119,12 @@ class FriendsMatchTabViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        bindTableView(viewModel)
+        bindListView(viewModel)
     }
     
-    func bindTableView(_ viewModel: FriendsMatchTabViewModel) {
-        viewModel.cellData
-            .drive(friednsMatchTableView.rx.items) { tv, row, element in
-                guard let cell = tv.dequeueReusableCell(withIdentifier: "FriendsMatchListCell", for: IndexPath(row: row, section: 0)) as? FriendsMatchListCell else { return UITableViewCell() }
-                
-                cell.selectionStyle = .none
-                cell.setCellData(element)
-                
-                return cell
-            }
+    func bindListView(_ viewModel: FriendsMatchTabViewModel) {
+        viewModel.multipleCellData
+            .drive(friednsMultipleListView.rx.items(dataSource: dataSource()))
             .disposed(by: disposeBag)
     }
 }
@@ -158,12 +151,12 @@ private extension FriendsMatchTabViewController {
     }
     
     func layout() {
-        friednsMatchTableView.refreshControl = refreshControl
+        friednsMultipleListView.refreshControl = refreshControl
         
-        view.addSubview(friednsMatchTableView)
+        view.addSubview(friednsMultipleListView)
         
-        friednsMatchTableView.snp.makeConstraints { make in
-            make.edges.equalTo(view.safeAreaLayoutGuide).inset(15)
+        friednsMultipleListView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
 }

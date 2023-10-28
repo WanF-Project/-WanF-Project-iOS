@@ -11,7 +11,7 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-class FriendsMatchListCell: UITableViewCell {
+class FriendsMatchListCell: UICollectionViewCell {
     
     //MARK: - View
     private lazy var containerView: UIView = {
@@ -64,7 +64,7 @@ class FriendsMatchListCell: UITableViewCell {
     }
     
     //MARK: - Data
-    func setCellData(_ data: PostListResponseEntity) {
+    func configureCell(_ data: PostListResponseEntity) {
         let lectureInfo = data.course
         
         titleLabel.text = data.title
