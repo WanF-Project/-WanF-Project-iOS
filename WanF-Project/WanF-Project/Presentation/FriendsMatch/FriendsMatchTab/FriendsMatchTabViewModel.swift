@@ -29,7 +29,7 @@ struct FriendsMatchTabViewModel {
     let didSelectItem = PublishRelay<Int>()
     
     // ViewModel -> View
-    let cellData: Driver<[PostListResponseEntity]>
+    let multipleCellData: Driver<[MultipleSectionModel]>
     let subject = PublishSubject<Observable<Void>>()
     
     let pushToProfile: Driver<ProfileMainViewModel>
@@ -64,7 +64,15 @@ struct FriendsMatchTabViewModel {
         let friendsMatchListValue = friendsMatchListResult
             .compactMap(model.getFriendsMatchListValue)
         
-        cellData = friendsMatchListValue
+        let postData = friendsMatchListValue
+
+        let postCellData = postData
+            .map { posts in
+                MultipleSectionModel.PostSection(items: posts.map { SectionItem.PostItme($0) })
+            }
+        
+        multipleCellData = postCellData
+            .map { [$0] }
             .asDriver(onErrorDriveWith: .empty())
         
         let friendsMatchListError = friendsMatchListResult
@@ -72,7 +80,7 @@ struct FriendsMatchTabViewModel {
         
         // Load Detail
         didSelectItem
-            .withLatestFrom(cellData, resultSelector: { index, posts in
+            .withLatestFrom(postData, resultSelector: { index, posts in
                 posts[index].id
             })
             .bind(to: loadDetailForSelectedItem)
