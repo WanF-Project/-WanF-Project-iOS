@@ -48,10 +48,8 @@ private extension FriendsMultipleListView {
             guard let self = self else { return nil }
             switch self.types[sectionIndex] {
             case .bannerSection:
-                print("bannerSection")
                 return self.bannerSectionLayout()
             case .postSection:
-                print("postSection")
                 return self.postSectionLayout()
             }
         }
