@@ -82,6 +82,8 @@
 		1449E1F62A135375008C70DB /* FriendsMatchCommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1449E1F52A135375008C70DB /* FriendsMatchCommentListView.swift */; };
 		1449E1F82A135687008C70DB /* FriendsMatchCommentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1449E1F72A135687008C70DB /* FriendsMatchCommentListViewModel.swift */; };
 		1449E1FA2A13592A008C70DB /* CommentResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1449E1F92A13592A008C70DB /* CommentResponseEntity.swift */; };
+		144B2DBF2AECE9EB00230CD1 /* BannerListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B2DBE2AECE9EB00230CD1 /* BannerListCell.swift */; };
+		144B2DC12AED20D700230CD1 /* BannerListSupplementaryFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B2DC02AED20D700230CD1 /* BannerListSupplementaryFooterView.swift */; };
 		144D30C32A0606F000640CCD /* ProfileSingleSelectionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D30C22A0606F000640CCD /* ProfileSingleSelectionListViewController.swift */; };
 		144D30C52A06076C00640CCD /* ProfileSingleSelectionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D30C42A06076C00640CCD /* ProfileSingleSelectionListViewModel.swift */; };
 		144D30C72A06096000640CCD /* ProfileSingleSelectionListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D30C62A06096000640CCD /* ProfileSingleSelectionListModel.swift */; };
@@ -284,6 +286,8 @@
 		1449E1F52A135375008C70DB /* FriendsMatchCommentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchCommentListView.swift; sourceTree = "<group>"; };
 		1449E1F72A135687008C70DB /* FriendsMatchCommentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMatchCommentListViewModel.swift; sourceTree = "<group>"; };
 		1449E1F92A13592A008C70DB /* CommentResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponseEntity.swift; sourceTree = "<group>"; };
+		144B2DBE2AECE9EB00230CD1 /* BannerListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerListCell.swift; sourceTree = "<group>"; };
+		144B2DC02AED20D700230CD1 /* BannerListSupplementaryFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerListSupplementaryFooterView.swift; sourceTree = "<group>"; };
 		144D30C22A0606F000640CCD /* ProfileSingleSelectionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSingleSelectionListViewController.swift; sourceTree = "<group>"; };
 		144D30C42A06076C00640CCD /* ProfileSingleSelectionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSingleSelectionListViewModel.swift; sourceTree = "<group>"; };
 		144D30C62A06096000640CCD /* ProfileSingleSelectionListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSingleSelectionListModel.swift; sourceTree = "<group>"; };
@@ -590,6 +594,8 @@
 				146316622AEA2C900044E4BD /* FriendsMultipleSectionModel.swift */,
 				1429B0AD29E53F9D00891FF8 /* FriendsMatchListCell.swift */,
 				146A01722A78D152004E140E /* FriendsMultipleListView.swift */,
+				144B2DBE2AECE9EB00230CD1 /* BannerListCell.swift */,
+				144B2DC02AED20D700230CD1 /* BannerListSupplementaryFooterView.swift */,
 			);
 			path = FriendsMatchTabSubComponents;
 			sourceTree = "<group>";
@@ -1430,6 +1436,7 @@
 				14394D402A9C5C4000ACE540 /* ProfileDetailViewModel.swift in Sources */,
 				142DBED029DC1DCB00017603 /* EmailTextField.swift in Sources */,
 				1409EAB72AA8A98B00B9B2A8 /* MessageDetailModel.swift in Sources */,
+				144B2DBF2AECE9EB00230CD1 /* BannerListCell.swift in Sources */,
 				147823C82A7DF9F7003DC9CE /* CSKeyboardToolBar.swift in Sources */,
 				14A11A5E2A94BD9C008453FC /* ImageAPI.swift in Sources */,
 				1426B0522AB308CC00E43EA1 /* RandomAPI.swift in Sources */,
@@ -1560,6 +1567,7 @@
 				1466FA1E2A0A412500910C30 /* AuthAPI.swift in Sources */,
 				14AC9B3929E27569009C37A5 /* ClubListViewController.swift in Sources */,
 				140917112A7CED9C00B27131 /* ProfileSettingView.swift in Sources */,
+				144B2DC12AED20D700230CD1 /* BannerListSupplementaryFooterView.swift in Sources */,
 				14F5E8D82A821AB100A2228B /* Nameable.swift in Sources */,
 				14E4C9E429EA530F00E2CB62 /* CourseInfoListViewController.swift in Sources */,
 				149B95572ABD591700AF7993 /* PostUserInfoControlViewModel.swift in Sources */,
