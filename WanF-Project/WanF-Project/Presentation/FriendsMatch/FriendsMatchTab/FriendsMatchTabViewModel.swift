@@ -71,8 +71,13 @@ struct FriendsMatchTabViewModel {
                 MultipleSectionModel.PostSection(items: posts.map { SectionItem.PostItme($0) })
             }
         
-        multipleCellData = postCellData
-            .map { [$0] }
+        let bannerCellData = Observable.just([BannerEntity(url: "", image: ImageResponseEntity(imageId: 0, imageUrl: "")), BannerEntity(url: "", image: ImageResponseEntity(imageId: 0, imageUrl: "")), BannerEntity(url: "", image: ImageResponseEntity(imageId: 0, imageUrl: ""))])
+            .map { banners in
+                MultipleSectionModel.BannerSection(items: banners.map { SectionItem.BannerItem($0) })
+            }
+        
+        multipleCellData = Observable
+            .combineLatest(postCellData, bannerCellData, resultSelector: { [$1, $0] })
             .asDriver(onErrorDriveWith: .empty())
         
         let friendsMatchListError = friendsMatchListResult
