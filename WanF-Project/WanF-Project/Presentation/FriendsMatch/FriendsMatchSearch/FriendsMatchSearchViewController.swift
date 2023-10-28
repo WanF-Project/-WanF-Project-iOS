@@ -17,7 +17,7 @@ class FriendsMatchSearchViewController: UIViewController {
     
     //MARK: - View
     let searchBar = CSSearchBarView()
-    let postListView = FriendsMultipleListView()
+    let postListView = FriendsMultipleListView([.postSection])
     
     //MARK: - LifeCycle
     override func viewDidLoad() {

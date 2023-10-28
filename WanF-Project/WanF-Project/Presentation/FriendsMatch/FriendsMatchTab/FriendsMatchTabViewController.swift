@@ -27,7 +27,7 @@ class FriendsMatchTabViewController: UIViewController {
     
     private lazy var addBarItem = AddBarButtonItem()
     
-    lazy var friednsMultipleListView = FriendsMultipleListView()
+    lazy var friednsMultipleListView = FriendsMultipleListView([.bannerSection, .postSection])
     
     lazy var refreshControl = UIRefreshControl()
     
