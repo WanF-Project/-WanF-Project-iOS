@@ -12,7 +12,7 @@ import RxDataSources
 /// FriendsMatchList 화면 다중 Section을 위한 메서드 및 열거형
 typealias FriendsMultipleSectionDataSource = RxCollectionViewSectionedReloadDataSource<MultipleSectionModel>
 
-func dataSource() -> FriendsMultipleSectionDataSource {
+func dataSource(_ viewModel: FriendsMultipleListViewModel) -> FriendsMultipleSectionDataSource {
     return FriendsMultipleSectionDataSource(configureCell: { dataSource, collectionView, indexPath, item in
         switch dataSource[indexPath] {
         case let .BannerItem(banner):
@@ -25,7 +25,13 @@ func dataSource() -> FriendsMultipleSectionDataSource {
             return cell
         }
     }, configureSupplementaryView: { (dataSource, collectionView, kind, indexPath) -> UICollectionReusableView in
-        let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "BannerListSupplementaryFooterView", for: indexPath)
+        guard let footer = collectionView.dequeueReusableSupplementaryView(
+            ofKind: kind,
+            withReuseIdentifier: "BannerListSupplementaryFooterView",
+            for: indexPath) as? BannerListSupplementaryFooterView
+        else { return UICollectionReusableView() }
+        
+        footer.bind(viewModel.bannerListSupplementaryFooterViewModel)
         
         return footer
     })

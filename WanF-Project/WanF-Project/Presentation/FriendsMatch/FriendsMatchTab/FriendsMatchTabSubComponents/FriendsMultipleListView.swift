@@ -10,6 +10,7 @@ import UIKit
 class FriendsMultipleListView: UICollectionView {
     
     let types: [MultipleSectionType]
+    private var viewModel: FriendsMultipleListViewModel?
     
     //MARK: - Initialize
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
@@ -27,6 +28,12 @@ class FriendsMultipleListView: UICollectionView {
         
         self.collectionViewLayout = layout()
         configure()
+    }
+    
+    //MARK: - Function
+    func bind(_ viewModel: FriendsMultipleListViewModel) {
+        self.viewModel = viewModel
+        
     }
 }
 
@@ -73,6 +80,13 @@ private extension FriendsMultipleListView {
         section.boundarySupplementaryItems = [footerItem]
         section.orthogonalScrollingBehavior = .groupPaging
         
+        section.visibleItemsInvalidationHandler = { visiableItems, scrollOffet, layoutEnvironment in
+            let width = layoutEnvironment.container.effectiveContentSize.width
+            let currentLocationX = scrollOffet.x
+            let currentIndex = Int(currentLocationX / width)
+            
+            self.viewModel?.bannerListSupplementaryFooterViewModel.currentPage.accept(currentIndex)
+        }
         return section
     }
     

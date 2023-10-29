@@ -47,6 +47,9 @@ class FriendsMatchTabViewController: UIViewController {
     //MARK: - Function {
     func bind(_ viewModel: FriendsMatchTabViewModel) {
         
+        // Bind Subcomponents
+        friednsMultipleListView.bind(viewModel.FriendsMutipleListViewModel)
+        
         // Load a list
         viewModel.loadFriendsMatchList.onNext(Void())
         
@@ -124,7 +127,7 @@ class FriendsMatchTabViewController: UIViewController {
     
     func bindListView(_ viewModel: FriendsMatchTabViewModel) {
         viewModel.multipleCellData
-            .drive(friednsMultipleListView.rx.items(dataSource: dataSource()))
+            .drive(friednsMultipleListView.rx.items(dataSource: dataSource(viewModel.FriendsMutipleListViewModel)))
             .disposed(by: disposeBag)
     }
 }
