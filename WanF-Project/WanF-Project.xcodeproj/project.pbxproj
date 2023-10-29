@@ -125,6 +125,8 @@
 		147823C82A7DF9F7003DC9CE /* CSKeyboardToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147823C72A7DF9F7003DC9CE /* CSKeyboardToolBar.swift */; };
 		1478B4BF2AEE118600CF9E99 /* BannerListSupplementaryFooterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1478B4BE2AEE118600CF9E99 /* BannerListSupplementaryFooterViewModel.swift */; };
 		1478B4C52AEE2CF300CF9E99 /* FriendsMultipleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1478B4C42AEE2CF300CF9E99 /* FriendsMultipleListViewModel.swift */; };
+		1478B4C72AEE61B700CF9E99 /* BannerNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1478B4C62AEE61B700CF9E99 /* BannerNetwork.swift */; };
+		1478B4CA2AEE62EF00CF9E99 /* BannerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1478B4C92AEE62EF00CF9E99 /* BannerAPI.swift */; };
 		147922ED29DADBCF0052CBA8 /* SignUpIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147922EC29DADBCF0052CBA8 /* SignUpIDViewController.swift */; };
 		14793FA629D8046E0048D5DD /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14793FA529D8046E0048D5DD /* ColorAssets.xcassets */; };
 		14793FA929D831230048D5DD /* ExUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14793FA829D831230048D5DD /* ExUIColor.swift */; };
@@ -330,6 +332,8 @@
 		147823C72A7DF9F7003DC9CE /* CSKeyboardToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSKeyboardToolBar.swift; sourceTree = "<group>"; };
 		1478B4BE2AEE118600CF9E99 /* BannerListSupplementaryFooterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerListSupplementaryFooterViewModel.swift; sourceTree = "<group>"; };
 		1478B4C42AEE2CF300CF9E99 /* FriendsMultipleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMultipleListViewModel.swift; sourceTree = "<group>"; };
+		1478B4C62AEE61B700CF9E99 /* BannerNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerNetwork.swift; sourceTree = "<group>"; };
+		1478B4C92AEE62EF00CF9E99 /* BannerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAPI.swift; sourceTree = "<group>"; };
 		147922EC29DADBCF0052CBA8 /* SignUpIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpIDViewController.swift; sourceTree = "<group>"; };
 		14793FA529D8046E0048D5DD /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
 		14793FA829D831230048D5DD /* ExUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIColor.swift; sourceTree = "<group>"; };
@@ -790,6 +794,7 @@
 		144D30CB2A06257D00640CCD /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				1478B4C82AEE62C400CF9E99 /* BannerNetwork */,
 				1426B0502AB308A200E43EA1 /* RandomNetwork */,
 				141290D72AA9CA34003035E0 /* AuthNetwork */,
 				145C7A662AA70B04002C5E53 /* MessageNetwork */,
@@ -956,6 +961,15 @@
 				14473D5A2A7E3F6C00A0E23B /* ProfileSettingPhotoButton */,
 			);
 			path = ProfileCeateSubcomponent;
+			sourceTree = "<group>";
+		};
+		1478B4C82AEE62C400CF9E99 /* BannerNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				1478B4C62AEE61B700CF9E99 /* BannerNetwork.swift */,
+				1478B4C92AEE62EF00CF9E99 /* BannerAPI.swift */,
+			);
+			path = BannerNetwork;
 			sourceTree = "<group>";
 		};
 		14793FA729D82F1D0048D5DD /* Extension */ = {
@@ -1431,6 +1445,7 @@
 				14567E9C29DFE824000B75EE /* EmailStackViewCellModel.swift in Sources */,
 				1463ADE12A8C9182002845B8 /* ClubListViewModel.swift in Sources */,
 				14394D3C2A9C553400ACE540 /* ProfileDefaultViewModel.swift in Sources */,
+				1478B4CA2AEE62EF00CF9E99 /* BannerAPI.swift in Sources */,
 				143AE34C2A73B80700056647 /* CSSearchBarViewModel.swift in Sources */,
 				147E9B532A178E520032E530 /* CourseAPI.swift in Sources */,
 				14E4C9EB29EA9FC600E2CB62 /* FriendsMatchWritingTopBarViewModel.swift in Sources */,
@@ -1508,6 +1523,7 @@
 				14F52BC72A8DF32300A09F92 /* ClubNetwork.swift in Sources */,
 				142DBED529DC2B0200017603 /* PasswordTextField.swift in Sources */,
 				142DBEE129DC4FC300017603 /* MainTabBarViewModel.swift in Sources */,
+				1478B4C72AEE61B700CF9E99 /* BannerNetwork.swift in Sources */,
 				1429B0BD29E5760400891FF8 /* FriendsMatchDetailViewController.swift in Sources */,
 				14A58B012AB95C2A004B4550 /* ProfileEditViewController.swift in Sources */,
 				147E9B512A1784AA0032E530 /* UserDefaultsAuthorizationChecked.swift in Sources */,
