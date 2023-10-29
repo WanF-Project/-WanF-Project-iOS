@@ -124,6 +124,7 @@
 		146F1E652A22FC8E0095502F /* ProfileNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F1E642A22FC8E0095502F /* ProfileNetwork.swift */; };
 		147823C82A7DF9F7003DC9CE /* CSKeyboardToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147823C72A7DF9F7003DC9CE /* CSKeyboardToolBar.swift */; };
 		1478B4BF2AEE118600CF9E99 /* BannerListSupplementaryFooterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1478B4BE2AEE118600CF9E99 /* BannerListSupplementaryFooterViewModel.swift */; };
+		1478B4C52AEE2CF300CF9E99 /* FriendsMultipleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1478B4C42AEE2CF300CF9E99 /* FriendsMultipleListViewModel.swift */; };
 		147922ED29DADBCF0052CBA8 /* SignUpIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147922EC29DADBCF0052CBA8 /* SignUpIDViewController.swift */; };
 		14793FA629D8046E0048D5DD /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14793FA529D8046E0048D5DD /* ColorAssets.xcassets */; };
 		14793FA929D831230048D5DD /* ExUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14793FA829D831230048D5DD /* ExUIColor.swift */; };
@@ -328,6 +329,7 @@
 		146F1E642A22FC8E0095502F /* ProfileNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNetwork.swift; sourceTree = "<group>"; };
 		147823C72A7DF9F7003DC9CE /* CSKeyboardToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSKeyboardToolBar.swift; sourceTree = "<group>"; };
 		1478B4BE2AEE118600CF9E99 /* BannerListSupplementaryFooterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerListSupplementaryFooterViewModel.swift; sourceTree = "<group>"; };
+		1478B4C42AEE2CF300CF9E99 /* FriendsMultipleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMultipleListViewModel.swift; sourceTree = "<group>"; };
 		147922EC29DADBCF0052CBA8 /* SignUpIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpIDViewController.swift; sourceTree = "<group>"; };
 		14793FA529D8046E0048D5DD /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
 		14793FA829D831230048D5DD /* ExUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIColor.swift; sourceTree = "<group>"; };
@@ -599,6 +601,7 @@
 				144B2DBE2AECE9EB00230CD1 /* BannerListCell.swift */,
 				144B2DC02AED20D700230CD1 /* BannerListSupplementaryFooterView.swift */,
 				1478B4BE2AEE118600CF9E99 /* BannerListSupplementaryFooterViewModel.swift */,
+				1478B4C42AEE2CF300CF9E99 /* FriendsMultipleListViewModel.swift */,
 			);
 			path = FriendsMatchTabSubComponents;
 			sourceTree = "<group>";
@@ -1596,6 +1599,7 @@
 				144D30C32A0606F000640CCD /* ProfileSingleSelectionListViewController.swift in Sources */,
 				1455D2622A25B8A00090257B /* MajorAPI.swift in Sources */,
 				14870BF129EBBD9400D9643E /* FriendsMatchWritingLectureInfoViewModel.swift in Sources */,
+				1478B4C52AEE2CF300CF9E99 /* FriendsMultipleListViewModel.swift in Sources */,
 				142594DA2ABBF5A300B41333 /* ProfileEditModel.swift in Sources */,
 				1466FA242A0A486C00910C30 /* UserDefaultsAuthorizationWrapper.swift in Sources */,
 				14DD371E29DB2CBB00D6A715 /* SignUpPasswordViewController.swift in Sources */,

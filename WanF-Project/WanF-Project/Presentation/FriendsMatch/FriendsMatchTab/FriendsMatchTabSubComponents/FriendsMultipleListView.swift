@@ -10,6 +10,7 @@ import UIKit
 class FriendsMultipleListView: UICollectionView {
     
     let types: [MultipleSectionType]
+    private var viewModel: FriendsMultipleListViewModel?
     
     //MARK: - Initialize
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
@@ -27,6 +28,12 @@ class FriendsMultipleListView: UICollectionView {
         
         self.collectionViewLayout = layout()
         configure()
+    }
+    
+    //MARK: - Function
+    func bind(_ viewModel: FriendsMultipleListViewModel) {
+        self.viewModel = viewModel
+        
     }
 }
 

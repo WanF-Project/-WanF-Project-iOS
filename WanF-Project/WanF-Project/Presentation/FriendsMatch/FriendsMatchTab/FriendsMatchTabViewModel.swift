@@ -10,9 +10,12 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-struct FriendsMatchTabViewModel {
+class FriendsMatchTabViewModel {
     
     let disposeBag = DisposeBag()
+    
+    // Subcomponent ViewMode
+    let FriendsMutipleListViewModel = FriendsMultipleListViewModel()
     
     // View -> ViewModel
     let profileButtonTapped = PublishRelay<Void>()
