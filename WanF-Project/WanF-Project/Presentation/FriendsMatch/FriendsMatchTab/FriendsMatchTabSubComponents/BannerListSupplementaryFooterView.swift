@@ -8,8 +8,12 @@
 import UIKit
 
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class BannerListSupplementaryFooterView: UICollectionReusableView {
+    
+    private let disposeBag = DisposeBag()
     
     //MARK: - View
     lazy var pageControl = UIPageControl()
@@ -20,6 +24,14 @@ class BannerListSupplementaryFooterView: UICollectionReusableView {
         
         configure()
         layout()
+    }
+    
+    //MARK: - Function
+    func bind(_ viewModel: BannerListSupplementaryFooterViewModel) {
+        
+        viewModel.currentPage
+            .bind(to: pageControl.rx.currentPage)
+            .disposed(by: disposeBag)
     }
 }
 
