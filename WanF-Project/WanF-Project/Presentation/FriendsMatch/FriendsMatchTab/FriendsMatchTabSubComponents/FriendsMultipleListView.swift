@@ -80,6 +80,13 @@ private extension FriendsMultipleListView {
         section.boundarySupplementaryItems = [footerItem]
         section.orthogonalScrollingBehavior = .groupPaging
         
+        section.visibleItemsInvalidationHandler = { visiableItems, scrollOffet, layoutEnvironment in
+            let width = layoutEnvironment.container.effectiveContentSize.width
+            let currentLocationX = scrollOffet.x
+            let currentIndex = Int(currentLocationX / width)
+            
+            self.viewModel?.bannerListSupplementaryFooterViewModel.currentPage.accept(currentIndex)
+        }
         return section
     }
     
