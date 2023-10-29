@@ -126,6 +126,14 @@ class FriendsMatchTabViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        viewModel.openInSafari
+            .drive(onNext: { url in
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url)
+                }
+            })
+            .disposed(by: disposeBag)
+        
         bindListView(viewModel)
     }
     
