@@ -76,11 +76,15 @@ class FriendsMatchTabViewController: UIViewController {
             .disposed(by: disposeBag)
         
         friednsMultipleListView.rx.itemSelected
-            .map {
-                viewModel.loadDetailSubject.onNext(viewModel.loadDetailForSelectedItem)
-                return $0.row
-            }
-            .bind(to: viewModel.didSelectItem)
+            .subscribe(onNext: { indexPath in
+                switch self.friednsMultipleListView.types[indexPath.section] {
+                case .bannerSection:
+                    viewModel.didSelectBanner.accept(indexPath.row)
+                case .postSection:
+                    viewModel.loadDetailSubject.onNext(viewModel.loadDetailForSelectedItem)
+                    viewModel.didSelectPost.accept(indexPath.row)
+                }
+            })
             .disposed(by: disposeBag)
         
         // ViewModel -> View

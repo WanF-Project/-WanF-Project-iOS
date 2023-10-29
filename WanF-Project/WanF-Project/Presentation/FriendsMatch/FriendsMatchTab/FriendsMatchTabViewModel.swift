@@ -29,7 +29,8 @@ class FriendsMatchTabViewModel {
     let loadDetailForNotification = PublishSubject<Int>()
     var loadDetailForSelectedItem = PublishSubject<Int>()
     let didTapNotification = PublishRelay<Int>()
-    let didSelectItem = PublishRelay<Int>()
+    let didSelectPost = PublishRelay<Int>()
+    let didSelectBanner = PublishRelay<Int>()
     
     // ViewModel -> View
     let multipleCellData: Driver<[MultipleSectionModel]>
@@ -39,6 +40,7 @@ class FriendsMatchTabViewModel {
     let pushToSearch: Driver<FriendsMatchSearchViewModel>
     let presentFriendsMatchWriting: Driver<FriendsMatchWritingViewModel>
     let pushToFriendsMatchDetail: Driver<FriendsMatchDetailViewModel>
+    let openInSafari: Driver<URL>
     
     init(_ model: FriendsMatchTabModel = FriendsMatchTabModel()) {
         
@@ -82,7 +84,9 @@ class FriendsMatchTabViewModel {
         let loadBannerValue = loadBannerResult
             .compactMap(model.loadBannersValue)
         
-        let bannerCellData = loadBannerValue
+        let banners = loadBannerValue
+        
+        let bannerCellData = banners
             .map { banners in
                 MultipleSectionModel.BannerSection(items: banners.map { SectionItem.BannerItem($0) })
             }
@@ -102,7 +106,7 @@ class FriendsMatchTabViewModel {
             .asDriver(onErrorDriveWith: .empty())
         
         // Load Detail
-        didSelectItem
+        didSelectPost
             .withLatestFrom(postData, resultSelector: { index, posts in
                 posts[index].id
             })
@@ -118,6 +122,14 @@ class FriendsMatchTabViewModel {
             .map {
                 FriendsMatchDetailViewModel(id: $0)
             }
+            .asDriver(onErrorDriveWith: .empty())
+        
+        // Load Banner URL in Safari
+        openInSafari = didSelectBanner
+            .withLatestFrom(banners) { row, banners in
+                banners[row].url
+            }
+            .compactMap { URL(string: $0) }
             .asDriver(onErrorDriveWith: .empty())
         
         // Initialize
