@@ -60,10 +60,6 @@ class FriendsMatchTabViewModel {
             .flatMap(model.loadFriendsMatchList)
             .share()
         
-        friendsMatchListResult.subscribe().disposed(by: disposeBag)
-        
-        subject.onNext(loadFriendsMatchList)
-        
         let friendsMatchListValue = friendsMatchListResult
             .compactMap(model.getFriendsMatchListValue)
         
@@ -74,17 +70,36 @@ class FriendsMatchTabViewModel {
                 MultipleSectionModel.PostSection(items: posts.map { SectionItem.PostItme($0) })
             }
         
-        let bannerCellData = Observable.just([BannerEntity(url: "", image: ImageResponseEntity(imageId: 0, imageUrl: "")), BannerEntity(url: "", image: ImageResponseEntity(imageId: 0, imageUrl: "")), BannerEntity(url: "", image: ImageResponseEntity(imageId: 0, imageUrl: ""))])
+        let friendsMatchListError = friendsMatchListResult
+            .compactMap(model.getFriendsMatchListError)
+        
+        // Load Banner Data
+        let loadBannerResult = subject
+            .switchLatest()
+            .flatMap(model.loadBanners)
+            .share()
+        
+        let loadBannerValue = loadBannerResult
+            .compactMap(model.loadBannersValue)
+        
+        let bannerCellData = loadBannerValue
             .map { banners in
                 MultipleSectionModel.BannerSection(items: banners.map { SectionItem.BannerItem($0) })
             }
         
+        let loadBannerError = loadBannerResult
+            .compactMap(model.loadBannersError)
+        
+        loadBannerResult
+            .subscribe(onNext: {
+                print("ERROR: \($0)")
+            })
+            .disposed(by: disposeBag)
+        
+        // Set Multiple Cell Data
         multipleCellData = Observable
             .combineLatest(postCellData, bannerCellData, resultSelector: { [$1, $0] })
             .asDriver(onErrorDriveWith: .empty())
-        
-        let friendsMatchListError = friendsMatchListResult
-            .compactMap(model.getFriendsMatchListError)
         
         // Load Detail
         didSelectItem
@@ -104,6 +119,10 @@ class FriendsMatchTabViewModel {
                 FriendsMatchDetailViewModel(id: $0)
             }
             .asDriver(onErrorDriveWith: .empty())
+        
+        // Initialize
+        friendsMatchListResult.subscribe().disposed(by: disposeBag)
+        subject.onNext(loadFriendsMatchList)
         
     }
 }
