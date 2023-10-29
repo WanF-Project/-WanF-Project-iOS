@@ -12,6 +12,7 @@ import RxSwift
 struct FriendsMatchTabModel {
     
     let network = FriendsMatchNetwork()
+    let bannerNetwork = BannerNetwork()
     
     func loadFriendsMatchList() -> Single<Result<[PostListResponseEntity], WanfError>> {
         return network.getAllPosts()
@@ -33,4 +34,22 @@ struct FriendsMatchTabModel {
         return Void()
     }
     
+    /// 배너 조회
+    func loadBanners() -> Single<Result<BannerResponseEntity, WanfError>> {
+        return bannerNetwork.getBanners()
+    }
+    
+    func loadBannersValue(_ result: Result<BannerResponseEntity, WanfError>) -> BannerResponseEntity? {
+        guard case .success(let value) = result else {
+            return nil
+        }
+        return value
+    }
+    
+    func loadBannersError(_ result: Result<BannerResponseEntity, WanfError>) -> WanfError? {
+        guard case .failure(let error) = result else {
+            return nil
+        }
+        return error
+    }
 }
