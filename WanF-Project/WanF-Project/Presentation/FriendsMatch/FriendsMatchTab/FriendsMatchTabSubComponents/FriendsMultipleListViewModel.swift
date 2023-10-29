@@ -15,9 +15,6 @@ class FriendsMultipleListViewModel {
     // SubComponent ViewModel
     let bannerListSupplementaryFooterViewModel = BannerListSupplementaryFooterViewModel()
     
-    // View -> ViewModel
-    let currentPage = PublishRelay<Int>()
-    
     init() {
         
     }
