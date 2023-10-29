@@ -23,7 +23,12 @@ class BannerListCell: UICollectionViewCell {
     }
     
     func configureCell(_ banner: BannerEntity) {
-        imageView.image = UIImage(named: "WanfIcon_240")
+        let url = URL(string: banner.image.imageUrl)
+        url?.image({ image in
+            DispatchQueue.main.async {
+                self.imageView.image = image
+            }
+        })
     }
 }
 
